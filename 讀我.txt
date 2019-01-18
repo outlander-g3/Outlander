@@ -1,3 +1,6 @@
+如果有rebase請記得去gulpfile.js更改index路徑
+免得gulp不起來
+
 色票的值已經都在 _var.scss
 background-color:$color-btn-main;
 哪裡要用就直接套$變數，之後有要變動就可以一次改
@@ -12,5 +15,5 @@ background-color:$color-btn-main;
 
 如果有要自己建立mixin函數：
 1.請在mixin資料夾內建  _mixin-cart.scss （cart改成你負責的部分
-2.  @import "mixin/_mixin-cart.scss";  (import到你的css去
+2.@import "mixin/_mixin-cart.scss";  (import到你的css去
 3.html別忘了套style.css之外還要套自己那支css哦

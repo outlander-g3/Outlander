@@ -1,0 +1,24 @@
+@mixin btn {
+    height: 42px;
+    border-radius:$border-radius-btn;
+    color:#fff;
+    display:block;
+    text-align: center;
+    font-style: 16px bold;
+    line-height: 26px;
+}
+@mixin btn-s{
+    width: 130px;
+}
+@mixin btn-l {
+    width: 162px;
+}
+
+@mixin grid($num) {
+    @for $i from 1 through $num{
+        .col-md-#{$i}{
+            width: (100%/$num) * $i;
+        }
+    }
+}
+@include grid(12);

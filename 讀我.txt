@@ -1,0 +1,11 @@
+色票的值已經都在 _var.scss
+background-color:$color-btn-main;
+哪裡要用就直接套$變數，之後有要變動就可以一次改
+
+假設我product區塊要padding:50px 左右20px
+就會在scss寫成
+.product{
+    @include block();
+}
+因為已經在mixin裡面寫好 block函數溜
+卡片們的border-radius:4px 就直接寫 @include br4();

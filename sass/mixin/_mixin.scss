@@ -1,8 +1,55 @@
+
+//文字
+@mixin f14 {
+    font-size:14px;
+}
+@mixin f16 {
+    font-size:16px;
+}
+@mixin f20 {
+    font-size:20px;
+}
+@mixin f30 {
+    font-size:30px;
+}
+@mixin f40 {
+    font-size:40px;
+}
+//文字粗體
+@mixin f16b {
+    font-size:16px;
+    font-weight: bold;
+}
+@mixin f20b {
+    font-size:20px;
+    font-weight: bold;
+}
+@mixin f30b {
+    font-size:30px;
+    font-weight: bold;
+}
+
+//個別的padding  要下就include pTop(100)就是100px
+@mixin pTop($paddingTop){
+    padding-top: $paddingTop + px;
+}
+@mixin pBottom($paddingBottom){
+    padding-bottom: $paddingBottom + px;
+}
+@mixin pLeft($paddingLeft){
+    padding-Left: $paddingLeft + px;
+}
+@mixin pRight($paddingRight){
+    padding-Right: $paddingRight + px;
+}
+
+
+//區塊
 @mixin block {
     padding:50px 20px;
 }
 
-//卡片的
+//卡片的圓角
 @mixin br4{
     border-radius: 4px;
 }
@@ -22,6 +69,7 @@
 @mixin btn-l {
     width: 162px;
 }
+
 //格線
 @mixin grid($num) {
     @for $i from 1 through $num{
@@ -33,4 +81,3 @@
         }
     }
 }
-@include grid(12);

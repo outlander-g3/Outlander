@@ -12,6 +12,8 @@ a{
 .row{
     display: flex;
 }
+//呼叫格線
+@include grid(12);
 
 //四個字的主按鈕
 .#{$btn-main-s}{
@@ -37,9 +39,8 @@ a{
     @include btn();
     @include btn-l();
 }
-//先想想不論哪個按鈕都會共有：radius 主次按鈕顏色一樣 顏色一樣 block置中 字體大小
-//一樣的要用mixin?
 
+//陰影
 .shadow-text{
     text-shadow: $shadow;
 } 

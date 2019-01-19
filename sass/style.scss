@@ -1,6 +1,7 @@
-@import "base/_reset.scss";
-@import "base/_var.scss";
-@import "mixin/_mixin.scss";
+@import "base/reset";
+@import "base/var";
+@import "mixin/mixin";
+@import "header";
 
 a{
     text-decoration: none;
@@ -16,16 +17,16 @@ a{
     @include btn();
     @include btn-l();
 }
-.#{$btn-sub-s}{
-    background-color:$btnsubColor;
-    @include btn();
-    @include btn-s();
-}
-.#{$btn-sub-l}{
-    background-color:$btnMainColor;
-    @include btn();
-    @include btn-l();
-}
+// .#{$btn-sub-s}{
+//     background-color:$btnsubColor;
+//     @include btn();
+//     @include btn-s();
+// }
+// .#{$btn-sub-l}{
+//     background-color:$btnMainColor;
+//     @include btn();
+//     @include btn-l();
+// }
 //先想想不論哪個按鈕都會共有：radius 主次按鈕顏色一樣 顏色一樣 block置中 字體大小
 //一樣的要用mixin?
 
@@ -37,4 +38,5 @@ a{
 .shadow-text{
     text-shadow: $shadow;
 } 
+
 

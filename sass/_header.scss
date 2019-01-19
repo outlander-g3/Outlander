@@ -1,0 +1,68 @@
+.header{
+    width: 100%;
+    max-width: 768px;
+    position: fixed;
+    // max-height: 56px;
+    top: 0;
+    left: 0;
+    display: flex;
+        a{
+            display: block;
+        }
+        #logo{
+            flex: 5;
+            display: flex;
+            margin: 0 2%;
+            padding: 2% 0;
+            #searchAll{ 
+                position: relative;
+                margin: auto 2%;
+                height: 40%;
+                #search{
+                    border-radius: 5px;
+                    height: 100%;
+                }
+                .material-icons{
+                    position: absolute;
+                    top: 10%;
+                    left: 85%;
+                    user-select: none;
+                    cursor: pointer;
+                }
+            }
+            img{
+                max-width: 61px;
+                max-height: 54px;
+            }
+        }
+        #burger{
+            position: relative;
+            flex: 1;
+            padding: 2% 0;
+            span{
+                position: absolute;
+                display: block;
+                width: 50%;
+                max-width: 30px;
+                height: 2px;
+                background: black;
+                cursor: pointer;
+            }
+            .burger-1{
+                top:30%;
+                left: 25%;
+            }
+            .burger-2{
+                top:50%;
+                left: 25%;
+            }
+            .burger-3{
+                top:70%;
+                left: 25%;
+            }
+            li{
+                position: absolute;
+                display: none;
+            }
+        }
+}

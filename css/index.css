@@ -1,2 +1,9 @@
+@charset "UTF-8";
+#banner {
+  width: 100%;
+  background-image: url("../img/暫時用的圖/banner-sky2.png");
+  background-size: 100% 100%;
+  opacity: 0.7;
+  z-index: -1; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJpbmRleC5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIiJdLCJmaWxlIjoiaW5kZXguY3NzIn0= */
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguY3NzIiwic291cmNlcyI6WyJpbmRleC5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIiNiYW5uZXJ7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi4uL2ltZy/mmqvmmYLnlKjnmoTlnJYvYmFubmVyLXNreTIucG5nXCIpO1xyXG4gICAgYmFja2dyb3VuZC1zaXplOjEwMCUgMTAwJTtcclxuICAgIG9wYWNpdHk6IDAuNzsgXHJcbiAgICB6LWluZGV4OiAtMTtcclxufSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsQUFBQSxPQUFPLENBQUE7RUFDSCxLQUFLLEVBQUUsSUFBSTtFQUNYLGdCQUFnQixFQUFFLHdDQUF3QztFQUMxRCxlQUFlLEVBQUMsU0FBUztFQUN6QixPQUFPLEVBQUUsR0FBRztFQUNaLE9BQU8sRUFBRSxFQUFFLEdBQ2QifQ== */

@@ -16,35 +16,46 @@
 </head>
 
 <body>
-    <nav class="header">
-        <ul id="logo">
-            <li><a href="index.html"><img src="img/logo.png" alt="logo"></a></li>
-            <div id="searchAll">
-                <input type="text" id="search">
-                <i class="material-icons">search</i>
+    <nav id="headerAll">
+        <div class="header">
+            <ul id="logo">
+                <li><a href="index.html"><img src="img/logo.png" alt="logo"></a></li>
+                <div id="searchAll">
+                    <input type="text" id="search">
+                    <i class="material-icons">search</i>
+                </div>
+            </ul>
+            <div id="burger"  v-on:click="bur">
+                <span class="burger-1" id="burSpan1"></span>
+                <span class="burger-2" id="burSpan2"></span>
+                <span class="burger-3" id="burSpan3"></span>
             </div>
-        </ul>
-        <div id="burger" v-on:click="bur">
-            <span class="burger-1" id="burSpan1"></span>
-            <span class="burger-2" id="burSpan2"></span>
-            <span class="burger-3" id="burSpan3"></span>
+            <ul id="burgerText" v-on:click="out">
+                <li><a href="#">登山行程</a></li>
+                <li><a href="#">登山日誌</a></li>
+                <li><a href="#">登山技巧</a></li>
+                <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
+                <li v-if="web<768"><a href="#">會員專區</a></li>
+            </ul>
         </div>
-        <ul id="burgerText" v-on:click="out">
-            <li><a href="#">登山行程</a></li>
-            <li><a href="#">登山日誌</a></li>
-            <li><a href="#">登山技巧</a></li>
-            <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
-            <li v-if="web<768"><a href="#">會員專區</a></li>
-        </ul>
     </nav>
-    <section id="indexBanner">
+    <!-- <section id="indexBanner">
         <div id="banner">
             <div id="banner-1">
-                <img src="" alt="">
+                <h1><span>O</span>
+                    <span>U</span>
+                    <span>T</span>
+                    <span>L</span>
+                    <span>A</span>
+                    <span>N</span>
+                    <span>D</span>
+                    <span>E</span>
+                    <span>R</span></h1>
+                <img src="img/暫時用的圖/banner-mountain3.png" alt="">
             </div>
         </div>
 
-    </section>
+    </section> -->
 
 
 
@@ -57,4 +68,4 @@
 
 </html>
 <script src="js/header.js"></script>
-<script src="js/index.js"></script>
+<!-- <script src="js/index.js"></script> -->

@@ -10,6 +10,7 @@
         }
         #logo{
             flex: 5;
+            z-index: 5;
             display: flex;
             margin: 0 2%;
             #searchAll{ 
@@ -123,7 +124,7 @@
                         display: none;
                     }
                     #burgerText{
-                        height: 100px;
+                        height: 58px;
                         background: transparent;
                         display: flex;
                         left: 0;
@@ -136,9 +137,8 @@
                             }
                         }
                         a{
-                            line-height: 100px;
+                            line-height: 58px;
                         }
-
                     }
                 }
             }

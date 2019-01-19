@@ -25,9 +25,9 @@
             </div>
         </ul>
         <div id="burger" v-on:click="bur">
-            <span class="burger-1"></span>
-            <span class="burger-2"></span>
-            <span class="burger-3"></span>
+            <span class="burger-1" id="burSpan1"></span>
+            <span class="burger-2" id="burSpan2"></span>
+            <span class="burger-3" id="burSpan3"></span>
         </div>
         <ul id="burgerText" v-on:click="out">
             <li><a href="#">登山行程</a></li>
@@ -37,8 +37,6 @@
             <li v-if="web<768"><a href="#">會員專區</a></li>
         </ul>
     </nav>
-
 </body>
-
 </html>
 <script src="js/index.js"></script>

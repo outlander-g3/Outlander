@@ -12,7 +12,6 @@
             flex: 5;
             display: flex;
             margin: 0 2%;
-            padding: 2% 0;
             #searchAll{ 
                 position: relative;
                 margin: auto 2%;
@@ -37,7 +36,6 @@
         #burger{
             position: relative;
             flex: 1;
-            padding: 2% 0;
             cursor: pointer;
             span{
                 position: absolute;
@@ -59,6 +57,20 @@
                 top:70%;
                 left: 45%;
             }
+            .animation1{
+                animation: span1 0.5s 1; 
+            }
+            .animation2{
+                animation: span2 0.5s 1; 
+            }
+            @keyframes span1 {
+                0%{transform: rotate(0deg)}
+                100%{transform: rotate(180deg)}
+            }
+            @keyframes span2 {
+                0%{transform: rotate(0deg)}
+                100%{transform: rotate(-180deg)}
+            }
         }
             #burgerText{
                 position: fixed;
@@ -69,7 +81,7 @@
                 left:-100%;
                 transition: all .5s;
                 text-align: center;
-                z-index: 2;
+                z-index: 2; 
                 a{
                     color:$subTitleColor;
                     line-height: 150px;

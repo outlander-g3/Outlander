@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("load",()=>{
     var web = window.innerWidth;
     var burger = new Vue({
         el: "#burger",
@@ -34,7 +34,6 @@ window.onload = () => {
     var burgerText = document.querySelector("#burgerText");
     if(web>768){
         window.onscroll = () => {
-            console.log("123");
             if (scr < window.scrollY) {
                 headerdAll.style.top="-60px";
                 burgerText.style.top="-60px";
@@ -46,4 +45,4 @@ window.onload = () => {
             scr = window.scrollY;
         }
     }
-}
+})

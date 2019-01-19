@@ -4,9 +4,6 @@
     margin: auto;
     position: relative;
 }
-body{
-    height: 2000px;
-}
 .header{
     width: 100%;
     max-width: 768px;
@@ -157,11 +154,15 @@ body{
                 li{
                     margin: 0 20px;
                     i{
+                        margin-top:4px; 
                         line-height: unset;
                     }
                 }
                 a{
                     line-height: 58px;
+                }
+                li:hover a{
+                    color:$subTitleColor;
                 }
             }
         }

@@ -1,7 +1,167 @@
-#banner{
+@media (min-width:768px){
+    .header{
+        #burgerText{
+            li{
+                a{
+                    color:white;
+                }
+            }
+        }
+    }
+}
+#indexBanner{
     width: 100%;
-    background-image: url("../img/暫時用的圖/banner-sky2.png");
-    background-size:100% 100%;
-    opacity: 0.7; 
-    z-index: -1;
+    #banner{
+        width: 100%;
+        background-image: url("../img/暫時用的圖/banner-sky2.png");
+        background-size:100% 100%;
+        z-index: 1;
+        position: relative;
+        span{
+            position: absolute;
+        }
+        #indexName1{
+            top: -100%;
+            left: 17%;
+            z-index: -1;
+        }
+        #indexName2{
+            top: -100%;
+            left: 25%;
+            z-index: 2;
+        }
+        #indexName3{
+            top: -100%;
+            left: 33%;
+            z-index: 2;
+        }
+        #indexName4{
+            top: -100%;
+            left: 40%;
+            z-index: -1;
+        }
+        #indexName5{
+            top: -100%;
+            left: 47%;
+            z-index: 2;
+        }
+        #indexName6{
+            top: -100%;
+            left: 54%;
+            z-index: 2;
+        }
+        #indexName7{
+            top: -100%;
+            left: 62%;
+            z-index: -1;
+        }
+        #indexName8{
+            top: -100%;
+            left: 70%;
+            z-index: 2;
+        }
+        #indexName9{
+            top: -100%;
+            left: 78%;
+            z-index: -1;
+        }
+        .indexName1{
+            animation: indexName1 .5s 1 forwards;
+        }
+        .indexName2{
+            animation: indexName2 .5s 1 .2s forwards;
+
+        }
+        .indexName3{
+            animation: indexName3 .5s 1 .4s forwards;
+
+        }
+        .indexName4{
+            animation: indexName4 .5s 1 .6s forwards;
+
+        }
+        .indexName5{
+            animation: indexName5 .5s 1 .8s forwards;
+
+        }
+        .indexName6{
+            animation: indexName6 .5s 1 1s forwards;
+
+        }
+        .indexName7{
+            animation: indexName7 .5s 1 1.2s forwards;
+
+        }
+        .indexName8{
+            animation: indexName8 .5s 1 1.4s forwards;
+        }
+        .indexName9{
+            animation: indexName9 .5s 1 1.6s forwards;
+
+        }
+        @keyframes  indexName1{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 17%;}
+        }
+        @keyframes  indexName2{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 25%;}
+        }
+        @keyframes  indexName3{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 33%;}
+        }
+        @keyframes  indexName4{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 40%;}
+        }
+        @keyframes  indexName5{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 47%;}
+        }
+        @keyframes  indexName6{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 54%;}
+        }
+        @keyframes  indexName7{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 62%;}
+        }
+        @keyframes  indexName8{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 70%;}
+        }
+        @keyframes  indexName9{
+            0%{ top:-100%}
+            50%{top:45%;}
+            100%{top: 35%;left: 78%;}
+        }
+        img{
+            width: 100%;
+        }
+        #bannerSearch{
+            position: absolute;
+            width: 70%;
+            top: 60%;
+            left: 15%;
+            border-radius:10px;
+            height: 5%; 
+            z-index: 2;
+        }
+        .material-icons{
+            position: absolute;
+            top: 60.5%;
+            left: 81%;
+            z-index: 10;
+            cursor: pointer;
+        }
+    }
 }

@@ -5,6 +5,10 @@ $desktop: 1200px;
     @if $breakpoint==moblie {
         @media only screen and (max-width: $moblie) {
             @content;
+            .col-md-4{
+                width: 33.333%;
+            }
+            
         }
     }
 

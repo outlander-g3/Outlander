@@ -9,6 +9,13 @@
         }
     }
 }
+#searchAll{
+    display: none;
+}
+.filterControl{
+    top: 18%;
+    left: 15%;
+}
 #indexBanner{
     width: 100%;
     #banner{
@@ -150,7 +157,7 @@
         #bannerSearch{
             position: absolute;
             width: 70%;
-            top: 60%;
+            top: 80%;
             left: 15%;
             border-radius:10px;
             height: 5%; 
@@ -158,10 +165,18 @@
         }
         .material-icons{
             position: absolute;
-            top: 60.5%;
+            top: 80.5%;
             left: 81%;
             z-index: 10;
             cursor: pointer;
+        }
+        @media (min-width:768px) {
+            #bannerSearch{
+                top: 60%;
+            }
+            .material-icons{
+                top: 60.5%;
+            }
         }
     }
 }

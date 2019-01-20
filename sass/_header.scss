@@ -3,6 +3,52 @@
     max-width: 1200px;
     margin: auto;
     position: relative;
+    .filter{
+        width: 70%;
+        background: white;
+        border: 1px solid #aaa;
+        height: 200px;
+        position: fixed;
+        top: 7%;
+        left: 15%;
+        z-index: 12;
+        display: none;
+        #filterList{
+            display: flex;
+            height: 100%;
+            #filterListLi{
+                flex: 1;
+                position: sticky;
+                li{
+                    display: flex;
+                    cursor: pointer;
+                    justify-content: center;
+                    height:16.266666%;
+                    align-items: center;
+                    border-bottom:1px solid #aaa; 
+                    border-right:1px solid #aaa; 
+                }
+            }
+        }
+        #filterListImg{
+            overflow: auto;
+            flex: 3;
+            text-align: center;
+            img{
+                width: 100%;
+            }
+        }
+        @media (min-width:768px) {
+            #filterListImg{
+                img{
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
+body{
+    height: 2000px;
 }
 .header{
     width: 100%;

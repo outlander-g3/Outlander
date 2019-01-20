@@ -1,0 +1,39 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+// @import "mixin/mixin-journalsOverview.scss"
+
+*{
+    outline: 1px solid red;
+    select:focus, button{
+        outline: none;
+    }
+    h2{
+        @include f20b;   
+    }
+    
+    
+}
+header{
+    width: 100%;
+    height: 60px;
+
+    #header a{
+        padding: 22px;
+        
+    }
+}
+.joOverview_map img{
+    display: block;
+    margin: auto;  
+}
+#btn-main-l{
+    background-color:$color-btn-main;
+    @include btn();
+    @include btn-l();
+}
+.joForm_input{
+    @include pBottom(50);
+}
+.joOverview_card{
+    @include br4();
+}

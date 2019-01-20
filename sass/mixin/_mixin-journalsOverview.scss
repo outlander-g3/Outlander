@@ -1,0 +1,22 @@
+$moblie: 600px;
+$medium: 991px;
+$desktop: 1200px;
+@mixin rwd($breakpoint) {
+    @if $breakpoint==moblie {
+        @media only screen and (max-width: $moblie) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==medium {
+        @media all and (max-width: $medium) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==desktop {
+        @media all and (min-width: $desktop) {
+            @content;
+        }
+    }
+}

@@ -22,7 +22,7 @@ gulp.task('default', ['sass'], function () {
         server: {
             //根目錄
             baseDir: "./",
-            index: "customized.html"
+            index: "test/Custom_Select_Box.html"
         }
     });
 

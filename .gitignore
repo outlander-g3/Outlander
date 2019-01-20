@@ -1,5 +1,10 @@
 /node_modules/
 gulpfile.js
+<<<<<<< HEAD
 package-lock.json
 package.json
 
+=======
+package.json
+package-lock.json
+>>>>>>> 09c0cb2124c87f0e1b76cdbb8b47eeae2b2d1a36

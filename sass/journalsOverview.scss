@@ -3,49 +3,76 @@
 @import "mixin/_mixin-journalsOverview.scss";
 
 *{
-    outline: 1px solid red;
+    // outline: 1px solid red;
     select:focus, button{
         outline: none;
     }
+    font-family: "微軟正黑體" !important;
 }
-a:hover div{
-    transform: scale(1.1);
+
+a{
+    display: block;
+    transition:.5s;
+    @include rwd(desktop){
+        &:hover{
+        transform: scale(1.1); 
+        }
+    }
 }
+
 
 .joOverview_map img{
     display: block;
     margin: auto;  
-    width: 90%;
+    width: 80%;
+    @include rwd(mobile){
+        display: none;
+    }
+    
 }
 .row{
     justify-content: space-between;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+    
+    
 }
 .btn-main-l{
     background-color:$color-btn-main;
     @include btn();
     @include btn-l();
 }
-.joForm_input{
-    width: 90%;
+.joFilter_and_write{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
     margin:auto;
     @include pBottom(50);
-    
+    .joFilterText{
+        margin:auto;
+        @include rwd(mobile){
+            display: none;
+        }
+    }
 }
 .joOverview_card{
-    width: 90%;
+    width: 100%;
     margin:auto;
     @include br4();
-    // @include pTop(50);
+    @include pBottom(50);
    
     .date,h2,.text{
-        margin: 10px;
+        padding: 10px;
+        // font-family: "微軟正黑體";
     }
     img{
         max-width: 100%;
         border-radius: 4px 4px 0 0;
+        vertical-align:text-top;
     }
     .date{
         @include f14;
+        font-size: 12px;
         color:$color-subTitle;
     }
     h2{
@@ -57,15 +84,21 @@ a:hover div{
         color:$color-text; 
         line-height:1.5em ;
     }
-}
-
-
-.col-4{
-    @include br4();
-    margin:20px;
-    background-color: $color-btn-sub;
-    box-shadow: $shadow;
-    
-
-    
+    .col-3{
+        @include br4();
+        padding:0 20px;
+        margin: 20px 0px;
+        box-sizing: border-box;
+        .joInfo{
+            background-color: $color-btn-sub;
+            box-shadow: $shadow;
+        }
+        @include rwd(mobile){
+            width: 100%;
+        }
+    }      
+}   
+   
+.joMore button{
+     margin: auto;
 }

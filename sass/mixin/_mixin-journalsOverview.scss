@@ -1,13 +1,11 @@
-$moblie: 600px;
+$mobile: 600px;
 $medium: 991px;
 $desktop: 1200px;
 @mixin rwd($breakpoint) {
-    @if $breakpoint==moblie {
-        @media only screen and (max-width: $moblie) {
-            @content;
-            .col-md-4{
-                width: 33.333%;
-            }
+    @if $breakpoint==mobile {
+        @media only screen and (max-width: $mobile) {
+            
+           
             
         }
     }

@@ -7,13 +7,14 @@ $block-size:682px;
 
 img{
     vertical-align: middle;
+    width: 100%;
 }
 //次標 ｒｗｄ的時候變成 h2要藏
 h2{
     color: $color-subTitle;
     @include f20b();
     @include pBottom(20);
-    @include rwd(medium){
+    @include rwd(mobile){
         display: none;
     }
 }
@@ -35,7 +36,7 @@ a{
 .ctMobile__btn--next,
 .ctMobile__btn--front{
     display: none;
-    @include rwd(medium){
+    @include rwd(mobile){
         display: inline-block;
     }
 }
@@ -52,7 +53,7 @@ a{
     padding:20px;
     text-align: center;
     display: none;
-   @include rwd(medium){
+   @include rwd(mobile){
        display: block;
    }
     .row{
@@ -84,6 +85,19 @@ a{
         @include rwdWrap();
         @include ctBorder();
         @include br4();
+        .ctProduct__img{
+            overflow: hidden;
+            
+            img{
+                width: 335px;
+                height: 225px;
+                @include rwd(mobile){
+                    width: 100%;
+                    height: 30vh;
+            }
+            }
+
+        }
         .ctProduct__text{
             padding: 20px 30px ;
             h3{
@@ -181,7 +195,7 @@ a{
 .ctPay{
     width: $block-size;
     margin: $block-margin;
-    // @include rwd(medium){
+    // @include rwd(mobile){
     //     padding: 20px;
     // }
     .ctDetail{
@@ -222,12 +236,13 @@ a{
                 padding: 12px;
                 text-align: right;
                 .ctDetail__total--num{
-                    @extend .ctDetail__cal--num ;
+                    display: inline-block;
+                    width: 80px;
                 }
             }
         }
         .btn-pay{
-            @include rwd(medium){
+            @include rwd(mobile){
                 display: none;
             }
         }

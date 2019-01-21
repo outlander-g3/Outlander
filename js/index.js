@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
     var searchAll = document.querySelector("#searchAll");
     var filter = document.querySelector(".filter");
     var topp = bannerSearch.offsetTop - window.scrollY;
-    window.onscroll = () => {
+    window.addEventListener("scroll",() => {
         if (bannerSearch.offsetTop > window.scrollY) {
             searchAll.style.display = "none";
             filter.style.display = "none";
@@ -26,10 +26,11 @@ window.addEventListener("load", () => {
             searchAll.style.display = "block";
         }
         topp = bannerSearch.offsetTop - window.scrollY + (window.scrollY / 17);
-    }
+        console.log(topp);
+    })
     bannerSearch.addEventListener("click", () => {
         filter.style.display = "block";
-        filter.style.top = (topp/6.8)+ "%";
+        filter.style.top = (topp/8)+ "%";
     })
 
 })

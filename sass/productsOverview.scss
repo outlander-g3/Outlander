@@ -1,3 +1,6 @@
+@import "mixin/_mixin.scss";
+@import "base/_var.scss";
+
 .po-wrap{
     width:100%;
     margin: auto;
@@ -11,4 +14,9 @@
 }
 .po-btn-sub-s--flex{
     display:flex;
+}
+h2{
+ @include f30();
+ color: $color-text;
+
 }

@@ -43,16 +43,16 @@
     padding-Right: $paddingRight + px;
 }
 //個別的margin  要下就include mTop(100)就是100px
-@mixin pTop($marginTop){
+@mixin mTop($marginTop){
     margin-top: $marginTop + px;
 }
-@mixin pBottom($marginBottom){
+@mixin mBottom($marginBottom){
     margin-bottom: $marginBottom + px;
 }
-@mixin pLeft($marginLeft){
+@mixin mLeft($marginLeft){
     margin-Left: $marginLeft + px;
 }
-@mixin pRight($marginRight){
+@mixin mRight($marginRight){
     margin-Right: $marginRight + px;
 }
 

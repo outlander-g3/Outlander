@@ -43,5 +43,8 @@ window.addEventListener("load", () => {
         filter.style.display = "block";
         filter.style.top = (topp4 + 5) + "px";
     })
-
+    var iii = document.querySelector("#index-warp3-img2");
+    iii.addEventListener("click",(e)=>{
+        console.log("iii");
+    })
 })

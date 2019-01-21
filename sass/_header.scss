@@ -1,6 +1,6 @@
 #headerAll{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1920px;
     margin: auto;
     position: relative;
     .filter{
@@ -36,6 +36,7 @@
             text-align: center;
             img{
                 width: 100%;
+                max-width: 1920px;
             }
         }
         @media (min-width:768px) {
@@ -70,7 +71,6 @@ body{
     flex: 5;
     z-index: 5;
     display: flex;
-    margin: 0 2%;
     #searchAll{ 
         position: relative;
         line-height: 58px;
@@ -233,7 +233,7 @@ body{
                 display: none;
             }
             #burgerText{
-                max-width: 1200px;
+                max-width: 1920px;
                 height: 58px;
                 background: transparent;
                 display: flex;

@@ -1,3 +1,5 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
 @media (min-width:768px){
     .header{
         #burgerText{
@@ -179,4 +181,107 @@
             }
         }
     }
+}
+#index-warp2{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    h2{
+        text-align: center;
+        color:$color-subTitle;
+        @include f30b();
+        @include block ();
+    }
+    #index-warp2-card-all{
+        display: flex;
+        width: 100%;
+        .index-warp2-card{
+            text-align: center;
+            flex: 1;
+            line-height: 1.5;
+            h3{
+                @include f20b ();
+                color:$color-subTitle;
+            }
+            p{
+                color:$color-text;
+                @include f16 ();
+            }
+            img{
+                width: 20%;
+            }
+        }
+    }
+}
+#index-warp3{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    @include mTop(200);
+    @include block ();
+    h2{
+        @include mBottom(50);
+        text-align: center;
+        color:$color-subTitle;
+        @include f30b();
+        @include block (); 
+    }
+    img{
+        vertical-align: middle;
+    }
+    #index-warp3-img-all{
+        text-align: center;
+        position: relative;
+        img{
+            box-shadow: $shadow;
+        }
+        #index-warp3-img1{
+            position: relative;
+            top: 0;
+            z-index: 20;
+            left: 0%;
+        }
+        .img-position{
+            position: absolute;
+            top: 0;
+        }
+        #index-warp3-img2{
+            left: 12%;
+            transform: scale(0.8);
+            z-index: 18;
+        }
+        #index-warp3-img3{
+            left: 0%;
+            transform: scale(0.6);
+            z-index: 16;
+        }
+        #index-warp3-img4{
+            left: 40%;
+            transform: scale(0.8);
+            z-index: 18;
+
+        }
+        #index-warp3-img5{
+            left: 52%;
+            transform: scale(0.6);
+            z-index: 16;
+
+        }
+        #index-warp3-img-left{
+            position: absolute;
+            top:50%;
+            left: 0;
+            @include f40 ();
+            cursor: pointer;
+        }
+        #index-warp3-img-right{
+            position: absolute;
+            top: 50%;
+            left: 98%;
+            @include f40 ();
+            cursor: pointer;
+        }
+
+    }
+
 }

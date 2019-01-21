@@ -1,16 +1,44 @@
 @import"base/_var.scss";
 @import"base/_var_cu.scss";
-@import "mixin/_mixin";
+@import "mixin/_mixin.scss";
+// @import "mixin/_mixin-customized.scss";
 *{
-    // outline: 1px solid salmon;
+    outline: 1px solid salmon;
 }
-nav,.mw_1200{
-    max-width: 1200px;
-    margin: auto;
+//手機直
+@mixin phone-width($phones-media) {
+    @media screen and (max-width: $phones-media) {
+        @content;   
+    }
+}
+//手機橫+手機直
+@mixin small-pad-width() {
+    @media screen and (max-width: $phone-media) {
+        @content;   
+    }
+}
+//iPad+桌機
+@mixin pad-width() {
+    @media screen and (min-width:$pad-media) {
+        @content;   
+    }
+}
+//桌機
+@mixin pc-width() {
+    @media screen and (min-width: $pc-media) {
+        @content;   
+    }
 }
 
+
+.nav_menu{
+    @include phone-width($phones-media){
+        display: none;
+    }
+}
+    
+    
 nav {
-    // background-color: $color-subTitle;
     display: flex;
     justify-content: space-between;
     height: 70px;
@@ -25,7 +53,19 @@ nav {
     li{
         float: left;
     }
+    @include phone-width($phones-media){
+        height: 56px;
+        h1 img{
+            height: 40px;
+            padding-top: 11px;
+        }
+    }
 }
+nav,.mw_1200{
+    max-width: 1200px;
+    margin: auto;
+}
+
 .nav_txt,.nav_icon{
     float: left;
 }
@@ -95,10 +135,35 @@ footer{
     }
 }
 .cu_bg{
-    background-image: url("images/cu_bg.png");
-    height: 600px;
-  width: 100%;
-  background-size: cover;
+    background-image: url("../img/cu_bg1.png");
+    height: 931px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  background-repeat: no-repeat;
+}
+.cuProcess__first{
+    // text-align: center;
+    p{
+        color: $color-subTitle;
+
+    }
+}
+.cuProcess__circle{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: $color-subTitle;
+    @include f16b;
+    line-height: 34px;
+    text-align: center;
+    border: 1px solid $color-subTitle;
+}
+.cuProcess__circle--done{
+    background-color: $color-subTitle;
+    border: 2px solid $color-subTitle;
+    color: $color-white;
+    @include f16b;
 }
     /* The container must be positioned relative: */
     .custom-select {

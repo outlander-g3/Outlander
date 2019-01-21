@@ -1,0 +1,104 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "mixin/_mixin-journalsOverview.scss";
+
+*{
+    // outline: 1px solid red;
+    select:focus, button{
+        outline: none;
+    }
+    font-family: "微軟正黑體" !important;
+}
+
+a{
+    display: block;
+    transition:.5s;
+    @include rwd(desktop){
+        &:hover{
+        transform: scale(1.1); 
+        }
+    }
+}
+
+
+.joOver_map img{
+    display: block;
+    margin: auto;  
+    width: 80%;
+    @include rwd(mobile){
+        display: none;
+    }
+    
+}
+.row{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+    
+    
+}
+.btn-main-l{
+    background-color:$color-btn-main;
+    @include btn();
+    @include btn-l();
+}
+.joOverFilter_and_write{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin:auto;
+    @include pBottom(50);
+    .joOverFilterText{
+        margin:auto;
+        @include rwd(mobile){
+            display: none;
+        }
+    }
+}
+.joOver_card{
+    width: 100%;
+    margin:auto;
+    @include br4();
+    @include pBottom(50);
+   
+    .date,h2,.text{
+        padding: 10px;
+        // font-family: "微軟正黑體";
+    }
+    img{
+        max-width: 100%;
+        border-radius: 4px 4px 0 0;
+        vertical-align:text-top;
+    }
+    .date{
+        @include f14;
+        font-size: 12px;
+        color:$color-subTitle;
+    }
+    h2{
+        @include f20b;
+        color:$color-text; 
+    }
+    .text{
+        @include f14;
+        color:$color-text; 
+        line-height:1.5em ;
+    }
+    .col-3{
+        @include br4();
+        padding:0 20px;
+        margin: 20px 0px;
+        box-sizing: border-box;
+        .joOverInfo{
+            background-color: $color-btn-sub;
+            box-shadow: $shadow;
+        }
+        @include rwd(mobile){
+            width: 100%;
+        }
+    }      
+}   
+   
+.joOverMore button{
+     margin: auto;
+}

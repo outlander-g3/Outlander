@@ -1,0 +1,349 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "mixin/_mixin-cart.scss";
+
+$block-margin:50px;
+$block-size:682px;
+
+img{
+    vertical-align: middle;
+}
+//次標 ｒｗｄ的時候變成 h2要藏
+h2{
+    color: $color-subTitle;
+    @include f20b();
+    @include pBottom(20);
+    @include rwd(medium){
+        display: none;
+    }
+}
+a{
+    display: inline-block;
+}
+.clearfix{
+    content: none;
+    clear: both;
+    display: block;
+}
+.ctMobile__btn{
+    position: relative;
+    right: 0;
+    top: 0;
+    text-align: right;
+    padding: 12px 0;
+}
+.ctMobile__btn--next,
+.ctMobile__btn--front{
+    display: none;
+    @include rwd(medium){
+        display: inline-block;
+    }
+}
+.ctMobile__btn--next{
+    
+    position: relative;
+    right: 0;
+    top: 0;
+}
+
+
+.ctStep__title--mobile{
+    // @include block();
+    padding:20px;
+    text-align: center;
+    display: none;
+   @include rwd(medium){
+       display: block;
+   }
+    .row{
+        justify-content: space-between;
+        .ctStep__item{
+            .ctStep__item--circle{
+                $size:30px;
+                height: $size;
+                width: $size;
+                border-radius: 50%;
+                border:1px solid #000;
+                line-height: $size;
+                margin: auto;
+            }
+            .ctStep__item--text{
+                @include f16;
+                @include pTop(4);
+            }  
+        }
+    }
+}
+
+// 第一步驟
+.ctProduct{
+    // font-size: 10px;
+    width: $block-size;
+    margin: $block-margin;
+    .row{
+        @include rwdWrap();
+        @include ctBorder();
+        @include br4();
+        .ctProduct__text{
+            padding: 20px 30px ;
+            h3{
+                @include f20b();
+            }
+            p{
+                @include f16();
+                padding: 4px 0;
+            }
+            .btn-sub-s{
+                margin:10px 0;
+            }
+        }
+    }
+}
+
+// 第二步驟
+.ctProfile{
+    width: $block-size;
+    margin-left: $block-margin;
+    
+    //選人數
+    .ctCount{
+        $size:32px;
+        height: $size;
+        font-size: 0;
+        @include f16();
+        line-height: $size;
+        .ctCountBox{
+            width: 112px;
+            @include br4();
+            @include ctBorder();
+            .row{
+                justify-content: space-between;
+                
+                a{
+                    width: $size;
+                    background-color: $color-main-yellow;
+                    text-align: center;
+                    i{
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+
+    >.row{
+        justify-content: space-between;
+        @include rwdWrap();
+        //訂購人
+        .ctContact{
+            margin-top: 37px;
+            @include ctBox();
+            @include br4();
+            .ctContact__title{
+                @include f20();
+                height: 36px;
+                line-height: 36px;
+                text-align: left;
+            }
+        }
+        //旅客資訊
+        .ctPassanger{
+            .ctPassanger__tab{
+                font-size: 0;
+                a{
+                    box-sizing: border-box;
+                    width: 25%;
+                    height: 36px;
+                    vertical-align: middle;
+                    text-align: center;
+                    @include f16();
+                    @include ctBR__tab();
+                    .row{
+                        width: 52px;
+                        justify-content: space-around;
+                        margin: auto;
+                        i{
+                            line-height: 36px;
+                        }
+                    }
+                }
+            }
+            .ctPassanger__input{
+                border-radius: 0 0 4px 4px;
+                @include ctBox();
+            }
+        }
+
+    }
+}
+
+// 第三步驟付款
+.ctPay{
+    width: $block-size;
+    margin: $block-margin;
+    // @include rwd(medium){
+    //     padding: 20px;
+    // }
+    .ctDetail{
+        position: fixed;
+        top:50px;
+        right:50px;
+        @include rwd(medium){
+            position: relative;
+            top: 0;
+            left: 0;
+            h2{
+                display: block;
+            }
+        }
+        .ctDetail__content{
+            @include ctBorder();
+            @include br4();
+            p{
+                @include f16();
+                padding: 4px 0;
+            }
+            .ctDetail__text{
+                width: 300px;
+                padding: 12px;
+                text-align: left;
+            }
+            .ctDetail__cal{
+                padding: 12px;
+                text-align: right;
+                border-top:1px solid $color-border;
+                border-bottom:1px solid $color-border;
+                .ctDetail__cal--num{
+                    display: inline-block;
+                    width: 80px;
+                }
+            }
+            .ctDetail__total{
+                padding: 12px;
+                text-align: right;
+                .ctDetail__total--num{
+                    @extend .ctDetail__cal--num ;
+                }
+            }
+        }
+        .btn-pay{
+            @include rwd(medium){
+                display: none;
+            }
+        }
+    }
+    .row{
+        @include rwdWrap();
+        @include br4();
+        @include ctBorder();
+        h3{
+            @include f20();
+        }
+        .ctRule{
+            padding: 20px;
+            
+            .ctRule__text{
+                @include f14();
+                @include pTop(10);
+                p{
+                    padding: 4px 0;
+                    color:$color-text;
+                }
+            }
+            .ctRule__check{
+                @include pTop(10);
+                label{
+                    display: inline-block;
+                    padding: 5px 0;
+                }
+                p{
+                    padding: 4px 0;
+                    color:$color-text;
+                    @include pLeft(33); 
+                    @include f14();
+                }
+                input[type='checkbox']{
+                    position: absolute;
+                    clip:rect(0,0,0,0);
+                }
+                input[type='checkbox'] + label::before{
+                    content:'\a0';
+                    display:inline-block;
+                    $size:20px;
+                    width: $size;
+                    height: $size;
+                    line-height: $size;
+                    margin-right: 5px;
+                    @include br4();
+                    @include ctBorder();
+                }
+                input[type='checkbox']:checked + label::before{
+                    content:'\2713';
+                    text-align: center;
+                    background-color: $color-main-yellow;
+                }
+            }
+    
+        
+    }
+    .ctCredit{
+        padding: 20px;
+        
+        p{
+            font-size: 0;
+            @include f16();
+            text-align: right;
+            span{
+                margin-right: 20px;
+            }
+            input{
+                width: 180px;
+                height: 32px;
+                @include br4();
+            }
+            select{
+                height: 32px;
+                display: inline-block;
+                line-height: 32px;
+                option{
+                    font-size: 24px;
+                }
+            }
+            &:not(:first-child){
+                @include pTop(15);
+            }
+            i{
+                width: 30px;
+                font-size: 24px;
+                @include pLeft(20);
+            }
+            .ctCredit__select--month{
+                display:inline-block;
+                width: 72px;
+                margin-right: 8px;
+            }
+            .ctCredit__select--year{
+                width: 102px;
+            }
+        }
+    }
+
+    }
+}
+
+@include rwd(mobile){
+    .ctProduct,
+    .ctProfile,
+    .ctPay{
+        width: 100%;
+        padding: 20px;
+        margin: 0;
+        box-sizing: border-box;
+        div{
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+}
+
+// @include o;

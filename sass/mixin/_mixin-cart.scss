@@ -1,0 +1,78 @@
+@mixin o {
+    *{
+        outline: 1px solid red;
+    }
+}
+$color-border:#95989A;
+@mixin ctBorder{
+    border:1px solid $color-border;
+}
+
+$mobile: 767px;
+$medium: 991px;
+$desktop: 1200px;
+@mixin rwd($breakpoint) {
+    @if $breakpoint==mobile   {
+        @media only screen and (max-width: $mobile) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==medium {
+        @media all and (max-width: $medium) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==desktop {
+        @media all and (min-width: $desktop) {
+            @content;
+        }
+    }
+}
+//給訂購人和旅客資訊用
+@mixin ctBox {
+    
+    padding: 30px 20px;
+    @include ctBorder();
+    p{
+        // @include pLeft(20);
+        @include f16();
+        text-align: right;
+        // width: 300px;
+        span{
+            margin-right: 20px;
+        }
+        input{
+            width: 180px;
+            height: 32px;
+            @include br4();
+        }
+        &:not(:first-child){
+            @include pTop(30);
+        }
+    }
+}
+//給tab的BR
+@mixin ctBR__tab{
+    &:first-child{
+        @include ctBorder();
+        border-bottom: none;
+        border-radius: 4px 0 0 0;
+    }
+    &:first-child~a{
+        border-top:1px solid $color-border;
+        border-right:1px solid $color-border;
+    }
+    &:last-child{
+        border-radius: 0 4px 0 0;
+    }
+
+}
+
+@mixin rwdWrap{
+    @include rwd(mobile){
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}

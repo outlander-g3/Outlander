@@ -1,42 +1,51 @@
-@import "base/reset";
-@import "base/var";
-@import "mixin/mixin";
-@import "header";
+@import "base/_reset.scss";
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "header.scss";
 
+*{
+    font-family: "微軟正黑體";
+}
 a{
     text-decoration: none;
 }
 
+.row{
+    display: flex;
+}
+//呼叫格線
+@include grid(12);
+
+//四個字的主按鈕
 .#{$btn-main-s}{
-    background-color:$btnMainColor;
+    background-color:$color-btn-main;
     @include btn();
     @include btn-s();
 }
+//六個字的主按鈕
 .#{$btn-main-l}{
-    background-color:$btnMainColor;
+    background-color:$color-btn-main;
     @include btn();
     @include btn-l();
 }
-// .#{$btn-sub-s}{
-//     background-color:$btnsubColor;
-//     @include btn();
-//     @include btn-s();
-// }
-// .#{$btn-sub-l}{
-//     background-color:$btnMainColor;
-//     @include btn();
-//     @include btn-l();
-// }
-//先想想不論哪個按鈕都會共有：radius 主次按鈕顏色一樣 顏色一樣 block置中 字體大小
-//一樣的要用mixin?
-
-
-.#{btnSub}{
+//四個字次按鈕
+.#{$btn-sub-s}{
     background-color:$color-btn-sub;
+    @include btn();
+    @include btn-s();
+}
+//六個字主按鈕
+.#{$btn-sub-l}{
+    background-color:$color-btn-sub;
+    @include btn();
+    @include btn-l();
 }
 
+//陰影
 .shadow-text{
     text-shadow: $shadow;
 } 
-
+.shadow-box{
+    box-shadow: $shadow;
+}
 

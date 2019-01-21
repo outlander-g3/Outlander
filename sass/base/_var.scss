@@ -1,11 +1,4 @@
 // 色票們
-$textColor:#484848;//內文
-$mainColorYellow:#d8dd76;//logo黃
-$mainColorBlue:#32545c;//logo深藍
-$subTitleColor:#0d6172;//小標題
-$btnMainColor:#5db7c5;//主按鈕色
-
-//其實我比較喜歡-隔開比較一目瞭然,用color開頭就知道這些是顏色的變數
 $color-text:#484848;//內文
 $color-main-yellow:#d8dd76;//logo黃
 $color-main-blue:#32545c;//logo深藍
@@ -16,7 +9,8 @@ $color-btn-sub:#95d0d9;//次按鈕色
 $btn-main-s:"btn-main-s";
 $btn-main-l:"btn-main-l"; 
 //次按鈕
-$btnSub:"btnSub";
+$btn-sub-s:"btn-sub-s";
+$btn-sub-l:"btn-sub-l"; 
 
 //陰影 text跟box的都一樣
 $shadow:0 3px 6px rgba(0,0,0,0.16);

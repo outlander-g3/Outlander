@@ -21,7 +21,7 @@ a{
 }
 
 
-.joOverview_map img{
+.joOver_map img{
     display: block;
     margin: auto;  
     width: 80%;
@@ -42,20 +42,20 @@ a{
     @include btn();
     @include btn-l();
 }
-.joFilter_and_write{
+.joOverFilter_and_write{
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
     margin:auto;
     @include pBottom(50);
-    .joFilterText{
+    .joOverFilterText{
         margin:auto;
         @include rwd(mobile){
             display: none;
         }
     }
 }
-.joOverview_card{
+.joOver_card{
     width: 100%;
     margin:auto;
     @include br4();
@@ -89,7 +89,7 @@ a{
         padding:0 20px;
         margin: 20px 0px;
         box-sizing: border-box;
-        .joInfo{
+        .joOverInfo{
             background-color: $color-btn-sub;
             box-shadow: $shadow;
         }
@@ -99,6 +99,6 @@ a{
     }      
 }   
    
-.joMore button{
+.joOverMore button{
      margin: auto;
 }

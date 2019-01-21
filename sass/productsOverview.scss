@@ -1,6 +1,9 @@
+
 @import "mixin/_mixin.scss";
 @import "base/_var.scss";
-
+* {
+    font-family: "微軟正黑體"; 
+}
 .po-wrap{
     width:100%;
     margin: auto;
@@ -17,6 +20,5 @@
 }
 h2{
  @include f30();
- color: $color-text;
-
-}
+ color:$color-subTitle;
+};

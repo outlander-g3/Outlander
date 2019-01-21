@@ -46,6 +46,11 @@
             }
         }
     }
+    @media (min-width:768px) {
+        .filter{
+            height: 300px;
+        }
+    }
 }
 body{
     height: 2000px;

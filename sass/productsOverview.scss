@@ -2,23 +2,67 @@
 @import "mixin/_mixin.scss";
 @import "base/_var.scss";
 * {
-    font-family: "微軟正黑體"; 
+    font-family: "微軟正黑體";
+    outline: 1px solid #aaa; 
 }
 .po-wrap{
     width:100%;
     margin: auto;
+    max-width: 1920px;
 }
 .po-banner{
     width: 100%;
-    height: 100vh;
+    height: 800px;
     background-image: url(../img/banner_big.jpg);
     background-repeat:no-repeat; 
-    background-size:100% ; 
+    background-size:100%; 
+}
+.btn-sub-s{
+    margin: 0.5%;
 }
 .po-btn-sub-s--flex{
     display:flex;
 }
-h2{
- @include f30();
- color:$color-subTitle;
+.po-banner-des{
+    padding: 10% 0 0 5%;
+}
+.po-banner-des {
+    h2{
+    @include f40();
+    color:$color-btn-main;
+    }
+    p {
+    @include f30();
+    color:$color-btn-main;
+    }
 };
+.po-wrap-mode{
+    width:100%;
+    margin: auto;
+    max-width: 1920px;
+    padding-top: 100px;
+}
+.po-mode-item{
+    margin: auto;
+}
+img{
+    display: block;
+}
+@media screen and (min-width:992px){
+
+}
+@media screen and (min-width:768px){
+    
+}
+@media screen and (max-width:991px){
+    
+}
+@media screen and (max-width:767px){
+    
+}
+@media screen and (max-width:575px){
+    
+}
+@media screen and (max-width:768px)and(max-width:991px){
+    
+}

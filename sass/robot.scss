@@ -43,6 +43,7 @@ h2{
 .text-input{
     display: flex;
     flex-direction: row;
+    align-content: flex-end;
     max-width:377px;
     height: 40px;
     background-color: #ffffff;
@@ -54,6 +55,7 @@ h2{
 
 .text-input img{
     max-width:40px;
+    
     width: 100%;
     
 }

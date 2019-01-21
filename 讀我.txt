@@ -28,6 +28,7 @@ background-color:$color-btn-main;
 2.block =>padding:50px 20px這個
 3.卡片的border => br4() 
 4.個別的padding => pTop(40)
+5.個別的margint => mTop(40)
 
 可以使用的變數有：
 1.色票=> $color-text ....

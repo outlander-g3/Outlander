@@ -42,6 +42,19 @@
 @mixin pRight($paddingRight){
     padding-Right: $paddingRight + px;
 }
+//個別的margin  要下就include mTop(100)就是100px
+@mixin pTop($marginTop){
+    margin-top: $marginTop + px;
+}
+@mixin pBottom($marginBottom){
+    margin-bottom: $marginBottom + px;
+}
+@mixin pLeft($marginLeft){
+    margin-Left: $marginLeft + px;
+}
+@mixin pRight($marginRight){
+    margin-Right: $marginRight + px;
+}
 
 
 //區塊

@@ -16,8 +16,14 @@ window.addEventListener("load", () => {
     }
     var searchAll = document.querySelector("#searchAll");
     var filter = document.querySelector(".filter");
-    var topp = bannerSearch.offsetTop - window.scrollY;
-    window.onscroll = () => {
+    var topp = getComputedStyle(bannerSearch);
+    var topp2 = topp.getPropertyValue("top");
+    topp3 = topp2.substr(0, topp2.length - 2);
+    topp4 = topp3 - window.scrollY;
+    topp2 = topp.getPropertyValue("height");
+    topp3 = topp2.substr(0, topp2.length - 2);
+    topp4 += Number(topp3);
+    window.addEventListener("scroll", () => {
         if (bannerSearch.offsetTop > window.scrollY) {
             searchAll.style.display = "none";
             filter.style.display = "none";
@@ -25,11 +31,17 @@ window.addEventListener("load", () => {
         else if (bannerSearch.offsetTop < window.scrollY + 60) {
             searchAll.style.display = "block";
         }
-        topp = bannerSearch.offsetTop - window.scrollY + (window.scrollY / 17);
-    }
+        topp = getComputedStyle(bannerSearch);
+        topp2 = topp.getPropertyValue("top");
+        topp3 = topp2.substr(0, topp2.length - 2);
+        topp4 = topp3 - window.scrollY;
+        topp2 = topp.getPropertyValue("height");
+        topp3 = topp2.substr(0, topp2.length - 2);
+        topp4 += Number(topp3);
+    })
     bannerSearch.addEventListener("click", () => {
         filter.style.display = "block";
-        filter.style.top = (topp/6.8)+ "%";
+        filter.style.top = (topp4 + 5) + "px";
     })
 
 })

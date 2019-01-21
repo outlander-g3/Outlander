@@ -25,17 +25,25 @@
                     <i class="material-icons">search</i>
                 </div>
             </ul>
-            <div id="burger"  v-on:click="bur">
+            <div id="burger" v-on:click="bur">
                 <span class="burger-1" id="burSpan1"></span>
                 <span class="burger-2" id="burSpan2"></span>
                 <span class="burger-3" id="burSpan3"></span>
             </div>
-            <ul id="burgerText" v-on:click="out">
+            <ul id="burgerText">
+                <span id="burgerText-X" v-on:click="out"></span>
                 <li><a href="#">登山行程</a></li>
                 <li><a href="#">登山日誌</a></li>
                 <li><a href="#">登山技巧</a></li>
                 <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
-                <li v-if="web<768"><a href="#">會員專區</a></li>
+                <li v-if="web<768" id="member">會員專區
+                    <ul id="member-child">
+                        <li>會員登入</li>
+                        <li>會員登入</li>
+                        <li>會員登入</li>
+                        <li>會員登入</li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="filter">
@@ -49,31 +57,31 @@
                     <li>大洋洲</li>
                 </ul>
                 <div id="filterListImg">
-                    <img src="https://picsum.photos/150/150/?random=1">
-                    <img src="https://picsum.photos/150/150/?random=2">
-                    <img src="https://picsum.photos/150/150/?random=3">
-                    <img src="https://picsum.photos/150/150/?random=4">
+                    <img src="https://picsum.photos/250/250/?random=1">
+                    <img src="https://picsum.photos/250/250/?random=2">
+                    <img src="https://picsum.photos/250/250/?random=3">
+                    <img src="https://picsum.photos/250/250/?random=4">
                 </div>
             </div>
         </div>
     </nav>
     <section id="indexBanner">
         <div id="banner">
-                <h1 id="h1"><span id="indexName1">O</span>
-                    <span id="indexName2">U</span>
-                    <span id="indexName3">T</span>
-                    <span id="indexName4">L</span>
-                    <span id="indexName5">A</span>
-                    <span id="indexName6">N</span>
-                    <span id="indexName7">D</span>
-                    <span id="indexName8">E</span>
-                    <span id="indexName9">R</span></h1>
-                <img src="img/暫時用的圖/banner-mountain3.png" alt="banner">
-                <input type="text" id="bannerSearch">
-                <i class="material-icons searchicon">search</i>
+            <h1 id="h1"><span id="indexName1">O</span>
+                <span id="indexName2">U</span>
+                <span id="indexName3">T</span>
+                <span id="indexName4">L</span>
+                <span id="indexName5">A</span>
+                <span id="indexName6">N</span>
+                <span id="indexName7">D</span>
+                <span id="indexName8">E</span>
+                <span id="indexName9">R</span></h1>
+            <img src="img/暫時用的圖/banner-mountain3.png" alt="banner">
+            <input type="text" id="bannerSearch">
+            <i class="material-icons searchicon">search</i>
         </div>
     </section>
-    
+
 
     <section>
         <h2></h2>

@@ -21,7 +21,7 @@ window.addEventListener("load", () => {
         methods: {
             out() {
                 if (web < 768) {
-                    document.querySelector("#burgerText").style.left = "-100%";
+                    document.querySelector("#burgerText").style.left = "100%";
                     document.querySelector("#burSpan1").classList.remove("animation1");
                     document.querySelector("#burSpan2").classList.remove("animation2");
                     document.querySelector("#burSpan3").classList.remove("animation1");
@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
     var headerdAll = document.querySelector("#headerAll");
     var burgerText = document.querySelector("#burgerText");
     if (web > 768) {
-        window.onscroll = () => {
+        window.addEventListener("scroll",() => {
             if (scr < window.scrollY) {
                 headerdAll.style.top = "-60px";
                 burgerText.style.top = "-60px";
@@ -43,7 +43,7 @@ window.addEventListener("load", () => {
                 burgerText.style.top = "0px";
             }
             scr = window.scrollY;
-        }
+        })
     }
     var filter = document.querySelector(".filter");
     var search = document.querySelector("#search");

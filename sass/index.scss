@@ -315,3 +315,16 @@ body{
 
     }
 }
+
+#index-warp4{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    @include mTop(100);
+    h2{
+        @include mBottom(50);
+        text-align: center;
+        color:$color-subTitle;
+        @include f30b();
+    }
+}

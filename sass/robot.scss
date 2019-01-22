@@ -40,17 +40,26 @@ h2{
     background-repeat: no-repeat;
 }
 
+.input__text{
+    display:inline-block;
+    max-width:377px;
+    width: 100%;
+}
+
 .text__input{
     display: flex;
     flex-direction: row;
     align-content: flex-end;
-    max-width:377px;
+    // max-width:377px;
+    // width: 100%;
     height: 40px;
     background-color: #ffffff;
+    border: 1px solid #989898;
 }
 .text__input input{
     max-width:330px;
     width: 100%;
+    border: none;
 }
 
 .text__input img{

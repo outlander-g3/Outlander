@@ -1,5 +1,8 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
+body{
+    overflow-x: hidden;
+}
 @media (min-width:768px){
     .header{
         #burgerText{
@@ -11,6 +14,7 @@
         }
     }
 }
+
 #searchAll{
     display: none;
 }
@@ -217,14 +221,12 @@
     margin: auto;
     width: 100%;
     max-width: 1200px;
-    @include mTop(200);
-    @include block ();
+    @include mTop(100);
     h2{
         @include mBottom(50);
         text-align: center;
         color:$color-subTitle;
         @include f30b();
-        @include block (); 
     }
     img{
         vertical-align: middle;
@@ -232,56 +234,84 @@
     #index-warp3-img-all{
         text-align: center;
         position: relative;
+        display: flex;
+        div{
+            width: 50%;
+            position: absolute;
+            top: 0;
+        }
         img{
             box-shadow: $shadow;
+            width: 100%;
+            user-select: none;
         }
-        #index-warp3-img1{
+        i{
+            display: none;
+        } 
+        #index-warp3-img1-block{
             position: relative;
-            top: 0;
-            z-index: 20;
-            left: 0%;
+            left: 5%;
         }
-        .img-position{
-            position: absolute;
-            top: 0;
+        #index-warp3-img2-block{
+            left: 60%;
         }
-        #index-warp3-img2{
-            left: 12%;
-            transform: scale(0.8);
-            z-index: 18;
+        #index-warp3-img3-block{
+            left: 115%;
         }
-        #index-warp3-img3{
-            left: 0%;
+        #index-warp3-img4-block{
+            left: 170%;
+        }
+        #index-warp3-img5-block{  
+            left: 225%;
+        }
+       @media (min-width:768px) {
+        #index-warp3-img1-block{
             transform: scale(0.6);
-            z-index: 16;
-        }
-        #index-warp3-img4{
-            left: 40%;
+            left: 1.5%;
+            z-index: 3;
+           }
+        #index-warp3-img2-block{
             transform: scale(0.8);
-            z-index: 18;
-
-        }
-        #index-warp3-img5{
-            left: 52%;
+            left: 13.5%;
+            z-index: 4;
+           }
+        #index-warp3-img3-block{
+            transform: scale(1);
+            left: 25.5%;
+            z-index: 5;
+           }
+        #index-warp3-img4-block{
+            transform: scale(0.8);
+            left: 38.5%;
+            z-index: 4;
+           }
+        #index-warp3-img5-block{
             transform: scale(0.6);
-            z-index: 16;
-
-        }
-        #index-warp3-img-left{
-            position: absolute;
-            top:50%;
-            left: 0;
-            @include f40 ();
-            cursor: pointer;
-        }
-        #index-warp3-img-right{
-            position: absolute;
-            top: 50%;
-            left: 98%;
-            @include f40 ();
-            cursor: pointer;
-        }
+            left: 48.5%;
+            z-index: 3;
+           }
+           i{
+               display: block;
+               position: absolute;
+               @include f40 ();
+               cursor: pointer;
+           }
+           #index-warp3-img-left{
+            top: 45%;
+            left: 4%;
+           }
+           #index-warp3-img-right{
+            top: 45%;
+            left: 92%;
+           }
+           .index-warp3-img-text{
+               position: absolute;
+               top: 90%;
+               left: 5%;
+               @include f16 ();
+               color: white;
+           }
+       }
 
     }
-
 }

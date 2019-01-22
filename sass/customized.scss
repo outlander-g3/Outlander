@@ -2,9 +2,9 @@
 @import"base/_var_cu.scss";
 @import "mixin/_mixin.scss";
 // @import "mixin/_mixin-customized.scss";
-*{
-    outline: 1px solid salmon;
-}
+// *{
+//     outline: 1px solid salmon;
+// }
 //手機直
 @mixin phone-width($phones-media) {
     @media screen and (max-width: $phones-media) {
@@ -84,6 +84,49 @@ nav,.mw_1200{
 }
 
 /*客製化開始*/
+.cu_bg{
+    background-image: url("../img/cu_bg1.png");
+    height: 931px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  background-repeat: no-repeat;
+}
+.cuProcess{
+    display: flex;
+    justify-content: center;
+}
+.cuProcess__first{
+    padding-right: 26px;
+}
+.cuProcess__first,.cuProcess__second{
+    p{
+        color: $color-subTitle;
+        padding-top: 5px;
+    }
+}
+.cuProcess__circle{
+    color: $color-subTitle;
+    border: 2px solid $color-subTitle;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    @include f16b;
+    margin: auto ;
+}
+.cuProcess__circle--done{
+    color: $color-white;
+    background-color: $color-subTitle;
+}
+.cuProcess__line{
+    border: 1px solid $color-subTitle;
+    // width: 76px;
+    height: 76px;
+    transform: rotate(90deg) translateX(-18px);
+    margin: 0 10px;
+}
 /*footer*/
 footer{
     width: 100%;
@@ -134,34 +177,7 @@ footer{
         }
     }
 }
-.cu_bg{
-    background-image: url("../img/cu_bg1.png");
-    height: 931px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-  background-repeat: no-repeat;
-}
-.cuProcess__first,.cuProcess__second{
-    // text-align: center;
-    p{
-        color: $color-subTitle;
-    }
-}
-.cuProcess__circle{
-    color: $color-subTitle;
-    border: 2px solid $color-subTitle;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    @include f16b;
-}
-.cuProcess__circle--done{
-    color: $color-white;
-    background-color: $color-subTitle;
-}
+
     /* The container must be positioned relative: */
     .custom-select {
         position: relative;

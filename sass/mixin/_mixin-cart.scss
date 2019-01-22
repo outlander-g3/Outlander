@@ -3,9 +3,11 @@
         outline: 1px solid red;
     }
 }
+
 $color-border:#95989A;
+$ctBorder:1px solid $color-border;
 @mixin ctBorder{
-    border:1px solid $color-border;
+    border:$ctBorder;
 }
 
 $mobile: 767px;
@@ -25,7 +27,7 @@ $desktop: 1200px;
     }
 
     @if $breakpoint==desktop {
-        @media all and (min-width: $desktop) {
+        @media all and (max-width: $desktop) {
             @content;
         }
     }
@@ -47,6 +49,9 @@ $desktop: 1200px;
             width: 180px;
             height: 32px;
             @include br4();
+            @include rwd(medium){
+                width: 120px;
+            }
         }
         &:not(:first-child){
             @include pTop(30);

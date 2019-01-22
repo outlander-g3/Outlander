@@ -10,7 +10,7 @@
     
 }
 
-.head-box{
+.head__box{
     width: 360px;
     height: 82px;
     display: flex;
@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.head-box img{
+.head__box img{
     width: 50px;
     height: 45px;
 } 
@@ -40,7 +40,7 @@ h2{
     background-repeat: no-repeat;
 }
 
-.text-input{
+.text__input{
     display: flex;
     flex-direction: row;
     align-content: flex-end;
@@ -48,12 +48,12 @@ h2{
     height: 40px;
     background-color: #ffffff;
 }
-.text-input input{
+.text__input input{
     max-width:330px;
     width: 100%;
 }
 
-.text-input img{
+.text__input img{
     max-width:40px;
     
     width: 100%;

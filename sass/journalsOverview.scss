@@ -12,7 +12,7 @@
 
 a{
     display: block;
-    transition:.5s;
+    transition:1s;
     @include rwd(desktop){
         &:hover{
         transform: scale(1.1); 
@@ -21,7 +21,7 @@ a{
 }
 
 
-.joOver__map img{
+.jo__map img{
     display: block;
     margin: auto;  
     width: 80%;
@@ -32,37 +32,46 @@ a{
 }
 .row{
     justify-content: space-between;
-    flex-wrap: wrap;
-    // align-items: flex-start;
-    
-    
+    flex-wrap: wrap;      
 }
 .btn-main-l{
     background-color:$color-btn-main;
     @include btn();
     @include btn-l();
 }
-.joOverFilter__and__write{
-    width: 100%;
-    padding: 20px;
+.jo__filter__and__write{
+    width: 90%;
     box-sizing: border-box;
     margin:auto;
+    @include pTop(50);
     @include pBottom(50);
-    .joOverFilterText{
+    .jo__filter__text{
         margin:auto;
         @include rwd(mobile){
             display: none;
         }
     }
 }
-.joOver_card{
-    width: 100%;
+.jo__allcards{
     margin:auto;
-    @include br4();
     @include pBottom(50);
-   
-    .date,h2,.text{
-        padding: 10px;
+    columns: 270px;
+    column-gap: 60px; 
+    width: 90%;
+    
+    .jo__onecard{
+        @include mBottom(40);
+        border: 1px solid #ccc;
+        @include br4();
+        background: #fff;
+        transition: 0.5s;
+    }
+    .jo__allinfo{
+        padding: 20px;
+    }
+    .jo__publish,h3,.jo__text{
+        // padding: 10px;
+        @include pTop(10);
         // font-family: "微軟正黑體";
     }
     img{
@@ -70,73 +79,23 @@ a{
         border-radius: 4px 4px 0 0;
         vertical-align:text-top;
     }
-    .date{
+    .jo__publish{
         @include f14;
         font-size: 12px;
         color:$color-subTitle;
     }
-    h2{
+    h3{
         @include f20b;
         color:$color-text; 
     }
-    .text{
+    .jo__text{
         @include f14;
         color:$color-text; 
         line-height:1.5em ;
     }
-    .col-3{
-        @include br4();
-        padding:0 20px;
-        margin: 20px 0px;
-        box-sizing: border-box;
-        .joOverInfo{
-            background-color: $color-btn-sub;
-            box-shadow: $shadow;
-        }
-        @include rwd(mobile){
-            width: 100%;
-        }
-    }      
+        
 }   
    
 .joOverMore button{
      margin: auto;
-}
-
-article {
-    padding: 0px;
-    border: 1px solid #999;
-    border-radius: 4px;
-    background: #fff;
-    transition: 0.5s;
-  }
-  div{
-      padding: 20px;
-  }
-  a:link,
-  a:visited {
-      text-decoration: none;
-    color: black;
-  }
-  a:hover article{
-      transform: scale(1.1);
-  }
-  h1 {
-      margin-top: 0;
-      margin-left: 0.75rem;
-  }
-  main {
-      columns: 270px;
-      column-gap: 60px; 
-      width: 90%;
-      margin:auto;
-  }
-  article {
-      break-inside: avoid-column;
-      margin-bottom: 3em; 
-  }
-img{
-    max-width: 100%;
-    border-radius: 4px 4px 0 0;
-    vertical-align:text-top; 
 }

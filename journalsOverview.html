@@ -12,6 +12,7 @@
 
 <body>
     <div class="jo__wrap">
+
         <div class="jo__map">
             <img src="img/world_map.png" alt="日誌總覽地圖">
         </div>
@@ -23,20 +24,42 @@
                             <p>篩選查看日誌 : &nbsp;</p>
                         </div>
 
-                        <form class="btn-main-l">
-                            <select class="btn-main-l">
-                                　<option value="Himalayas">珠穆朗瑪峰</option>
-                                　<option value="Paine">百內國家公園</option>
-                                　<option value="Fuji" selected>富士山</option>
-                                　<option value="Jade">玉山</option>
-                                　<option value="Alps">阿爾卑斯山 -少女峰</option>
-                                　<option value="Machu Picchu">馬丘比丘</option>
-                                　<option value="Santa Cruz">聖克魯斯</option>
-                                　<option value="Kilimanjaro">吉力馬札羅山</option>
-                                　<option value="Aspalin">阿斯帕林山國家公園</option>
-                                　<option value="Yosemite">優勝美地國家公園</option>
-                                <option value="Others">其他</option>
-                            </select>
+                        <form class="">
+                            <span class="joForm__input">
+                                <input type="radio" name="mountType" value="Fuji" checked="checked" id="mount-fuji">
+                                <label for="mount-fuji">富士山</label>
+
+                                <input type="radio" name="mountType" value="Himalayas" id="mount-himalayas">
+                                <label for="mount-himalayas">珠穆朗瑪峰</label>
+
+                                <input type="radio" name="mountType" value="Paine" id="mount-paine">
+                                <label for="mount-paine">百內國家公園</label>
+
+                                <input type="radio" name="mountType" value="Jade" id="mount-jade">
+                                <label for="mount-jade">玉山</label>
+
+                                <input type="radio" name="mountType" value="Alps" id="mount-alps">
+                                <label for="mount-alps">阿爾卑斯山-少女峰</label>
+
+                                <input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">
+                                <label for="mount-machu">馬丘比丘</label>
+
+                                <input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">
+                                <label for="mount-cruz">聖克魯斯</label>
+
+                                <input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">
+                                <label for="mount-kilimanjaro">吉力馬札羅山</label>
+
+                                <input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
+                                <label for="mount-yosemite">優勝美地國家公園</label>
+
+                                <input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">
+                                <label for="mount-aspalin">阿斯帕林國家公園</label>
+
+                                <input type="radio" name="mountType" value="Others" id="mount-others">
+                                <label for="mount-others">其他</label>
+
+                            </span>
                         </form>
                     </div>
                 </div>
@@ -49,7 +72,7 @@
         <main class="jo__allcards">
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji1.jpeg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -59,7 +82,7 @@
             </a>
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -69,7 +92,7 @@
             </a>
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -79,7 +102,7 @@
             </a>
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -89,7 +112,7 @@
             </a>
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -99,7 +122,7 @@
             </a>
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -109,7 +132,7 @@
             </a>
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -119,7 +142,7 @@
             </a>
             <a href="">
                 <article class="jo__onecard">
-                    <img src="img/fuji.jpg">
+                    <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
@@ -138,6 +161,8 @@
             <button class="btn-main-l">查看更多日誌</button>
         </div>
     </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="js/journalsOverview.js"></script>
 </body>
 
 </html>

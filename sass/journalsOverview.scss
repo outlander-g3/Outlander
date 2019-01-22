@@ -10,25 +10,13 @@
     font-family: "微軟正黑體" !important;
 }
 
-a{
-    display: block;
-    transition:1s;
-    @include rwd(desktop){
-        &:hover{
-        transform: scale(1.1); 
-        }
-    }
-}
-
-
-.jo__map img{
+.jo__map img{   
     display: block;
     margin: auto;  
-    width: 80%;
-    @include rwd(mobile){
-        display: none;
-    }
-    
+    width: 70%;
+    @media only screen and (max-width: 600px) {
+        display: none;      
+    }   
 }
 .row{
     justify-content: space-between;
@@ -46,10 +34,11 @@ a{
     @include pTop(50);
     @include pBottom(50);
     .jo__filter__text{
+        @include pTop(12);
         margin:auto;
-        @include rwd(mobile){
-            display: none;
-        }
+        @media only screen and (max-width: 600px) {
+            display: none;      
+        }   
     }
 }
 .jo__allcards{
@@ -58,6 +47,16 @@ a{
     columns: 270px;
     column-gap: 60px; 
     width: 90%;
+
+    a{
+        display: block;
+        transition:1s;
+        @include rwd(desktop){
+            &:hover{
+            transform: scale(1.1); 
+            }
+        }
+    }
     
     .jo__onecard{
         @include mBottom(40);
@@ -99,3 +98,78 @@ a{
 .joOverMore button{
      margin: auto;
 }
+
+.joForm__input {
+    position: absolute;
+    display: inline-block;
+    width: 170px;
+    min-height: 42px;
+    max-height: 42px;
+    line-height: 42px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: left;
+    // white-space: nowrap;
+    color: #fff;
+    outline: none;
+    border-radius: 21px;
+    background-color: #5db7c5;
+    transition: 0.3s all ease-in-out;
+  }
+  .joForm__input input {
+    display: none;
+  }
+  .joForm__input label {
+    border-top: .06em solid #d9d9d9;
+    display: block;
+    font-style: 16px bold !important;
+    @include pLeft(5);
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s color ease-in-out;
+  }
+  .joForm__input label:nth-child(2) {
+    @include mTop(42);
+    // border-top: .06em solid #d9d9d9;
+  }
+  .joForm__input input:checked + label {
+    display: block;
+    border-top: none;
+    position: absolute;
+    top: 0;
+  }
+  .joForm__input input:checked + label:nth-child(2) {
+    @include mTop(0);
+    position: relative;
+  }
+  .joForm__input::after {
+    content: "";
+    position: absolute;
+    right: 10%;
+    top: 1.2em;
+    border: 0.4em solid #fff;
+    border-color: #fff transparent transparent transparent;
+    transition: .4s all ease-in-out;
+  }
+  .joForm__input.expanded {
+    // border: 0.06em solid #3694d7;
+    background-color: #5db7c5;
+    border-radius: 21px;
+    padding: 0;
+    // box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0px;
+    max-height: 100%;
+  }
+  .joForm__input.expanded label {
+    // border-top: .06em solid #d9d9d9;
+  }
+  .joForm__input.expanded label:hover {
+    // color: #3694d7;
+  }
+  .joForm__input.expanded input:checked + label {
+    // color: #3694d7;
+  }
+  .joForm__input.expanded::after {
+    transform: rotate(-180deg);
+    top: 0.6em;
+  }
+  

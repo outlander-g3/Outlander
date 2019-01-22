@@ -73,7 +73,8 @@
     color:#fff;
     display:block;
     text-align: center;
-    font-style: 16px bold;
+    // font-style: 16px bold;
+    @include f16b;
     line-height: 42px;
 }
 @mixin btn-s{

@@ -23,7 +23,7 @@
                     display: flex;
                     cursor: pointer;
                     justify-content: center;
-                    height:16.333333%;
+                    height:16.4%;
                     align-items: center;
                     border-bottom:1px solid #aaa; 
                     border-right:1px solid #aaa; 
@@ -164,7 +164,7 @@ body{
                 position: absolute;
                 width: 100%;
                 top: 65%;
-                li{
+                li a{
                     color: black;
                     width: 100%;
                     text-align: center;
@@ -177,7 +177,7 @@ body{
         }
         #member:hover{
             #member-child{
-                li{
+                li a{
                     opacity: 1;
                     line-height: 65px;
                 }

@@ -213,6 +213,7 @@ body{
             }
             img{
                 width: 20%;
+                padding-top: 5px;
             }
         }
     }
@@ -230,6 +231,7 @@ body{
     }
     img{
         vertical-align: middle;
+        @include mBottom (10);
     }
     #index-warp3-img-all{
         text-align: center;
@@ -263,6 +265,9 @@ body{
         }
         #index-warp3-img5-block{  
             left: 225%;
+        }
+        .index-warp3-img-text{
+            @include mTop(5);
         }
        @media (min-width:768px) {
         #index-warp3-img1-block{
@@ -304,6 +309,7 @@ body{
             top: 45%;
             left: 92%;
            }
+           
            .index-warp3-img-text{
                position: absolute;
                top: 90%;
@@ -313,6 +319,16 @@ body{
            }
        }
 
+    }
+    button{
+        margin: auto;
+        @include mTop(50);
+        @include btn ();
+        height: unset;
+        a{
+            display: block;
+            color:$color-btn-main;
+        }
     }
 }
 
@@ -326,5 +342,214 @@ body{
         text-align: center;
         color:$color-subTitle;
         @include f30b();
+    }
+    #index-warp4-all{
+        #index-warp4-game-text{
+            text-align: center;
+            line-height: 1.5;
+            @include f20 ();
+            color: $color-text;
+            button{
+                @include btn ();
+                height: unset;
+                color:$color-btn-main;
+                margin:20px auto;
+            }
+        }
+        #index-warp4-game-all{
+            position: relative;
+            @include mTop (50);
+            img{
+                width: 100%;
+            }
+            .game-position{
+                position: absolute;
+                @include f16b;
+                color: $color-subTitle;
+                span{
+                    color: $color-text;
+                }
+            }
+            #index-game1{
+                top: 85%;
+                left: 5%;
+                cursor: pointer;
+            }
+            #index-game2{
+                top: 45%;
+                left: 70%;
+                cursor: pointer;
+            }
+            #index-game3{
+                top:0%;
+                left: 55%;
+                cursor: pointer;
+            }
+            #humanity{
+                width: 5%;
+                top: 90%;
+                transition: all .5s;
+            }
+            
+        }
+    }
+        @media (min-width:768px) {
+            #index-warp4-all{
+                display: flex;
+                justify-content: space-between;
+                #index-warp4-game-text{
+                    align-self:center;
+                }
+                .index-warp4-1{
+                    flex: 1;
+                }
+            } 
+      }
+}
+#index-warp5{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    @include mTop(100);
+    h2{
+        @include mBottom(50);
+        text-align: center;
+        color:$color-subTitle;
+        @include f30b();
+    }
+    #index-warp5-all{
+        position: relative;
+        width: 150%;
+      #map{
+          position: relative;
+          top: 0;
+          left: -50%;
+          width: 150%;
+      }  
+      #index-warp5-log1{
+          position: absolute;
+          top: 10%;
+          left: 15%;
+          &::after{
+              content: '';
+              z-index: 2;
+              display: block;
+              background-image: url('../img/暫時用的圖/mountain-solid.png');
+              background-size: 100% 100%;
+              height:30px;
+              width: 30px;
+              top: 100%;
+              left: 18%;
+              position: absolute;
+              background-repeat: no-repeat;
+          }
+          .index-warp5-item{
+            //   display: none;
+              line-height: 1.5;
+              position: relative;
+              left: 0%;
+              width: 40%;
+              height: 100%;
+              border: 2px solid #aaa;
+              img{
+                  width: 100%;
+              }
+              .fa-comment{
+                  font-size: 24px;
+              }
+          }
+      }
+      #index-warp5-log2{
+        position: absolute;
+        top: 10%;
+        left: 2%;
+        &::after{
+            content: '';
+            z-index: 2;
+            display: block;
+            background-image: url('../img/暫時用的圖/mountain-solid.png');
+            background-size: 100% 100%;
+            height:30px;
+            width: 30px;
+            top: 100%;
+            left: 18%;
+            position: absolute;
+            background-repeat: no-repeat;
+        }
+
+      }
+      #index-warp5-log3{
+        position: absolute;
+        top: 22%;
+        left: 55%;
+        &::after{
+            content: '';
+            z-index: 2;
+            display: block;
+            background-image: url('../img/暫時用的圖/mountain-solid.png');
+            background-size: 100% 100%;
+            height:30px;
+            width: 30px;
+            top: 100%;
+            left: 18%;
+            position: absolute;
+            background-repeat: no-repeat;
+        }
+
+      }
+      button{
+          margin: 0 27%;
+          @include btn ();
+          height: unset;
+          a{
+              display: block;
+              color:$color-btn-main;
+          }
+      }
+
+    }
+    @media  (min-width:768px){
+        #index-warp5-all{
+            width: 100%;
+            #map{
+                    left: unset;
+                    width: 100%;
+                }
+            #index-warp5-log1{
+                top: 10%;
+                left: 41%;
+            }
+            #index-warp5-log2{
+                top: 15%;
+                left: 35%;
+            }
+            #index-warp5-log3{
+                top: 22%;
+                left: 80%;
+            }
+            button{
+            margin: auto;
+            }
+
+        }
+    }
+}
+
+#index-warp6{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    @include mTop(100);
+    h2{
+        @include mBottom(20);
+        text-align: center;
+        color:$color-subTitle;
+        @include f30b();
+    }
+    p{
+        text-align: center;
+        color: $color-text;
+        @include f16();
     }
 }

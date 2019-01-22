@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
     var web = window.innerWidth;
+    // 漢堡設定
     var burger = new Vue({
         el: "#burger",
         methods: {
@@ -29,6 +30,8 @@ window.addEventListener("load", () => {
             }
         }
     })
+
+    // nav的卷軸事件
     var scr = window.scrollY;
     var headerdAll = document.querySelector("#headerAll");
     var burgerText = document.querySelector("#burgerText");
@@ -45,6 +48,8 @@ window.addEventListener("load", () => {
             scr = window.scrollY;
         })
     }
+
+    // 搜尋的點擊事件
     var filter = document.querySelector(".filter");
     var search = document.querySelector("#search");
     var on =false;

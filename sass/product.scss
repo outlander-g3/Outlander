@@ -571,3 +571,41 @@
     }
   }
 }
+.datepicker{
+  width: 380px;
+  padding: 10px 30px;
+  border: 1px solid #484848;
+  border-radius: 4px;
+  position: relative;
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    color: #484848;
+    font-weight: bold;
+  }
+  .month{
+    font-size: 1.25rem;
+    padding-bottom: 10px;
+    justify-content: space-between;
+  }
+  .week,
+  .day{
+    font-size: 1rem;
+    li{
+      width: 45px;
+      text-align: center;
+      padding: 10px 0;
+      line-height: 1.625rem;
+    }
+  }
+}
+.datepicker::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: .05rem;
+  background-color: #484848;
+  position: absolute;
+  top: 45px;
+  left: 0;
+}

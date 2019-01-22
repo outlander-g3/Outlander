@@ -1,27 +1,38 @@
-//手機直
-@mixin phone-width() {
-    @media screen and (max-width: $phones-media) {
-        // .nav_menu{
-        //     display: none;
-        // }
+// @mixin cu_cSA($color-subTitle-a){
+//     background-color: rgba(13,97,114,$color-subTitle-a);
+// }
+@mixin cu_ColorBg($background-color){
+    background-color: rgba(13,97,114,$background-color);
+}
+@mixin cu_ColorTxt($color){
+    color: rgba(13,97,114,$color);
+}
+
+
+// //手機直
+// @mixin phone-width() {
+//     @media screen and (max-width: $phones-media) {
+//         // .nav_menu{
+//         //     display: none;
+//         // }
       
-    }
-}
-//手機橫+手機直
-@mixin small-pad-width() {
-    @media screen and (max-width: $phone-media) {
+//     }
+// }
+// //手機橫+手機直
+// @mixin small-pad-width() {
+//     @media screen and (max-width: $phone-media) {
         
-    }
-}
-//iPad+桌機
-@mixin pad-width() {
-    @media screen and (min-width:$pad-media) {
+//     }
+// }
+// //iPad+桌機
+// @mixin pad-width() {
+//     @media screen and (min-width:$pad-media) {
         
-    }
-}
-//桌機
-@mixin pc-width() {
-    @media screen and (min-width: $pc-media) {
+//     }
+// }
+// //桌機
+// @mixin pc-width() {
+//     @media screen and (min-width: $pc-media) {
             
-    }
-}
+//     }
+// }

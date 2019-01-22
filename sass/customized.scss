@@ -1,40 +1,29 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
 @import"base/_var.scss";
 @import"base/_var_cu.scss";
 @import "mixin/_mixin.scss";
-// @import "mixin/_mixin-customized.scss";
-<<<<<<< HEAD
-*{
-    outline: 1px solid salmon;
-}
-=======
+@import "mixin/_mixin-customized.scss";
 // *{
 //     outline: 1px solid salmon;
 // }
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
-//手機直
-@mixin phone-width($phones-media) {
+// 手機直 575px
+@mixin phone-width() {
     @media screen and (max-width: $phones-media) {
         @content;   
     }
 }
-//手機橫+手機直
+//手機橫+手機直 767px
 @mixin small-pad-width() {
     @media screen and (max-width: $phone-media) {
         @content;   
     }
 }
-//iPad+桌機
+//iPad+桌機 768px
 @mixin pad-width() {
     @media screen and (min-width:$pad-media) {
         @content;   
     }
 }
-//桌機
+//桌機 992px
 @mixin pc-width() {
     @media screen and (min-width: $pc-media) {
         @content;   
@@ -43,7 +32,7 @@
 
 
 .nav_menu{
-    @include phone-width($phones-media){
+    @include phone-width(){
         display: none;
     }
 }
@@ -64,7 +53,7 @@ nav {
     li{
         float: left;
     }
-    @include phone-width($phones-media){
+    @include phone-width() {
         height: 56px;
         h1 img{
             height: 40px;
@@ -72,7 +61,7 @@ nav {
         }
     }
 }
-nav,.mw_1200{
+nav,.mw_1200,.cuCustom{
     max-width: 1200px;
     margin: auto;
 }
@@ -95,8 +84,6 @@ nav,.mw_1200{
 }
 
 /*客製化開始*/
-<<<<<<< HEAD
-=======
 .cu_bg{
     background-image: url("../img/cu_bg1.png");
     height: 931px;
@@ -108,19 +95,21 @@ nav,.mw_1200{
 .cuProcess{
     display: flex;
     justify-content: center;
+    @include pTop(20);
+    @include pBottom(20);
 }
 .cuProcess__first{
     padding-right: 26px;
 }
 .cuProcess__first,.cuProcess__second{
     p{
-        color: $color-subTitle;
+        @include cu_ColorTxt(.9);
         padding-top: 5px;
     }
 }
 .cuProcess__circle{
-    color: $color-subTitle;
-    border: 2px solid $color-subTitle;
+    @include cu_ColorTxt(.9);
+    border: 2px solid $color-subTitle-a;
     border-radius: 50%;
     width: 34px;
     height: 34px;
@@ -131,16 +120,146 @@ nav,.mw_1200{
 }
 .cuProcess__circle--done{
     color: $color-white;
-    background-color: $color-subTitle;
+    background-color: $color-subTitle-a;
 }
 .cuProcess__line{
-    border: 1px solid $color-subTitle;
+    border: 1px solid $color-subTitle-a;
     // width: 76px;
     height: 76px;
     transform: rotate(90deg) translateX(-18px);
     margin: 0 10px;
 }
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
+/*客製化流程開始*/
+.cuCustom{
+    @include small-pad-width() {
+       margin: auto;
+    }
+    @include phone-width() {
+        @include pLeft(20);
+        @include pRight(20);
+    }
+    @include pad-width() {
+        @include pLeft(77);
+    }
+} 
+/*選擇器__洲別及山岳*/ 
+/* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+    font-family: Arial;
+    width:300px;
+    select {
+    display: none; /*hide original SELECT element: */
+    }
+}
+
+.select-selected {
+background-color: $color-btn-main-a;
+margin-top: 10px;
+/* Style the arrow inside the select element: */
+    &:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    }
+}
+
+
+
+        /* Point the arrow upwards when the select box is open (active): */
+        .select-selected.select-arrow-active:after {
+        border-color: transparent transparent #fff transparent;
+        top: 7px;
+        }
+
+        /* style the items (options), including the selected item: */
+        .select-items div,.select-selected {
+        color: #ffffff;
+        padding: 11px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+        }
+
+        /* Style items (options): */
+        .select-items {
+        position: absolute;
+        background-color: $color-btn-main-a;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        }
+
+        /* Hide the items when the select box is closed: */
+        .select-hide {
+        display: none;
+        }
+
+        .select-items div:hover, .same-as-selected {
+        background-color: rgba(0, 0, 0, 0.1);
+        }
+/*客製化空間*/
+.cuCustom__zone{
+    @include br4;
+    &:before{
+        content: '我的風景路線規劃';
+        display: inline-block;
+        width: 100%;
+        // height: 47px;
+        color: $color-white;
+        padding:  10px 0 10px 20px; 
+        box-sizing: border-box;
+        @include f20b;
+        @include cu_ColorBg(.7);
+        @include br4;
+    }
+    @include small-pad-width() {
+        width: 100%;
+        height: 369px;
+        @include cu_ColorBg(.7);
+        @include mTop(20);
+        @include mBottom(20);
+        position: relative;
+    }
+    // .cuCustom__dropZone
+} 
+// 
+#btn_cuAddScenery{
+
+    @include small-pad-width() {
+        border: 2px solid $color-btn-main;
+        background-color: $color-btn-main;
+        border-radius: 50%;
+        width: 34px;
+        height: 34px;
+        text-align: center;
+        box-shadow: $shadow;
+        color: $color-white;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        @include f16b;
+        i{
+            line-height: 34px;
+        }    
+    }
+    
+}
+#btn_cuPickTG{
+    @include btn;
+    @include btn-l;
+    @include f16b;
+    background-color: $color-btn-main;
+    border-color: $color-btn-main;
+    margin: auto;
+}
+
 /*footer*/
 footer{
     width: 100%;
@@ -191,100 +310,3 @@ footer{
         }
     }
 }
-<<<<<<< HEAD
-.cu_bg{
-    background-image: url("../img/cu_bg1.png");
-    height: 931px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-  background-repeat: no-repeat;
-}
-.cuProcess__first,.cuProcess__second{
-    // text-align: center;
-    p{
-        color: $color-subTitle;
-    }
-}
-.cuProcess__circle{
-    color: $color-subTitle;
-    border: 2px solid $color-subTitle;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    @include f16b;
-}
-.cuProcess__circle--done{
-    color: $color-white;
-    background-color: $color-subTitle;
-}
-=======
-
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
-    /* The container must be positioned relative: */
-    .custom-select {
-        position: relative;
-        font-family: Arial;
-        }
-
-        .custom-select select {
-        display: none; /*hide original SELECT element: */
-        }
-
-        .select-selected {
-        background-color: $color-subTitle;
-        }
-
-        /* Style the arrow inside the select element: */
-        .select-selected:after {
-        position: absolute;
-        content: "";
-        top: 14px;
-        right: 10px;
-        width: 0;
-        height: 0;
-        border: 6px solid transparent;
-        border-color: #fff transparent transparent transparent;
-        }
-
-        /* Point the arrow upwards when the select box is open (active): */
-        .select-selected.select-arrow-active:after {
-        border-color: transparent transparent #fff transparent;
-        top: 7px;
-        }
-
-        /* style the items (options), including the selected item: */
-        .select-items div,.select-selected {
-        color: #ffffff;
-        padding: 8px 16px;
-        border: 1px solid transparent;
-        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-        cursor: pointer;
-        }
-
-        /* Style items (options): */
-        .select-items {
-        position: absolute;
-        background-color: $color-subTitle;
-        top: 100%;
-        left: 0;
-        right: 0;
-        z-index: 99;
-        }
-
-        /* Hide the items when the select box is closed: */
-        .select-hide {
-        display: none;
-        }
-
-        .select-items div:hover, .same-as-selected {
-        background-color: rgba(0, 0, 0, 0.1);
-        }
-
-
-<<<<<<< HEAD
->>>>>>> 順序
-=======
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6

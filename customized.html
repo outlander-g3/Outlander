@@ -4,23 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<<<<<<< HEAD
-    <title>Document</title>
-</head>
-<body>
-<<<<<<< HEAD
-    
-    111
-=======
-=======
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <title>Outlander - customized</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/customized.css">
-    <title>Document</title>
 </head>
 <body>
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
     <header>
         <nav>
             <div>
@@ -53,20 +43,52 @@
                 <div class="cuProcess__circle cuProcess__circle--done">1</div>
                 <p>選擇行程</p>
             </div>
-<<<<<<< HEAD
-=======
             <div class="cuProcess__line"></div>
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
             <div class="cuProcess__second">
                 <div class="cuProcess__circle">2</div>
                 <p>選擇日期及嚮導</p>
             </div>
-<<<<<<< HEAD
-            <div></div>
-=======
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
         </div>
+        <!-- 選擇器__洲別及山岳 -->
+        <div class="cuCustom">
+            <div class="custom-select" >
+                <select>
+                    <option value="0">請選擇洲別</option>
+                    <option value="1">亞洲</option>
+                    <option value="2">歐洲</option>
+                    <option value="3">非洲</option>
+                    <option value="4">北美洲</option>
+                    <option value="5">南美洲</option>
+                    <option value="6">大洋洲</option>
+                </select>
+            </div>
+            <div class="custom-select" >
+                <select>
+                    <option value="0">請選擇山岳</option>
+                    <option value="1">富士山</option>
+                    <option value="2">喜馬拉雅山-珠穆朗瑪峰</option>
+                    <option value="3">阿爾卑斯山-少女峰</option>
+                    <option value="4">吉力馬札羅山優勝美地</option>
+                    <option value="5">優勝美地</option>
+                    <option value="6">馬丘比丘-印加</option>
+                    <option value="7">百內國家公園</option>
+                    <option value="8">聖克魯斯</option>
+                    <option value="9">阿斯帕林</option>
+                    <option value="10">玉山</option>
+                </select>
+            </div>
+             <!-- 選擇風景 -->
+            <div class="cuCustom__zone">
+                <div class="cuCustom__dropZone">
 
+                </div>
+                <div id="cuCustom__sceneryZone"></div>
+                <div id="btn_cuAddScenery">
+                    <i class="material-icons">add</i>
+                </div>
+            </div>
+        </div>
+        <input type="submit" id="btn_cuPickTG" value="選擇日期及嚮導">
     </section>
     <footer>
         <div class="mw_1200 footer_ptb">
@@ -92,9 +114,7 @@
             </div>
         </div>
     </footer>
-<<<<<<< HEAD
->>>>>>> 順序
-=======
->>>>>>> bc965910fcdd93f3d6f9ec0d7d06591946e8def6
+
+    <script src="js/customized.js"></script>
 </body>
 </html>

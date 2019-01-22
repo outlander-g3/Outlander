@@ -1,5 +1,11 @@
 *{
   box-sizing: border-box;
+  // outline: 1px solid #f00;
+}
+.btn-main-s{
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
 }
 #breadcrumb{
   font-family: 'Microsoft JhengHei';
@@ -14,22 +20,20 @@
     vertical-align: top;
   }
 }
-.product--main{
+.product__main{
   width: 100%;
   max-width: 1200px;
   margin: auto;
   display: flex;
   @media screen and (min-width:992px){
     flex-wrap: nowrap;
+    padding: 0px 20px;
   }
   @media screen and (max-width:991px){
     flex-wrap: wrap;
   }
-  @media screen and (min-width:768px){
-    padding: 0px 20px;
-  }
 
-  .product--imgContainer{
+  .product__imgContainer{
     @media screen and (min-width:992px){
       width: 70%;
     }
@@ -41,7 +45,7 @@
       width: 100vw;
       height: 28.48vh;
     }
-    .product--img{
+    .product__img{
       width: 100%;
       height: 100%;          
       background-image: url(../img/himalaya1.jpg);
@@ -50,7 +54,7 @@
       background-position: left bottom;
     }
   }
-  .product--info{
+  .product__info{
     position: relative;
     @media screen and (min-width:992px){
       width: 30%;
@@ -59,20 +63,20 @@
     }
     @media screen and (max-width:991px){
       width: 100%;
-      padding: 10px 0px 10px;
+      padding: 10px 20px 10px;
     }
-    .product--share{
+    .product__share{
       text-align: right;
       @media screen and (max-width:991px){
         position: absolute;
-        right: 0;
+        right: 20px;
         top: 30px;
       }
       img{
         padding-left: 20px;
       }
     }
-    .product--title{
+    h1{
       font-family: 'Microsoft JhengHei';
       color: #106172;
       font-size: 1.875rem;
@@ -106,7 +110,7 @@
         }
       }
     }
-    .product--price{
+    .product__price{
       color: #106172;
       font-size: 1.875rem;
       line-height: 2.25rem;
@@ -116,14 +120,9 @@
         line-height: 2rem;
       }
     }
-    .btn-main-s{
-      border: none;
-      font-size: 1rem;
-      font-weight: bold;
-    }
   }
 }
-.product--weather{
+.product__weather{
   width: 100%;
   max-width: 800px;
   padding: 0px 20px;
@@ -422,3 +421,153 @@
   :checked + label{
     font-weight: 900;
   }
+}
+.product__submenu{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: 0px 3px 6px rgba(0,0,0,.16);
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width:767px){
+    display: none;
+  }
+  ul{
+    padding: 0 20px;
+    li{
+      float: left;
+      a{
+        display: inline-block;
+        color: #106172;
+        font-size: 1rem;
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+    }
+    li+li{
+      padding-left: 20px;
+    }
+  }
+  .product__submenuPrice{
+    display: flex;
+    .product__price{
+      color: #106172;
+      font-size: 1.25rem;
+      font-weight: 900;
+      padding: 13px 0;
+    }
+    .btn-main-s{
+      margin: 5px 20px;
+    }
+  }
+}
+.product__wrap{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px 0;
+  h2{
+    color: #106172;
+    font-size: 1.25rem;
+    font-family: "Microsoft JhengHei";
+    font-weight: bold;
+  }
+  p{
+    color: #484848;
+    font-size: 1rem;
+    font-family: "Microsoft JhengHei";
+    line-height: 1.625rem;
+  }
+}
+#product__itineraryTitle + p{
+  padding-top: 20px;
+  @media screen and (min-width:992px){
+    width: 50%;
+  }
+  @media screen and (max-width:991px) and (min-width:768px){
+    width: 70%;
+  }
+  @media screen and (max-width:767px){
+    width: 100%;
+  }
+}
+.product__routeInfo{
+  display: flex;
+  position: relative;
+  .product__route{
+    @media screen and (min-width:992px){
+      width: 60%; 
+    }
+    @media screen and (max-width:991px) and (min-width:768px){
+      width: 50%; 
+    }
+    @media screen and (max-width:767px){
+      width: 100%; 
+    }
+    .route{
+      display: flex;
+      padding-top:20px;
+      @media screen and (min-width:992px){
+        flex-wrap: nowrap;
+      }
+      @media screen and (max-width:991px){
+        flex-wrap: wrap;
+      }
+      .route__img{
+        @media screen and (min-width:992px){
+          width: 54%; 
+        }
+        @media screen and (max-width:991px){
+          width: 100%; 
+        }
+        img{
+          width: 100%;
+        }
+      }
+      .route__info{
+        @media screen and (min-width:992px){
+          width: 46%; 
+        }
+        @media screen and (max-width:991px){
+          width: 100%; 
+        }
+        color: #484848;
+        font-family: "Microsoft JhengHei";
+        padding: 20px;
+        h3{
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+        p{
+          font-size: 1rem;
+          line-height: 1.625rem;
+          padding-top: 10px;
+        }
+        .route__icon{
+          padding-top: 10px;
+          i{
+            vertical-align: middle;
+            padding-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  .product__map{
+    @media screen and (min-width:992px){
+      width: 40%; 
+    }
+    @media screen and (max-width:991px) and (min-width:768px){
+      width: 50%; 
+      padding-left: 20px;
+    }
+    @media screen and (max-width:767px){
+      display: none;
+    }
+    img{
+      width: 100%;
+      position: sticky;
+      top: 20px;
+    }
+  }
+}

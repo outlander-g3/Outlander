@@ -21,6 +21,7 @@ body{
         position: relative;
         span{
             position: absolute;
+            opacity: 0.5;
         }
         #indexName1{
             top: -100%;
@@ -179,6 +180,7 @@ body{
     margin: auto;
     width: 100%;
     max-width: 1200px;
+    @include mTop (100);
     h2{
         text-align: center;
         color:$color-subTitle;
@@ -215,8 +217,11 @@ body{
     max-width: 768px;
     overflow-x: hidden;
     @include mTop(100);
+    @media (min-width:768px) {
+        max-width: 1200px;
+    }
     h2{
-        @include mBottom(50);
+        @include block ();
         text-align: center;
         color:$color-subTitle;
         @include f30b();
@@ -304,9 +309,9 @@ body{
            
            .index-warp3-img-text{
                position: absolute;
-               top: 90%;
+               top: 85%;
                left: 5%;
-               @include f16 ();
+               font-size: 1rem;;
                color: white;
            }
        }
@@ -317,6 +322,7 @@ body{
         @include mTop(50);
         @include btn ();
         height: unset;
+        @include btn-s ();
         a{
             display: block;
             color:$color-btn-main;
@@ -330,7 +336,7 @@ body{
     max-width: 1200px;
     @include mTop(100);
     h2{
-        @include mBottom(50);
+        @include block ();
         text-align: center;
         color:$color-subTitle;
         @include f30b();
@@ -342,6 +348,8 @@ body{
             @include f20 ();
             color: $color-text;
             button{
+                cursor: pointer;
+                @include btn-s ();
                 @include btn ();
                 height: unset;
                 color:$color-btn-main;
@@ -405,7 +413,7 @@ body{
     overflow-x: hidden;
     @include mTop(100);
     h2{
-        @include mBottom(50);
+        @include block ();
         text-align: center;
         color:$color-subTitle;
         @include f30b();
@@ -494,6 +502,7 @@ body{
           margin: 0 27%;
           @include btn ();
           height: unset;
+          @include btn-s ();
           a{
               display: block;
               color:$color-btn-main;
@@ -522,6 +531,7 @@ body{
             }
             button{
             margin: auto;
+            @include btn-s ();
             }
 
         }
@@ -535,7 +545,7 @@ body{
     height: 600px;
     @include mTop(100);
     h2{
-        @include mBottom(20);
+        @include block ();
         text-align: center;
         color:$color-subTitle;
         @include f30b();
@@ -544,5 +554,6 @@ body{
         text-align: center;
         color: $color-text;
         font-size: 1rem;
+        line-height: 1.5;
     }
 }

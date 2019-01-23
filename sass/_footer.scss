@@ -9,6 +9,7 @@
         z-index: -1;
         width: 100%;
         height: 710px;
+        max-width: 1920px;
     }
     #footer-all{
         display: flex;
@@ -32,6 +33,13 @@
             justify-content: space-around;
             @include pTop(20);
             @include pBottom(20);
+            span{
+                padding-right:20px;
+                cursor: pointer;
+                i{
+                    margin: 0 10px;
+                }
+            }
         }
         #footer-input{
             margin: auto;
@@ -60,9 +68,6 @@
                     align-items: flex-end;
                     padding-top: 20px;
                     padding-bottom: 20px;
-                    span{
-                        padding-right: 20px;
-                    }
                 } 
                 #footer-input{      
                     display: flex;

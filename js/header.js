@@ -77,7 +77,7 @@ window.addEventListener("load", () => {
     var body = document.getElementsByTagName("body")[0];
     search.addEventListener("click", () => {
         if (!on) {
-            filter.style.cssText = "top: 7%;left: 15%;display:block";
+            filter.style.cssText = "top: 5%;left: 15%;display:block";
             on = true;
         }
         else if (on) {

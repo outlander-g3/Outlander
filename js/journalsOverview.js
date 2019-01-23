@@ -7,3 +7,5 @@ $('.joForm__input').click(function (e) {
 $(document).click(function () {
     $('.joForm__input').removeClass('expanded');
 });
+
+

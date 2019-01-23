@@ -7,13 +7,13 @@
     select:focus, button{
         outline: none;
     }
-    font-family: "微軟正黑體" !important;
+    font-family: "Microsoft JhengHei" !important;
 }
 
 .jo__map img{   
     display: block;
     margin: auto;  
-    width: 70%;
+    width: 60%;
     @media only screen and (max-width: 600px) {
         display: none;      
     }   
@@ -26,7 +26,31 @@
     background-color:$color-btn-main;
     @include btn();
     @include btn-l();
-    border: none;
+    border: none;   
+    position: relative;
+}
+#button_with_pencil {
+    @media only screen and (max-width: 600px) {
+       border-radius: 50%;
+       width: 42px;
+       height: 42px;      
+    }  
+    span{
+        position: relative;
+        top:-0.3rem;
+        @media only screen and (max-width: 600px) {
+            display: none;      
+        }   
+    }
+    img{
+        position: relative;
+        top:0.2rem;
+        left:-0.5rem;
+        @media only screen and (max-width: 600px) {
+            top:0.2rem;
+            left:0;      
+        }
+    }
 }
 .jo__filter__and__write{
     width: 90%;
@@ -64,15 +88,15 @@
     }
 
 
-    // a{
-    //     display: block;
-    //     transition:1s;
-    //     @include rwd(desktop){
-    //         &:hover{
-    //         transform: scale(1.1); 
-    //         }
-    //     }
-    // }
+    a{
+        display: block;
+        transition:1s;
+        @include rwd(desktop){
+        &:hover {
+           
+        }
+        }
+    }
     
     .jo__onecard{
         @include mBottom(40);
@@ -137,16 +161,13 @@
     display: none;
   }
   .joForm__input label {
-    border-top: .06em solid #d9d9d9;
+    border-top:0.06em solid #d9d9d9;
     display: block;
-    font-style: 16px bold !important;
-    @include pLeft(5);
+    @include pLeft(10);
     cursor: pointer;
     position: relative;
     transition: 0.3s color ease-in-out;
-    span{
-        @include f16b;
-    }
+    @include f16b;
   }
   .joForm__input label:nth-child(2) {
     @include mTop(42);
@@ -159,9 +180,8 @@
     top: 0;
   }
   .joForm__input input:checked + label:nth-child(2) {
-    border: 0.4em solid #fff;
-    border-color: #fff transparent transparent transparent;
-    transition: .4s all ease-in-out;
+    @include mTop(0);
+    position: relative;
   }
   .joForm__input::after {
     content: "";

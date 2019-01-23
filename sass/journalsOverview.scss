@@ -139,14 +139,6 @@
     top: 0;
   }
   .joForm__input input:checked + label:nth-child(2) {
-    @include mTop(0);
-    position: relative;
-  }
-  .joForm__input::after {
-    content: "";
-    position: absolute;
-    right: 10%;
-    top: 1.2em;
     border: 0.4em solid #fff;
     border-color: #fff transparent transparent transparent;
     transition: .4s all ease-in-out;

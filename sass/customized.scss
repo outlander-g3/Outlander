@@ -2,9 +2,9 @@
 @import"base/_var_cu.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-customized.scss";
-// *{
-//     outline: 1px solid salmon;
-// }
+*{
+    outline: 1px solid salmon;
+}
 // 手機直 575px
 @mixin phone-width() {
     @media screen and (max-width: $phones-media) {
@@ -90,7 +90,7 @@ nav,.mw_1200,.cuCustom{
     width: 100%;
     background-size: cover;
     background-position: center;
-  background-repeat: no-repeat;
+    background-repeat: no-repeat;
 }
 .cuProcess{
     display: flex;
@@ -132,16 +132,21 @@ nav,.mw_1200,.cuCustom{
 /*客製化流程開始*/
 .cuCustom{
     @include small-pad-width() {
-       margin: auto;
-    }
-    @include phone-width() {
-        @include pLeft(20);
-        @include pRight(20);
+        margin: auto;
     }
     @include pad-width() {
-        @include pLeft(77);
+        display: flex;
+        margin: 0 77px;
+        // @include mLeft(20);
+
+        // justify-content: space-around;
     }
 } 
+
+.custom-select{
+    @include pLeft(20);
+}
+
 /*選擇器__洲別及山岳*/ 
 /* The container must be positioned relative: */
 .custom-select {
@@ -205,8 +210,11 @@ margin-top: 10px;
         background-color: rgba(0, 0, 0, 0.1);
         }
 /*客製化空間*/
-.cuCustom__zone{
+
+/*調整風景順序*/ 
+.cuCustom__dropZone{
     @include br4;
+    @include cu_ColorBg(.7);
     &:before{
         content: '我的風景路線規劃';
         display: inline-block;
@@ -218,41 +226,43 @@ margin-top: 10px;
         @include cu_ColorBg(.7);
         @include br4;
     }
+  
+    @include small-pad-width() {
+        @include mLeft(20);
+        @include mRight(20);
+        height: 369px;
+        margin: 20px;
+    }
+    @include pad-width() {
+        width: 51.6667%;
+        height: 549px;
+    }
+   
+} 
+/*風景列表*/ 
+#cuCustom__sceneryZone--bg{
     @include small-pad-width() {
         width: 100%;
-        height: 369px;
-        @include cu_ColorBg(.7);
-        @include mTop(20);
-        @include mBottom(20);
-        position: relative;
-    }
-    // .cuCustom__dropZone
-} 
-// 
-#cuCustom__sceneryZone--bg{
-    width: 100%;
     height: 100vh;
     background-color: rgba(31,31,31,.6);
     position: absolute;
     top: 0;
-    
+    }
     .cuCustom__sceneryZone{
         @include br4;
-        // display: flex;
-        @include phone-width() {
-            height: 455px;
+        @include f20b;
+        height: 455px; 
+        background-color: $color-white;
+        
+        @include small-pad-width() {
             width: 90%;
-            background-color: $color-white;
-            // @include mLeft(20);
-            // @include mRight(20);
-            // @include mTop(100);
             position: absolute;
             top:50%;
             left: 50%;
             transform: translate(-50%, -50%);
 
             &:before{
-                content: '我的風景路線規劃';
+                content: '山岳風景列表';
                 display: inline-block;
                 width: 100%;
                 color: $color-white;
@@ -260,10 +270,28 @@ margin-top: 10px;
                 padding:  13px 0 10px 20px; 
                 box-sizing: border-box;
                 border-radius: 4px 4px 0 0 ;
-                @include f20b;
+                // @include f20b;
                 @include cu_ColorBg(1);
             }
         }
+        
+        @include pad-width() {
+             
+            // width: 38.5%;
+            width: 462px;
+            &:before{
+                content: '山岳風景列表';
+                display: inline-block;
+                width: 100%;
+                // color: $color-white;
+                height: 47px;
+                padding:  13px 0 10px 20px; 
+                box-sizing: border-box;
+                border-radius: 4px 4px 0 0 ;
+                
+                @include cu_ColorBg(1);
+            }
+            }
     }
 }
 .cuCustom__sceneryItem{

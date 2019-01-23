@@ -6,6 +6,7 @@
   border: none;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
 }
 #breadcrumb{
   font-family: 'Microsoft JhengHei';
@@ -49,9 +50,9 @@
       width: 100%;
       height: 100%;          
       background-image: url(../img/himalaya1.jpg);
-      background-repeat: none;
+      background-repeat: no-repeat;
       background-size: cover; 
-      background-position: left bottom;
+      background-position: center center;
     }
   }
   .product__info{
@@ -571,9 +572,13 @@
     }
   }
 }
+.product_timePrice{
+  padding-top: 20px;
+  display: flex;
+}
 .datepicker{
-  width: 380px;
-  padding: 10px 30px;
+  width: 351px;
+  padding: 10px 20px 20px;
   border: 1px solid #484848;
   border-radius: 4px;
   position: relative;
@@ -591,12 +596,54 @@
   .week,
   .day{
     font-size: 1rem;
+    position: relative;
     li{
-      width: 45px;
+      width: 14.28%;
       text-align: center;
-      padding: 10px 0;
+      padding-top: 10px;
       line-height: 1.625rem;
     }
+    .mute{
+      color: #989898;
+    }
+    .selected{
+      color: #fff;
+    }
+  }
+  .day::before{
+    content: "";
+    display: block;
+    width: 220px;
+    height: 26px;
+    border-radius: 13px 0 0 13px;
+    background-color: rgba(93, 183, 197, .7);
+    position: absolute;
+    top: 46px;
+    left: 90px;
+    z-index: -1;
+  }
+  .day::after{
+    content: "";
+    display: block;
+    width: 306px;
+    height: 26px;
+    border-radius: 0px 0 0 0px;
+    background-color: rgba(93, 183, 197, .7);
+    position: absolute;
+    top: 82px;
+    left: 4px;
+    z-index: -1;
+  }
+  .day span{
+    display: block;
+    width: 84px;
+    height: 26px;
+    border-radius: 0px 13px 13px 0px;
+    background-color: rgba(93, 183, 197, .7);
+    position: absolute;
+    top: 117px;
+    left: 4px;
+    z-index: -1;
   }
 }
 .datepicker::after{
@@ -608,4 +655,69 @@
   position: absolute;
   top: 45px;
   left: 0;
+}
+.product__priceDetail{
+  padding: 20px;
+  margin-left: 30px;
+  border: 1px solid #484848;
+  border-radius: 4px;
+  color: #484848;
+  line-height: 1.625rem;
+  h3{
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  ul{
+    padding-top: 20px;
+    li{
+    font-size: 1rem;
+    }
+    li::before{
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #484848;
+    }
+  }
+  #product__include{
+    float: left;
+    padding-right: 40px;
+  }
+  #product__exclude{
+    float: left;
+    padding-right: 120px;
+  }
+  #product__time{
+    float: left;
+    width: 300px;
+    p{
+      i{
+        font-size: 24px;
+        vertical-align: middle;
+        color: #484848;
+        padding-right: 10px;
+      }
+      span{
+        padding-left: 20px;
+      }
+    }
+    #product__timeStart{
+      padding: 27px 0px 20px;
+      border-bottom: 1px solid rgba(0,0,0,.16);
+    }
+    #product__timeEnd{
+      padding: 20px 0px 27px;
+    }
+    button{
+      float: right;
+    }
+  }
+}
+.product__priceDetail::after,
+#product__time::after{
+  content: "";
+  display: block;
+  clear: both;
 }

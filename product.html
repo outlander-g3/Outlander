@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/product.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -139,7 +140,7 @@
       <li><a href="#product__itineraryTitle">行程介紹</a></li>
       <li><a href="#product__routeTitle">路線介紹</a></li>
       <li><a href="#product__timeTitle">行程時間</a></li>
-      <li><a href="#">嚮導介紹</a></li>
+      <li><a href="#product__guideTitle">嚮導介紹</a></li>
       <li><a href="#">旅客評價</a></li>
     </ul>
     <div class="product__submenuPrice">
@@ -255,8 +256,8 @@
           <li>SAT</li>
         </ul>
         <ul class="day">
-          <li>30</li>
-          <li>31</li>
+          <li class="mute">30</li>
+          <li class="mute">31</li>
           <li>1</li>
           <li>2</li>
           <li>3</li>
@@ -264,20 +265,20 @@
           <li>5</li>
           <li>6</li>
           <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-          <li>11</li>
-          <li>12</li>
-          <li>13</li>
-          <li>14</li>
-          <li>15</li>
-          <li>16</li>
-          <li>17</li>
-          <li>18</li>
-          <li>19</li>
-          <li>20</li>
-          <li>21</li>
+          <li class="selected">8</li>
+          <li class="selected">9</li>
+          <li class="selected">10</li>
+          <li class="selected">11</li>
+          <li class="selected">12</li>
+          <li class="selected">13</li>
+          <li class="selected">14</li>
+          <li class="selected">15</li>
+          <li class="selected">16</li>
+          <li class="selected">17</li>
+          <li class="selected">18</li>
+          <li class="selected">19</li>
+          <li class="selected">20</li>
+          <li class="selected">21</li>
           <li>22</li>
           <li>23</li>
           <li>24</li>
@@ -288,11 +289,206 @@
           <li>29</li>
           <li>30</li>
           <li>31</li>
-          <li>1</li>
-          <li>2</li>
+          <li class="mute">1</li>
+          <li class="mute">2</li>
+          <span></span>
         </ul>
+      </div>
+      <div class="product__priceDetail">
+        <div id="product__include">
+          <h3>費用包含</h3>
+          <ul>
+            <li> 當地食宿</li>
+            <li> 入山規費</li>
+            <li> 旅約保險</li>
+            <li> 簽證規費</li>
+            <li> 行政費用</li>
+          </ul>
+        </div>
+        <div id="product__exclude">
+          <h3>費用不包含</h3>
+          <ul>
+            <li> 護照費用</li>
+            <li> 廚師小費</li>
+            <li> 自費項目</li>
+            <li> 挑夫小費</li>
+            <li> 當地嚮導費用</li>
+          </ul>
+        </div>
+        <div id="product__time">
+          <h3>行程時間</h3>
+          <p id="product__timeStart">
+            <i class="material-icons">place</i>
+            開始時間
+            <span>2019/01/08</span>
+          </p>
+          <p id="product__timeEnd">
+            <i class="material-icons">flag</i>
+            結束時間
+            <span>2019/01/21</span>
+          </p>
+          <button class="btn-main-s">確認訂購</button>
+        </div>
       </div>
     </div>
   </section>
+
+  <section class="product__wrap">
+    <h2 id="product__guideTitle">嚮導介紹</h2>
+    <div class="product__guide">
+      <div class="product__guideImg">
+        <img src="img/guide1.jpg" alt="guide1">
+      </div>
+      <div class="product__guideInfo">
+        <h3>登山嚮導</h3>
+        <span class="product__guideName">Dave Chew</span>
+        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵、高海拔遠征、攀岩極冰攀略有涉獵、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+      </div>
+      <div class="product__guideCapability">
+        <h3>嚮導綜合能力</h3>
+        <canvas id="canvas" width="300" height="200"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  var canvas = document.getElementById("canvas");
+
+var gradientBlue = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+gradientBlue.addColorStop(0, 'rgba(16, 97, 114, .9)');
+gradientBlue.addColorStop(1, 'rgba(93, 183, 197, 0.8)');
+
+// var gradientHoverBlue = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+// gradientHoverBlue.addColorStop(0, 'rgba(65, 65, 255, 1)');
+// gradientHoverBlue.addColorStop(1, 'rgba(131, 125, 255, 1)');
+
+var gradientRed = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+// gradientRed.addColorStop(0, 'rgba(255, 85, 184, 0.9)');
+// gradientRed.addColorStop(1, 'rgba(255, 135, 135, 0.8)');
+
+// var gradientHoverRed = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+// gradientHoverRed.addColorStop(0, 'rgba(255, 65, 164, 1)');
+// gradientHoverRed.addColorStop(1, 'rgba(255, 115, 115, 1)');
+
+var redArea = null;
+var blueArea = null;
+
+var shadowed = {
+	beforeDatasetsDraw: function(chart, options) {
+    chart.ctx.shadowColor = 'rgba(0, 0, 0, 0.25)';
+    chart.ctx.shadowBlur = 40;
+  },
+  afterDatasetsDraw: function(chart, options) {
+  	chart.ctx.shadowColor = 'rgba(0, 0, 0, 0)';
+    chart.ctx.shadowBlur = 0;
+  }
+};
+
+// Chart.plugins.register({
+//   afterEvent: function(chart, e) {
+//  		// Hardcoded hover areas
+    
+//     // Red chart
+//     chart.ctx.beginPath();
+//     chart.ctx.moveTo(91, 69);
+//     chart.ctx.lineTo(152, 80);
+//     chart.ctx.lineTo(192, 75);
+//     chart.ctx.lineTo(213, 138);
+//     chart.ctx.lineTo(148, 168);
+//     chart.ctx.lineTo(105, 126);
+//     chart.ctx.fill();
+//     chart.ctx.closePath();
+    
+//     if (chart.ctx.isPointInPath(e.x, e.y)) {
+//     	var dataset = window.chart.data.datasets[0];
+//       dataset.backgroundColor = gradientHoverRed;
+//       window.chart.update();
+//       canvas.style.cursor = 'pointer';
+//     } else {
+//     	var dataset = window.chart.data.datasets[0];
+//       dataset.backgroundColor = gradientRed;
+//       window.chart.update();
+//       canvas.style.cursor = 'default';
+//     }
+    
+//     // Blue chart
+//     chart.ctx.beginPath();
+//     chart.ctx.moveTo(85, 61);
+//     chart.ctx.lineTo(149, 66);
+//     chart.ctx.lineTo(224, 63);
+//     chart.ctx.lineTo(179, 112);
+//     chart.ctx.lineTo(152, 177);
+//     chart.ctx.lineTo(121, 117);
+//     chart.ctx.fill();
+//     chart.ctx.closePath();
+    
+//     if (chart.ctx.isPointInPath(e.x, e.y)) {
+//     	var dataset = window.chart.data.datasets[1];
+//       dataset.backgroundColor = gradientHoverBlue;
+//       window.chart.update();
+//       canvas.style.cursor = 'pointer';
+//     } else {
+//     	var dataset = window.chart.data.datasets[1];
+//       dataset.backgroundColor = gradientBlue;
+//       window.chart.update();
+//       canvas.style.cursor = 'default';
+//     }
+//   }
+// });
+
+window.chart = new Chart(document.getElementById("canvas"), {
+    type: "radar",
+    data: {
+        labels: ["YDS等級", "體能表現", "求生能力", "應變能力", "帶團經驗"],
+        datasets: [{
+            label: "Dave Chew",
+            data: [60, 70, 40, 100, 90],
+            fill: true,
+            backgroundColor: gradientBlue,
+            borderColor: "transparent",
+            pointBackgroundColor: "transparent",
+            pointBorderColor: "transparent",
+            pointHoverBackgroundColor: "transparent",
+            pointHoverBorderColor: "transparent",
+          //多元可以感應
+            pointHitRadius: 50,
+        }]
+    },
+    options: {
+    	legend: {
+      	display: false,
+      },
+      //顯示tooltip
+      tooltips: {
+      	enabled: true,
+        // custom: function(tooltip) {
+        // 		var tooltipEl = document.getElementById('tooltip');
+        //   	if (tooltip.body) {
+        //     	tooltipEl.style.display = 'block';
+        //       if (tooltip.body[0].lines && tooltip.body[0].lines[0]) {
+        //       	tooltipEl.innerHTML = tooltip.body[0].lines[0];
+        //       }
+        //     } else {
+        //     	setTimeout(function() {
+        //     		tooltipEl.style.display = 'none';
+        //       }, 500);
+        //     }
+        // },
+      },
+      // gridLines: {
+      //   display: true
+      // },
+      scale: {
+         ticks: {
+           //radar隔線
+         		maxTicksLimit: 1,
+           //標記數值
+            display: false,
+         }
+      }
+    },
+    plugins: [shadowed]
+});
+  </script>
 </body>
 </html>

@@ -98,3 +98,10 @@
         }
     }
 }
+
+@mixin ctTextBlock(){
+    @include rwd(medium){
+        max-width: 500px;
+        margin: auto;
+    }
+}

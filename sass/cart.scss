@@ -96,6 +96,7 @@ a{
                 }
                 @include rwd(desktop){
                     width: 100%;
+                    height: 35vh;
                 }
             }
 
@@ -275,7 +276,6 @@ a{
         }
         .ctRule{
             padding: 20px;
-            
             .ctRule__text{
                 @include f14();
                 @include pTop(10);
@@ -369,6 +369,13 @@ a{
         }
     }
 
+    }
+    .ctMobile__btn{
+        .btn-pay{
+            @include rwd(medium){
+                display: inline-block;
+            }
+        }
     }
 }
 

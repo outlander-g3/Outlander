@@ -1,7 +1,7 @@
 @import"base/_var.scss";
 @import"mixin/_mixin.scss";
 
-.head{
+.rbhead{
     background-color:rgb(44, 97, 92);
     max-width:377px;
     width: 100%;
@@ -10,7 +10,7 @@
     
 }
 
-.head__box{
+.rbhead__box{
     width: 360px;
     height: 82px;
     display: flex;
@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.head__box img{
+.rbhead__box img{
     width: 50px;
     height: 45px;
 } 
@@ -30,7 +30,7 @@ h2{
     color: #ffffff;
 }
 
-#message{
+#rbmessage{
     max-width:377px;
     width: 100%;
     height: 400px;
@@ -43,13 +43,13 @@ h2{
     color: #484848; 
 }
 
-.input__text{
+.rbinput__text{
     display:inline-block;
     max-width:377px;
     width: 100%;
 }
 
-.text__input{
+.rbtext__input{
     display: flex;
     flex-direction: row;
     align-content: flex-end;
@@ -59,13 +59,13 @@ h2{
     background-color: #ffffff;
     border: 1px solid #989898;
 }
-.text__input input{
+.rbtext__input input{
     max-width:330px;
     width: 100%;
     border: none;
 }
 
-.text__input .butn{
+.rbtext__input .butn{
     max-width:40px;
 
     width: 100%;

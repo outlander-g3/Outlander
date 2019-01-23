@@ -3,11 +3,11 @@
 @import "mixin/_mixin-journalsOverview.scss";
 
 *{
-    // outline: 1px solid red;
+    outline: 1px solid red;
     select:focus, button{
         outline: none;
     }
-    font-family: "Microsoft JhengHei" !important;
+    font-family: "Microsoft JhengHei";
 }
 
 .jo__map img{   
@@ -29,6 +29,7 @@
     border: none;   
     position: relative;
 }
+
 #button_with_pencil {
     @media only screen and (max-width: 600px) {
        border-radius: 50%;
@@ -90,50 +91,60 @@
 
     a{
         display: block;
-        transition:1s;
-        @include rwd(desktop){
-        &:hover {
-           
-        }
-        }
-    }
+
+        .jo__onecard{
+            @include mBottom(40);
+            border: 1px solid #ccc;
+            @include br4();
+            background: #fff;
+            transition: 0.5s;
+            img{
+                max-width: 100%;
+                border-radius: 4px 4px 0 0;
+                vertical-align:text-top;
+            }
+            .jo__allinfo{
+                padding: 20px;
     
-    .jo__onecard{
-        @include mBottom(40);
-        border: 1px solid #ccc;
-        @include br4();
-        background: #fff;
-        transition: 0.5s;
-        
-    }
-    .jo__allinfo{
-        padding: 20px;
-    }
-    .jo__publish,h3,.jo__text{
-        // padding: 10px;
-        @include pTop(10);
-        // font-family: "微軟正黑體";
-    }
-    img{
-        max-width: 100%;
-        border-radius: 4px 4px 0 0;
-        vertical-align:text-top;
-    }
-    .jo__publish{
-        @include f14;
-        font-size: 12px;
-        color:$color-subTitle;
-    }
-    h3{
-        @include f20b;
-        color:$color-text; 
-    }
-    .jo__text{
-        @include f14;
-        color:$color-text; 
-        line-height:1.5em ;
-    }
-        
+                .jo__publish,h3,.jo__text{
+                    // padding: 10px;
+                    @include pTop(10);
+                    // font-family: "微軟正黑體";
+                }
+                .jo__publish{
+                    @include f14;
+                    font-size: 12px;
+                    color:$color-subTitle;
+                }
+                h3{
+                    @include f20b;
+                    color:$color-text; 
+                }
+                .jo__text{
+                    @include f14;
+                    color:$color-text; 
+                    line-height:1.5em ;
+                }
+                .icon{
+                    width: 100%;
+                    @include mTop(10);
+                    color: #555555;
+                    display: flex;
+                    .material-icons{
+                        
+                    }
+                    .fa-comment{
+
+                    }
+                    span{
+                        @include f14;
+                        
+                        
+                    }
+                }
+            }      
+       }        
+    }   
 }   
    
 .joOverMore button{
@@ -165,6 +176,7 @@
     display: block;
     @include pLeft(10);
     cursor: pointer;
+    font-family: "Microsoft JhengHei";
     position: relative;
     transition: 0.3s color ease-in-out;
     @include f16b;

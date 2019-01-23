@@ -1,4 +1,5 @@
 window.addEventListener("load", () => {
+    // 利用程式讓文字跟著圖片大小而改變
     var h1 = document.querySelector("h1");
     h1.style.fontSize = ((window.innerWidth) / 10) + "px";
     var searchicon = document.querySelector(".searchicon");
@@ -14,6 +15,11 @@ window.addEventListener("load", () => {
         var indexName = document.querySelector("#indexName" + i);
         indexName.classList.add("indexName" + i);
     }
+
+
+
+
+    // 點擊banner搜尋的時候 抓到當前搜尋的位子 再把nav的搜尋固定定位到 banner搜尋下方 因為我懶 不想寫2個搜尋 XD
     var searchAll = document.querySelector("#searchAll");
     var filter = document.querySelector(".filter");
     var topp = getComputedStyle(bannerSearch);
@@ -43,8 +49,62 @@ window.addEventListener("load", () => {
         filter.style.display = "block";
         filter.style.top = (topp4 + 5) + "px";
     })
-    var iii = document.querySelector("#index-warp3-img2");
-    iii.addEventListener("click",(e)=>{
-        console.log("iii");
-    })
+
+
+
+//行程的風琴夾預留位子 
+
+
+
+// 遊戲的文字定位+挑選遊戲
+//測試偽類比對ID 成功
+// var aaa = document.querySelector("#aaa");
+// window.addEventListener("click",(e)=>{
+//     console.log(e.target,aaa);
+//     if(e.target==aaa){
+//         aaa.style.background="black";
+//     }
+// })
+
+
+
+
+// 第一個遊戲
+
+
+
+
+// 第二個遊戲
+
+
+
+
+// 第三個遊戲
+
+
+
+
+
+// 登山日誌
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })

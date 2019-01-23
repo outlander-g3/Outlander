@@ -1,7 +1,12 @@
 @import "base/_reset.scss";
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
+<<<<<<< HEAD
 @import "_header.scss";
+=======
+@import "header.scss";
+@import "footer";
+>>>>>>> 2fbaac31a47057c87730c077bfb82b38fca85250
 
 *{
     font-family: "微軟正黑體";

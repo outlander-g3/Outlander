@@ -254,3 +254,25 @@
         }
     }
 }
+#robot{
+    position: fixed;
+    top: 70%;
+    left: 90%;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #aaa;
+    border-radius: $border-radius-btn;
+    cursor: pointer;
+}
+#up{
+    position: fixed;
+    top: 80%;
+    left: 90%;
+    width: 42px;
+    @include f30 ();
+    text-align: center;
+    line-height: 42px;
+    border: 1px solid #aaa;
+    border-radius: $border-radius-btn;
+    cursor: pointer;
+}

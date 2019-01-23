@@ -91,7 +91,43 @@ window.addEventListener("load", () => {
 
 
 // 登山日誌
-
+// 點擊按鈕換洲圖 懶得寫js 直接jq 
+document.querySelector("#asia").addEventListener("click",(e)=>{
+    $("#index-list-img-all .index-list-hide").hide();
+    $(".list-1 button").css("color","white");
+    $("#asia-all").show();
+    e.target.style.color="red";
+})
+document.querySelector("#europe").addEventListener("click",(e)=>{
+    $("#index-list-img-all .index-list-hide").hide();
+    $(".list-1 button").css("color","white");
+    $("#europe-all").show();
+    e.target.style.color="red";
+})
+document.querySelector("#africa").addEventListener("click",(e)=>{
+    $("#index-list-img-all .index-list-hide").hide();
+    $(".list-1 button").css("color","white");
+    $("#africa-all").show();
+    e.target.style.color="red";
+})
+document.querySelector("#oceania").addEventListener("click",(e)=>{
+    $("#index-list-img-all .index-list-hide").hide();
+    $(".list-1 button").css("color","white");
+    $("#oceania-all").show();
+    e.target.style.color="red";
+})
+document.querySelector("#namerica").addEventListener("click",(e)=>{
+    $("#index-list-img-all .index-list-hide").hide();
+    $(".list-1 button").css("color","white");
+    $("#namerica-all").show();
+    e.target.style.color="red";
+})
+document.querySelector("#samerica").addEventListener("click",(e)=>{
+    $("#index-list-img-all .index-list-hide").hide();
+    $(".list-1 button").css("color","white");
+    $("#samerica-all").show();
+    e.target.style.color="red";
+})
 
 
 

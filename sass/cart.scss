@@ -168,7 +168,7 @@ a{
         .ctPassanger{
             // width: 50%;
             max-width: 400px;
-            @include rwd(medium){
+            @include rwd(mobile){
                 @include mTop(20);
             }
             .ctPassanger__tab{
@@ -401,4 +401,4 @@ a{
     }
 }
 
-@include o;
+// @include o;

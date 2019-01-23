@@ -17,7 +17,8 @@ window.addEventListener("load", () => {
     }
 
 
-
+    var burgerText = document.querySelector("#burgerText");
+    
 
     // 點擊banner搜尋的時候 抓到當前搜尋的位子 再把nav的搜尋固定定位到 banner搜尋下方 因為我懶 不想寫2個搜尋 XD
     var searchAll = document.querySelector("#searchAll");
@@ -30,6 +31,10 @@ window.addEventListener("load", () => {
     topp3 = topp2.substr(0, topp2.length - 2);
     topp4 += Number(topp3);
     window.addEventListener("scroll", () => {
+        // if(window.scrollY==window.innerHeight){
+
+        //     burgerText.style.b="#0d6172";
+        // }
         if (bannerSearch.offsetTop > window.scrollY) {
             searchAll.style.display = "none";
             filter.style.display = "none";

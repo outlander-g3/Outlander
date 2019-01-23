@@ -3,18 +3,6 @@
 body{
     overflow-x: hidden;
 }
-@media (min-width:768px){
-    .header{
-        #burgerText{
-            li{
-                a{
-                    color:white;
-                }
-            }
-        }
-    }
-}
-
 #searchAll{
     display: none;
 }
@@ -24,6 +12,7 @@ body{
 }
 #indexBanner{
     width: 100%;
+    max-width: 1920px;
     #banner{
         width: 100%;
         background-image: url("../img/暫時用的圖/banner-sky2.png");
@@ -178,10 +167,10 @@ body{
         }
         @media (min-width:768px) {
             #bannerSearch{
-                top: 60%;
+                top: 50%;
             }
             .material-icons{
-                top: 60.5%;
+                top: 50.5%;
             }
         }
     }
@@ -202,14 +191,16 @@ body{
         .index-warp2-card{
             text-align: center;
             flex: 1;
-            line-height: 1.5;
+            line-height: 1.6;
             h3{
-                @include f20b ();
+                font-size: 1.1rem;
+                font-weight: bold;
                 color:$color-subTitle;
             }
             p{
                 color:$color-text;
-                @include f16 ();
+                font-size: 0.8rem;
+                padding: 0 10px;
             }
             img{
                 width: 20%;
@@ -221,7 +212,8 @@ body{
 #index-warp3{
     margin: auto;
     width: 100%;
-    max-width: 1200px;
+    max-width: 768px;
+    overflow-x: hidden;
     @include mTop(100);
     h2{
         @include mBottom(50);
@@ -410,6 +402,7 @@ body{
     margin: auto;
     width: 100%;
     max-width: 1200px;
+    overflow-x: hidden;
     @include mTop(100);
     h2{
         @include mBottom(50);
@@ -550,6 +543,6 @@ body{
     p{
         text-align: center;
         color: $color-text;
-        @include f16();
+        font-size: 1rem;
     }
 }

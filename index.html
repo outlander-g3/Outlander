@@ -35,13 +35,14 @@
                 <li><a href="#">登山行程</a></li>
                 <li><a href="#">登山日誌</a></li>
                 <li><a href="#">登山技巧</a></li>
+                <li v-if="web<768"><a href="#">機器人</a></li>
                 <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
                 <li v-if="web<768" id="member">會員專區
                     <ul id="member-child">
-                        <li><a href="#">個人中心</a></li>
-                        <li><a href="#">訂單</a></li>
-                        <li><a href="#">登山日誌</a></li>
-                        <li><a href="#">行前裝備</a></li>
+                        <li><a class="member-a" href="#">個人中心</a></li>
+                        <li><a class="member-a" href="#">訂單</a></li>
+                        <li><a class="member-a" href="#">登山日誌</a></li>
+                        <li><a class="member-a" href="#">行前裝備</a></li>
                     </ul>
                 </li>
             </ul>
@@ -83,7 +84,6 @@
     </section>
     <img id="robot" src="img/暫時用的圖/robot-solid.png" alt="機器人">
     <i id="up" class="material-icons">keyboard_arrow_up</i>
-
     <section id="index-warp2">
         <h2>服務特色</h2>
         <div id="index-warp2-card-all">
@@ -158,36 +158,6 @@
 
     <section id="index-warp5">
         <h2>登山日誌</h2>
-        <div id="index-warp5-all">
-            <img id="map" src="img/暫時用的圖/map.png" alt="map">
-            <div id="index-warp5-log1">
-                <div class="index-warp5-item">
-                    <img src="img/暫時用的圖/馬雅叢林.jpg" alt="山難">
-                    <span>2019/1/23</span>
-                    <h3>這裡是哪裡?</h3>
-                    <p>我在叢林迷路了，希望......</p>
-                    <span><i class="material-icons">favorite</i>200</span><span><i class="far fa-comment"></i>187</span>
-                </div>
-            </div>
-            <div id="index-warp5-log2">
-                <!-- <div class="index-warp5-item">
-                    <img src="img/暫時用的圖/馬雅叢林.jpg" alt="山難">
-                    <span>2019/1/23</span>
-                    <h3>這裡是哪裡?</h3>
-                    <p>我在叢林迷路了，希望......</p>
-                    <span><i class="material-icons">favorite</i>200</span><span><i class="far fa-comment"></i>187</span>
-                </div> -->
-            </div>
-            <div id="index-warp5-log3">
-                <!-- <div class="index-warp5-item">
-                    <img src="img/暫時用的圖/馬雅叢林.jpg" alt="山難">
-                    <span>2019/1/23</span>
-                    <h3>這裡是哪裡?</h3>
-                    <p>我在叢林迷路了，希望......</p>
-                    <span><i class="material-icons">favorite</i>200</span><span><i class="far fa-comment"></i>187</span>
-                </div> -->
-            </div>
-            <button><a href="#">查看更多日誌</a></button>
     </section>
     
 
@@ -203,7 +173,7 @@
 
 
     <footer id="footer">
-        <img id="footer-img" src="img/暫時用的圖/foo.png" alt="footer">
+        <img id="footer-img" src="img/暫時用的圖/foo1.png" alt="footer">
         <div id="footer-all">
             <ul>
                 <li>關於我們</li>

@@ -141,7 +141,7 @@
         z-index: 7; 
         a{
             color:$color-subTitle;
-            line-height: 100px;
+            line-height: 75px;
         }
         #burgerText-X{
             position: absolute;
@@ -152,9 +152,14 @@
             cursor: pointer;
             z-index: 3;
         }
+        @media (min-width:768px) {
+            #burgerText-X{
+                display: none;
+            }
+        }
         #member{
             position: relative;
-            padding: 50px 0 25px 0;
+            padding: 25px 0 25px 0;
             cursor: pointer;
             color:$color-subTitle;
             #member-child{
@@ -170,13 +175,12 @@
                     transition: all 0.5s;
                     opacity: 0;
                 }
-            }
-        }
-        #member:hover{
-            #member-child{
-                li a{
-                    opacity: 1;
-                    line-height: 65px;
+                li {
+                    .member-b{
+                        opacity: 1;
+                        line-height: 65px;
+
+                    }
                 }
             }
         }
@@ -213,6 +217,12 @@
             .header{
                 position: unset;
                 max-width: 1200px;
+                #burger+#burgerText{
+                    background: white;
+                    li:hover a{
+                        opacity: 0.5;
+                    }
+                }
                 #logo{
                     position: fixed;
                     z-index: 10;
@@ -254,25 +264,39 @@
         }
     }
 }
-#robot{
-    position: fixed;
-    top: 70%;
-    left: 90%;
-    width: 42px;
-    height: 42px;
-    border: 1px solid #aaa;
-    border-radius: $border-radius-btn;
-    cursor: pointer;
-}
 #up{
-    position: fixed;
-    top: 80%;
-    left: 90%;
-    width: 42px;
-    @include f30 ();
-    text-align: center;
-    line-height: 42px;
-    border: 1px solid #aaa;
-    border-radius: $border-radius-btn;
-    cursor: pointer;
+    display: none;
+}
+#robot{
+    display: none;
+}
+@media (min-width:768px){
+    #robot{
+        display: block;
+        position: fixed;
+        top: 70%;
+        left: 95%;
+        width: 42px;
+        height: 42px;
+        border: 1px solid #aaa;
+        border-radius: $border-radius-btn;
+        cursor: pointer;
+        z-index: 3;
+    }
+    
+    #up{
+        display: block;
+        position: fixed;
+        z-index: 3;
+        top: 80%;
+        left: 95%;
+        width: 42px;
+        @include f30 ();
+        text-align: center;
+        line-height: 42px;
+        border: 1px solid #aaa;
+        border-radius: $border-radius-btn;
+        cursor: pointer;
+    }
+
 }

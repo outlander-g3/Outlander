@@ -72,18 +72,18 @@ window.addEventListener("load", () => {
     //         aaa.style.background="black";
     //     }
     // })
-    document.querySelector("#index-game1").addEventListener("click",()=>{
-        document.querySelector("#game-title").innerHTML=$("#index-game1 span").text();
-        $("#humanity").css({"top":"90%","left":"0%"});
-     })
-
-     document.querySelector("#index-game2").addEventListener("click",()=>{
-        document.querySelector("#game-title").innerHTML=$("#index-game2 span").text();
-        $("#humanity").css({"top":"50%","left":"60%"});
+    document.querySelector("#index-game1").addEventListener("click", () => {
+        document.querySelector("#game-title").innerHTML = $("#index-game1 span").text();
+        $("#humanity").css({ "top": "90%", "left": "0%" });
     })
-    document.querySelector("#index-game3").addEventListener("click",()=>{
-       document.querySelector("#game-title").innerHTML=$("#index-game3 span").text();
-       $("#humanity").css({"top":"-4%","left":"45%"});
+
+    document.querySelector("#index-game2").addEventListener("click", () => {
+        document.querySelector("#game-title").innerHTML = $("#index-game2 span").text();
+        $("#humanity").css({ "top": "50%", "left": "60%" });
+    })
+    document.querySelector("#index-game3").addEventListener("click", () => {
+        document.querySelector("#game-title").innerHTML = $("#index-game3 span").text();
+        $("#humanity").css({ "top": "-4%", "left": "45%" });
     })
 
 
@@ -119,31 +119,31 @@ window.addEventListener("load", () => {
     var index2 = document.querySelector("#index-card-europe-1");
     var index3 = document.querySelector("#index-europe-card-text-1");
     var indexCard = false;
-    window.addEventListener("click",(e)=>{
-        if(e.target == index && !indexCard){
-            $("#asia-all").css("zIndex","1");
-            index1.style.display="block";
-            index1.style.position="absolute";
-            index1.style.top="-"+index1.clientHeight+"px";
-            index1.style.left="-"+43+"px";
+    window.addEventListener("click", (e) => {
+        if (e.target == index && !indexCard) {
+            $("#asia-all").css("zIndex", "1");
+            index1.style.display = "block";
+            index1.style.position = "absolute";
+            index1.style.top = "-" + index1.clientHeight + "px";
+            index1.style.left = "-" + 43 + "px";
             indexCard = true;
-        }else{
-            index1.style.display="none";
+        } else {
+            index1.style.display = "none";
             indexCard = false;
         }
 
-        
-        if(e.target == index2 && !indexCard){
-            index3.style.display="block";
-            index3.style.position="absolute";
-            index3.style.top="-"+index3.clientHeight+"px";
-            index3.style.left="-"+43+"px";
+
+        if (e.target == index2 && !indexCard) {
+            index3.style.display = "block";
+            index3.style.position = "absolute";
+            index3.style.top = "-" + index3.clientHeight + "px";
+            index3.style.left = "-" + 43 + "px";
             indexCard = true;
-        }else{
-            index3.style.display="none";
+        } else {
+            index3.style.display = "none";
             indexCard = false;
         }
-    },true);
+    }, true);
     document.querySelector("#europe").addEventListener("click", (e) => {
         if (web < 1200) {
             $("#index-list-img-all .index-list-hide").hide();
@@ -199,12 +199,7 @@ window.addEventListener("load", () => {
 
 
 
-
-
-
-
-
-
+    // 裝備清單
 
 
 

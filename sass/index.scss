@@ -374,7 +374,6 @@ body{
                 @include btn();
                 @include btn-s();
                 height: unset;
-                // color:$color-btn-main;
                 margin:20px auto;
             }
         }
@@ -483,7 +482,7 @@ body{
 
                     }
                     @media (min-width:1200px) {
-                        transform: scale(1.8);
+                        transform: scale(2.3);
                     }
                 }
             }
@@ -492,12 +491,14 @@ body{
                     position: absolute;
                     top: 25%;
                     left: 25%;
-
+                    @media (min-width:1200px) {
+                            transform: scale(1.2);
+                    }
                 }
             }
             #africa-all{
+                transform: scale(0.8);
                 #africa-img{
-                    width: 465px;
                     margin: auto;
                     display: block;
                 }
@@ -511,7 +512,7 @@ body{
                 #index-card-oceania-1{                      
                     position: absolute;
                     top: 25%;
-                    left: 25%;
+                    left: 45%;
                 }
             }
             #namerica-all{
@@ -522,15 +523,15 @@ body{
                 }
             }
             #samerica-all{
+                transform: scale(0.8);
                 #samerica-img{
-                    width: 318px;
                     display: block;
                     margin: auto;
                 }
                 #index-card-samerica-1{                      
                     position: absolute;
                     top: 25%;
-                    left: 30%;
+                    left: 45%;
                 }
             }
             .index-card-after{
@@ -546,7 +547,6 @@ body{
             }
             #europe-all{
                 #europe-img{
-                    // transform: scale(1.8);
                     @media (min-width:1200px) {
                         transform: scale(1);
                     }
@@ -571,15 +571,16 @@ body{
                 span:nth-child(2){
                     font-size: 0.4rem;
                     color: #aaa;
+                    padding: 0 10px;
                 }
                 h3{
                     font-size: 1rem;
                     color:$color-subTitle;
-                    padding: 5px;
+                    padding: 5px 10px;
                 }
                 p{
                     font-size: 0.8rem;
-                    padding: 5px;
+                    padding: 5px 10px;
                     color: $color-text;
                 }
                 span{
@@ -588,6 +589,7 @@ body{
                 i{
                     font-size: 1rem;
                     color: $color-text;
+                    padding: 0 10px;
                 }
             }
             .index-list-hide{
@@ -602,46 +604,62 @@ body{
                     }
                 #asia-all{
                     transform: scale(0.4);
-                    top: -220px;
+                    top: -160px;
                     left: 234px;
                 }
                 #europe-all{
                     transform: scale(0.7);
-                    top: 0px;
+                    top: 60px;
                     left: 370px;
                 }
                 #africa-all{
                     transform: scale(0.55);
-                    top: 76px;
+                    top: 136px;
                     left: 334px;
                 }
                 #oceania-all{
                     transform: scale(1);
-                    top: 350px;
+                    top: 410px;
                     left: 915px;
                 }
                 #namerica-all{
                     transform: scale(0.6);
-                    top: -94px;
+                    top: -34px;
                     left: -200px;
                 }
                 #samerica-all{
                     transform: scale(0.6);
-                    top: 202px;
+                    top: 262px;
                     left: 89px;
                 }
 
                 
             }
         }
-
+        @media (min-width:1200px) {
+        .samerica{
+            position: absolute;
+            top: 78%;
+            left:45% ;
+        }
+            
+        }
 }
+        .btn{
+            background-color:$color-btn-sub;
+            @include btn();
+            @include btn-s();
+            margin: 50px auto;
+                a{
+                    color:#fff;
+                    display: block;
+                }
+        }
 
 #index-warp6{
     margin: auto;
     width: 100%;
     max-width: 1200px;
-    height: 600px;
     @include mTop(100);
     h2{
         @include block ();
@@ -654,5 +672,30 @@ body{
         color: $color-text;
         font-size: 1rem;
         line-height: 1.5;
+    }
+    #index-equipment{
+        display: flex;
+        flex-wrap: wrap;
+        .equipment{
+            width: 100%;
+            display: flex;
+            @include mTop(50);
+            .equipment-list{
+                width: 50%;
+                display: flex;
+                justify-content: flex-end;
+                flex-direction: column;
+                text-align: center;
+                input{
+                    align-self: center;
+                    cursor: pointer;
+                    margin: 20px 0;
+                }
+                img{
+                    width: 80%;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }

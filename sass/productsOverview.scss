@@ -1,83 +1,291 @@
 
 @import "mixin/_mixin.scss";
 @import "base/_var.scss";
+html{
+    font-size: 16px;
+    @media screen and (max-width:767px){
+        font-size: 12px;
+    }    
+}
 * {
     font-family: "微軟正黑體";
-    outline: 1px solid #aaa; 
-}
-*h3{
+    outline: 1px solid blue; 
+    h2{
+        line-height: 1.6;
+        font-size:2.2rem;
+        font-weight: normal;
+    }
+    h3{
+        font-size: 2rem;
+        font-weight: normal;
+
+    }
+    h4{
+        font-size: 1.8rem;
+        line-height: 1.4;
+        color:#32545c;
+    }
+    h5{
+        font-size: 1.6rem; 
+        line-height: 1.4;
+    }
+    p{
+        font-size:1.4rem;
+        line-height:1.6;
+        color:#484848;
+    }
     
 }
+.clearfix{
+    clear:both;
+}
+// body{
+//     background-image:linear-gradient( #1B243C,#0E2F47,#0A3D4D);
+// }
+
+//////////////////////////////////////////////////////////banner開始
 .po-wrap{
     width:100%;
+    max-width: 1200px;
     margin: auto;
-    max-width: 1920px;
-    height: 700px;
+    text-align: center;
 }
-.po-banner{
-    width: 100%;
-    height: 100%;
-    background-image: url(../img/banner_big.jpg);
-    background-repeat:no-repeat; 
-    background-size:cover;
-}
-.btn-sub-s{
-    margin: 0.5%;
-}
-.po-btn-sub-s--flex{
-    display:flex;
-    @media screen and (max-width:767px){
-    
-    }
+.po-banner-pic{
+    position: relative;
 }
 .po-banner-des{
-    padding: 10% 0 0 5%;
-}
-.po-banner-des {
     h2{
-    @include f40();
-    color:$color-btn-main;
+        font-size:2.2rem;
+        color:$color-btn-main;
+        @media screen and (max-width:767px){
+            line-height:1.3;
+        }
     }
-    p {
-    @include f30();
-    color:$color-btn-main;
+    h3{
+        font-size: 2rem;
+        text-align:left;
     }
-};
+    p{
+        font-size:1.6rem;
+        color:$color-btn-main;
+        @media screen and (max-width:767px){
+            color:$color-subTitle;
+            line-height: 1.3;
+        }    
+    }
+    text-align: left;
+    position: absolute;
+    top:20%;
+    left:5%;
+    @media screen and (max-width:767px){
+        position: static;
+        text-align: center;
+        padding: 2%;
+    }    
+}
+.po-banner-pic img{
+    width: 100%;
+    height: 100%;
+}
+////////////////////////////////////////////////////////banner 圖片結束
+///////////////////////////////////////////////////////按鈕開始
+.po-btn-sub-s--flex{
+    display:flex;
+    justify-content: space-between;
+    padding-top: 2%;
+    .btn-sub-s{ 
+    font-size: 1.4rem;
+    flex-grow:0;
+        @media screen and (max-width:767px){
+            width: 110px; 
+        }    
+    }
+    .btn-sub-s:nth-child(2){
+        margin: 0 2% 0 2%;
+    }
+}
+////////////////////////////////////////////////////////按鈕結束
+////////////////////////////////////////////////////////情境圖片模式開始
 .po-wrap-mode{
     width:100%;
     margin: auto;
-    max-width: 1920px;
+    text-align: center;
+    max-width: 1200px;
+    padding-bottom: 50px;
+    @media screen and (max-width:767px){
+    display: none;
+    }
 }
 .po-mode-item{
     margin: auto;
     display: flex;
     justify-content: center;
-    
+    @media screen and (max-width:768px)and(max-width:991px){
+    padding: 3%;
+    }
+
 }
 .po-mode-item-pic{
     margin:0.8%;
+    position: relative;
+    @media screen and (max-width:768px)and(max-width:991px){
+        flex:1;
+        }
+}
+.po-mode-item-pic img{
+    border-radius:8px;
+    overflow: hidden;
+    width:100%;
 }
 .po-mode-item-pic h3{
-    text-align: center;
-    @include f30;
+    font-size: 1.6rem;
+    color:#ffffff;
+    position: absolute;
+    bottom: 3%;
+    left: 45%;
+    text-shadow: $shadow;
+}
+/////////////////////////////////////////////////////////情境圖片模式結束
+
+///////////////////////////////////////////////////////////篩選bar開始
+//////////////////////////////////////////////////////篩選bar結束
+
+//////////////////////////////////////////////////////行程商品開始
+
+.pro-product-wrap{
+    width: 100%;
+    max-width: 1200px;
+    padding-top:50px; 
+    margin: auto;
+    padding-top:50px; 
+   h2{
+       padding-left:1%; 
+   }
+   h5{
+    padding-left:1%; 
+}
+}
+.pro-item-flex{
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width:767px){
+        flex-wrap: wrap;
+    }
+    @media screen and (max-width:768px)and(max-width:991px){
+        padding: 3%;
+        }
+}
+.pro-item-flex-three{
+    flex-wrap: wrap;
+}
+//一個商品卡 //
+.pro-item{      //兩欄寬
+    width: 50%;
+    margin: 0.5%;
+    border:1.5px solid #265057;
+    border-radius: 4px;
+    padding: 0.6%;
+    box-shadow: $shadow;
+    @media screen and (max-width:767px){
+    width: 100%;
+    margin:0 0.1% 3% 0.1%;
+    }
+}
+.pro-item-three{ //三欄寬
+    width: 30.333%;
+    margin: 0.5%;
+    @media screen and (max-width:767px){
+    width: 100%;
+    margin:0 0.1% 3% 0.1%;
+    }
+}
+
+.pro-item-pic img{
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+.pro-item-view-flex{
+    display: flex;
+    span{
+        align-self: center;
+    }
+    p{
+        align-self: center;  
+    }
+}
+
+.tree{
+    width: 35px;
+    height: 35px;   
+}
+.tree-three{
+    @media screen and (min-width:768px)and(max-width:991px){
+        width: 29px;
+        height: 29px;
+        }
+}
+.tree img{
+    width: 100%;
+}
+.hike{
+    font-size: 1.8rem;
+    margin: 0% 1%;
 
 }
+.heart-flex{
+    display: flex;
+}
+.heart-flex span{
+    align-self: center;
+    line-height: 1.6;
+    font-size: 1.4rem;
+}
+.material-icons{
+    color:#088B9A;
+    padding-right: 8px;
+}
+.price{
+    width:80%;
+    text-align:right;
+    font-size: 1.8rem; ;
+}
+.hike i{
+    color:#088B9A;
+}
+.heart-flex{
+    width:20%;
+}
+.pro-item-view{
+    display: flex;
+    span{
+        align-self: center; 
+    }
+}
+//一個商品卡 //
 
-@media screen and (min-width:992px){
 
-}
-@media screen and (min-width:768px){
-    
-}
-@media screen and (max-width:991px){
-    
-}
-@media screen and (max-width:767px){
-    
-}
-@media screen and (max-width:575px){
-    
-}
-@media screen and (max-width:768px)and(max-width:991px){
-    
-}
+
+
+
+
+
+
+
+// @media screen and (min-width:992px){
+// //桌機
+// }
+// @media screen and (min-width:768px){
+// //ipad 桌機
+// }
+// @media screen and (max-width:991px){
+// //ipad 手機橫 手機直
+// }
+// @media screen and (max-width:767px){
+//  //手機橫 手機直   
+// }
+// @media screen and (max-width:575px){
+// //手機直 
+// }
+// @media screen and (min-width:768px)and(max-width:991px){
+// //ipad only
+// }

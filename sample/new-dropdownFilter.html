@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="drop_style.css">
+		<title>Document</title>
+
+
+	</head>
+	<body>
+		<form class="">
+			<span id="a" class="joForm__input">
+				<input type="radio" name="location" value="Asia" id="locat-asia">
+				<label for="locat-asia">亞洲</label>
+
+				<input type="radio" name="location" value="Europe"  id="locat-europe">
+				<label for="locat-europe">歐洲</label>
+				
+				<input type="radio" name="location" value="Africa" id="locat-africa">
+				<label for="locat-africa">非洲</label>
+
+				<input type="radio" name="location" value="North-America"  id="locat-north-america">
+				<label for="locat-north-america">北美洲</label>
+
+				<input type="radio" name="location" value="South-America" id="locat-south-america">
+				<label for="locat-south-america">南美洲</label>
+
+				<input type="radio" name="location" value="Oceania"  id="oceania">
+				<label for="locat-oceania">南美洲</label>
+			</span>
+			<span id="b" class="joForm__input" style="left: 200px">
+				<input type="radio" name="location" value="Asia" checked="checked" id="locat-asia1">
+				<label for="locat-asia1">亞洲</label>
+
+				<input type="radio" name="location" value="Europe" checked="checked" id="locat-europe1">
+				<label for="locat-europe1">歐洲</label>
+				
+				<input type="radio" name="location" value="Africa" checked="checked" id="locat-africa1">
+				<label for="locat-africa1">非洲</label>
+
+				<input type="radio" name="location" value="North-America" checked="checked" id="locat-north-america1">
+				<label for="locat-north-america1">北美洲</label>
+
+				<input type="radio" name="location" value="South-America" checked="checked" id="locat-south-america1">
+				<label for="locat-south-america1">南美洲</label>
+
+				<input type="radio" name="location" value="Oceania" checked="checked" id="locat-oceania1">
+				<label for="locat-oceania1">南美洲</label>
+			</span>
+		</form>
+		
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+		<script>
+
+			$('#a').click(function (e) {
+			// $('.joForm__input').click(function (e) {
+				e.preventDefault(); //取消默認行為
+				e.stopPropagation(); //阻止冒泡事件
+				$('#a').toggleClass('expanded');
+				$('#' + $(e.target).attr('for')).prop('checked'); //$('#locat-oceania') 讓checked成立
+			});			
+			$('#b').click(function (e) {
+	
+				e.preventDefault(); //取消默認行為
+				e.stopPropagation(); //阻止冒泡事件
+				$('#b').toggleClass('expanded');
+				$('#' + $(e.target).attr('for')).prop('checked', true); //$('#locat-oceania') 讓checked成立
+			});
+
+
+			$(document).click(function () {
+					$('.joForm__input').removeClass('expanded');
+			});
+
+		</script>
+	</body>
+</html>
+
+<!-- 地點 天數 難易度 -->
+<!-- 北美洲（全称北亚美利加洲）（North America）、南美洲（全称南亚美利加洲） （South America）非洲（全称阿非利加洲）（Africa）、大洋洲（Oceania） -->

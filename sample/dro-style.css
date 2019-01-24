@@ -1,0 +1,78 @@
+		.joForm__input {
+			position: absolute;
+			display: inline-block;
+			width: 170px;
+			min-height: 42px;
+			max-height: 42px;
+			line-height: 42px;
+			overflow: hidden;
+			cursor: pointer;
+			text-align: left;
+			white-space: nowrap;
+			color: #fff;
+			outline: none;
+			background-color: #5db7c5;
+			transition: 0.3s all ease-in-out; 
+		}
+
+		.joForm__input input {
+			display: none; 
+		}
+		/*radio按鈕取消*/
+
+
+		.joForm__input label {
+			border-top: .06em solid #d9d9d9;
+			display: block;
+			font-style: 16px bold !important;
+			padding-Left: 5px;
+			font-size: 16px;
+			font-weight: bold;
+			font-family: Microsoft JhengHei;
+			cursor: pointer;
+			position: relative;
+			transition: 0.3s color ease-in-out; 
+		}
+
+
+		.joForm__input label:nth-child(2) {
+			margin-top: 42px; 
+		}
+
+
+		.joForm__input input:checked + label {
+			display: block;
+			border-top: none;
+			position: absolute;
+			top: 0; 
+		}
+
+
+		.joForm__input input:checked + label:nth-child(2) {
+			margin-top: 0px;
+			position: relative; 
+		}
+
+
+		.joForm__input::after {
+			content: "";
+			position: absolute;
+			right: 10%;
+			top: 1.2em;
+			border: 0.4em solid #fff;
+			border-color: #fff transparent transparent transparent;
+			transition: .4s all ease-in-out; 
+		}
+
+
+		.joForm__input.expanded {
+			background-color: #5db7c5;
+			padding: 0;
+			max-height: 100%; 
+		}
+
+
+		.joForm__input.expanded::after {
+			transform: rotate(-180deg);
+			top: 0.6em; 
+		}

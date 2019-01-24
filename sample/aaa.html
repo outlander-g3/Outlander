@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .body {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .aaa {
+    margin: 20px;
+    flex: 1;
+    position: relative;
+  }
+
+  .aaa>img {
+    position: absolute;
+    top: -30%;
+    left: 95%;
+  }
+
+  .bar {
+    width: 100%;
+    height: 300px;
+    background: #aaa;
+    position: absolute;
+    top: 110%;
+    display: none;
+    z-index: 989;
+  }
+
+  .bbb {
+    flex: 3;
+  }
+
+  @media (max-width:900px) {
+    .aaa {
+      flex: unset;
+      width: 100%;
+    }
+  }
+
+  .aaa>.color {
+    width: 100%;
+    height: 30px;
+    background: red;
+    margin: auto;
+  }
+</style>
+
+<body class="body">
+  <div class="aaa bbb">
+    <img src="https://picsum.photos/10/10/?random=1">
+    <div class="color"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="aaa ccc ">
+    <img src="https://picsum.photos/10/10/?random=1">
+    <div class="color"></div>
+  </div>
+  <div class="aaa ccc">
+    <img src="https://picsum.photos/10/10/?random=1">
+    <div class="color"></div>
+  </div>
+  <div class="aaa ddd">
+    <img src="https://picsum.photos/10/10/?random=1">
+    <div class="color"></div>
+  </div>
+  <div class="aaa">
+    <img src="https://picsum.photos/10/10/?random=1">
+    <div class="color"></div>
+  </div>
+
+  <script>
+    var bar = document.querySelector(".bar");
+    var bbb = document.querySelector(".bbb");
+    var on = false;
+        console.log(on);
+    bbb.addEventListener("click", () => {
+      if (!on ==true) {
+        bar.style.display = "block";
+        on = true;
+      }
+      else if (on==true) {
+        bar.style.display = "none";
+        on = false;
+      }
+        console.log(on);
+
+    }, true)
+    window.addEventListener("click", () => {
+      bar.style.display = "none";
+    }, true)
+  </script>
+
+
+
+
+
+</body>
+
+</html>

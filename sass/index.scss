@@ -678,6 +678,9 @@ body{
         flex-wrap: wrap;
         .equipment{
             width: 100%;
+            @media (min-width:768px) {
+                width: 50%;
+            }
             display: flex;
             @include mTop(50);
             .equipment-list{
@@ -697,5 +700,10 @@ body{
                 }
             }
         }
+    }
+    .equipment-btn{
+        width: 100%;
+        margin: auto;
+        max-width: 1200px;
     }
 }

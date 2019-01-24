@@ -5,6 +5,9 @@ body {
   text-align: center;
   font-family: Arial, Helvetica;
 }
+*{
+    outline: 1px solid blue;
+}
 
 .big {
   font-size: 1.2em;
@@ -14,12 +17,12 @@ body {
   font-size: .7em;
 }
 
-.square {
+/*.square {
   width: .7em;
   height: .7em;
   margin: .5em;
   display: inline-block;
-}
+}*/
 
 /* Custom dropdown */
 .custom-dropdown {
@@ -35,23 +38,26 @@ body {
   font-size: inherit;
   padding: .5em;
   padding-right: 2.5em; 
-  border: 0;
-  margin: 0;
+  /*border: 0;*/
+  /*margin: 0;*/
   border-radius: 3px;
-  text-indent: 0.01px;
-  text-overflow: '';
-  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+  /*text-indent: 0.01px;*/
+  /*text-overflow: '';*/
+  -webkit-appearance: button; 
 }
 
-.custom-dropdown::before,
+.custom-dropdown::before,  
 .custom-dropdown::after {
   content: "";
   position: absolute;
   pointer-events: none;
+  /*值none表示鼠标事件“穿透”该元素并且指定该元素“下面”的任何东西。
+
+*/
 }
 
 .custom-dropdown::after { /*  Custom dropdown arrow */
-  content: "\25BC";
+  /*content: "\25BC";*/
   height: 1em;
   font-size: .625em;
   line-height: 1;

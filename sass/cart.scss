@@ -46,7 +46,7 @@ a{
     }
 }
 .ctMobile__btn--front{
-    @include mRight(69);
+    @include mRight(20);
 }
 .ctMobile__btn--next{
     position: relative;
@@ -160,6 +160,10 @@ a{
     width: $block-size;
     margin-left: $block-margin;
     
+    @include rwd(mobile){
+        max-width: 400px;
+        margin: auto;
+    }
     //選人數
     .ctCount{
         $size:32px;
@@ -189,10 +193,6 @@ a{
     >.row{
         justify-content: space-between;
         @include rwdWrap();
-        @include rwd(mobile){
-            max-width: 400px;
-            margin: auto;
-        }
         //訂購人
         .ctContact{
             // width: 50%;

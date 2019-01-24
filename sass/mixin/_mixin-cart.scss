@@ -4,10 +4,13 @@
     }
 }
 
-$color-border:#95989A;
+$color-border:rgb(149, 152, 154);
 $ctBorder:1px solid $color-border;
 @mixin ctBorder{
     border:$ctBorder;
+    @include rwd(mobile){
+        border-color:rgba(149, 152, 154,0.7);
+    }
 }
 
 $mobile: 767px;

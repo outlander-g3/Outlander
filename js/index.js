@@ -109,8 +109,6 @@ window.addEventListener("load", () => {
     var index3 = document.querySelector("#index-europe-card-text-1");
     var indexCard = false;
     window.addEventListener("click",(e)=>{
-        // console.log(index.offsetLeft);
-
         if(e.target == index && !indexCard){
             $("#asia-all").css("zIndex","1");
             index1.style.display="block";

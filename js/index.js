@@ -99,16 +99,20 @@ window.addEventListener("load", () => {
             $("#index-list-img-all .index-list-hide").hide();
             $("#asia-all").show();
         }
+
         $(".list-1 button").css("color", "white");
         e.target.style.color = "red";
     })
-    var  index = document.querySelector("#index-asia-card-1");
+    var index = document.querySelector("#index-asia-card-1");
     var index1 = document.querySelector("#index-asia-card-text-1");
+    var index2 = document.querySelector("#index-card-europe-1");
+    var index3 = document.querySelector("#index-europe-card-text-1");
     var indexCard = false;
     window.addEventListener("click",(e)=>{
         // console.log(index.offsetLeft);
 
         if(e.target == index && !indexCard){
+            $("#asia-all").css("zIndex","1");
             index1.style.display="block";
             index1.style.position="absolute";
             index1.style.top="-"+index1.clientHeight+"px";
@@ -116,6 +120,18 @@ window.addEventListener("load", () => {
             indexCard = true;
         }else{
             index1.style.display="none";
+            indexCard = false;
+        }
+
+        
+        if(e.target == index2 && !indexCard){
+            index3.style.display="block";
+            index3.style.position="absolute";
+            index3.style.top="-"+index3.clientHeight+"px";
+            index3.style.left="-"+43+"px";
+            indexCard = true;
+        }else{
+            index3.style.display="none";
             indexCard = false;
         }
     },true);

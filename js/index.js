@@ -6,7 +6,9 @@ window.addEventListener("load", () => {
     searchicon.style.fontSize = ((window.innerWidth) / 30) + "px";
     var bannerSearch = document.querySelector("#bannerSearch");
     bannerSearch.style.fontSize = ((window.innerWidth) / 30) + "px";
+    var web = window.innerWidth;
     window.onresize = () => {
+        var web = window.innerWidth;
         h1.style.fontSize = ((window.innerWidth) / 10) + "px";
         searchicon.style.fontSize = ((window.innerWidth) / 30) + "px";
         bannerSearch.style.fontSize = ((window.innerWidth) / 30) + "px";
@@ -18,7 +20,7 @@ window.addEventListener("load", () => {
 
 
     var burgerText = document.querySelector("#burgerText");
-    
+
 
     // 點擊banner搜尋的時候 抓到當前搜尋的位子 再把nav的搜尋固定定位到 banner搜尋下方 因為我懶 不想寫2個搜尋 XD
     var searchAll = document.querySelector("#searchAll");
@@ -57,77 +59,111 @@ window.addEventListener("load", () => {
 
 
 
-//行程的風琴夾預留位子 
+    //行程的風琴夾預留位子 
 
 
 
-// 遊戲的文字定位+挑選遊戲
-//測試偽類比對ID 成功
-// var aaa = document.querySelector("#aaa");
-// window.addEventListener("click",(e)=>{
-//     console.log(e.target,aaa);
-//     if(e.target==aaa){
-//         aaa.style.background="black";
-//     }
-// })
-
-
-
-
-// 第一個遊戲
+    // 遊戲的文字定位+挑選遊戲
+    //測試偽類比對ID 成功
+    // var aaa = document.querySelector("#aaa");
+    // window.addEventListener("click",(e)=>{
+    //     console.log(e.target,aaa);
+    //     if(e.target==aaa){
+    //         aaa.style.background="black";
+    //     }
+    // })
 
 
 
 
-// 第二個遊戲
+    // 第一個遊戲
 
 
 
 
-// 第三個遊戲
+    // 第二個遊戲
+
+
+
+
+    // 第三個遊戲
 
 
 
 
 
-// 登山日誌
-// 點擊按鈕換洲圖 懶得寫js 直接jq 
-document.querySelector("#asia").addEventListener("click",(e)=>{
-    $("#index-list-img-all .index-list-hide").hide();
-    $(".list-1 button").css("color","white");
-    $("#asia-all").show();
-    e.target.style.color="red";
-})
-document.querySelector("#europe").addEventListener("click",(e)=>{
-    $("#index-list-img-all .index-list-hide").hide();
-    $(".list-1 button").css("color","white");
-    $("#europe-all").show();
-    e.target.style.color="red";
-})
-document.querySelector("#africa").addEventListener("click",(e)=>{
-    $("#index-list-img-all .index-list-hide").hide();
-    $(".list-1 button").css("color","white");
-    $("#africa-all").show();
-    e.target.style.color="red";
-})
-document.querySelector("#oceania").addEventListener("click",(e)=>{
-    $("#index-list-img-all .index-list-hide").hide();
-    $(".list-1 button").css("color","white");
-    $("#oceania-all").show();
-    e.target.style.color="red";
-})
-document.querySelector("#namerica").addEventListener("click",(e)=>{
-    $("#index-list-img-all .index-list-hide").hide();
-    $(".list-1 button").css("color","white");
-    $("#namerica-all").show();
-    e.target.style.color="red";
-})
-document.querySelector("#samerica").addEventListener("click",(e)=>{
-    $("#index-list-img-all .index-list-hide").hide();
-    $(".list-1 button").css("color","white");
-    $("#samerica-all").show();
-    e.target.style.color="red";
-})
+    // 登山日誌
+    // 點擊按鈕換洲圖 懶得寫js 直接jq 
+    document.querySelector("#asia").addEventListener("click", (e) => {
+        if (web < 1200) {
+            $("#index-list-img-all .index-list-hide").hide();
+            $("#asia-all").show();
+        }
+        $(".list-1 button").css("color", "white");
+        e.target.style.color = "red";
+    })
+    var  index = document.querySelector("#index-asia-card-1");
+    var index1 = document.querySelector("#index-asia-card-text-1");
+    var indexCard = false;
+    window.addEventListener("click",(e)=>{
+        // console.log(index.offsetLeft);
+
+        if(e.target == index && !indexCard){
+            index1.style.display="block";
+            index1.style.position="absolute";
+            index1.style.top="-"+index1.clientHeight+"px";
+            index1.style.left="-"+43+"px";
+            indexCard = true;
+        }else{
+            index1.style.display="none";
+            indexCard = false;
+        }
+    },true);
+    document.querySelector("#europe").addEventListener("click", (e) => {
+        if (web < 1200) {
+            $("#index-list-img-all .index-list-hide").hide();
+            $("#europe-all").show();
+
+        }
+        $(".list-1 button").css("color", "white");
+        e.target.style.color = "red";
+    })
+    document.querySelector("#africa").addEventListener("click", (e) => {
+        if (web < 1200) {
+            $("#index-list-img-all .index-list-hide").hide();
+            $("#africa-all").show();
+        }
+
+        $(".list-1 button").css("color", "white");
+        e.target.style.color = "red";
+    })
+    document.querySelector("#oceania").addEventListener("click", (e) => {
+        if (web < 1200) {
+            $("#index-list-img-all .index-list-hide").hide();
+            $("#oceania-all").show();
+
+        }
+        $(".list-1 button").css("color", "white");
+        e.target.style.color = "red";
+    })
+    document.querySelector("#namerica").addEventListener("click", (e) => {
+        if (web < 1200) {
+            $("#index-list-img-all .index-list-hide").hide();
+            $("#namerica-all").show();
+
+        }
+        $(".list-1 button").css("color", "white");
+        e.target.style.color = "red";
+    })
+    document.querySelector("#samerica").addEventListener("click", (e) => {
+        if (web < 1200) {
+            $("#index-list-img-all .index-list-hide").hide();
+            $("#samerica-all").show();
+
+        }
+        $(".list-1 button").css("color", "white");
+        e.target.style.color = "red";
+    })
 
 
 

@@ -445,10 +445,69 @@ body{
             @include mTop (50);
             img{
                 width: 100%;
+                z-index: -1;
             }
             #asia-all{
                 position: relative;
                 display: block;
+                #index-asia-card-1{                      
+                    position: absolute;
+                    top: 25%;
+                    left: 25%;
+                    @media (min-width:1200px) {
+                        transform: scale(1.8);
+                    }
+                    #index-asia-card-text-1{
+                        @media (min-width:1200px) {
+                            // transform: scale(1.8);
+                        }
+                    }
+                }
+            }
+            #europe-all{
+                #index-card-europe-1{                      
+                    position: absolute;
+                    top: 25%;
+                    left: 25%;
+                }
+            }
+            #africa-all{
+                #africa-img{
+                    width: 465px;
+                    margin: auto;
+                    display: block;
+                }
+                #index-card-africa-1{                      
+                    position: absolute;
+                    top: 25%;
+                    left: 25%;
+                }
+            }
+            #oceania-all{
+                #index-card-oceania-1{                      
+                    position: absolute;
+                    top: 25%;
+                    left: 25%;
+                }
+            }
+            #namerica-all{
+                #index-card-namerica-1{                      
+                    position: absolute;
+                    top: 25%;
+                    left: 25%;
+                }
+            }
+            #samerica-all{
+                #samerica-img{
+                    width: 318px;
+                    display: block;
+                    margin: auto;
+                }
+                #index-card-samerica-1{                      
+                    position: absolute;
+                    top: 25%;
+                    left: 30%;
+                }
             }
             .index-card-after{
                 &::after{
@@ -458,17 +517,28 @@ body{
                     background-image: url("/outlander/img/暫時用的圖/mountain-solid.png");
                     width: 30px;
                     height: 20px;
-                    top: 32%;
-                    left: 25%;
                     cursor: pointer;
                 }
             }
+            #europe-all{
+                #europe-img{
+                    // transform: scale(1.8);
+                    @media (min-width:1200px) {
+                        transform: scale(1);
+                    }
+                }
+            }
+            #oceania-all{
+                #oceania-img{
+                    // transform: scale(1.8);
+                    @media (min-width:1200px) {
+                        transform: scale(1);
+                    }
+                }
+            }
             .index-card{
-                width: 30%;
-                position: absolute;
+                width: 120px;
                 line-height: 1.4;
-                top: -40%;
-                left: 15%;
                 border: 1px solid #aaa;
                 display: none;
                 span:nth-child(2){
@@ -490,6 +560,46 @@ body{
             }
             .index-list-hide{
                 display: none;
+                position: relative;
+            }
+            @media (min-width:1200px) {
+                    position: relative;
+                    .index-list-hide{
+                        display: block;
+                        position: absolute;
+                    }
+                #asia-all{
+                    transform: scale(0.4);
+                    top: -220px;
+                    left: 234px;
+                }
+                #europe-all{
+                    transform: scale(0.7);
+                    top: 0px;
+                    left: 370px;
+                }
+                #africa-all{
+                    transform: scale(0.55);
+                    top: 76px;
+                    left: 334px;
+                }
+                #oceania-all{
+                    transform: scale(1);
+                    top: 350px;
+                    left: 915px;
+                }
+                #namerica-all{
+                    transform: scale(0.6);
+                    top: -94px;
+                    left: -200px;
+                }
+                #samerica-all{
+                    transform: scale(0.6);
+                    top: 202px;
+                    left: 89px;
+                }
+
+                
             }
         }
 

@@ -72,8 +72,19 @@ window.addEventListener("load", () => {
     //         aaa.style.background="black";
     //     }
     // })
+    document.querySelector("#index-game1").addEventListener("click",()=>{
+        document.querySelector("#game-title").innerHTML=$("#index-game1 span").text();
+        $("#humanity").css({"top":"90%","left":"0%"});
+     })
 
-
+     document.querySelector("#index-game2").addEventListener("click",()=>{
+        document.querySelector("#game-title").innerHTML=$("#index-game2 span").text();
+        $("#humanity").css({"top":"50%","left":"60%"});
+    })
+    document.querySelector("#index-game3").addEventListener("click",()=>{
+       document.querySelector("#game-title").innerHTML=$("#index-game3 span").text();
+       $("#humanity").css({"top":"-4%","left":"45%"});
+    })
 
 
     // 第一個遊戲

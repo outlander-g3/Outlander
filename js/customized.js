@@ -1,4 +1,6 @@
-
+function $id(id){
+    return document.getElementById(id);
+  }
 
 var x, i, j, selElmnt, a, b, c;
         /* Look for any elements with the class "custom-select": */
@@ -93,22 +95,35 @@ var x, i, j, selElmnt, a, b, c;
 function cuShowScenery(e){
 alert(123);
 }
+/* 按鈕--控制查看風景內容【icon__serach】*/
+function showOption(){   
+    var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption"); 
+    cuCustom__showOption[0].style.display = 'block';
+}
+function closeOption(){ 
+    var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption");
+    cuCustom__showOption[0].style.display = 'none';
+}
+
+/* 按鈕--控制風景【確認加入】*/ 
 function cuAddSceneryC(){
     var cuCustom__zone= document.getElementById("cuCustom__zone");
- 
     if(cuCustom__zone.style.display == ''){
         cuCustom__zone.style.display = 'none';
     }
-
-    // e.target;
-    // console.log(e.target);
 }
 
 function init(){
-    var btn_cuAddScenery = document.getElementById("btn_cuAddScenery");
-    btn_cuAddScenery.addEventListener("click",cuShowScenery);
+    var btn_cuCheckScenery = document.getElementById("btn_cuCheckScenery");
+    btn_cuCheckScenery.addEventListener("click",cuShowScenery);
+    /* 按鈕--控制風景【確認加入】*/ 
     var btn_cuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
     btn_cuAddSceneryConfirm.addEventListener("click",cuAddSceneryC);
+    var cuCustom__showOption = document.getElementsByClassName("cuCustom__sceneryItem");
+    for(var i=0;i<cuCustom__showOption.length;i++){
+        cuCustom__showOption[i].addEventListener("mouseover",showOption);
+        cuCustom__showOption[i].addEventListener("mouseout",closeOption);
+    }
     // alert(123);
 }
 

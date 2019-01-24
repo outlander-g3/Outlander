@@ -51,7 +51,7 @@
         </div>
         <!-- 選擇器__洲別及山岳 -->
         <div class="cuCustom">
-            <div class="test">
+            <div class="cuCustom__crtlRWD">
                 <div class="custom-select cu_selectNum1" >
                     <select>
                         <option value="0">請選擇洲別</option>
@@ -82,34 +82,50 @@
     
                 <div id="cuCustom__zone">
                     <!-- 風景列表 -->
+                    <p id="cuCustom__sceneryTitle">山岳風景列表</p>
                     <div id="cuCustom__sceneryZone--bg">
                         <div class="cuCustom__sceneryZone">
-                            <div class="cuCustom__sceneryZone--OF">
+                            <div id="cuCustom__sceneryZone--OF " id="scroll">
                                 <div class="cuCustom__sceneryItem">
-                                    <p>安娜普那基地</p>
-                                    <i class="material-icons">restaurant</i>
-                                    <i class="material-icons">terrain</i>
-                                    <i class="fas fa-campground"></i>
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                        <i class="material-icons">restaurant</i>
+                                        <i class="fas fa-campground"></i>
+                                    </div>
+                                    <span>$2,000</span>
+                                    <div class="cuCustom__showOption">
+                                        <i class="material-icons" id="btn_cuAddScenery">add</i>
+                                        <i class="material-icons" id="btn_cuWatchScenery">search</i>
+                                    </div>
+                                </div>
+                                <div class="cuCustom__sceneryItem">
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                    </div>
                                     <span>$2,000</span>
                                 </div>
                                 <div class="cuCustom__sceneryItem">
-                                    <p>安娜普那基地</p>
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                    </div>
                                     <span>$2,000</span>
                                 </div>
                                 <div class="cuCustom__sceneryItem">
-                                    <p>安娜普那基地</p>
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                    </div>
                                     <span>$2,000</span>
                                 </div>
                                 <div class="cuCustom__sceneryItem">
-                                    <p>安娜普那基地</p>
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                    </div>
                                     <span>$2,000</span>
                                 </div>
                                 <div class="cuCustom__sceneryItem">
-                                    <p>安娜普那基地</p>
-                                    <span>$2,000</span>
-                                </div>
-                                <div class="cuCustom__sceneryItem">
-                                    <p>安娜普那基地</p>
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                    </div>
                                     <span>$2,000</span>
                                 </div>
                             </div>
@@ -121,7 +137,7 @@
             <!-- 調整風景順序 -->
             <div class="cuCustom__dropZone">
                 <!-- btn_查看風景列表 -->
-                <div id="btn_cuAddScenery">
+                <div id="btn_cuCheckScenery">
                     <i class="material-icons">add</i>
                 </div>
             </div>

@@ -189,6 +189,10 @@ a{
     >.row{
         justify-content: space-between;
         @include rwdWrap();
+        @include rwd(mobile){
+            max-width: 400px;
+            margin: auto;
+        }
         //訂購人
         .ctContact{
             // width: 50%;
@@ -243,8 +247,11 @@ a{
 .ctPay{
     width: $block-size;
     margin: $block-margin;
+
+    
     .ctDetail{
-        max-width: 326px;
+        width: 326px;
+        max-width:400px;
         position: fixed;
         top:50px;
         right:50px;
@@ -256,6 +263,10 @@ a{
                 display: block;
             }
         }
+
+    @include rwd(mobile){
+        width: 100%;
+    }
         .ctDetail__content{
             @include ctBorder();
             @include br4();
@@ -372,7 +383,7 @@ a{
             font-size: 0;
             @include f16();
             text-align: right;
-            span{
+            span:first-child{
                 margin-right: 20px;
             }
             input{
@@ -399,12 +410,20 @@ a{
             &:not(:first-child){
                 @include pTop(15);
             }
+            &:nth-child(4) span:nth-child(2) {
+                display: inline-block;
+                text-align: left;
+                width: 180px;
+                @include rwd(medium){
+                    width: 120px;
+                }
+            }
             i{
                 width: 30px;
                 font-size: 24px;
                 @include pLeft(20);
             }
-            .ctCredit__select--month{
+            .ctCredit__select--month,&:nth-child(4) input{
                 display:inline-block;
                 width: 72px;
                 margin-right: 1px;
@@ -412,6 +431,7 @@ a{
                     width: 54px;
                 }
             }
+            
             .ctCredit__select--year{
                 width: 102px;
                 @include rwd(medium){
@@ -425,10 +445,13 @@ a{
     }
     .ctMobile__btn{
         .btn-pay{
-            @include rwd(medium){
+            @include rwd(desktop){
                 display: inline-block;
             }
         }
+    }
+    @include rwd(mobile){
+        max-width: 400px;
     }
 }
 
@@ -440,7 +463,7 @@ a{
     .ctPay{
         width: 100%;
         padding: 50px;
-        margin: 0;
+        margin: auto;
         box-sizing: border-box;
         div{
             width: 100%;
@@ -454,7 +477,7 @@ a{
     .ctPay{
         width: 100%;
         padding: 20px;
-        margin: 0;
+        margin: auto;
         box-sizing: border-box;
         div{
             width: 100%;
@@ -462,4 +485,4 @@ a{
         }
     }
 }
-@include o;
+// @include o;

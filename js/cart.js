@@ -11,7 +11,7 @@ if (winWidth < 768) {
     $('ctPay').style.display = 'none';
 }
 function ctResize() {
-    console.log(winWidth);
+    // console.log(winWidth);
     winWidth = document.body.clientWidth;
     //本來就>768 拉往小768 要藏
     //本來<768 拉往小768 不動

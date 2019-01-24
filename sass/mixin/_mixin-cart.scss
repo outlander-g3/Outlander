@@ -21,13 +21,13 @@ $desktop: 1200px;
     }
 
     @else if $breakpoint==medium {
-        @media all and (max-width: $medium) {
+        @media all and (max-width: $medium){
             @content;
         }
     }
 
-    @if $breakpoint==desktop {
-        @media all and (max-width: $desktop) {
+    @else if $breakpoint==desktop {
+        @media all and (max-width: $desktop){
             @content;
         }
     }

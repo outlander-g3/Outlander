@@ -2,10 +2,17 @@
 //     background-color: rgba(13,97,114,$color-subTitle-a);
 // }
 @mixin cu_ColorBg($background-color){
-    background-color: rgba(13,97,114,$background-color);
+    background-color: rgba(8,139,154,$background-color);
 }
 @mixin cu_ColorTxt($color){
     color: rgba(13,97,114,$color);
+}
+@mixin cu_ColorSelect($selector-color){
+    background-color: rgba(216,221,118,$selector-color);
+}
+
+@mixin cu_br($top , $right) {
+    border-radius: $top + px $right + px 0 0;
 }
 
 

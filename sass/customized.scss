@@ -2,9 +2,9 @@
 @import"base/_var_cu.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-customized.scss";
-*{
-    outline: 1px solid salmon;
-}
+// *{
+//     outline: 1px solid salmon;
+// }
 // 手機直 575px
 @mixin phone-width() {
     @media screen and (max-width: $phones-media) {
@@ -136,20 +136,32 @@ nav,.mw_1200,.cuCustom{
     }
     @include pad-width() {
         display: flex;
-        margin: 0 77px;
-        // @include mLeft(20);
-
-        // justify-content: space-around;
+        justify-content: center;
+        padding: 0 2%;
+        box-sizing: border-box;
     }
 } 
 
-.custom-select{
-    @include pLeft(20);
-}
+
 
 /*選擇器__洲別及山岳*/ 
+// .cu_selectNum1{
+//     &:before{
+// content: '1';
+//         @include cu_ColorTxt(.9);
+//         border: 2px solid $color-subTitle-a;
+//         border-radius: 50%;
+//         width: 34px;
+//         height: 34px;
+//         line-height: 34px;
+//         text-align: center;
+//         @include f16b;
+//         margin: auto ;
+//     }
+// }
 /* The container must be positioned relative: */
 .custom-select {
+    @include pLeft(20);
     position: relative;
     font-family: Arial;
     width:300px;
@@ -159,9 +171,8 @@ nav,.mw_1200,.cuCustom{
 }
 
 .select-selected {
-background-color: $color-btn-main-a;
-margin-top: 10px;
-/* Style the arrow inside the select element: */
+    @include cu_ColorSelect(.76);
+    margin-top: 10px;
     &:after {
     position: absolute;
     content: "";
@@ -173,7 +184,9 @@ margin-top: 10px;
     border-color: #fff transparent transparent transparent;
     }
 }
-
+// .test:nth-child(2){
+//     margin-top: 10px;   
+// }
 
 
         /* Point the arrow upwards when the select box is open (active): */
@@ -193,12 +206,13 @@ margin-top: 10px;
 
         /* Style items (options): */
         .select-items {
+        @include cu_ColorSelect(1);
         position: absolute;
-        background-color: $color-btn-main-a;
         top: 100%;
         left: 0;
         right: 0;
         z-index: 99;
+        // width: 100%;
         }
 
         /* Hide the items when the select box is closed: */
@@ -214,7 +228,7 @@ margin-top: 10px;
 /*調整風景順序*/ 
 .cuCustom__dropZone{
     @include br4;
-    @include cu_ColorBg(.7);
+    @include cu_ColorBg(.22);
     &:before{
         content: '我的風景路線規劃';
         display: inline-block;
@@ -223,8 +237,8 @@ margin-top: 10px;
         padding:  10px 0 10px 20px; 
         box-sizing: border-box;
         @include f20b;
-        @include cu_ColorBg(.7);
-        @include br4;
+        @include cu_ColorBg(1);
+        @include cu_br(4,4);
     }
   
     @include small-pad-width() {
@@ -232,10 +246,12 @@ margin-top: 10px;
         @include mRight(20);
         height: 369px;
         margin: 20px;
+        // position: relative;
     }
     @include pad-width() {
         width: 51.6667%;
         height: 549px;
+        margin-left: 20px;
     }
    
 } 
@@ -248,56 +264,99 @@ margin-top: 10px;
     position: absolute;
     top: 0;
     }
-    .cuCustom__sceneryZone{
-        @include br4;
-        @include f20b;
-        height: 455px; 
+}
+.cuCustom__sceneryZone{
+    @include br4;
+    @include f20b;
+    
+    @include small-pad-width() {
         background-color: $color-white;
-        
-        @include small-pad-width() {
-            width: 90%;
-            position: absolute;
-            top:50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            &:before{
-                content: '山岳風景列表';
-                display: inline-block;
-                width: 100%;
-                color: $color-white;
-                height: 47px;
-                padding:  13px 0 10px 20px; 
-                box-sizing: border-box;
-                border-radius: 4px 4px 0 0 ;
-                // @include f20b;
-                @include cu_ColorBg(1);
-            }
+        width: 70%;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 455px; 
+        &:before{
+            content: '山岳風景列表';
+            display: inline-block;
+            width: 100%;
+            color: $color-white;
+            padding:  10px 0 10px 20px; 
+            box-sizing: border-box;
+            border-radius: 4px 4px 0 0 ;
+            // @include f20b;
+            @include cu_ColorBg(1);
         }
+    }
+    @include phone-width() {
+        width: 90%;
         
-        @include pad-width() {
-             
-            // width: 38.5%;
-            width: 462px;
-            &:before{
-                content: '山岳風景列表';
-                display: inline-block;
-                width: 100%;
-                // color: $color-white;
-                height: 47px;
-                padding:  13px 0 10px 20px; 
-                box-sizing: border-box;
-                border-radius: 4px 4px 0 0 ;
-                
-                @include cu_ColorBg(1);
-            }
-            }
+    }
+    @include pad-width() {
+        height: 455px; 
+        background-color: rgba(255, 255, 255, .14);
+        // width: 38.5%;
+        max-width: 462px;
+        @include mTop(20);
+        // &:before{
+        //     content: '山岳風景列表';
+        //     display: inline;
+        //     width: 100%;
+        //     color: $color-lifegreen;
+        //     height: 47px;
+        //     padding:  13px 0 10px 20px; 
+        //     box-sizing: border-box;
+        //     border-radius: 4px 4px 0 0 ;
+        //     position: relative;
+        //     top: -20px;
+            
+            
+        // }
+        }
+}
+
+.cuCustom__sceneryZone--OF{
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include small-pad-width() {
+        height: 357px;
+    }
+    @include pad-width() {
+        height: 430px;
+        transform: translateY(10px);
+        ::-webkit-scrollbar-track {
+            background: #65B8C6; 
+          }
     }
 }
 .cuCustom__sceneryItem{
-    width: 140px;
-    height: 140px;
-    background: url("../img/cu__sceneryItem.png");
+    background: url("../img/cu__sceneryItem.png") ;
+    background-size: cover;
+    margin: 10px;
+    @include small-pad-width() {
+
+        width: 140px;
+        height: 140px;
+    }
+    @include pad-width() {
+        width: 180px;
+        height: 180px;
+    }
+}
+#btn_cuAddScenery--confirm{
+    @include small-pad-width() {
+        @include btn;
+        @include btn-s;
+        border: 2px solid $color-btn-main;
+        background-color: $color-btn-main;
+        margin: 5px auto;
+    }
+    @include pad-width{
+        display: none;
+    }
 }
 #btn_cuAddScenery{
 
@@ -310,13 +369,16 @@ margin-top: 10px;
         text-align: center;
         box-shadow: $shadow;
         color: $color-white;
-        position: absolute;
+        // position: absolute;
         bottom: 10px;
         right: 10px;
         @include f16b;
         i{
             line-height: 34px;
         }    
+    }
+    @include pad-width(){
+        display: none;
     }
     
 }

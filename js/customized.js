@@ -1,3 +1,5 @@
+
+
 var x, i, j, selElmnt, a, b, c;
         /* Look for any elements with the class "custom-select": */
         x = document.getElementsByClassName("custom-select");
@@ -12,7 +14,7 @@ var x, i, j, selElmnt, a, b, c;
             // 放option 的地方
             b = document.createElement("DIV");
             b.setAttribute("class", "select-items select-hide");
-            console.log(a);
+            // console.log(a);
             for (j = 1; j < selElmnt.length; j++) {
                 // console.log(selElmnt.length);算出selector裡面option的個數
                 /* c是每一座山變成一個div For each option in the original select element,
@@ -88,13 +90,26 @@ var x, i, j, selElmnt, a, b, c;
         document.addEventListener("click", closeAllSelect);
 
 
-function cuShowScenery(){
+function cuShowScenery(e){
 alert(123);
+}
+function cuAddSceneryC(){
+    var cuCustom__zone= document.getElementById("cuCustom__zone");
+ 
+    if(cuCustom__zone.style.display == ''){
+        cuCustom__zone.style.display = 'none';
+    }
+
+    // e.target;
+    // console.log(e.target);
 }
 
 function init(){
     var btn_cuAddScenery = document.getElementById("btn_cuAddScenery");
     btn_cuAddScenery.addEventListener("click",cuShowScenery);
+    var btn_cuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
+    btn_cuAddSceneryConfirm.addEventListener("click",cuAddSceneryC);
+    // alert(123);
 }
 
 window.addEventListener("load",init);

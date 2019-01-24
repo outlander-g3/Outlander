@@ -17,16 +17,54 @@
 
 <body>
     <div class="jo__wrap">
-
+        <!-- 第一屏世界地圖 -->
         <div class="jo__map">
-            <img src="img/map.jpg" alt="日誌總覽地圖">
+            <div class="bg__map">
+                <img src="img/map.png" alt="日誌總覽地圖">
+            </div>
+            <div class="many__mounts">
+                <a href="#jo__results" class="imgMount" id="img-fuji">
+                    <img src="img/mount.png" alt="富士山" class="imgMount">
+                    <p>富士山</p>
+                </a>
+
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="珠穆朗瑪峰" class="imgMount" id="img-himalayas">
+                </a>
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="百內國家公園" class="imgMount" id="img-paine">
+                </a>
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="玉山" class="imgMount" id="img-jade">
+                </a>
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="阿爾卑斯山-少女峰" class="imgMount" id="img-alps">
+                </a>
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="馬丘比丘" class="imgMount" id="img-machu">
+                </a>
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="吉力馬札羅山" class="imgMount" id="img-kilimanjaro">
+                </a>
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="阿斯帕林國家公園" class="imgMount" id="img-aspalin">
+                </a>
+                <a href="#jo__results" class="imgMount">
+                    <img src="img/mount.png" alt="優勝美地國家公園" class="imgMount" id="img-yosemite">
+                </a>
+
+
+            </div>
         </div>
+
+        <!-- 篩選bar / 寫日誌的按鈕  -->
+        <a name="jo__results"></a>
         <div class="jo__filter__and__write">
             <div class="row">
                 <div class="jo__filter">
                     <div class="row">
                         <div class="jo__filter__text">
-                            <p>篩選查看日誌 : &nbsp;</p>
+                            <p>篩選日誌 : &nbsp;</p>
                         </div>
 
                         <form class="">
@@ -55,11 +93,11 @@
                                 <input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">
                                 <label for="mount-kilimanjaro">吉力馬札羅山</label>
 
-                                <input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
-                                <label for="mount-yosemite">優勝美地國家公園</label>
-
                                 <input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">
                                 <label for="mount-aspalin">阿斯帕林國家公園</label>
+
+                                <input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
+                                <label for="mount-yosemite">優勝美地國家公園</label>
 
                                 <input type="radio" name="mountType" value="Others" id="mount-others">
                                 <label for="mount-others">其他</label>
@@ -74,8 +112,9 @@
             </div>
         </div>
 
+        <!-- 第二屏日誌的總覽 -->
         <main class="jo__allcards">
-            <a href="" class="card bloc1">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji1.jpeg">
                     <div class="jo__allinfo">
@@ -85,82 +124,155 @@
 
                         <div class="icon">
                             <div class="icon heart">
-                                <i class="material-icons">favorite_border</i><span>15</span>
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
                             </div>
                             <div class="icon comment">
-                                <i class="far fa-comment"></i><span>9</span>
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+
                             </div>
                         </div>
                     </div>
                 </article>
             </a>
-            <a href="">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
                         <p class="jo__text">2222想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀，天氣好的話據說還能眺望富士急遊樂園。。</p>
+                        <div class="icon">
+                            <div class="icon heart">
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
+                            </div>
+                            <div class="icon comment">
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </a>
-            <a href="">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji4.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
                         <p class="jo__text">3333想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀，天氣好的話據說還能眺望富士急遊樂園。一路上的景色相當壯觀，天氣好的話據說還能眺望富士急遊樂園。</p>
+                        <div class="icon">
+                            <div class="icon heart">
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
+                            </div>
+                            <div class="icon comment">
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </a>
-            <a href="">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji3.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
                         <p class="jo__text">4444想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀，天氣好的話據說還能眺望富士急遊樂園。</p>
+                        <div class="icon">
+                            <div class="icon heart">
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
+                            </div>
+                            <div class="icon comment">
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </a>
-            <a href="">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji5.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
                         <p class="jo__text">5555想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀，天氣好的話據說還能眺望富士急遊樂園。</p>
+                        <div class="icon">
+                            <div class="icon heart">
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
+                            </div>
+                            <div class="icon comment">
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </a>
-            <a href="">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji6.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
                         <p class="jo__text">想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀，天氣好的話據說還能眺望富士急遊樂園。</p>
+                        <div class="icon">
+                            <div class="icon heart">
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
+                            </div>
+                            <div class="icon comment">
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </a>
-            <a href="">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji2.jpg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
                         <p class="jo__text">想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀。想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀，天氣好的話據說還能眺望富士急遊樂園。</p>
+                        <div class="icon">
+                            <div class="icon heart">
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
+                            </div>
+                            <div class="icon comment">
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </a>
-            <a href="">
+            <a name="" href="">
                 <article class="jo__onecard">
                     <img src="img/fuji1.jpeg">
                     <div class="jo__allinfo">
                         <p class="jo__publish">發表於2018/12/29</p>
                         <h3>富士山</h3>
                         <p class="jo__text">想飽覽富士山與河口湖全景，一定要搭乘「カチカチ山纜車」前往天上山公園！從「河口湖畔」站搭乘纜車至山頂公園只要三分鐘左右，一路上的景色相當壯觀。</p>
+                        <div class="icon">
+                            <div class="icon heart">
+                                <i class="material-icons">favorite_border</i>
+                                <span>15</span>
+                            </div>
+                            <div class="icon comment">
+                                <i class="far fa-comment"></i>
+                                <span>9</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </a>
@@ -170,7 +282,7 @@
 
 
 
-
+        <!-- 查看更多日誌的按鈕 -->
         <div class="joOverMore">
             <button class="btn-main-l">查看更多日誌</button>
         </div>

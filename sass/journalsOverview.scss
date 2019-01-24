@@ -10,13 +10,76 @@
     font-family: "Microsoft JhengHei";
 }
 
-.jo__map img{   
-    display: block;
-    margin: auto;  
-    width: 60%;
-    @media only screen and (max-width: 600px) {
-        display: none;      
-    }   
+.jo__map{
+    position: relative;
+    @include rwd(mobile){
+        display: none;
+    } 
+    .bg__map {
+        position: relative;
+        img{
+            display: block;
+            margin: auto;  
+            width: 70%;        
+        }
+    }
+    .many__mounts{
+        a{
+            font-family: "Microsoft JhengHei";
+            display: block;
+            @include f20b;
+            color: $color-text;
+            position: relative;
+        }
+        .imgMount{
+       
+        img{
+            // position: absolute;
+            width: 3%;
+        }
+        #img-fuji{   
+            position: absolute;  
+            top: 36%;
+            left: 75%;    
+        }
+        #img-himalayas{
+            top: 43%;
+            left: 63%;
+        }
+        #img-paine{
+            top: 87%;
+            left: 32%;
+        }
+        #img-jade{
+            top: 44%;
+            left: 72%;
+        }
+        #img-alps{
+            top: 28%;
+            left: 49%;
+        }
+        #img-machu{
+            top: 65%;
+            left: 31%;
+        }
+        #img-cruz{
+            top: 70%;
+            left: 33%;
+        }
+        #img-kilimanjaro{
+            top: 58%;
+            left: 54%;
+        }
+        #img-aspalin{
+            top: 85%;
+            left: 80%;
+        }
+        #img-yosemite{
+            top: 34%;
+            left: 23%;
+        }
+      }
+    }
 }
 .row{
     justify-content: space-between;
@@ -31,7 +94,7 @@
 }
 
 #button_with_pencil {
-    @media only screen and (max-width: 600px) {
+    @include rwd(mobile){
        border-radius: 50%;
        width: 42px;
        height: 42px;      
@@ -39,7 +102,7 @@
     span{
         position: relative;
         top:-0.3rem;
-        @media only screen and (max-width: 600px) {
+        @include rwd(mobile){
             display: none;      
         }   
     }
@@ -47,7 +110,7 @@
         position: relative;
         top:0.2rem;
         left:-0.5rem;
-        @media only screen and (max-width: 600px) {
+        @include rwd(mobile){
             top:0.2rem;
             left:0;      
         }
@@ -63,10 +126,76 @@
     .jo__filter__text{
         @include pTop(12);
         margin:auto;
-        @media only screen and (max-width: 600px) {
+        font-family: "Microsoft JhengHei";
+        @include rwd(mobile){
             display: none;      
         }   
     }
+    .joForm__input {
+        position: absolute;
+        display: inline-block;
+        width: 170px;
+        min-height: 42px;
+        max-height: 42px;
+        line-height: 42px;
+        overflow: hidden;
+        cursor: pointer;
+        text-align: left;
+        // white-space: nowrap;
+        color: #fff;
+        outline: none;
+        border-radius: 21px;
+        background-color: #5db7c5;
+        transition: 0.3s all ease-in-out;
+        &::after {
+            content: "";
+            position: absolute;
+            right: 10%;
+            top: 1.2em;
+            border: 0.4em solid #fff;
+            border-color: #fff transparent transparent transparent;
+            transition: .4s all ease-in-out; 
+          }
+        input {
+            display: none;
+        }
+        
+        label {
+            border-top:0.06em solid #d9d9d9;
+            display: block;
+            @include pLeft(10);
+            cursor: pointer;
+            font-family: "Microsoft JhengHei";
+            position: relative;
+            transition: 0.3s color ease-in-out;
+            @include f16b;
+        }
+        label:nth-child(2) {
+            @include mTop(42);
+            // border-top: .06em solid #d9d9d9;
+        }
+        input:checked + label {
+            display: block;
+            border-top: none;
+            position: absolute;
+            top: 0;
+        }
+        input:checked + label:nth-child(2) {
+            @include mTop(0);
+            position: relative;
+        }
+      
+    }
+      .joForm__input.expanded {
+        background-color: #5db7c5;
+        border-radius: 21px;
+        padding: 0;
+        max-height: 100%;
+        &::after {
+            transform: rotate(-180deg);
+            top: 0.6em;
+          }
+      }
 }
 .jo__allcards{
     margin:auto;
@@ -84,27 +213,39 @@
     // @media only screen and (max-width: 768px) {
     //     column-count:2;      
     // }  
-    @media only screen and (max-width: 600px) {
+    @include rwd(mobile){
         column-count:1;      
     }
 
 
     a{
         display: block;
-
+        overflow: hidden;
+        @media only screen and (min-width:1200px) {
+             &:hover img{
+                transform: scale(1.1);
+            }
+            &:hover .jo__onecard .jo__allinfo{
+                background-color:rgba(94, 183, 197,.2);
+            }
+        }
+       
         .jo__onecard{
             @include mBottom(40);
             border: 1px solid #ccc;
+            box-shadow: $shadow;
             @include br4();
             background: #fff;
-            transition: 0.5s;
             img{
                 max-width: 100%;
                 border-radius: 4px 4px 0 0;
                 vertical-align:text-top;
+                transition: 1s;
             }
             .jo__allinfo{
                 padding: 20px;
+                background-color:rgba(150,208,217,.7);
+                transition: .5s;
     
                 .jo__publish,h3,.jo__text{
                     // padding: 10px;
@@ -112,7 +253,7 @@
                     // font-family: "微軟正黑體";
                 }
                 .jo__publish{
-                    @include f14;
+                    // @include f14;
                     font-size: 12px;
                     color:$color-subTitle;
                 }
@@ -126,20 +267,30 @@
                     line-height:1.5em ;
                 }
                 .icon{
-                    width: 100%;
                     @include mTop(10);
-                    color: #555555;
+                    color: $color-text;
+                    opacity: 0.9;
                     display: flex;
-                    .material-icons{
-                        
-                    }
-                    .fa-comment{
-
+                    justify-content: flex-end;
+                    div{
+                        @include mLeft(30);
                     }
                     span{
-                        @include f14;
-                        
-                        
+                        // @include f14;
+                        font-size: 12px;
+                        @include mLeft(5);
+                        align-self: center;
+                    }
+                    .material-icons{
+                        align-self: center;
+                    }
+                    .material-icons.setFavorite{
+                        color: #f00;
+                        opacity: 1;
+                    }
+                    .fa-comment{
+                        font-size: 20px;
+                        align-self: center;
                     }
                 }
             }      
@@ -151,78 +302,5 @@
      margin: auto;
 }
 
-.joForm__input {
-    position: absolute;
-    display: inline-block;
-    width: 170px;
-    min-height: 42px;
-    max-height: 42px;
-    line-height: 42px;
-    overflow: hidden;
-    cursor: pointer;
-    text-align: left;
-    // white-space: nowrap;
-    color: #fff;
-    outline: none;
-    border-radius: 21px;
-    background-color: #5db7c5;
-    transition: 0.3s all ease-in-out;
-  }
-  .joForm__input input {
-    display: none;
-  }
-  .joForm__input label {
-    border-top:0.06em solid #d9d9d9;
-    display: block;
-    @include pLeft(10);
-    cursor: pointer;
-    font-family: "Microsoft JhengHei";
-    position: relative;
-    transition: 0.3s color ease-in-out;
-    @include f16b;
-  }
-  .joForm__input label:nth-child(2) {
-    @include mTop(42);
-    // border-top: .06em solid #d9d9d9;
-  }
-  .joForm__input input:checked + label {
-    display: block;
-    border-top: none;
-    position: absolute;
-    top: 0;
-  }
-  .joForm__input input:checked + label:nth-child(2) {
-    @include mTop(0);
-    position: relative;
-  }
-  .joForm__input::after {
-    content: "";
-    position: absolute;
-    right: 10%;
-    top: 1.2em;
-    border: 0.4em solid #fff;
-    border-color: #fff transparent transparent transparent;
-    transition: .4s all ease-in-out; 
-  }
-  .joForm__input.expanded {
-    // border: 0.06em solid #3694d7;
-    background-color: #5db7c5;
-    border-radius: 21px;
-    padding: 0;
-    // box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0px;
-    max-height: 100%;
-  }
-//   .joForm__input.expanded label {
-//     // border-top: .06em solid #d9d9d9;
-//   }
-//   .joForm__input.expanded label:hover {
-//     // color: #3694d7;
-//   }
-//   .joForm__input.expanded input:checked + label {
-//     // color: #3694d7;
-//   }
-  .joForm__input.expanded::after {
-    transform: rotate(-180deg);
-    top: 0.6em;
-  }
+  
   

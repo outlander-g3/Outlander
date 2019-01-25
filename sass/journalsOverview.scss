@@ -30,21 +30,25 @@
             // display: flex;
             @include f16b;
             color: $color-text;
+            .row{
+                justify-content:center;
+                align-items: flex-end;
+            }
+            
             img{
                 position: absolute;
-                width: 3%;
-                
+                width: 4%; 
             }
             span{
                 position: absolute;
                 // @include mLeft(-75);
                 // @include pTop(40);
-                margin-left: -5.9%;
-                padding-top: 2.5% ;
-                width: 15%;
+                margin-left: -.5%;
+                padding-top: 3% ;
+                width: 5%;
                 text-align: center;
                 @include rwd(medium){
-                    @include f14;
+                    font-size: 12px;
                 }
                 
             }
@@ -52,10 +56,7 @@
                 top: 36%;
                 left: 75%;    
             }
-            .row{
-                justify-content:center;
-                align-items: flex-end;
-            }
+            
             #img-himalayas, #text-himalayas{
                 top: 43%;
                 left: 63%;
@@ -73,11 +74,11 @@
                 left: 49%;
             }
             #img-machu, #text-machu{
-                top: 65%;
+                top: 61%;
                 left: 31%;
             }
             #img-cruz, #text-cruz{
-                top: 70%;
+                top: 71%;
                 left: 33%;
             }
             #img-kilimanjaro, #text-kilimanjaro{
@@ -92,6 +93,21 @@
                 top: 34%;
                 left: 23%;
             }   
+        }
+        .imgMount {
+            animation-name: tossing;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation-direction : alternate-reverse;  
+            @keyframes tossing {
+                0% {
+                    transform: rotate(10deg);  
+                }
+                100% {
+                    transform: rotate(-10deg);	
+                }						
+            }
         }
     }
 }
@@ -146,6 +162,7 @@
         }   
     }
     .joForm__input {
+        z-index: 1000;
         position: absolute;
         display: inline-block;
         width: 170px;

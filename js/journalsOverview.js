@@ -1,3 +1,8 @@
+//onload 山到位--------------------------
+
+
+
+
 //日誌篩選bar的js-------------------------
 $('.joForm__input').click(function (e) {
     e.preventDefault();

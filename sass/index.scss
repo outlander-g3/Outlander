@@ -10,6 +10,11 @@ body{
     top: 18%;
     left: 15%;
 }
+button{
+    border: unset;
+    cursor: pointer;
+    box-shadow: $shadow;
+}
 
 @keyframes aaa {
     0%{opacity: 0.8;background-position: 0 0;}
@@ -242,7 +247,7 @@ body{
                 top: 50%;
             }
             .material-icons{
-                top: 51.5%;
+                top: 51%;
             }
         }
     }

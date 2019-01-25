@@ -57,6 +57,12 @@
             margin: auto;
             text-align: center;
             line-height: 15px;
+            div{
+                margin-bottom: 10%;
+                @media (max-width:288px) {
+                    margin:  0;
+                }
+            }
             span{
                 font-size: 0.6rem;
             }

@@ -10,7 +10,7 @@ html{
 
 * {
     font-family: "微軟正黑體";
-    outline: 1px solid blue; 
+    // outline: 1px solid blue; 
     h2{
         line-height: 1.6;
         font-size:2.2rem;
@@ -31,7 +31,7 @@ html{
     h5{
         font-size: 1.6rem; 
         line-height: 1.4;
-       
+        color: #ffffff;
     }
     p{
         font-size:1.4rem;
@@ -48,10 +48,10 @@ body{
     background-image:linear-gradient( #1B243C,#0E2F47,#0A3D4D);
 }
 
-//////////////////////////////////////////////////////////banner開始
+///////////////////////////////////banner開始
 .po-wrap{
     width:100%;
-    max-width: 1200px;
+    max-width: 1920px;
     margin: auto;
     text-align: center;
 }
@@ -169,6 +169,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width:767px){
+        flex-wrap:wrap;
+    }
+
 }
 .custom-dropdown {
     width: 12%;
@@ -176,22 +180,38 @@ body{
     // display: inline-block;
     vertical-align: middle;
     // margin:0.1%;
+    p{
+        font-size: 1.2rem;
+        padding-left: .2em;
+        color: #79bac9;
+        @media screen and (max-width:767px){
+            display:none;
+        }
+    }
+    @media screen and (max-width:767px){
+        width: 100%
+    }
+
   }
   .custom-dropdown-long{
     width: 30%;
+    @media screen and (max-width:767px){
+        width: 100%
+    }
 }
   .custom-dropdown select {
     width: 100%;
     // background-color: #1abc9c;
     color: #fff;
     font-size: 1.2rem;
-    padding: .5em;
+    padding: .4em;
     padding-right: 2.5em; 
     border: 0;
     margin: 0;
     text-indent: 0.01px;
     text-overflow: '';
     -webkit-appearance: button; 
+    height:50px;
   }
   .color-a{
       background-color: #0F6A7E;
@@ -208,42 +228,49 @@ body{
 .color-e{
     background-color: #2A149B;
 }
-  .custom-dropdown::before,  
-  .custom-dropdown::after {
-    content: "";
+.custom-dropdown::before,  
+.custom-dropdown::after {
+   content: "";
     position: absolute;
     pointer-events: none;
-    /*值none表示鼠标事件“穿透”该元素并且指定该元素“下面”的任何东西。
-  */
-  }
+//     /*值none表示鼠标事件“穿透”该元素并且指定该元素“下面”的任何东西。
+//   */
+ }
   .custom-dropdown::after { /*  Custom dropdown arrow */
     content: "\25BC";
     height: 1em;
     font-size: .625em;
     line-height: 1;
-    right: 1.2em;
-    top: 50%;
+    right: 1em;
+    top: 70%;
     margin-top: -.5em;
+    @media screen and (max-width:767px){
+        top:50%;
+    }
   }
   .custom-dropdown::before { /*  Custom dropdown arrow cover */
-    width: 2em;
+    width: 35px;
+    height: 50px;
     right: 0;
-    top: 0;
+    top: 37%;
     bottom: 0;
     border-radius: 0 3px 3px 0;
+    @media screen and (max-width:767px){
+        top:0;
+    }
   }
-  .custom-dropdown select[disabled] {
-    color: rgba(0,0,0,.3);
-  }
-  .custom-dropdown select[disabled]::after {
-    color: rgba(0,0,0,.1);
-  }
+//   .custom-dropdown select[disabled] {
+//     color: rgba(0,0,0,.3);
+//   }
+//   .custom-dropdown select[disabled]::after {
+//     color: rgba(0,0,0,.1);
+//   }
   .custom-dropdown::before {
     background-color: rgba(0,0,0,.15);
   }
-  .custom-dropdown::after {
-    color: rgba(0,0,0,.4);
-  }
+//   .custom-dropdown::after {
+//     color: rgba(0,0,0,.4);
+//   }
 
 
 

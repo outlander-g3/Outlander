@@ -63,7 +63,7 @@ i{
 
     }
     @include pad-width(){
-    transform: translateY(-633px) translateX(1200px);
+        transform: translateY(-633px) translateX(1200px);
     }
 }  
 nav {
@@ -488,45 +488,111 @@ nav,.mw_1200,.cuCustom,.cu__step2{
 
 
 /*客製化步驟二*/
-.cu_pickGuide{
-    // @include pTop(10);
-    height: 350px;
+.cu__pickGuide{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
-.cu_guideList{
-    // width: 940px;
-    width: 78.333%;
-    height: 350px;
-    overflow: hidden;
-}
-.cu_guideItem{
-    width: 300px;
-    height: 350px;
-    @include cu_ColorBg(.9);
-    @include mLeft(20);
-    text-align: center;
-    h4,p{
-        color: $color-white;
-    }
-    h4{
-        @include f20b;
-        @include pTop(20);
-        @include pBottom(10);
-    }
-    p{
-        padding: 0 20px;  
-        text-align: initial;
-        line-height: 1.6;      
-    }
-    img{
-        padding: 20px 0 0;
-    }
-}
-
 #btn_cuLeft,#btn_cuRight{
     @include small-pad-width(){
         display: none;
     }
+    @include pad-width(){
+        width: 34px;
+        height: 34px;
+        background-color: $color-btn-main;
+        border: none;
+        border-radius: 50%;
+        padding: 0;
+        i{
+            color: $color-white;
+        }
+    }
 }
+.cu__guideList{
+    overflow: hidden;
+    @include pad-width(){
+        margin: 0 20px;
+    }
+}
+.cu__guideList--mask{
+    @include small-pad-width(){
+        width: 1000px;
+    }
+    @include pad-width(){
+        width: 940px;
+    }
+}
+.cu__guideItem{
+    @include cu_ColorBg(.9);
+    @include mRight(20);
+    width: 300px;
+    height: 330px;
+    color: $color-white;
+    text-align: center;
+    float: left;
+    img{
+        @include pTop(20);
+    }
+    h4{
+        font-weight: bold;
+        padding: 10px 0;
+    }
+    p{
+        text-align: initial;
+        padding: 0 20px;
+        line-height: 1.6;
+    }
+    &:last-child{
+        margin-right: 0;
+    }
+}
+.cu__guideItem3{
+    &::after{
+        clear: both;
+    }
+}
+// .cu_pickGuide{
+//     // @include pTop(10);
+//     height: 350px;
+// }
+// .cu_guideList{
+//     // width: 940px;
+//     width: 78.333%;
+//     height: 350px;
+//     overflow: hidden;
+// }
+// .cu_guideItem{
+//     float: left;
+//     width: 300px;
+//     height: 350px;
+//     @include cu_ColorBg(.9);
+//     @include mLeft(20);
+//     text-align: center;
+//     h4,p{
+//         color: $color-white;
+//     }
+//     h4{
+//         @include f20b;
+//         @include pTop(20);
+//         @include pBottom(10);
+//     }
+//     p{
+//         padding: 0 20px;  
+//         text-align: initial;
+//         line-height: 1.6;      
+//     }
+//     img{
+//         padding: 20px 0 0;
+//     }
+// }
+
+// #btn_cuLeft,#btn_cuRight{
+//     float: left;
+//     @include small-pad-width(){
+//         display: none;
+//     }
+// }
 /*footer*/
 footer{
     width: 100%;

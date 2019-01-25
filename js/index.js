@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
     var bannerSearch = document.querySelector("#bannerSearch");
     bannerSearch.style.fontSize = ((window.innerWidth) / 30) + "px";
     var web = window.innerWidth;
-    window.onresize = () => {
+    window.onresize = (e) => {
         var web = window.innerWidth;
         h1.style.fontSize = ((window.innerWidth) / 10) + "px";
         searchicon.style.fontSize = ((window.innerWidth) / 30) + "px";
@@ -20,7 +20,6 @@ window.addEventListener("load", () => {
 
 
     var burgerText = document.querySelector("#burgerText");
-
 
     // 點擊banner搜尋的時候 抓到當前搜尋的位子 再把nav的搜尋固定定位到 banner搜尋下方 因為我懶 不想寫2個搜尋 XD
     var searchAll = document.querySelector("#searchAll");
@@ -59,8 +58,83 @@ window.addEventListener("load", () => {
 
 
 
-    //行程的風琴夾預留位子 
+    //行程的風琴夾預留位子
+//     var img1 = document.querySelector("#index-warp3-img1-block");
+//     var img2 = document.querySelector("#index-warp3-img2-block");
+//     var img3 = document.querySelector("#index-warp3-img3-block");
+//     var img4 = document.querySelector("#index-warp3-img4-block");
+//     var img5 = document.querySelector("#index-warp3-img5-block");
+//     // var imgstyle = getComputedStyle(img1);
+//     // var imgmove = imgstyle.getPropertyValue("left");
+//     document.querySelector("#index-warp3-img-all").addEventListener("mousedown",(e)=>{
+//     console.log(e.clientX,e.target);
+//     var mousex = e.x;
+//     var mousey = e.y;
+//     var mousexx = e.offsetX;
+//     document.querySelector("#index-warp3-img-all").addEventListener("mousemove",(e)=>{
+//         // console.log(e.x,e.y);
+//         console.log(e.x-mousex);
+//         img1.style.left=e.x-mousex+mousexx-200+"px";
+//         img2.style.left=e.x-mousex+mousexx-100+"px";
+//         img3.style.left=e.x-mousex+mousexx+"px";
+//         img4.style.left=e.x-mousex+mousexx+100+"px";
+//         img5.style.left=e.x-mousex+mousexx+200+"px";
+//         if(e.x-mousex>160){
+//             img3.style.transform="scale(0.6)";
+//             img3.style.zIndex = "3";
+//             img1.style.transform="scale(1)";
+//             img1.style.zIndex = "5";
+//             img2.style.transform="scale(0.8)";
+//             img2.style.zIndex = "4";
+//         }
+//         else if(e.x-mousex>80){
+//             img1.style.transform="scale(0.8)";
+//             img1.style.zIndex = "4";
+//             img3.style.transform="scale(0.8)";
+//             img3.style.zIndex = "4";
+//             img2.style.transform="scale(1)";
+//             img2.style.zIndex = "5";
+//             img4.style.transform="scale(0.6)";
+//             img4.style.zIndex = "3";
+//         }
+//         else if(e.x-mousex< -80 && e.x-mousex > -200){
+//             img3.style.transform="scale(0.8)";
+//             img1.style.transform="scale(0.6)";
+//             img1.style.zIndex = "3";
+//             img2.style.transform="scale(0.6)";
+//             img2.style.zIndex = "3";
+//             img4.style.transform="scale(1)";
+//             img4.style.zIndex = "5";
+//             img5.style.transform="scale(0.8)";
+//             img5.style.zIndex = "4";
+//         }
+//         else if(e.x-mousex< -200){
+//             img3.style.transform="scale(0.6)";
+//             img3.style.zIndex = "3";
+//             img4.style.transform="scale(0.8)";
+//             img4.style.zIndex = "4";
+//             img5.style.transform="scale(1)";
+//             img5.style.zIndex = "5";
+//         }
+//         else{
+//             img3.style.transform="scale(1)";
+//             img3.style.zIndex = "5";
+//             img1.style.transform="scale(0.6)";
+//             img1.style.zIndex = "3";
+//             img2.style.transform="scale(0.8)";
+//             img2.style.zIndex = "4";
+//             img4.style.transform="scale(0.8)";
+//             img4.style.zIndex = "4";
+//             img5.style.transform="scale(0.6)";
+//             img5.style.zIndex = "3";
+//         }
+//         document.querySelector("#index-warp3-img-all").addEventListener("mouseup",(e)=>{
+//             console.log("這是放開後",e.x,e.y);
+//         // img3.style.left=e.x-mousex+mousexx+"px";
 
+//         },true)
+//     },false)
+// },false)
 
 
     // 遊戲的文字定位+挑選遊戲
@@ -202,6 +276,16 @@ window.addEventListener("load", () => {
     // 裝備清單
 
 
-
+    new Vue({
+        el: '#carousel',
+        data: {
+          slides: 2
+        },
+        components: {
+          'carousel-3d': Carousel3d.Carousel3d,
+          'slide': Carousel3d.Slide
+        }
+      })
+      
 
 })

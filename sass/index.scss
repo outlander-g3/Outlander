@@ -37,7 +37,7 @@ body{
     .cloud1{
         top: 10%;
         transform: rotate(180deg);
-        animation: aaa 300s linear infinite;
+        animation: aaa 700s linear infinite;
     }
     .cloud2{
         top: 5%;
@@ -299,7 +299,7 @@ body{
     }
     img{
         vertical-align: middle;
-        @include mBottom (10);
+        // @include mBottom (10);
     }
     #index-warp3-img-all{
         text-align: center;
@@ -307,8 +307,9 @@ body{
         display: flex;
         div{
             width: 50%;
-            position: absolute;
+            position: absolute; 
             top: 0;
+            // transition: all 0.5s;
         }
         img{
             box-shadow: $shadow;
@@ -388,6 +389,7 @@ body{
        }
 
     }
+    
     button{
         margin: auto;
         @include mTop(50);
@@ -403,6 +405,13 @@ body{
     }
 }
 
+.index-warp3-img-text{
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    font-size: 1rem;;
+    color: white;
+}
 #index-warp4{
     margin: auto;
     width: 100%;
@@ -780,3 +789,27 @@ body{
         max-width: 1200px;
     }
 }
+
+
+// 趕時間先用
+.carousel-3d-slide {
+      height: auto !important;
+
+    }
+    #carousel{
+        position: relative;
+    }
+    #index-warp3-img-left{
+        position: absolute;
+        top: 45%;
+        left: 4%;
+        cursor: pointer;
+        z-index: 99;
+    }
+    #index-warp3-img-right{
+        position: absolute;
+        top: 45%;
+        left: 92%;
+        cursor: pointer;
+        z-index: 99;
+    }

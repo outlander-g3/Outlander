@@ -14,7 +14,8 @@
         display: flex;
         flex-wrap: wrap;
         position: absolute;
-        top: 36%;
+        // top: 36%;
+        top: 168px;
         @media (min-width:768px) {
             width: 100%;
             top: 50%;
@@ -30,6 +31,7 @@
                 text-align: center;
                 color: white;
                 @include f16 ();
+                cursor: pointer;
             }
         }
         #footer-icon{
@@ -39,10 +41,12 @@
             @include pTop(20);
             @include pBottom(20);
             span{
-                padding-right:20px;
+                text-align: center;
                 cursor: pointer;
                 @media (min-width:768px) {
+                    padding-right:20px;
                     width: 40%;
+                    text-align: left;
                 }
                 i{
                     margin: 0 10px;
@@ -52,8 +56,9 @@
         #footer-input{
             margin: auto;
             text-align: center;
+            line-height: 15px;
             span{
-                line-height: 40px;
+                font-size: 0.6rem;
             }
         }
 

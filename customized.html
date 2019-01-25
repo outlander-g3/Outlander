@@ -37,7 +37,7 @@
             </div>
         </nav>
     </header>
-    <section class="cu_bg">
+    <section class="cu_bg cu__step1">
         <div class="cuProcess">
             <div class="cuProcess__first">
                 <div class="cuProcess__circle cuProcess__circle--done">1</div>
@@ -85,7 +85,7 @@
                     <p id="cuCustom__sceneryTitle">山岳風景列表</p>
                     <div id="cuCustom__sceneryZone--bg">
                         <div class="cuCustom__sceneryZone">
-                            <div id="cuCustom__sceneryZone--OF " id="scroll">
+                            <div id="cuCustom__sceneryZone--OF" id="scroll">
                                 <div class="cuCustom__sceneryItem">
                                     <div class="cuCustom__sceneryContent">
                                         <p>安娜普那基地</p>
@@ -146,6 +146,63 @@
        
         <!-- btn選擇日期及嚮導 -->
         <input type="submit" id="btn_cuPickTG" value="選擇日期及嚮導">
+    </section>
+
+    <!-- 客製化第二步驟（選時間、嚮導） -->
+    <section class="cu__step2">
+        <div class="cuProcess">
+            <div class="cuProcess__first">
+                <div class="cuProcess__circle cuProcess__circle--done">1</div>
+                <p>選擇行程</p>
+            </div>
+            <div class="cuProcess__line"></div>
+            <div class="cuProcess__second">
+                <div class="cuProcess__circle cuProcess__circle--done">2</div>
+                <p>選擇日期及嚮導</p>
+            </div>
+        </div>
+
+        
+        <div id="cuCustom2">
+            <div class="custom-select cu_selectNum1" >
+                <select>
+                    <option value="0">請選擇出發日期</option>
+                </select>
+            </div>
+            <div class="custom-select" >
+                <select>
+                    <option value="0">請選擇結束日期</option>
+                </select>
+            </div>
+
+            <h3>選擇嚮導</h3>
+            <div class="cu_pickGuide row">
+                <div class="cuProcess__circle cuProcess__circle--done" id="btn_cuLeft">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                </div>
+                <div class="cu_guideList row">
+                    <div class="cu_guideItem cu_guideItem1">
+                        <img src="img/cu_guideItem1.png" alt="">
+                        <h4>Vivian</h4>
+                        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                    </div>
+                    <div class="cu_guideItem cu_guideItem2">
+                        <img src="img/cu_guideItem1.png" alt="">
+                        <h4>Vivian</h4>
+                        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                    </div>
+                    <div class="cu_guideItem cu_guideItem3">
+                        <img src="img/cu_guideItem1.png" alt="">
+                        <h4>Vivian</h4>
+                        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                    </div>
+                </div>
+                <div class="cuProcess__circle cuProcess__circle--done" id="btn_cuRight">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </div>
+
+            </div>
+        </div>
     </section>
     <footer>
         <div class="mw_1200 footer_ptb">

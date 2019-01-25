@@ -74,7 +74,7 @@ nav {
         }
     }
 }
-nav,.mw_1200,.cuCustom{
+nav,.mw_1200,.cuCustom,.cu__step2{
     max-width: 1200px;
     margin: auto;
 }
@@ -143,7 +143,7 @@ nav,.mw_1200,.cuCustom{
     margin: 0 10px;
 }
 /*客製化流程開始*/
-.cuCustom{
+.cuCustom,.cuCustom2{
     @include small-pad-width() {
         margin: auto;
     }
@@ -286,6 +286,7 @@ nav,.mw_1200,.cuCustom{
     height: 100vh;
     background-color: rgba(31,31,31,.6);
     position: fixed;
+    // position: absolute;
     top: 0;
     }
 }
@@ -471,6 +472,41 @@ nav,.mw_1200,.cuCustom{
     margin: auto;
 }
 
+
+
+/*客製化步驟二*/
+.cu_pickGuide{
+    @include pTop(10);
+}
+.cu_guideList{
+    width: 940px;
+    height: 331px;
+    overflow: auto;
+}
+.cu_guideItem{
+    width: 300px;
+    height: 350px;
+    background-color: $color-lifegreen;
+    @include cu_ColorBg(.9);
+    @include mLeft(20);
+    text-align: center;
+    h4,p{
+        color: $color-white;
+    }
+    h4{
+        @include f20b;
+        @include pTop(20);
+        @include pBottom(10);
+    }
+    p{
+        padding: 0 20px;  
+        text-align: initial;
+        line-height: 1.6;      
+    }
+    img{
+        padding: 20px 0;
+    }
+}
 /*footer*/
 footer{
     width: 100%;

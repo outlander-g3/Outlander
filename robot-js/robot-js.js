@@ -74,7 +74,7 @@ var qaList = [
         function append(line) { // 將 line 放到「對話區」顯示。
           var message = document.getElementById("rb__message");
           // 取出對話框 
-          message.innerHTML += '<div class="person_text text__show"> <img src="../img/baseline_person_black_24dp.png"><p>'+line+"</p></div><BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
+          message.innerHTML += '<div class="person_text rbtext__show"> <img src="../img/baseline_person_black_24dp.png"><p>'+line+"</p></div><BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
           message.scrollTop = message.scrollHeight;
           // document.getElementById("massage").style. 
           if ("rb__message") {
@@ -90,7 +90,7 @@ var qaList = [
         function append1(line) { // 將 line 放到「對話區」顯示。
           var message = document.getElementById("rb__message");
           // 取出對話框 
-          message.innerHTML +="<div class='text__show'>"+line+"<BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
+          message.innerHTML +="<div class='rbtext__show'>"+line+"<BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
           message.scrollTop = message.scrollHeight; 
           if ("rb__message") {
             document.getElementById("rb__message").style.color="#484848";
@@ -135,9 +135,9 @@ var qaList = [
     
     
     
-        const CLASS_CIRCLE = '.circle';
-        const CLASS_ICON = '.icon-elements';
-        const CLASS_MODAL = '.modal-wrapper';
+        const CLASS_CIRCLE = '.rbcircle';
+        const CLASS_ICON = '.rbicon-elements';
+        const CLASS_MODAL = '.rbmodal-wrapper';
         const CLASS_ICON_ACTIVE = 'js-icon-active';
         const CLASS_MODAL_ACTIVE = 'js-modal-active';
     

@@ -113,6 +113,18 @@ function cuAddSceneryC(){
     }
 }
 
+/* btn選擇日期及嚮導 */
+function showPickTG(){
+    // alert();
+    // var aaa =document.getElementById('cu__step1');
+    // console.log(aaa);
+    $id('cu__step1').style.transform = "translateX(-1200px)";
+    $id('cu__step2').style.transform = " translateY(-633px) translateX(0px)";
+    // aaa.style.transform = "translateX(1200px)";
+    // $id('cu__step1').style.transform = "translateX(1200px)";
+
+}
+
 function init(){
     var btn_cuCheckScenery = document.getElementById("btn_cuCheckScenery");
     btn_cuCheckScenery.addEventListener("click",cuShowScenery);
@@ -124,6 +136,9 @@ function init(){
         cuCustom__showOption[i].addEventListener("mouseover",showOption);
         cuCustom__showOption[i].addEventListener("mouseout",closeOption);
     }
+    /* btn選擇日期及嚮導 */
+    var btn_cuPickTG=document.getElementById('btn_cuPickTG');
+    btn_cuPickTG.addEventListener('click',showPickTG);
     // alert(123);
 }
 

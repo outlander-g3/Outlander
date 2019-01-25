@@ -15,9 +15,9 @@ i{
 .material-icons{
     font-size: 23px;
 }
-// *{
-//     outline: 1px solid salmon;
-// }
+*{
+    outline: 1px solid salmon;
+}
 // 手機直 575px
 @mixin phone-width() {
     @media screen and (max-width: $phones-media) {
@@ -49,8 +49,23 @@ i{
         display: none;
     }
 }
-    
-    
+.mask{
+    // @include pad-width() {
+        max-width: 1200px;
+        overflow: auto;
+        margin: auto;
+    // };
+}    
+#cu__step2{
+    @include small-pad-width(){
+        margin: 20px;
+        transform: translateY(-551px) translateX(1200px);
+
+    }
+    @include pad-width(){
+    transform: translateY(-633px) translateX(1200px);
+    }
+}  
 nav {
     display: flex;
     justify-content: space-between;
@@ -260,8 +275,6 @@ nav,.mw_1200,.cuCustom,.cu__step2{
     }
   
     @include small-pad-width() {
-        @include mLeft(20);
-        @include mRight(20);
         height: 369px;
         margin: 20px;
         // position: relative;
@@ -476,17 +489,18 @@ nav,.mw_1200,.cuCustom,.cu__step2{
 
 /*客製化步驟二*/
 .cu_pickGuide{
-    @include pTop(10);
+    // @include pTop(10);
+    height: 350px;
 }
 .cu_guideList{
-    width: 940px;
-    height: 331px;
-    overflow: auto;
+    // width: 940px;
+    width: 78.333%;
+    height: 350px;
+    overflow: hidden;
 }
 .cu_guideItem{
     width: 300px;
     height: 350px;
-    background-color: $color-lifegreen;
     @include cu_ColorBg(.9);
     @include mLeft(20);
     text-align: center;
@@ -504,7 +518,13 @@ nav,.mw_1200,.cuCustom,.cu__step2{
         line-height: 1.6;      
     }
     img{
-        padding: 20px 0;
+        padding: 20px 0 0;
+    }
+}
+
+#btn_cuLeft,#btn_cuRight{
+    @include small-pad-width(){
+        display: none;
     }
 }
 /*footer*/

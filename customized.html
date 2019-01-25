@@ -37,7 +37,7 @@
             </div>
         </nav>
     </header>
-    <section class="cu_bg cu__step1">
+    <div class="cu_bg">
         <div class="cuProcess">
             <div class="cuProcess__first">
                 <div class="cuProcess__circle cuProcess__circle--done">1</div>
@@ -49,161 +49,152 @@
                 <p>選擇日期及嚮導</p>
             </div>
         </div>
-        <!-- 選擇器__洲別及山岳 -->
-        <div class="cuCustom">
-            <div class="cuCustom__crtlRWD">
-                <div class="custom-select cu_selectNum1" >
-                    <select>
-                        <option value="0">請選擇洲別</option>
-                        <option value="1">亞洲</option>
-                        <option value="2">歐洲</option>
-                        <option value="3">非洲</option>
-                        <option value="4">北美洲</option>
-                        <option value="5">南美洲</option>
-                        <option value="6">大洋洲</option>
-                    </select>
-                </div>
-                <div class="custom-select" >
-                    <select>
-                        <option value="0">請選擇山岳</option>
-                        <option value="1">富士山</option>
-                        <option value="2">喜馬拉雅山-珠穆朗瑪峰</option>
-                        <option value="3">阿爾卑斯山-少女峰</option>
-                        <option value="4">吉力馬札羅山優勝美地</option>
-                        <option value="5">優勝美地</option>
-                        <option value="6">馬丘比丘-印加</option>
-                        <option value="7">百內國家公園</option>
-                        <option value="8">聖克魯斯</option>
-                        <option value="9">阿斯帕林</option>
-                        <option value="10">玉山</option>
-                    </select>
-                </div>
-                
-    
-                <div id="cuCustom__zone">
-                    <!-- 風景列表 -->
-                    <p id="cuCustom__sceneryTitle">山岳風景列表</p>
-                    <div id="cuCustom__sceneryZone--bg">
-                        <div class="cuCustom__sceneryZone">
-                            <div id="cuCustom__sceneryZone--OF" id="scroll">
-                                <div class="cuCustom__sceneryItem">
-                                    <div class="cuCustom__sceneryContent">
-                                        <p>安娜普那基地</p>
-                                        <i class="material-icons">restaurant</i>
-                                        <i class="fas fa-campground"></i>
-                                    </div>
-                                    <span>$2,000</span>
-                                    <div class="cuCustom__showOption">
-                                        <i class="material-icons" id="btn_cuAddScenery">add</i>
-                                        <i class="material-icons" id="btn_cuWatchScenery">search</i>
-                                    </div>
-                                </div>
-                                <div class="cuCustom__sceneryItem">
-                                    <div class="cuCustom__sceneryContent">
-                                        <p>安娜普那基地</p>
-                                    </div>
-                                    <span>$2,000</span>
-                                </div>
-                                <div class="cuCustom__sceneryItem">
-                                    <div class="cuCustom__sceneryContent">
-                                        <p>安娜普那基地</p>
-                                    </div>
-                                    <span>$2,000</span>
-                                </div>
-                                <div class="cuCustom__sceneryItem">
-                                    <div class="cuCustom__sceneryContent">
-                                        <p>安娜普那基地</p>
-                                    </div>
-                                    <span>$2,000</span>
-                                </div>
-                                <div class="cuCustom__sceneryItem">
-                                    <div class="cuCustom__sceneryContent">
-                                        <p>安娜普那基地</p>
-                                    </div>
-                                    <span>$2,000</span>
-                                </div>
-                                <div class="cuCustom__sceneryItem">
-                                    <div class="cuCustom__sceneryContent">
-                                        <p>安娜普那基地</p>
-                                    </div>
-                                    <span>$2,000</span>
-                                </div>
-                            </div>
-                            <div id="btn_cuAddScenery--confirm">確認加入</div>
+        <div class="mask">
+            <section id="cu__step1">
+                <!-- 選擇器__洲別及山岳 -->
+                <div class="cuCustom">
+                    <div class="cuCustom__crtlRWD">
+                        <div class="custom-select cu_selectNum1" >
+                            <select>
+                                <option value="0">請選擇洲別</option>
+                                <option value="1">亞洲</option>
+                                <option value="2">歐洲</option>
+                                <option value="3">非洲</option>
+                                <option value="4">北美洲</option>
+                                <option value="5">南美洲</option>
+                                <option value="6">大洋洲</option>
+                            </select>
                         </div>
-                    </div>      
-                </div>
-            </div>
-            <!-- 調整風景順序 -->
-            <div class="cuCustom__dropZone">
-                <!-- btn_查看風景列表 -->
-                <div id="btn_cuCheckScenery">
-                    <i class="material-icons">add</i>
-                </div>
-            </div>
-
-        </div>
-       
-        <!-- btn選擇日期及嚮導 -->
-        <input type="submit" id="btn_cuPickTG" value="選擇日期及嚮導">
-    </section>
-
-    <!-- 客製化第二步驟（選時間、嚮導） -->
-    <section class="cu__step2">
-        <div class="cuProcess">
-            <div class="cuProcess__first">
-                <div class="cuProcess__circle cuProcess__circle--done">1</div>
-                <p>選擇行程</p>
-            </div>
-            <div class="cuProcess__line"></div>
-            <div class="cuProcess__second">
-                <div class="cuProcess__circle cuProcess__circle--done">2</div>
-                <p>選擇日期及嚮導</p>
-            </div>
-        </div>
-
+                        <div class="custom-select" >
+                            <select>
+                                <option value="0">請選擇山岳</option>
+                                <option value="1">富士山</option>
+                                <option value="2">喜馬拉雅山-珠穆朗瑪峰</option>
+                                <option value="3">阿爾卑斯山-少女峰</option>
+                                <option value="4">吉力馬札羅山優勝美地</option>
+                                <option value="5">優勝美地</option>
+                                <option value="6">馬丘比丘-印加</option>
+                                <option value="7">百內國家公園</option>
+                                <option value="8">聖克魯斯</option>
+                                <option value="9">阿斯帕林</option>
+                                <option value="10">玉山</option>
+                            </select>
+                        </div>
+                        
+            
+                        <div id="cuCustom__zone">
+                            <!-- 風景列表 -->
+                            <p id="cuCustom__sceneryTitle">山岳風景列表</p>
+                            <div id="cuCustom__sceneryZone--bg">
+                                <div class="cuCustom__sceneryZone">
+                                    <div id="cuCustom__sceneryZone--OF" id="scroll">
+                                        <div class="cuCustom__sceneryItem">
+                                            <div class="cuCustom__sceneryContent">
+                                                <p>安娜普那基地</p>
+                                                <i class="material-icons">restaurant</i>
+                                                <i class="fas fa-campground"></i>
+                                            </div>
+                                            <span>$2,000</span>
+                                            <div class="cuCustom__showOption">
+                                                <i class="material-icons" id="btn_cuAddScenery">add</i>
+                                                <i class="material-icons" id="btn_cuWatchScenery">search</i>
+                                            </div>
+                                        </div>
+                                        <div class="cuCustom__sceneryItem">
+                                            <div class="cuCustom__sceneryContent">
+                                                <p>安娜普那基地</p>
+                                            </div>
+                                            <span>$2,000</span>
+                                        </div>
+                                        <div class="cuCustom__sceneryItem">
+                                            <div class="cuCustom__sceneryContent">
+                                                <p>安娜普那基地</p>
+                                            </div>
+                                            <span>$2,000</span>
+                                        </div>
+                                        <div class="cuCustom__sceneryItem">
+                                            <div class="cuCustom__sceneryContent">
+                                                <p>安娜普那基地</p>
+                                            </div>
+                                            <span>$2,000</span>
+                                        </div>
+                                        <div class="cuCustom__sceneryItem">
+                                            <div class="cuCustom__sceneryContent">
+                                                <p>安娜普那基地</p>
+                                            </div>
+                                            <span>$2,000</span>
+                                        </div>
+                                        <div class="cuCustom__sceneryItem">
+                                            <div class="cuCustom__sceneryContent">
+                                                <p>安娜普那基地</p>
+                                            </div>
+                                            <span>$2,000</span>
+                                        </div>
+                                    </div>
+                                    <div id="btn_cuAddScenery--confirm">確認加入</div>
+                                </div>
+                            </div>      
+                        </div>
+                    </div>
+                    <!-- 調整風景順序 -->
+                    <div class="cuCustom__dropZone">
+                        <!-- btn_查看風景列表 -->
+                        <div id="btn_cuCheckScenery">
+                            <i class="material-icons">add</i>
+                        </div>
+                    </div>
         
-        <div id="cuCustom2">
-            <div class="custom-select cu_selectNum1" >
-                <select>
-                    <option value="0">請選擇出發日期</option>
-                </select>
-            </div>
-            <div class="custom-select" >
-                <select>
-                    <option value="0">請選擇結束日期</option>
-                </select>
-            </div>
-
-            <h3>選擇嚮導</h3>
-            <div class="cu_pickGuide row">
-                <div class="cuProcess__circle cuProcess__circle--done" id="btn_cuLeft">
-                    <i class="material-icons">keyboard_arrow_left</i>
                 </div>
-                <div class="cu_guideList row">
-                    <div class="cu_guideItem cu_guideItem1">
-                        <img src="img/cu_guideItem1.png" alt="">
-                        <h4>Vivian</h4>
-                        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+               
+                <!-- btn選擇日期及嚮導 -->
+                <input type="submit" id="btn_cuPickTG" value="選擇日期及嚮導">
+            </section>
+        
+            <!-- 客製化第二步驟（選時間、嚮導） -->
+            <section id="cu__step2">
+                <div id="cuCustom2">
+                    <div class="custom-select cu_selectNum1" >
+                        <select>
+                            <option value="0">請選擇出發日期</option>
+                        </select>
                     </div>
-                    <div class="cu_guideItem cu_guideItem2">
-                        <img src="img/cu_guideItem1.png" alt="">
-                        <h4>Vivian</h4>
-                        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                    <div class="custom-select" >
+                        <select>
+                            <option value="0">請選擇結束日期</option>
+                        </select>
                     </div>
-                    <div class="cu_guideItem cu_guideItem3">
-                        <img src="img/cu_guideItem1.png" alt="">
-                        <h4>Vivian</h4>
-                        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+        
+                    <h3>選擇嚮導</h3>
+                    <div class="cu_pickGuide row">
+                        <div class="cuProcess__circle cuProcess__circle--done" id="btn_cuLeft">
+                            <i class="material-icons">keyboard_arrow_left</i>
+                        </div>
+                        <div class="cu_guideList row">
+                            <div class="cu_guideItem cu_guideItem1">
+                                <img src="img/cu_guideItem1.png" alt="">
+                                <h4>Vivian</h4>
+                                <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                            </div>
+                            <div class="cu_guideItem cu_guideItem2">
+                                <img src="img/cu_guideItem1.png" alt="">
+                                <h4>Vivian</h4>
+                                <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                            </div>
+                            <div class="cu_guideItem cu_guideItem3">
+                                <img src="img/cu_guideItem1.png" alt="">
+                                <h4>Vivian</h4>
+                                <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                            </div>
+                        </div>
+                        <div class="cuProcess__circle cuProcess__circle--done" id="btn_cuRight">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </div>
+        
                     </div>
                 </div>
-                <div class="cuProcess__circle cuProcess__circle--done" id="btn_cuRight">
-                    <i class="material-icons">keyboard_arrow_right</i>
-                </div>
-
-            </div>
+            </section>
         </div>
-    </section>
+    </div>
     <footer>
         <div class="mw_1200 footer_ptb">
             <div>

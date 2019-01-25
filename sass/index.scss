@@ -32,7 +32,7 @@ body{
         top: 10%;
         background-repeat: repeat-x; 
         z-index: 10;
-        animation: aaa 400s linear infinite;
+        animation: aaa 800s linear infinite;
     }
     .cloud1{
         top: 10%;
@@ -41,7 +41,7 @@ body{
     }
     .cloud2{
         top: 5%;
-        animation: aaa 500s  linear infinite;
+        animation: aaa 600s  linear infinite;
     }
     .cloud3{
         display: block;
@@ -54,7 +54,7 @@ body{
         animation: cloud 1 2s forwards;
     }
     .cloud4{
-        animation: aaa 600s  linear infinite;
+        animation: aaa 1100s  linear infinite;
         transform: rotate(180deg);
         top: 5%;
     }

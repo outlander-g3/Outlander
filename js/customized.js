@@ -95,14 +95,21 @@ var x, i, j, selElmnt, a, b, c;
 function cuShowScenery(e){
 alert(123);
 }
-/* 按鈕--控制查看風景內容【icon__serach】*/
+/* 按鈕--控制查看風景內容【icon__serach, icon__】*/
+var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption"); 
 function showOption(){   
-    var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption"); 
-    cuCustom__showOption[0].style.display = 'block';
+    for(var j=0;j<cuCustom__showOption.length;j++){
+        if(this.children[2] == cuCustom__showOption[j]){
+            cuCustom__showOption[j].style.display = 'block';
+        }
+    }
 }
 function closeOption(){ 
-    var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption");
-    cuCustom__showOption[0].style.display = 'none';
+    for(var j=0;j<cuCustom__showOption.length;j++){
+        if(this.children[2] == cuCustom__showOption[j]){
+            cuCustom__showOption[j].style.display = 'none';
+        }
+    }
 }
 
 /* 按鈕--控制風景【確認加入】*/ 

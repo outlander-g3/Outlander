@@ -10,7 +10,6 @@ $(document).click(function () {
 });
 // --------------------------------------
 
-
 //日誌收藏按鈕的js-------------------------
 $('.material-icons').click(function (e) {
     e.preventDefault();

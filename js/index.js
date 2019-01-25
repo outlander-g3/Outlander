@@ -279,7 +279,7 @@ window.addEventListener("load", () => {
     new Vue({
         el: '#carousel',
         data: {
-          slides: 2
+          slides: 5
         },
         components: {
           'carousel-3d': Carousel3d.Carousel3d,

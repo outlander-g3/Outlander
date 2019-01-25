@@ -798,6 +798,9 @@ body{
     }
     #carousel{
         position: relative;
+        div{
+            transform: scale(1);
+        }
     }
     #index-warp3-img-left{
         position: absolute;

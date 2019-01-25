@@ -37,9 +37,15 @@
             }
             span{
                 position: absolute;
-                @include mLeft(-80);
-                width: 200px;
+                // @include mLeft(-75);
+                // @include pTop(40);
+                margin-left: -5.9%;
+                padding-top: 2.5% ;
+                width: 15%;
                 text-align: center;
+                @include rwd(medium){
+                    @include f14;
+                }
                 
             }
             #img-fuji, #text-fuji{   

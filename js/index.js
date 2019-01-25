@@ -58,7 +58,7 @@ window.addEventListener("load", () => {
 
 
 
-    //行程的風琴夾預留位子
+    //行程的風琴夾預留位子  暫停於1/26號 還沒開發完 暫用套的
 //     var img1 = document.querySelector("#index-warp3-img1-block");
 //     var img2 = document.querySelector("#index-warp3-img2-block");
 //     var img3 = document.querySelector("#index-warp3-img3-block");
@@ -276,6 +276,15 @@ window.addEventListener("load", () => {
     // 裝備清單
 
 
+
+
+
+
+
+
+
+
+    // 行程動畫
     new Vue({
         el: '#carousel',
         data: {

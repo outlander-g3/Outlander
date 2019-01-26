@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.26.3",
+    "enquire.js": "^2.1.6",
     "gsap": "^2.0.2",
     "gulp": "^3.9.1",
     "gulp-sass": "^4.0.2",

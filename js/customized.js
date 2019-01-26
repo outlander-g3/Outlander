@@ -1,6 +1,10 @@
-function $id(id){
-    return document.getElementById(id);
-  }
+/*用 O(id) 來取得getElementById 減少攏長*/ 
+function O(id){
+    return (typeof id == 'object'? i : document.getElementById(id));
+    }
+// function S(id){
+//     return (typeof id == 'object'? i : document.getElementById(id));
+//     }
 
 var x, i, j, selElmnt, a, b, c;
         /* Look for any elements with the class "custom-select": */
@@ -120,16 +124,29 @@ function cuAddSceneryC(){
     }
 }
 
-/* btn選擇日期及嚮導 */
+/* btn選擇日期及嚮導 --> 畫面切換到 */
 function showPickTG(){
-    // alert();
-    // var aaa =document.getElementById('cu__step1');
-    // console.log(aaa);
-    $id('cu__step1').style.transform = "translateX(-1200px)";
-    $id('cu__step2').style.transform = " translateY(-633px) translateX(0px)";
-    // aaa.style.transform = "translateX(1200px)";
-    // $id('cu__step1').style.transform = "translateX(1200px)";
+    enquire.register("screen and (max-width: 767px)", {     
+        match: function() {
+                // JavaScript here
+                // 當CSS media query計算的視窗寬度小於769px時執行
+                // 網頁載入時執行一次
+                // 之後每次改變視窗時會再執行一次
+                O('cu__step1').style.transform = "translateX(-1200px)";
+                O('cu__step2').style.transform = " translateY(-551px) translateX(0px)";
+            },
+        });
+    enquire.register("screen and (min-width: 768px)", {     
 
+        match: function() {
+                // JavaScript here
+                // 當CSS media query計算的視窗寬度大於等於768px時執行
+                // 網頁載入時執行一次
+                // 之後每次改變視窗時會再執行一次
+                O('cu__step1').style.transform = "translateX(-1200px)";
+                O('cu__step2').style.transform = " translateY(-633px) translateX(0px)";
+            },
+        });
 }
 
 function init(){
@@ -143,7 +160,7 @@ function init(){
         cuCustom__showOption[i].addEventListener("mouseover",showOption);
         cuCustom__showOption[i].addEventListener("mouseout",closeOption);
     }
-    /* btn選擇日期及嚮導 */
+    /* btn選擇日期及嚮導 --> 畫面切換到 */
     var btn_cuPickTG=document.getElementById('btn_cuPickTG');
     btn_cuPickTG.addEventListener('click',showPickTG);
     // alert(123);

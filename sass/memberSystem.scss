@@ -1,0 +1,143 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+
+img{
+    width: 100%;
+}
+body{
+    // position: fixed;
+    // width: 100%;
+    height: 100vh;
+    background-image: url(../img/cabin.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+}
+.msNav{
+    padding: 20px 0;
+    min-width: 250px;
+    text-align: center;
+    position: fixed;
+    @include rwd(mobile){
+        display: none;
+    }
+    h2{
+        @include f40();
+        @include pBottom(20);
+    }
+    ul{ 
+        
+        padding: 30px 20px;
+        background-image: url(../img/woodframe.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 10px top;
+        @include rwd(medium){
+            // background-image: none;
+            padding: 30px 0;
+        }
+        li{
+            padding: 30px 25px 20px 25px;
+            background-image: url(../img/woodboard.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center ;
+            a{
+                padding: 10px;
+                color: white;
+                @include f20();
+               
+            }
+        }
+
+    }
+}
+
+
+.msProfile{
+    //共用
+    padding: 50px;
+    margin: auto;
+    position: absolute;
+    left: 250px;
+    @include rwd(mobile){
+        position: static;
+    }
+    @include rwd(medium){
+        padding: 0;
+    }
+    h3{
+        padding: 50px 0 20px;
+        @include f30();
+        @include rwd(medium){
+            text-align: center;
+        }
+    }
+    //共用
+    >.row{
+        padding: 50px;
+        background:rgba(226,242,250,.3);
+        @include rwd(medium){
+            padding: 20px;
+        }
+        @include rwd(mobile){
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .msProfile__img{
+            $size:140px;
+            width: $size;
+            height: $size;
+            overflow: hidden;
+            border-radius: 50%;
+            border:2px solid $color-main-blue;
+            flex-wrap: wrap;
+        }
+        .msProfile__btn{
+            padding: 20px 0;
+        }
+        .msProfile__text{
+            ul{
+                li{
+                    padding: 0 50px;
+                    @include f20();
+                    &:not(:first-child){
+                        @include pTop(50);
+                    }
+                }
+            }
+        }
+    }
+    .msPoint{
+        padding: 20px;
+        @include mTop(50);
+        background:rgba(226,242,250,.3);
+
+        h4{
+            @include pBottom(10);
+            @include f20();
+        }
+        .msPoint--use{
+            @include pBottom(20);
+            li{
+                padding: 8px 0;
+            }
+        }
+        .msPoint--get{
+            @include pTop(20);
+            .row{
+                justify-content: space-between;
+                .msPoint__item{
+                    $size:30%;
+                    max-width: 200px;
+                    height: $size;
+                    width: $size;
+                    overflow: hidden;
+                }
+
+            }
+        }
+    }
+}
+// @include o;

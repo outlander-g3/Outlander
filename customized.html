@@ -50,11 +50,11 @@
             </div>
             <div class="cuProcess__line"></div>
             <div class="cuProcess__second">
-                <div class="cuProcess__circle">2</div>
+                <div class="cuProcess__circle" id="cuProcessFill">2</div>
                 <p>選擇日期及嚮導</p>
             </div>
         </div>
-        <div class="mask">
+        <div class="cuMask">
             <section id="cu__step1">
                 <!-- 選擇器__洲別及山岳 -->
                 <div class="cuCustom">
@@ -155,12 +155,17 @@
         
                 </div>
                
-                <!-- btn選擇日期及嚮導 -->
-                <input type="submit" id="btn_cuPickTG" value="選擇日期及嚮導">
+                <div class="cuCtrlBtn">
+                    <!-- btn選擇日期及嚮導 -->
+                    <input type="submit" id="btn_cuPickTG" class="cuBtn" value="選擇日期及嚮導">
+                </div>
             </section>
         
             <!-- 客製化第二步驟（選時間、嚮導） -->
             <section id="cu__step2">
+                <div class="" >
+                    <input type="date">
+                </div>
                 <div id="cuCustom2">
                     <div class="custom-select cu_selectNum1" >
                         <select>
@@ -202,6 +207,12 @@
                         </button>
         
                     </div>
+                </div>
+                <div class="cuCtrlBtn">
+                    <!-- btn選擇日期及嚮導 -->
+                    <input type="button" id="btn_cuBack" class="cuBtn" value="上一頁">
+                    <!-- btn選擇日期及嚮導 -->
+                    <input type="submit" id="btn_cuBooking" class="cuBtn" value="訂購行程">
                 </div>
             </section>
         </div>

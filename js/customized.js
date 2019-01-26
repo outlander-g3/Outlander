@@ -2,8 +2,10 @@
 function O(id){
     return (typeof id == 'object'? i : document.getElementById(id));
     }
-// function S(id){
-//     return (typeof id == 'object'? i : document.getElementById(id));
+// function S(aaa){
+//     // console.log(O(id));
+//     return (O(id).style.aaa);
+//     alert();
 //     }
 
 var x, i, j, selElmnt, a, b, c;
@@ -125,7 +127,11 @@ function cuAddSceneryC(){
 }
 
 /* btn選擇日期及嚮導 --> 畫面切換到 */
+var cuProcessFill= O('cuProcessFill');
 function showPickTG(){
+    cuProcessFill.style.backgroundColor = '#088B9A';
+    cuProcessFill.style.color = '#fff';
+
     enquire.register("screen and (max-width: 767px)", {     
         match: function() {
                 // JavaScript here
@@ -148,7 +154,31 @@ function showPickTG(){
             },
         });
 }
+function backPickSc(){
+    cuProcessFill.style.backgroundColor = 'transparent';
+    cuProcessFill.style.color = '#088B9A';
+    enquire.register("screen and (max-width: 767px)", {     
+        match: function() {
+                // JavaScript here
+                // 當CSS media query計算的視窗寬度小於769px時執行
+                // 網頁載入時執行一次
+                // 之後每次改變視窗時會再執行一次
+                O('cu__step1').style.transform = "translateX(0px)";
+                O('cu__step2').style.transform = " translateY(-551px) translateX(1200px)";
+            },
+        });
+    enquire.register("screen and (min-width: 768px)", {     
 
+        match: function() {
+                // JavaScript here
+                // 當CSS media query計算的視窗寬度大於等於768px時執行
+                // 網頁載入時執行一次
+                // 之後每次改變視窗時會再執行一次
+                O('cu__step1').style.transform = "translateX(00px)";
+                O('cu__step2').style.transform = " translateY(-633px) translateX(1200px)";
+            },
+        });
+}
 function init(){
     var btn_cuCheckScenery = document.getElementById("btn_cuCheckScenery");
     btn_cuCheckScenery.addEventListener("click",cuShowScenery);
@@ -163,6 +193,9 @@ function init(){
     /* btn選擇日期及嚮導 --> 畫面切換到 */
     var btn_cuPickTG=document.getElementById('btn_cuPickTG');
     btn_cuPickTG.addEventListener('click',showPickTG);
+
+    var btnCuBack=O('btn_cuBack');
+    btnCuBack.addEventListener('click',backPickSc);
     // alert(123);
 }
 

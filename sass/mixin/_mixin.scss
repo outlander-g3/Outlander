@@ -70,6 +70,8 @@
 @mixin btn {
     height: 42px;
     border-radius:$border-radius-btn;
+    border: none;
+    cursor: pointer;
     color:#fff;
     display:block;
     text-align: center;

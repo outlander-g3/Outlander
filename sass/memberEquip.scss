@@ -23,7 +23,8 @@
     //共用.msEquipment--selector{
         .msEquipment__input {
             position: absolute;
-            @include mLeft(20);
+            // @include mLeft(20);
+            margin: 20px 20px;
             display: inline-block;
             width: 170px;
             min-height: 42px;
@@ -96,11 +97,11 @@
         .row{
             flex-wrap: wrap;
             // padding: 50px;
-            @include pTop(50);
+            @include pTop(80);
             background:rgba(226,242,250,.7);
-            justify-content: space-between;
+            justify-content: space-evenly;
             ul{
-                width: 250px;
+                width:300px;
                 margin: 20px;
                 border:1px solid gray;
                 @include br4;
@@ -124,5 +125,10 @@
     }
     .msEquipment__btn{
         padding: 20px 0;
-        text-align: right;
+        .row{
+            justify-content: flex-end;
+            #print{
+                @include mRight(20);
+            }
+        }
     }

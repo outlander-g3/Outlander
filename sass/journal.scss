@@ -1,3 +1,95 @@
-h2{
-    color: salmon;
+@import"base/_var.scss";
+// @import"base/_var_cu.scss";
+// @import "mixin/_mixin.scss";
+// @import "mixin/_mixin-customized.scss";
+p{
+    font-family: "Microsoft JhengHei";
+}
+i{
+    vertical-align: middle;
+
+}
+
+.material-icons{
+    font-size: 23px;
+}
+
+// *{
+//     outline: 1px solid salmon;
+// }
+// 手機直 575px
+@mixin phone-width() {
+    @media screen and (max-width: $phones-media) {
+        @content;   
+    }
+}
+//手機橫+手機直 767px
+@mixin small-pad-width() {
+    @media screen and (max-width: $phone-media) {
+        @content;   
+    }
+}
+//iPad+桌機 768px
+@mixin pad-width() {
+    @media screen and (min-width:$pad-media) {
+        @content;   
+    }
+}
+//桌機 992px
+@mixin pc-width() {
+    @media screen and (min-width: $pc-media) {
+        @content;   
+    }
+}
+
+
+.nav_menu,footer{
+    @include phone-width(){
+        display: none;
+    }
+}
+  
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    font-size: 0; /*除去4px*/
+    h1
+        img{
+            height: 60px;
+            padding-left: 20px;
+            padding-top: 5px;
+            vertical-align: middle;
+        }
+    li{
+        float: left;
+    }
+    @include phone-width() {
+        height: 56px;
+        h1 img{
+            height: 40px;
+            padding-top: 11px;
+        }
+    }
+}
+nav,.mw_1200,.cuCustom,.cu__step2{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.nav_txt,.nav_icon{
+    float: left;
+}
+.nav_txt > li > a {
+    font-size: 16px;
+    color: $color-text;
+    line-height: 70px;
+    padding-left: 20px;
+}
+.nav_icon{
+    padding: 0 20px 0 32px;
+    i{
+        color: $color-text;
+        line-height: 70px;
+    }
 }

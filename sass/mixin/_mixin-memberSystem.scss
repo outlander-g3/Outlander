@@ -1,0 +1,29 @@
+@mixin o {
+    *{
+        outline: 1px solid red;
+    }
+}
+
+
+$mobile: 767px;
+$medium: 991px;
+$desktop: 1200px;
+@mixin rwd($breakpoint) {
+    @if $breakpoint==mobile   {
+        @media only screen and (max-width: $mobile) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==medium {
+        @media all and (max-width: $medium){
+            @content;
+        }
+    }
+
+    @else if $breakpoint==desktop {
+        @media all and (max-width: $desktop){
+            @content;
+        }
+    }
+}

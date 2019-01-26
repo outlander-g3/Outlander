@@ -1,0 +1,128 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "mixin/_mixin-memberEquip.scss";
+*{
+    // outline: 1px solid red;
+}
+.msEquipment{
+    //共用
+    padding: 50px;
+    margin: auto;
+    position: absolute;
+    left: 250px;
+    @include rwd(mobile){
+        position: static;
+    }
+    h3{
+        padding: 40px 20px 20px;
+        @include f20b();
+        @include rwd(medium){
+            text-align: center;
+        }
+    }
+    //共用.msEquipment--selector{
+        .msEquipment__input {
+            position: absolute;
+            @include mLeft(20);
+            display: inline-block;
+            width: 170px;
+            min-height: 42px;
+            max-height: 42px;
+            line-height: 42px;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: left;
+            // white-space: nowrap;
+            color: #fff;
+            outline: none;
+            border-radius: 21px;
+            background-color: #5db7c5;
+            transition: 0.3s all ease-in-out;
+            @include rwd(medium){
+                
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                right: 10%;
+                top: 1.2em;
+                border: 0.4em solid #fff;
+                border-color: #fff transparent transparent transparent;
+                transition: .4s all ease-in-out; 
+              }
+            input {
+                display: none;
+            }
+            
+            label {
+                border-top:0.06em solid #d9d9d9;
+                display: block;
+                @include pLeft(10);
+                cursor: pointer;
+                font-family: "Microsoft JhengHei";
+                position: relative;
+                transition: 0.3s color ease-in-out;
+                @include f16b;
+            }
+            label:nth-child(2) {
+                @include mTop(42);
+                // border-top: .06em solid #d9d9d9;
+            }
+            input:checked + label {
+                display: block;
+                border-top: none;
+                position: absolute;
+                top: 0;
+            }
+            input:checked + label:nth-child(2) {
+                @include mTop(0);
+                position: relative;
+            }
+          
+        }
+          .msEquipment__input.expanded {
+            background-color: #5db7c5;
+            border-radius: 21px;
+            padding: 0;
+            max-height: 100%;
+            &::after {
+                transform: rotate(-180deg);
+                top: 0.6em;
+              }
+          }
+    }
+    .msEquipment--content{
+        
+        .row{
+            flex-wrap: wrap;
+            // padding: 50px;
+            @include pTop(50);
+            background:rgba(226,242,250,.7);
+            justify-content: space-between;
+            ul{
+                width: 250px;
+                margin: 20px;
+                border:1px solid gray;
+                @include br4;
+    
+                h4{
+                    padding: 10px 0;
+                    text-align: center;
+                    @include f20b();
+                }
+                li{
+                    padding: 8px 0;
+                    @include f16();
+                    i{
+                        vertical-align: middle;
+                    }
+                }
+            }
+    
+        }
+        
+    }
+    .msEquipment__btn{
+        padding: 20px 0;
+        text-align: right;
+    }

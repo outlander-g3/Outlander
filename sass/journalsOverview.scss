@@ -9,7 +9,15 @@
     }
     font-family: "Microsoft JhengHei";
 }
-
+.jo__wrap{
+    // background: rgba(94, 183, 197, 0.2);
+    // background-image: url("../img/bg-mountain.png");
+    // background: rgba(255,255,255,.6);
+    background-image: url("../img/bg.png");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size:cover;
+}
 .jo__map{
     position: relative;
     @include rwd(mobile){
@@ -228,7 +236,8 @@
             }
         }
 }
-.jo__allcards{
+#jo__allcards__bg{
+    .jo__allcards{
     margin:auto;
     @include pBottom(50);
     // columns: 270px;
@@ -237,6 +246,7 @@
     width: 90%;
     // max-width: 1440px;
     // max-width: 1200px;
+     
     
     @media only screen and (max-width: 1200px) {
         column-count:2;      
@@ -328,6 +338,9 @@
        }        
     }   
 }   
+
+}
+
    
 .joOverMore button{
      margin: auto;

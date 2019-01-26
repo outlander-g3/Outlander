@@ -1,9 +1,9 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-memberEquip.scss";
-*{
-    // outline: 1px solid red;
-}
+// *{
+//     outline: 1px solid red;
+// }
 .msEquipment{
     //共用
     padding: 50px;
@@ -14,7 +14,7 @@
         position: static;
     }
     h3{
-        padding: 40px 20px 20px;
+        padding: 40px 0px 20px;
         @include f20b();
         @include rwd(medium){
             text-align: center;
@@ -23,8 +23,7 @@
     //共用.msEquipment--selector{
         .msEquipment__input {
             position: absolute;
-            // @include mLeft(20);
-            margin: 20px 20px;
+            margin: 40px 50px;
             display: inline-block;
             width: 170px;
             min-height: 42px;
@@ -39,9 +38,9 @@
             border-radius: 21px;
             background-color: #5db7c5;
             transition: 0.3s all ease-in-out;
-            @include rwd(medium){
+            // @include rwd(medium){
                 
-            }
+            // }
             &::after {
                 content: "";
                 position: absolute;
@@ -98,6 +97,7 @@
             flex-wrap: wrap;
             // padding: 50px;
             @include pTop(80);
+            @include mTop(20);
             background:rgba(226,242,250,.7);
             justify-content: space-evenly;
             ul{

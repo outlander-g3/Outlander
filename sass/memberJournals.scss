@@ -1,0 +1,154 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "mixin/_mixin-memberEquip.scss";
+
+// *{
+//     outline: 1px solid red;
+// }
+.msJournals{
+    padding: 50px;
+    margin: auto;
+    position: absolute;
+    left: 250px;
+    @include rwd(mobile){
+        position: static;
+    }
+    h3{
+        padding: 40px 0px 20px;
+        @include f20b();
+        @include rwd(medium){
+            text-align: center;
+        }
+    }
+    .member-title{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+        #button_with_pencil {
+            @include rwd(mobile){
+               border-radius: 50%;
+               width: 42px;
+               height: 42px;      
+            }
+            img{
+                width: 25px;
+                height: 25px;
+                position: relative;
+                top:0.3rem;
+                left:-0.5rem;
+                @include rwd(mobile){
+                    top:0.3rem;
+                    left:0;      
+                }
+            } 
+            span{
+                position: relative;
+                left: -0.5rem;
+                @include rwd(mobile){
+                    display: none;      
+                }   
+            }       
+        }
+    }
+}
+#table-myjo{
+    width: 100%;
+    @include mTop(20);
+    #table-title{
+            background-color: $color-btn-sub;
+        th{
+            color: $color-subTitle;
+            padding: 10px 20px;
+            @include f16b();
+        }
+        #table-title-th{
+            text-align: left;
+            width: 50%;
+        }
+        .table-title-th{
+            text-align: center;
+        }
+    }
+    tr+tr{
+        width: 100%;
+        .table-title-td{
+            text-align: left;
+            padding-left:20px; 
+        }
+        td{
+            line-height: 34px;
+            vertical-align: middle;
+            text-align: center;
+            border: 1px solid #aaa;
+        }
+        img{
+            width: 20px;
+            height: 20px;
+            display: block;
+            margin: auto;
+            cursor: pointer;
+        }
+    }
+}
+.btn{
+    background-color:$color-btn-main;
+    @include btn();
+    @include btn-l();
+    display: block;
+    margin:20px auto;
+
+}
+
+
+#myjo{
+    @include mTop(100);
+    h3{
+        @include block;
+    }
+    #myjo-card-all{
+        display: flex;
+        width: 100%;
+        .myjo-card{
+            opacity: 0.9;
+            flex: 1;
+            margin: 0 20px;
+            border: 1px solid #aaa;
+            background: $color-btn-sub;
+            img+span{
+                font-size: 0.6rem;
+            }
+            span{
+                color:$color-text;
+                padding: 10px;
+            }
+            h4{
+                color:$color-subTitle;
+                font-size: 1.3rem;
+                padding: 10px;
+            }
+            p{
+                color:$color-text;
+                padding: 10px;
+            }
+            i{
+                font-size: 24px;
+                padding:5px;
+            }
+        }
+    }
+}
+@media (max-width:768px){
+    .msEquipment{
+        width: 90%;
+        margin: auto;
+    }
+    #myjo{
+        #myjo-card-all{
+            display: block;
+            .myjo-card{
+                @include mTop (20);
+            }
+        }
+    }
+}

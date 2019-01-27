@@ -264,10 +264,10 @@ nav,.mw_1200,.cuCustom,.cu__step2{
 .cuCustom__dropZone{
     @include br4;
     @include cu_ColorBg(.22);
+    position: relative;
     &:before{
         content: '我的風景路線規劃';
         font-family: "Microsoft JhengHei";
-
         display: inline-block;
         width: 100%;
         color: $color-white;
@@ -277,20 +277,31 @@ nav,.mw_1200,.cuCustom,.cu__step2{
         @include cu_ColorBg(1);
         @include cu_br(4,4);
     }
-  
     @include small-pad-width() {
         height: 369px;
         margin: 20px;
-        position: relative;
-        // z-index: -1;
     }
     @include pad-width() {
         width: 51.6667%;
         height: 549px;
         margin-left: 20px;
     }
-   
 } 
+.cuCustom__dropTell{
+    font-family: "Microsoft JhengHei";
+    color: rgba($color: #fff, $alpha: 0.3);
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    @include small-pad-width() {
+        @include f20b;
+    }
+    @include pad-width() {
+        @include f30b;    
+    }
+}
+
 /*風景列表*/ 
 #cuCustom__sceneryTitle{
     @include f16b;
@@ -300,12 +311,12 @@ nav,.mw_1200,.cuCustom,.cu__step2{
 }
 #cuCustom__sceneryZone--bg{
     @include small-pad-width() {
-        width: 100%;
+    width: 100%;
     height: 100vh;
     background-color: rgba(31,31,31,.6);
     position: fixed;
-    // position: absolute;
     top: 0;
+    z-index: 1;
     }
 }
 .cuCustom__sceneryZone{
@@ -378,7 +389,7 @@ nav,.mw_1200,.cuCustom,.cu__step2{
 //     background: #65B8C6; 
 //   }
 .cuCustom__sceneryItem{
-    background: url("../img/cu__sceneryItem.png") ;
+    background: url("../img/cu__sceneryItem3.jpg") ;
     background-size: cover;
     margin: 10px;
     position: relative;
@@ -424,6 +435,69 @@ nav,.mw_1200,.cuCustom,.cu__step2{
         font-family: "Arial";
         font-weight: normal;
     }
+}
+.cuCustom__dropMask{
+    overflow: auto;
+    width: 100%;
+    @include small-pad-width() {
+        margin: 5px auto;
+        height: 315px;
+    }
+    @include pad-width() {
+        margin: 10px auto;
+        height: 480px;
+    }
+}
+.cuCustom__dropScenery{
+    @include br4;
+    background: url("../img/cu__sceneryItem3.jpg") ;
+    background-position: 50% 50%;
+    background-size: cover;
+    margin: 10px;
+    position: relative;
+    color: $color-white;
+
+    &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        background-image:linear-gradient(
+            360deg,
+            rgba(0, 0, 0, 0.2) 20px,
+            rgba(0, 0, 0, 0.18),
+            rgba(0, 0, 0, 0)
+        )
+        ;
+    }
+    @include small-pad-width() {
+
+        width: 94%;
+        height: 140px;
+        margin: 10px 10px;
+    }
+    @include pad-width() {
+        width: 94%;
+        height: 180px;
+    }
+    div:first-child{
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        @include f16;
+        i{
+            color: rgba(255, 255, 255, .8);
+            padding-top: 2px;
+        }
+    }
+}
+.cuCustom__price{
+    @include f16;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-family: "Arial";
+    font-weight: normal;
 }
 .cuCustom__showOption{
     @include pad-width() {
@@ -482,7 +556,39 @@ nav,.mw_1200,.cuCustom,.cu__step2{
     }
     
 }
+.cuCustom__detailBg{
+    @include small-pad-width(){
+        display: none;
+    }
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(31,31,31,.6);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.cuCustom__detail--content{
+    padding: 20px;
+}
+#cuCustom__detail{
+    @include pad-width(){
+        width: 556px;
+        height: 600px;
+        background-color: $color-white;
+        margin: auto;
+        h4{
+            @include f20b;
+        }
+        p{
+            line-height: 1.6;
+        }
 
+    }
+}
+#btn_cuAddOne{
+    @include btn-s;
+    margin: auto;
+}
 #btn_cuPickTG{
     margin: auto;
     @include btn-l;

@@ -9,10 +9,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/customized.css">
-    <!-- <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script> -->
+
     <script src="js/enquire.min.js"></script>
 </head>
 <body>
@@ -54,6 +51,20 @@
                 <p>選擇日期及嚮導</p>
             </div>
         </div>
+
+        <!-- 風景詳細介紹，避免1200阻礙所以放在這 -->
+        <div class="cuCustom__detailBg">
+            <div id="cuCustom__detail">
+                <img src="img/cu__sceneryItem3.jpg" alt="安娜普納基地">
+                <div class="cuCustom__detail--content">
+                    <h4>安娜普那基地</h4>
+                    <span>$2,000</span>
+                    <p>尼泊爾著名健行步道之一。安娜普娜(Annapurna)基地營高4,130M。有魚尾峰千變萬化的景觀及山上村落悠閒的田園生活、驢隊漫步其間叮叮噹噹聲不絕於耳，無怪乎全世界喜愛高山健行的登山客把這路線當作必行之地。</p>
+                    <input type="submit" id="btn_cuAddOne" class="cuBtn" value="加入景點">
+                </div>
+            </div>
+        </div>
+
         <div class="cuMask">
             <section id="cu__step1">
                 <!-- 選擇器__洲別及山岳 -->
@@ -85,8 +96,7 @@
                                 <option value="10">玉山</option>
                             </select>
                         </div>
-                        
-            
+                                   
                         <div id="cuCustom__zone">
                             <!-- 風景列表 -->
                             <h3 id="cuCustom__sceneryTitle">山岳風景列表</h3>
@@ -113,7 +123,7 @@
                                             <div class="cuCustom__showOption">
                                                     <i class="material-icons" id="btn_cuAddScenery">add</i>
                                                     <i class="material-icons" id="btn_cuWatchScenery">search</i>
-                                                </div>
+                                            </div>
                                         </div>
                                         <div class="cuCustom__sceneryItem">
                                             <div class="cuCustom__sceneryContent">
@@ -147,6 +157,33 @@
                     </div>
                     <!-- 調整風景順序 -->
                     <div class="cuCustom__dropZone">
+                        <span class="cuCustom__dropTell" >拖曳可以更改風景順序</span>
+                        <div class="cuCustom__dropMask">
+                                <div class="cuCustom__dropScenery">
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                        <i class="material-icons">restaurant</i>
+                                        <i class="fas fa-campground"></i>
+                                    </div>
+                                    <span class="cuCustom__price">$2,000</span>   
+                                </div>
+                                <div class="cuCustom__dropScenery">
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                        <i class="material-icons">restaurant</i>
+                                        <i class="fas fa-campground"></i>
+                                    </div>
+                                    <span class="cuCustom__price">$2,000</span>   
+                                </div>
+                                <div class="cuCustom__dropScenery">
+                                    <div class="cuCustom__sceneryContent">
+                                        <p>安娜普那基地</p>
+                                        <i class="material-icons">restaurant</i>
+                                        <i class="fas fa-campground"></i>
+                                    </div>
+                                    <span class="cuCustom__price">$2,000</span>   
+                                </div>
+                        </div>
                         <!-- btn_查看風景列表 -->
                         <div id="btn_cuCheckScenery">
                             <i class="material-icons">add</i>
@@ -154,12 +191,12 @@
                     </div>
         
                 </div>
-               
                 <div class="cuCtrlBtn">
                     <!-- btn選擇日期及嚮導 -->
                     <input type="submit" id="btn_cuPickTG" class="cuBtn" value="選擇日期及嚮導">
                 </div>
             </section>
+
         
             <!-- 客製化第二步驟（選時間、嚮導） -->
             <section id="cu__step2">

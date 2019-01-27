@@ -1,0 +1,63 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "mixin/_mixin-memberEquip.scss";
+
+*{
+    // outline: 1px solid red;
+}
+.all__ordercards{
+    .one__ordercard{
+        margin-bottom: 20px;
+        background:rgba(226,242,250,1);
+        @include br4;
+        box-shadow: $shadow;
+        // border: 1px solid grey;
+        display: flex;
+        justify-content: space-between;
+        .orderImg{
+            width: 250px;
+            // height: 150px;
+            img{
+                height: 100%;
+                vertical-align: bottom;
+            }
+        }
+        .orderInfo{
+            padding: 10px;
+            color:$color-text;
+
+            span{
+                @include f14;
+                padding: 10px;
+            }
+            h4{
+                @include f20b;
+                padding: 10px;
+            }
+            p{
+                @include f14;
+                padding: 10px;
+            }
+        }
+    }
+    .fourButtons{     
+        display: flex;
+        align-items: flex-end;
+        @include pBottom(10);
+        .img-buttons{
+            margin-right: 10px;
+            width: 25px;
+            height: 25px;
+            img{
+                width: 25px;
+                height: 25px;
+            }
+        }
+        button{
+            margin: 0 5px;
+            height: 30px;
+            line-height: 30px; 
+            width: 100px; 
+        }
+    }
+}

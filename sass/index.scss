@@ -22,9 +22,12 @@ button{
     100%{opacity: 0.8;background-position: 0 0;}
   } 
 #indexBanner{
-    overflow-x: hidden;
+    @media (max-width:768px) {
+        overflow-x: hidden;
+    }
     width: 100%;
-    max-width: 1920px;
+    margin: auto;
+    max-width: 2300px;
     position: relative;
     .cloud{
         display: block;

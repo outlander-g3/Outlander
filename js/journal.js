@@ -27,6 +27,7 @@ function jnInsertT(){
                 // 之後每次改變視窗時會再執行一次
                 var jnContentInfo=O('jnContent__info');
                 jnContentInfo.style.position = 'sticky';
+                jnContentInfo.style.position = 'sticky';
 
             },
         });

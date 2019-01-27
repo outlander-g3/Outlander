@@ -22,9 +22,7 @@ button{
     100%{opacity: 0.8;background-position: 0 0;}
   } 
 #indexBanner{
-    @media (max-width:768px) {
-        overflow-x: hidden;
-    }
+    overflow: hidden;
     width: 100%;
     margin: auto;
     max-width: 2300px;

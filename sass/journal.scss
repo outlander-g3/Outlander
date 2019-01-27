@@ -129,6 +129,7 @@ nav,.mw_1200{
     }
 }
 #jnContent{
+    @include pBottom(50);
     p{
         line-height: 1.6;
         padding: 15px 0;
@@ -136,7 +137,6 @@ nav,.mw_1200{
     img{
         width: 100%;
     }
-    
     @include pad-width(){
         width: 66.964%;
         padding: 0 0 0 2%;
@@ -145,7 +145,7 @@ nav,.mw_1200{
 }
 #jnContent__plr20{
     @include small-pad-width(){
-        padding: 0 20px;
+        padding: 0 20px 35px 20px;
     }
 }
 
@@ -253,7 +253,7 @@ nav,.mw_1200{
     background-color: $color-white;
     position: relative;
     top: 50px;
-    height: 300px;
+    // height: 300px;
     @include small-pad-width(){
         width: 100%;
     }
@@ -264,3 +264,12 @@ nav,.mw_1200{
         margin: auto;
     }
 }
+
+// .jnFB__plr40{
+//     @include small-pad-width(){
+//         padding: 20px 20px;
+//     }
+//     @include pad-width(){
+//         padding: 20px 40px;
+//     }
+// }

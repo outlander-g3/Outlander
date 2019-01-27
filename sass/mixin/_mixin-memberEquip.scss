@@ -22,7 +22,7 @@ $desktop: 1200px;
     }
 
     @else if $breakpoint==desktop {
-        @media all and (max-width: $desktop){
+        @media all and (min-width: $desktop){
             @content;
         }
     }

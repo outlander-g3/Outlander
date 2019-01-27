@@ -2,13 +2,14 @@
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-memberEquip.scss";
 
-// *{
-//     outline: 1px solid red;
-// }
+*{
+    outline: 1px solid red;
+}
 .msJournals{
     padding: 50px;
     margin: auto;
     position: absolute;
+    color: $color-text;
     left: 250px;
     @include rwd(mobile){
         position: static;
@@ -16,15 +17,16 @@
     h3{
         padding: 40px 0px 20px;
         @include f20b();
-        @include rwd(medium){
-            text-align: center;
-        }
+        // @include rwd(medium){
+        //     text-align: center;
+        // }
     }
     .member-title{
         display: flex;
         width: 100%;
         justify-content: space-between;
         align-items: flex-end;
+        @include pBottom(20);
         #button_with_pencil {
             @include rwd(mobile){
                border-radius: 50%;
@@ -61,10 +63,11 @@
             color: $color-subTitle;
             padding: 10px 20px;
             @include f16b();
+            border: 1px solid $color-btn-sub;
         }
         #table-title-th{
             text-align: left;
-            width: 50%;
+            width: 40%;
         }
         .table-title-th{
             text-align: center;
@@ -74,13 +77,32 @@
         width: 100%;
         .table-title-td{
             text-align: left;
-            padding-left:20px; 
+            // padding-left:20px;
         }
         td{
             line-height: 34px;
             vertical-align: middle;
+            @include f14;
             text-align: center;
+            // padding-left:20px;
             border: 1px solid #aaa;
+            a{
+                display: block;
+                color: $color-text;
+                @include rwd(desktop){
+                    &:hover{
+                    background: rgba(226,242,250,1);
+                    text-decoration: underline;
+                    }
+                }
+            }
+            span{
+                padding-left: 20px;
+                @include f16b;
+                @include rwd(mobile){
+                    padding-left: 0;
+                }
+            }
         }
         img{
             width: 20px;
@@ -96,7 +118,10 @@
     @include btn();
     @include btn-l();
     display: block;
-    margin:20px auto;
+    margin: 40px auto;
+}
+.btn__favjo{
+    margin: 0 auto;
 
 }
 
@@ -104,15 +129,18 @@
 #myjo{
     @include mTop(100);
     h3{
-        @include block;
+        // @include block;
+        padding: 40px 0px 20px;
     }
     #myjo-card-all{
         display: flex;
+        @include pTop(20);
         width: 100%;
+        justify-content: space-between;
         .myjo-card{
-            opacity: 0.9;
-            flex: 1;
-            margin: 0 20px;
+            // opacity: 0.9;
+            // flex: 1;
+            margin: 0 40px 0 0;
             border: 1px solid #aaa;
             background: $color-btn-sub;
             img+span{
@@ -151,4 +179,111 @@
             }
         }
     }
+}
+
+
+#jo__allcards__bg{
+    .jo__allcards{
+    margin:auto;
+    @include pBottom(0);
+    // columns: 270px;
+    column-count: 4;
+    column-gap: 60px; 
+    width: 100%;
+    // max-width: 1440px;
+    // max-width: 1200px;
+     
+    
+    @media only screen and (max-width: 1200px) {
+        column-count:2;      
+    } 
+    @media only screen and (max-width: 768px) {
+        column-count:1;      
+    }  
+    // @include rwd(mobile){
+    //     column-count:1;      
+    // }
+
+
+    a{
+        display: block;
+        overflow: hidden;
+        @media only screen and (min-width:1200px) {
+             &:hover img{
+                transform: scale(1.1);
+            }
+            &:hover .jo__onecard .jo__allinfo{
+                background-color:rgba(94, 183, 197,.2);
+            }
+        }
+       
+        .jo__onecard{
+            @include mBottom(40);
+            border: 1px solid #ccc;
+            box-shadow: $shadow;
+            @include br4();
+            background: #fff;
+            img{
+                max-width: 100%;
+                border-radius: 4px 4px 0 0;
+                vertical-align:text-top;
+                transition: 1s;
+            }
+            .jo__allinfo{
+                padding: 20px;
+                background-color:rgba(150,208,217,.7);
+                transition: .5s;
+    
+                .jo__publish,h3,.jo__text{
+                    // padding: 10px;
+                    @include pTop(10);
+                    // font-family: "微軟正黑體";
+                }
+                .jo__publish{
+                    // @include f14;
+                    font-size: 12px;
+                    color:$color-subTitle;
+                }
+                h3{
+                    @include f20b;
+                    color:$color-text; 
+                }
+                .jo__text{
+                    @include f14;
+                    color:$color-text; 
+                    line-height:1.5em ;
+                }
+                .icon{
+                    @include mTop(10);
+                    color: $color-text;
+                    opacity: 0.9;
+                    display: flex;
+                    justify-content: flex-end;
+                    div{
+                        @include mLeft(30);
+                    }
+                    span{
+                        // @include f14;
+                        font-size: 12px;
+                        @include mLeft(5);
+                        align-self: center;
+                    }
+                    .material-icons{
+                        align-self: center;
+                        color: #f00;
+                        opacity: 1;
+                    }
+                    .material-icons.unsetFavorite{
+                        color:$color-text;
+                    }
+                    .fa-comment{
+                        font-size: 20px;
+                        align-self: center;
+                    }
+                }
+            }      
+       }        
+    }   
+}   
+
 }

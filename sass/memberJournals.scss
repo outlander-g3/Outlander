@@ -56,7 +56,8 @@
 }
 #table-myjo{
     width: 100%;
-    @include mTop(20);
+    @include mTop(0);
+    background:rgba(226,242,250,.7);
     #table-title{
             background-color: $color-btn-sub;
         th{

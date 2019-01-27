@@ -26,8 +26,10 @@ function jnInsertT(){
                 // 當CSS media query計算的視窗寬度大於等於768px時執行
                 // 網頁載入時執行一次
                 // 之後每次改變視窗時會再執行一次
-                var jnContent=O('jnContent');
-                jnContent.style.transform = "translateY(-30px)";
+                var btnJnSeeProd = O('btn__jnSeeProd');
+                var jnContentInfoPos = O('jnContent__info--pos');
+                var clearfix = document.getElementsByClassName('clearfix')[0];
+                jnContentInfoPos.insertBefore(btnJnSeeProd,clearfix);
 
             },
         });

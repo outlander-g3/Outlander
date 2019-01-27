@@ -110,9 +110,13 @@ nav,.mw_1200{
     margin: auto;
 }
 .jnBread{
-    padding: 20px 0;
+    padding: 20px 0 40px 40px;
+    color: $color-white;
+    @include small-pad-width(){
+        display: none;
+    }
 }
-.jnPaper{
+.jnPaper.jnPaper{
     background-color: $color-white;
     @include small-pad-width(){
         width: 100%;
@@ -124,7 +128,6 @@ nav,.mw_1200{
         margin: auto;
     }
 }
-
 #jnContent{
     p{
         line-height: 1.6;
@@ -137,6 +140,7 @@ nav,.mw_1200{
     @include pad-width(){
         width: 66.964%;
         padding: 0 0 0 2%;
+        transform : translateY(-30px);
     }
 }
 #jnContent__plr20{
@@ -150,7 +154,7 @@ nav,.mw_1200{
     position: sticky;
     top: 10px;
     bottom: 100px;
-    .jnContent__info--pos{
+    #jnContent__info--pos{
         position: sticky;
         top: 10px;
     }
@@ -190,7 +194,7 @@ nav,.mw_1200{
     }
     @include small-pad-width(){
         float: left;
-        }   
+    }   
 }
 .jnContent__infoJ{
     position: relative;
@@ -212,13 +216,51 @@ nav,.mw_1200{
     @include mTop(20);
     background-color: $color-btn-sub;
     border: none; 
-    
+    cursor: pointer;
     @include small-pad-width(){
         position: absolute;
-        right: 0;
-        
+        right: 0;     
+    }
+}
+#btn__jnSeeProd{
+    @include btn;
+    @include btn-l;
+    background-color: $color-btn-main;
+    border: none; 
+    cursor: pointer;
+    @include small-pad-width(){
+        margin: auto;
+    }
+    @include pad-width(){
+        position: relative;
+        top: 10px;
     }
 }
 .clearfix{
     clear: both;
+}
+
+
+// .jnFB{
+//     position: relative;
+//     top: 50px;
+//     height: 600px;
+//     margin: auto;
+//     background-color: aliceblue;
+// }
+
+.jnFB{
+    background-color: $color-white;
+    position: relative;
+    top: 50px;
+    height: 300px;
+    @include small-pad-width(){
+        width: 100%;
+    }
+    @include pad-width(){
+        @include br4;
+        width: 93.3333%;
+        // height: 600px;
+        margin: auto;
+    }
 }

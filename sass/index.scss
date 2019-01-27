@@ -22,6 +22,7 @@ button{
     100%{opacity: 0.8;background-position: 0 0;}
   } 
 #indexBanner{
+    overflow-x: hidden;
     width: 100%;
     max-width: 1920px;
     position: relative;

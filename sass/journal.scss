@@ -14,9 +14,9 @@ i{
     font-size: 23px;
 }
 
-*{
-    outline: 1px solid salmon;
-}
+// *{
+//     outline: 1px solid salmon;
+// }
 // 手機直 575px
 @mixin phone-width() {
     @media screen and (max-width: $phones-media) {
@@ -109,23 +109,46 @@ nav,.mw_1200,.cuCustom,.cu__step2{
     padding: 20px 0;
 }
 .jnPaper{
+    background-color: $color-white;
+    @include small-pad-width(){
+        width: 100%;
+    }
     @include pad-width(){
         @include br4;
         width: 93.3333%;
         // height: 600px;
         margin: auto;
-        background-color: $color-white;
     }
 }
 
 #jnContent{
-    width: 750px;
+    @include small-pad-width(){
+        padding: 0 20px;
+    }
+    p{
+        line-height: 1.6;
+        padding: 15px 0;
+    }
+    img{
+        width: 100%;
+    }
 }
 
 #jnContent__info{
     color: salmon;
     position: sticky;
     top: 10px;
-    bottom: 100px
+    bottom: 100px;
     // transform: translate(520px,-130px);
+}
+.jnContent__infoW{
+    #jnContent__myphoto{
+        width: initial;
+    }
+    span{
+        font-size: 14px;
+        color: $color-lightgray;
+        display: inline-block;
+    }
+    
 }

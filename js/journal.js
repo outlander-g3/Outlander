@@ -11,10 +11,10 @@ function jnInsertT(){
                 // 當CSS media query計算的視窗寬度小於769px時執行
                 // 網頁載入時執行一次
                 // 之後每次改變視窗時會再執行一次
-                var aaa=O('aaa');
-                aaa.style.position = 'static';
+                var jnContentInfo=O('jnContent__info');
+                jnContentInfo.style.position = 'static';
                 var bbb=O('jnContent__1thP');
-                jnContent.insertBefore(aaa,bbb);
+                jnContent.insertBefore(jnContentInfo,bbb);
             },
         });
         enquire.register("screen and (min-width: 768px)", {     
@@ -25,8 +25,8 @@ function jnInsertT(){
                 // 當CSS media query計算的視窗寬度大於等於768px時執行
                 // 網頁載入時執行一次
                 // 之後每次改變視窗時會再執行一次
-                var aaa=O('aaa');
-                aaa.style.position = 'sticky';
+                var jnContentInfo=O('jnContent__info');
+                jnContentInfo.style.position = 'sticky';
 
             },
         });

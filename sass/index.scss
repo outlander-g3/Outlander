@@ -1,7 +1,11 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
+
 body{
     overflow-x: hidden;
+    *{
+        font-family: "微軟正黑體";
+    }
 }
 #searchAll{
     display: none;
@@ -18,7 +22,7 @@ button{
 
 @keyframes aaa {
     0%{opacity: 0.8;background-position: 0 0;}
-    50%{opacity: 1;background-position: 100000px 0;}
+    50%{opacity: 1;background-position: 50000px 0;}
     100%{opacity: 0.8;background-position: 0 0;}
   } 
 #indexBanner{
@@ -34,7 +38,7 @@ button{
         background-size: 100% 100%;
         position: absolute;
         background-position: 0 0;
-        height: 40%;
+        height: 30%;
         opacity: 0.8;
         top: 10%;
         background-repeat: repeat-x; 
@@ -83,6 +87,7 @@ button{
             position: absolute;
             color: transparent;
             z-index: -1;
+            // font-family: "微軟正黑體";
         }
         #indexName1{
             left: 17%;
@@ -184,48 +189,48 @@ button{
         // }
         @keyframes  indexName1{
             0%{ top:70%;}
-            50%{top:15%; opacity: 0.5; color:black}
-            100%{ top: 35%;left: 17%;opacity: 0.5;color: black}
+            50%{top:15%; opacity: 0.7; color:black}
+            100%{ top: 35%;left: 17%;opacity: 0.7;color: black}
         }
         @keyframes  indexName2{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black;z-index: -1;}
-            100%{ top: 35%;left: 25%;opacity: 0.5; color:black;z-index: 2;}
+            50%{top:15%;opacity: 0.7; color:black;z-index: -1;}
+            100%{ top: 35%;left: 25%;opacity: 0.7; color:black;z-index: 2;}
         }
         @keyframes  indexName3{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black;z-index: -1;}
-            100%{ top: 35%;left: 33%;opacity: 0.5; color:black;z-index: 2;}
+            50%{top:15%;opacity: 0.7; color:black;z-index: -1;}
+            100%{ top: 35%;left: 33%;opacity: 0.7; color:black;z-index: 2;}
         }
         @keyframes  indexName4{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black}
-            100%{ top: 35%;left: 40%;opacity: 0.5; color:black}
+            50%{top:15%;opacity: 0.7; color:black}
+            100%{ top: 35%;left: 40%;opacity: 0.7; color:black}
         }
         @keyframes  indexName5{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black ; z-index: -1;}
-            100%{ top: 35%;left: 47%;opacity: 0.5; color:black;z-index: 2;}
+            50%{top:15%;opacity: 0.7; color:black ; z-index: -1;}
+            100%{ top: 35%;left: 47%;opacity: 0.7; color:black;z-index: 2;}
         }
         @keyframes  indexName6{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black;z-index: -1;}
-            100%{ top: 35%;left: 54%;opacity: 0.5; color:black;z-index: 2;}
+            50%{top:15%;opacity: 0.7; color:black;z-index: -1;}
+            100%{ top: 35%;left: 54%;opacity: 0.7; color:black;z-index: 2;}
         }
         @keyframes  indexName7{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black}
-            100%{ top: 35%;left: 62%;opacity: 0.5; color:black}
+            50%{top:15%;opacity: 0.7; color:black}
+            100%{ top: 35%;left: 62%;opacity: 0.7; color:black}
         }
         @keyframes  indexName8{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black;z-index: -1;}
-            100%{ top: 35%;left: 70%;opacity: 0.5; color:black;z-index: 2;}
+            50%{top:15%;opacity: 0.7; color:black;z-index: -1;}
+            100%{ top: 35%;left: 71%;opacity: 0.7; color:black;z-index: 2;}
         }
         @keyframes  indexName9{
             0%{ top:70%;}
-            50%{top:15%;opacity: 0.5; color:black}
-            100%{ top: 35%;left: 78%;opacity: 0.5; color:black}
+            50%{top:15%;opacity: 0.7; color:black}
+            100%{ top: 35%;left: 78%;opacity: 0.7; color:black}
         }
         img{
             width: 100%;
@@ -538,6 +543,7 @@ button{
         .list-1{
             width: 100%;
             display: flex;
+            margin: 0 0 20px 0;
             font-size: 1rem;
             color:  $color-text;
             justify-content: space-around;

@@ -1,6 +1,10 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-memberEquip.scss";
+
+*{
+    outline: 1px solid red;
+}
 @media (max-width:768px){
     .msNav{
         display: none;
@@ -29,8 +33,9 @@
         display: block;
     }
     #name{
-        font-size: 1.3rem;
+        @include f16b;
         cursor: text;
+        text-indent: 2%;
     }
     #img{
         flex: 1;
@@ -62,7 +67,7 @@
     }
     .msEquipment__input{
         width: 70%;
-        border-radius: unset;
+        border-radius: $border-radius-btn;
         box-shadow: $shadow;
         }
     }
@@ -132,6 +137,7 @@
         justify-content: space-around;
         background: $color-btn-sub;
         align-content: center;
+        border: 1px solid $color-btn-sub;
         i{
             line-height: 30px;
             cursor: pointer;
@@ -141,6 +147,7 @@
         width: 100%;
         height: 500px;
         border: 1px solid #aaa;
+        background: #fff;
     }
     #daylog{
         display: none;
@@ -153,7 +160,7 @@
         }
     button{
         border: unset;
-        background-color:$color-btn-sub;
+        background-color:$color-btn-main;
         @include btn();
         @include btn-s();
         box-shadow: $shadow;

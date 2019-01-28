@@ -5,6 +5,11 @@
 // *{
 //     outline: 1px solid red;
 // }
+body{
+    *{
+        font-family: "微軟正黑體";
+    }
+}
 .msJournals{
     padding: 50px;
     margin: auto;
@@ -57,7 +62,7 @@
 #table-myjo{
     width: 100%;
     @include mTop(0);
-    background:rgba(226,242,250,.7);
+    background:rgba(226,242,250,1);
     #table-title{
             background-color: $color-btn-sub;
         th{
@@ -86,7 +91,7 @@
             @include f14;
             text-align: center;
             // padding-left:20px;
-            border: 1px solid #aaa;
+            border: 1px solid #ccc;
             a{
                 display: block;
                 color: $color-text;
@@ -199,7 +204,10 @@
         column-count:2;      
     } 
     @media only screen and (max-width: 768px) {
-        column-count:1;      
+        column-count:1;  
+        width: 80%;
+        margin: auto;  
+ 
     }  
     // @include rwd(mobile){
     //     column-count:1;      

@@ -3,6 +3,11 @@
 // *{
 //     outline: 1px solid red;
 // }
+body{
+    *{
+        font-family: "微軟正黑體";
+    }
+}
 .msEquipment{
     //共用
     padding: 50px;
@@ -15,7 +20,7 @@
     h3{
         padding: 40px 0px 20px;
         @include f20b();
-        @include rwd(medium){
+        @include rwd(mobile){
             text-align: center;
         }
     }

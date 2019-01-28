@@ -10,23 +10,28 @@
 //     justify-content:center; 
 // }
 *{
-    // outline: 1px solid red;
+    outline: 1px solid red;
+}
+body{
+    *{
+        font-family: "微軟正黑體";
+    }
 }
 .msJournals{
     max-width: 950px;
 }
-p,h2,a,h4,h3,h2,h1{
-    font-family: "微軟正黑體";   
-}
+
 .all__ordercards{
     .one__ordercard{
         margin-top: 20px;
+        margin-bottom: 40px;
         width: 100%;
         background:rgba(226,242,250,1);
         @include br4;
         @media (max-width:992px) {
-            width: 80%;
+            // width: 100%;
             margin: auto;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
         box-shadow: $shadow;
@@ -82,6 +87,9 @@ p,h2,a,h4,h3,h2,h1{
                 @include f16b;
             }
         }
+        // .duration{
+        //     display: flex;
+        // }
         .fourButtons{  
             display: flex;
             align-items: flex-end;

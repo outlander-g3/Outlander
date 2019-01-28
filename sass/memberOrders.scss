@@ -10,7 +10,14 @@
 //     justify-content:center; 
 // }
 *{
-    outline: 1px solid red;
+    // outline: 1px solid red;
+}
+.row img{
+    width: 100%;
+}
+.row{
+    padding-top: 50px;
+    height: 1500px;
 }
 body{
     *{

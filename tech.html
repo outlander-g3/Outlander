@@ -119,9 +119,12 @@
 				
 				<article id="about">
 					<header>
-						<h1>出發爬山吧!</h1>
+						<h1>一起出發吧!</h1>
 					</header>
-					<p><a href="productsOverview.html">點此查看行程</a></p>
+					<a href="productsOverview.html"></a>
+					<button>馬上查看行程</button>
+							<!-- <div id="btn-main-1">馬上查看行程</div> -->
+						
 					<!-- <nav class="next-prev">
 						<a class="prev english-channel" href="#english-channel">Prev</a>
 						<hr/>
@@ -131,8 +134,8 @@
 			
 			<!-- Parallax foreground -->
 			<div id="parallax-bg3">
-				<img id="bg3-1" src="img/01-1.png" alt="grass"/>
-				<img id="bg3-2" src="img/03-1.png" alt="niddle"/>
+				<img id="bg3-1" src="img/01-2.png" alt="grass"/>
+				<img id="bg3-2" src="img/03-2.png" alt="niddle"/>
 				<img id="bg3-3" src="img/04-2.png" alt="tropical"/>
 				<img id="bg3-4" src="img/05-2.png" alt="song"/>
 			</div>
@@ -149,100 +152,126 @@
 			<!-- Parallax  background clouds -->
 			<div id="parallax-bg1">
 				<!-- <img id="bg1-1" src="img/01-cloud.png"alt="cloud"/> -->
-				<!-- <img id="bg1-2" src="http://jonathannicol.com/projects/parallax-scrolling/img/cloud-lg2.png" alt="cloud"/> -->
+				<img id="bg1-2" src="img/c-2-ww.png" alt="cloud"/>
 				<!-- <img id="bg1-3" src="img/c-4-w.png" alt="cloud" width="1200px" /> -->
-				<!-- <img id="bg1-4" src="img/c-3-ww.png" alt="cloud"/> -->
+				<img id="bg1-4" src="img/c-5-w.png" alt="cloud"/>
 			</div>
 		
 		</div>
+<!-- footer----------------->
+<footer id="footer">
+	<img id="footer-img" src="img/foo1.png" alt="footer">
+	<div id="footer-all">
+		<ul>
+			<li>關於我們</li>
+			<li>聯繫我們</li>
+			<li>使用條款</li>
+			<li>尋找分店</li>
+		</ul>
+		<div id="footer-icon">
+			<span><i class="fab fa-facebook-f"></i>Facebook</span>
+			<span><i class="fab fa-instagram"></i>Instagram</span>
+			<span><i class="fab fa-twitter"></i>Twitter</span>
+		</div>
+		<div id="footer-input">
+			<div>
+				<input type="text">
+				<button>訂閱</button>
+			</div>
+			<span>COPYRIGHT © 2018 Outlander All rights reserved.</span>
+		</div>
+	</div>
+</footer>
+		
 
-		<script>
-			$(document).ready(function() {
-	
-	redrawDotNav();
-	
-	/* Scroll event handler */
-    $(window).bind('scroll',function(e){
-    	parallaxScroll();
-		redrawDotNav();
-    });
-    
-	/* Next/prev and primary nav btn click handlers */
-	$('a.manned-flight').click(function(){
-    	$('html, body').animate({
-    		scrollTop:0
-    	}, 1000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
-	});
-    $('a.frameless-parachute').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#frameless-parachute').offset().top
-    	}, 1000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
-    });
-    $('a.english-channel').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#english-channel').offset().top
-    	}, 1000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
-    });
-	$('a.about').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#about').offset().top
-    	}, 1000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
-    });
-    
-    /* Show/hide dot lav labels on hover */
-    $('nav#primary a').hover(
-    	function () {
-			$(this).prev('h1').show();
-		},
-		function () {
-			$(this).prev('h1').hide();
-		}
-    );
-    
+		
+</body>
+<script>
+	$(document).ready(function() {
+
+redrawDotNav();
+
+/* Scroll event handler */
+$(window).bind('scroll',function(e){
+parallaxScroll();
+redrawDotNav();
+});
+
+/* Next/prev and primary nav btn click handlers */
+$('a.manned-flight').click(function(){
+$('html, body').animate({
+	scrollTop:0
+}, 1000, function() {
+	parallaxScroll(); // Callback is required for iOS
+});
+return false;
+});
+$('a.frameless-parachute').click(function(){
+$('html, body').animate({
+	scrollTop:$('#frameless-parachute').offset().top
+}, 1000, function() {
+	parallaxScroll(); // Callback is required for iOS
+});
+return false;
+});
+$('a.english-channel').click(function(){
+$('html, body').animate({
+	scrollTop:$('#english-channel').offset().top
+}, 1000, function() {
+	parallaxScroll(); // Callback is required for iOS
+});
+return false;
+});
+$('a.about').click(function(){
+$('html, body').animate({
+	scrollTop:$('#about').offset().top
+}, 1000, function() {
+	parallaxScroll(); // Callback is required for iOS
+});
+return false;
+});
+
+/* Show/hide dot lav labels on hover */
+$('nav#primary a').hover(
+function () {
+	$(this).prev('h1').show();
+},
+function () {
+	$(this).prev('h1').hide();
+}
+);
+
 });
 
 /* Scroll the background layers */
 function parallaxScroll(){
-	var scrolled = $(window).scrollTop();
-	$('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
-	$('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
-	$('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
+var scrolled = $(window).scrollTop();
+$('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
+$('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
+$('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
 }
 
 /* Set navigation dots to an active state as the user scrolls */
 function redrawDotNav(){
-	var section1Top =  0;
-	// The top of each section is offset by half the distance to the previous section.
-	var section2Top =  $('#frameless-parachute').offset().top - (($('#english-channel').offset().top - $('#frameless-parachute').offset().top) / 2);
-	var section3Top =  $('#english-channel').offset().top - (($('#about').offset().top - $('#english-channel').offset().top) / 2);
-	var section4Top =  $('#about').offset().top - (($(document).height() - $('#about').offset().top) / 2);;
-	$('nav#primary a').removeClass('active');
-	if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
-		$('nav#primary a.manned-flight').addClass('active');
-	} else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
-		$('nav#primary a.frameless-parachute').addClass('active');
-	} else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
-		$('nav#primary a.english-channel').addClass('active');
-	} else if ($(document).scrollTop() >= section4Top){
-		$('nav#primary a.about').addClass('active');
-	}
-	
+var section1Top =  0;
+// The top of each section is offset by half the distance to the previous section.
+var section2Top =  $('#frameless-parachute').offset().top - (($('#english-channel').offset().top - $('#frameless-parachute').offset().top) / 2);
+var section3Top =  $('#english-channel').offset().top - (($('#about').offset().top - $('#english-channel').offset().top) / 2);
+var section4Top =  $('#about').offset().top - (($(document).height() - $('#about').offset().top) / 2);;
+$('nav#primary a').removeClass('active');
+if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
+$('nav#primary a.manned-flight').addClass('active');
+} else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
+$('nav#primary a.frameless-parachute').addClass('active');
+} else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
+$('nav#primary a.english-channel').addClass('active');
+} else if ($(document).scrollTop() >= section4Top){
+$('nav#primary a.about').addClass('active');
+}
+
 }
 
 
 
-		</script>
-</body>
+</script>
 </html>

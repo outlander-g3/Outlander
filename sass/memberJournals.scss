@@ -124,7 +124,7 @@ body{
                 padding-left: 20px;
                 @include f16b;
                 @include rwd(mobile){
-                    padding-left: 0;
+                    padding-left: 20px;
                 }
             }
         }

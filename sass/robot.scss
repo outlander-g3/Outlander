@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   background-color: #50E3C2;
-  cursor:pointer;
+  // cursor:pointer;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -242,106 +242,106 @@ h2{
   display:none; 
 }
 
-@media screen and (min-width:768px) and (max-width: 1200px){
+// @media screen and (min-width:768px) and (max-width: 1200px){
     
-  .rbmodal__wrapper__rwd{
-    display:inline; 
-  }
+//   .rbmodal__wrapper__rwd{
+//     display:inline; 
+//   }
 
-  .rbcircle{
-  display:none;
-  }
+//   .rbcircle{
+//   display:none;
+//   }
 
-  #modal{
-    display:inline; 
-  }
+//   #modal{
+//     display:inline; 
+//   }
 
-  .rbhead{
-    background-color:#32545c;
-    max-width:1200px;
-    width: 100%;
-    height: 12vh;
-  }
+//   .rbhead{
+//     background-color:#32545c;
+//     max-width:1200px;
+//     width: 100%;
+//     height: 12vh;
+//   }
 
-  .rbhead__box{
-      max-width:1200px;
-      width: 100%;
-      height: 12vh;
-  }
+//   .rbhead__box{
+//       max-width:1200px;
+//       width: 100%;
+//       height: 12vh;
+//   }
 
-  .rbhead__box img{
-    max-width:8vh;
-    width: 100%;
-    height:6vh;
-  } 
+//   .rbhead__box img{
+//     max-width:8vh;
+//     width: 100%;
+//     height:6vh;
+//   } 
   
-  #out{
-    padding-right: 20px;
-  }
+//   #out{
+//     padding-right: 20px;
+//   }
 
-  .rblogo{
-    flex-basis: 0;
-    flex-grow: 1;
-  }
+//   .rblogo{
+//     flex-basis: 0;
+//     flex-grow: 1;
+//   }
 
-  .rbhead__box h1{
-    font-size:4vh;
-    font-family:Microsoft JhengHei;
-    color: #ffffff;
-    flex-grow: 1;
-  } 
+//   .rbhead__box h1{
+//     font-size:4vh;
+//     font-family:Microsoft JhengHei;
+//     color: #ffffff;
+//     flex-grow: 1;
+//   } 
 
-  .rbtext__show p{
-    font-size: 2vh;
-    line-height: 6vh;
-  }
+//   .rbtext__show p{
+//     font-size: 2vh;
+//     line-height: 6vh;
+//   }
   
 
-  #rb__message{
-  max-width:1200px;
-  width: 100%;
-  height:80vh;
-  /*opacity:0.3;*/
-  background-repeat: no-repeat;
-  background-size:100%;
-  overflow:auto;
-  font-family:Microsoft JhengHei;
-  color: #484848; 
-  }
+//   #rb__message{
+//   max-width:1200px;
+//   width: 100%;
+//   height:80vh;
+//   /*opacity:0.3;*/
+//   background-repeat: no-repeat;
+//   background-size:100%;
+//   overflow:auto;
+//   font-family:Microsoft JhengHei;
+//   color: #484848; 
+//   }
 
-  #rb__message img{
-  max-width: 7vh;
-  width: 100%;
-  }
+//   #rb__message img{
+//   max-width: 7vh;
+//   width: 100%;
+//   }
 
-  .rbinput__text{
-  display:inline-block;
-  max-width:1200px;
-  width: 100%;
-  }
+//   .rbinput__text{
+//   display:inline-block;
+//   max-width:1200px;
+//   width: 100%;
+//   }
   
-  .rbtext__input{
-  max-width: 74vh;
-  width: 100%;
-  height: 8vh;
-  }
+//   .rbtext__input{
+//   max-width: 74vh;
+//   width: 100%;
+//   height: 8vh;
+//   }
   
-  .rbtext__input textarea{
-    max-width:66vh;
-    width: 100%;
-  }
+//   .rbtext__input textarea{
+//     max-width:66vh;
+//     width: 100%;
+//   }
 
-  .rbtext__input .butn{
-    max-width: 8vh;
-    background-color: #989898;
-    width: 100%;
-  }
+//   .rbtext__input .butn{
+//     max-width: 8vh;
+//     background-color: #989898;
+//     width: 100%;
+//   }
   
-  #say{
-    font-size: 5vh;
-  }
+//   #say{
+//     font-size: 5vh;
+//   }
 
-}
+// }
 
 @media screen and (min-width: 360px) and (max-width: 767px){
 

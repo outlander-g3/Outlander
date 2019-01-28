@@ -82,7 +82,7 @@ left: -14px;
 .rbmodal-wrapper {
 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
 border-radius: 3px;
-width: 300px;
+width: 376px;
 height: 400px;
 position: absolute;
 right: 20px;
@@ -127,7 +127,7 @@ bottom: 100px;
 
 .rbhead{
   background-color:#32545c;
-  max-width:300px;
+  max-width:376px;
   width: 100%;
   // width: 100%;
   height: 82px;
@@ -136,13 +136,22 @@ bottom: 100px;
 
 
 .rbhead__box{
-  width: 300px;
+  width: 376px;
   height: 82px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   background-color:#32545c;
+}
+
+.rblogo__box{
+  width: 200px;
+  height: 82px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .rbhead__box img{
@@ -157,7 +166,7 @@ h2{
 }
 
 #rb__message{
-  max-width:300px;
+  max-width:376px;
   width: 100%;
   height: 400px;
   background-image:url("../img/photo-1541456419250-opacity-0.3.png");
@@ -198,7 +207,7 @@ word-break: break-word;
 
 .rbinput__text{
   display:inline-block;
-  max-width:300px;
+  max-width:376px;
   width: 100%;
 }
 
@@ -344,8 +353,16 @@ height: 8vh;
 
 @media screen and (min-width: 360px) and (max-width: 767px){
 
-.rbmodal__wrapper{
-  display:inline; 
+#model{
+  display:inline;
+  width:100%;
+  height:100%;
+  position:inherit;
+}
+
+.rblogo{
+  flex-basis:-1;
+  flex-grow:0;
 }
 
 .rbcircle{
@@ -358,7 +375,7 @@ display:none;
 
 .rbhead{
   background-color:#32545c;
-  max-width:1200px;
+  max-width:768px;
   width: 100%;
   height: 12vh;
 }
@@ -367,6 +384,7 @@ display:none;
     max-width:1200px;
     width: 100%;
     height: 12vh;
+    flex-direction: row-reverse;
 }
 
 .rbhead__box img{
@@ -379,10 +397,6 @@ display:none;
   padding-right: 20px;
 }
 
-.rblogo{
-  flex-basis: 0;
-  flex-grow: 1;
-}
 
 .rbhead__box h1{
   font-size:4vh;

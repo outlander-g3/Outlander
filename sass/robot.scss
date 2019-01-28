@@ -1,17 +1,8 @@
-@import"base/_var.scss";
-@import"mixin/_mixin.scss";
-
-*{
-    margin: 0;
-    padding: 0;
-  }
-
-  /*---------------robot視窗控制---------------------------*/
-  .rbcircle {
+.circle {
   display: flex;
   justify-content: center;
   background-color: #50E3C2;
-  // cursor:pointer;
+  cursor: pointer;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -20,11 +11,11 @@
   bottom: 20px;
   right: 20px;
  /* transition: transform 200ms ease-in-out;*/
-  // background-image:url(/img/robot-solid.png);
+  background-image:url(../img/robot-solid.png);
   background-repeat: no-repeat;
   outline: none;
 }
-.rbcircle:hover {
+.circle:hover {
   transform: translateY(-3px);
 
 }
@@ -79,7 +70,7 @@
   left: -14px;
 }*/
 
-.rbmodal-wrapper {
+.modal-wrapper {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
   border-radius: 3px;
   width: 300px;
@@ -96,7 +87,7 @@
   border-radius: 5px;
 }
 
-.rbmodal-input {
+.modal-input {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -125,7 +116,7 @@ textarea::placeholder {
 
 /*------------robot對話控制--------------------------------*/
 
-.rbhead{
+.head{
     background-color:#32545c;
     max-width:300px;
     width: 100%;
@@ -135,7 +126,7 @@ textarea::placeholder {
 }
 
 
-.rbhead__box{
+.head__box{
     width: 300px;
     height: 82px;
     display: flex;
@@ -145,7 +136,7 @@ textarea::placeholder {
     background-color:#32545c;
 }
 
-.rbhead__box img{
+.head__box img{
     width: 50px;
     height: 45px;
 } 
@@ -156,7 +147,7 @@ h2{
     color: #ffffff;
 }
 
-#rb__message{
+#message{
     max-width:300px;
     width: 100%;
     height: 400px;
@@ -169,7 +160,7 @@ h2{
     color: #484848; 
 }
 
-#rb__message img{
+#message img{
   max-width:30px;
   width: 90%;
   height:10%;
@@ -178,15 +169,15 @@ h2{
   border-radius: 50%;
 }
 
-.rbtext__show{
+.text__show{
   display: flex;
   flex-direction:row;
 }
-.rbtext__show img{
+.text__show img{
   margin:5px;
 }
 
-.rbtext__show p{
+.text__show p{
   max-width:140px;
   /*width: 100%;*/
   background-color: #ffffff;
@@ -196,7 +187,7 @@ h2{
   word-break: break-word;
 }
 
-.rbinput__text{
+.input__text{
     display:inline-block;
     max-width:300px;
     width: 100%;
@@ -207,7 +198,7 @@ h2{
   font-family:Microsoft JhengHei;
 }
 
-.rbtext__input{
+.text__input{
     display: flex;
     flex-direction: row;
     align-content: flex-end;
@@ -217,7 +208,7 @@ h2{
     background-color: #ffffff;
     border: 1px solid #989898;
 }
-.rbtext__input textarea{
+.text__input textarea{
     max-width:330px;
     width: 100%;
     border: none;
@@ -225,7 +216,7 @@ h2{
     line-height: center;
 }
 
-.rbtext__input .butn{
+.text__input .butn{
     max-width:40px;
     width: 100%;
     
@@ -238,17 +229,17 @@ h2{
     flex-direction: row-reverse;
 }
 
-.rbmodal__wrapper__rwd{
+.modal__wrapper__rwd{
   display:none; 
 }
 
 // @media screen and (min-width:768px) and (max-width: 1200px){
     
-//   .rbmodal__wrapper__rwd{
+//   .modal__wrapper__rwd{
 //     display:inline; 
 //   }
 
-//   .rbcircle{
+//   .circle{
 //   display:none;
 //   }
 
@@ -256,20 +247,20 @@ h2{
 //     display:inline; 
 //   }
 
-//   .rbhead{
+//   .head{
 //     background-color:#32545c;
 //     max-width:1200px;
 //     width: 100%;
 //     height: 12vh;
 //   }
 
-//   .rbhead__box{
+//   .head__box{
 //       max-width:1200px;
 //       width: 100%;
 //       height: 12vh;
 //   }
 
-//   .rbhead__box img{
+//   .head__box img{
 //     max-width:8vh;
 //     width: 100%;
 //     height:6vh;
@@ -279,25 +270,25 @@ h2{
 //     padding-right: 20px;
 //   }
 
-//   .rblogo{
+//   .logo{
 //     flex-basis: 0;
 //     flex-grow: 1;
 //   }
 
-//   .rbhead__box h1{
+//   .head__box h1{
 //     font-size:4vh;
 //     font-family:Microsoft JhengHei;
 //     color: #ffffff;
 //     flex-grow: 1;
 //   } 
 
-//   .rbtext__show p{
+//   .text__show p{
 //     font-size: 2vh;
 //     line-height: 6vh;
 //   }
   
 
-//   #rb__message{
+//   #message{
 //   max-width:1200px;
 //   width: 100%;
 //   height:80vh;
@@ -309,29 +300,29 @@ h2{
 //   color: #484848; 
 //   }
 
-//   #rb__message img{
+//   #message img{
 //   max-width: 7vh;
 //   width: 100%;
 //   }
 
-//   .rbinput__text{
+//   .input__text{
 //   display:inline-block;
 //   max-width:1200px;
 //   width: 100%;
 //   }
   
-//   .rbtext__input{
+//   .text__input{
 //   max-width: 74vh;
 //   width: 100%;
 //   height: 8vh;
 //   }
   
-//   .rbtext__input textarea{
+//   .text__input textarea{
 //     max-width:66vh;
 //     width: 100%;
 //   }
 
-//   .rbtext__input .butn{
+//   .text__input .butn{
 //     max-width: 8vh;
 //     background-color: #989898;
 //     width: 100%;
@@ -345,11 +336,11 @@ h2{
 
 @media screen and (min-width: 360px) and (max-width: 767px){
 
-  .rbmodal__wrapper__rwd{
+  .modal__wrapper__rwd{
     display:inline; 
   }
 
-  .rbcircle{
+  .circle{
   display:none;
   }
 
@@ -357,20 +348,20 @@ h2{
     display:inline; 
   }
 
-  .rbhead{
+  .head{
     background-color:#32545c;
     max-width:1200px;
     width: 100%;
     height: 12vh;
   }
 
-  .rbhead__box{
+  .head__box{
       max-width:1200px;
       width: 100%;
       height: 12vh;
   }
 
-  .rbhead__box img{
+  .head__box img{
     max-width:8vh;
     width: 100%;
     height:6vh;
@@ -380,25 +371,25 @@ h2{
     padding-right: 20px;
   }
   
-  .rblogo{
+  .logo{
     flex-basis: 0;
     flex-grow: 1;
   }
 
-  .rbhead__box h1{
+  .head__box h1{
     font-size:4vh;
     font-family:Microsoft JhengHei;
     color: #ffffff;
     flex-grow: 1;
   } 
 
-  .rbtext__show p{
+  .text__show p{
     font-size: 2vh;
     line-height: 6vh;
   }
   
 
-  #rb__message{
+  #message{
   max-width:1200px;
   width: 100%;
   height:80vh;
@@ -410,29 +401,29 @@ h2{
   color: #484848; 
   }
 
-  #rb__message img{
+  #message img{
   max-width: 7vh;
   width: 100%;
   }
 
-  .rbinput__text{
+  .input__text{
   display:inline-block;
   max-width:1200px;
   width: 100%;
   }
   
-  .rbtext__input{
+  .text__input{
   max-width: 74vh;
   width: 100%;
   height: 8vh;
   }
   
-  .rbtext__input textarea{
+  .text__input textarea{
     max-width: 48vh;
     width: 100%;
   }
 
-  .rbtext__input .butn{
+  .text__input .butn{
     max-width: 8vh;
     background-color: #989898;
     width: 100%;

@@ -379,8 +379,32 @@ i{
 // #scroll::-webkit-scrollbar-track{
 //     background: #65B8C6; 
 //   }
-.cuCustom__sceneryItem{
+.cuScenery__Item1{
+    background: url("../img/cu__sceneryItem1.jpg") ;
+
+}
+.cuScenery__Item2{
+    background: url("../img/cu__sceneryItem2.jpg") ;
+
+}
+.cuScenery__Item3{
     background: url("../img/cu__sceneryItem3.jpg") ;
+
+}
+.cuScenery__Item4{
+    background: url("../img/cu__sceneryItem4.jpg") ;
+
+}
+.cuScenery__Item5{
+    background: url("../img/cu__sceneryItem5.jpg") ;
+
+}
+.cuScenery__Item6{
+    background: url("../img/cu__sceneryItem6.jpg") ;
+
+}
+.cuCustom__sceneryItem{
+    // background: url("../img/cu__sceneryItem3.jpg") ;
     background-size: cover;
     margin: 10px;
     position: relative;
@@ -449,10 +473,22 @@ i{
         height: 480px;
     }
 }
+.cuDropScenery__item1{
+    background: url("../img/cu__sceneryItem1.jpg") ;
+
+}
+.cuDropScenery__item2{
+    background: url("../img/cu__sceneryItem2.jpg") ;
+    
+}
+.cuDropScenery__item3{
+    background: url("../img/cu__sceneryItem3.jpg") ;
+
+}
 .cuCustom__dropScenery{
     @include br4;
-    background: url("../img/cu__sceneryItem3.jpg") ;
-    background-position: 50% 50%;
+    // background: url("../img/cu__sceneryItem3.jpg") ;
+    background-position: 50% 70%;
     background-size: cover;
     margin: 10px;
     position: relative;

@@ -263,7 +263,6 @@ button{
     margin: auto;
     width: 100%;
     max-width: 1200px;
-    @include mTop (100);
     h2{
         text-align: center;
         color:$color-subTitle;

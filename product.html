@@ -57,7 +57,7 @@
       <button class="btn-main-s">查看時間</button>
     </div>
   </div>
-  <!-- <div class="product__weather">
+  <div class="product__weather">
     <div class="weather">
       <div class="icon sun-shower">
         <div class="cloud"></div>
@@ -133,19 +133,21 @@
       <input type="radio" name="tempCon" id='fahrenheit' hidden><label for="fahrenheit">華氏</label>
       
     </div>
-  </div> -->
+  </div>
 
-  <div class="product__submenu">
-    <ul>
-      <li><a href="#product__itineraryTitle">行程介紹</a></li>
-      <li><a href="#product__routeTitle">路線介紹</a></li>
-      <li><a href="#product__timeTitle">行程時間</a></li>
-      <li><a href="#product__guideTitle">嚮導介紹</a></li>
-      <li><a href="#">旅客評價</a></li>
-    </ul>
-    <div class="product__submenuPrice">
-      <p class="product__price">$173,000 NTD</p>
-      <button class="btn-main-s">查看時間</button>
+  <div id="product__submenu">
+    <div class="product__wrap">
+      <ul>
+        <li><a href="#product__itineraryTitle">行程介紹</a></li>
+        <li><a href="#product__routeTitle">路線介紹</a></li>
+        <li><a href="#product__timeTitle">行程時間</a></li>
+        <li><a href="#product__guideTitle">嚮導介紹</a></li>
+        <li><a href="#product__reviewTitle">旅客評價</a></li>
+      </ul>
+      <div class="product__submenuPrice">
+        <p class="product__price">$173,000 NTD</p>
+        <button class="btn-main-s">查看時間</button>
+      </div>
     </div>
   </div>
 
@@ -265,7 +267,7 @@
           <li>5</li>
           <li>6</li>
           <li>7</li>
-          <li class="selected">8</li>
+          <li class="start selected">8</li>
           <li class="selected">9</li>
           <li class="selected">10</li>
           <li class="selected">11</li>
@@ -278,7 +280,7 @@
           <li class="selected">18</li>
           <li class="selected">19</li>
           <li class="selected">20</li>
-          <li class="selected">21</li>
+          <li class="end selected">21</li>
           <li>22</li>
           <li>23</li>
           <li>24</li>
@@ -327,30 +329,239 @@
             結束時間
             <span>2019/01/21</span>
           </p>
-          <button class="btn-main-s">確認訂購</button>
+        </div>
+      </div>
+      <button class="btn-main-s">確認訂購</button>
+    </div>
+  </section>
+
+  <div class="product__guideBackground">
+    <section class="product__wrap">
+      <h2 id="product__guideTitle">嚮導介紹</h2>
+      <div class="product__guide">
+        <div class="product__guideImg">
+          <img src="img/guide1.jpg" alt="guide1">
+        </div>
+        <div class="product__guideInfo">
+          <h3>登山嚮導</h3>
+          <h3 class="product__guideName">Dave Chew</h3>
+          <p>擅長高山百岳健行、中級山探勘、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵、高海拔遠征、攀岩極冰攀略有涉獵、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+        </div>
+        <div class="product__guideCapability">
+          <h3 class="product__guideName">Dave Chew</h3>
+          <h3>嚮導綜合能力</h3>
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="product__reviewBackground">
+    <img src="img/reviewBackground.png" alt="" class="product__reviewBackgroundImg">
+    <section class="product__wrap">
+      <h2 id="product__reviewTitle">旅客評價</h2>
+      <div id="totalReview">
+        <span id="totalRate">5.0</span>
+        <span id="totalRateImg">
+          <img src="img/tree.png" alt="rate">
+          <img src="img/tree.png" alt="rate">
+          <img src="img/tree.png" alt="rate">
+          <img src="img/tree.png" alt="rate">
+          <img src="img/tree.png" alt="rate">
+        </span>
+        <span id="numberOfRate">150則評價</span>
+      </div>
+      <div class="clearfix"></div>
+      <div class="product__review">
+        <div class="product__customerReview">
+          <div class="product__customerImg">
+            <img src="img/customer1.jpg" alt="CHARLE CHEN">
+          </div>
+          <div class="product__customerMain">
+            <div class="product__customerInfo">
+              <span class="product__customerName">CHARLE CHEN</span>
+              <span class="product__customerRate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+              </span>
+              <span class="product__reviewDate">2018年9月17日</span>
+            </div>
+            <p class="product__customerReview">對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。</p>
+          </div>
+        </div>
+        <div class="product__customerReview">
+          <div class="product__customerImg">
+            <img src="img/customer1.jpg" alt="CHARLE CHEN">
+          </div>
+          <div class="product__customerMain">
+            <div class="product__customerInfo">
+              <span class="product__customerName">CHARLE CHEN</span>
+              <span class="product__customerRate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+              </span>
+              <span class="product__reviewDate">2018年9月17日</span>
+            </div>
+            <p class="product__customerReview">對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。</p>
+          </div>
+        </div>
+        <div class="product__customerReview">
+          <div class="product__customerImg">
+            <img src="img/customer1.jpg" alt="CHARLE CHEN">
+          </div>
+          <div class="product__customerMain">
+            <div class="product__customerInfo">
+              <span class="product__customerName">CHARLE CHEN</span>
+              <span class="product__customerRate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+              </span>
+              <span class="product__reviewDate">2018年9月17日</span>
+            </div>
+            <p class="product__customerReview">對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。</p>
+          </div>
+        </div>
+        <div class="product__customerReview">
+          <div class="product__customerImg">
+            <img src="img/customer1.jpg" alt="CHARLE CHEN">
+          </div>
+          <div class="product__customerMain">
+            <div class="product__customerInfo">
+              <span class="product__customerName">CHARLE CHEN</span>
+              <span class="product__customerRate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+                <img src="img/tree.png" alt="rate">
+              </span>
+              <span class="product__reviewDate">2018年9月17日</span>
+            </div>
+            <p class="product__customerReview">對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。對於想參加多次課程的客人，我們也提供相關的折扣。對於初學者，我們鼓勵你至少參加連續3天的課程，甚至連續7天以上。</p>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </section>
+  </div>
+
+  <section class="product__wrap">
+    <h2>更多推薦行程</h2>
+    <div class="product__card">
+      <div class="pro-item">
+        <div class="pro-item-pic">
+          <img src="img/himalaya1.jpg" alt="EBC">
+        </div>
+        <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
+        <div class="pro-item-view-flex">
+          <p>評價：</p>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+        </div>
+        <p>天數：15天</p>
+        <div class="pro-item-view-flex">
+          <p>難易度:</p>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>    
+        </div>
+        <div class="pro-item-view">    
+          <div class="heart-flex">
+            <span class="material-icons">favorite_border</span>
+            <span class="heart-text">212</span>  
+          </div>
+          <span class="price"><h4>NTD76500</h4></span>
+        </div>
+      </div>
+      <div class="pro-item">
+        <div class="pro-item-pic">
+          <img src="img/himalaya1.jpg" alt="EBC">
+        </div>
+        <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
+        <div class="pro-item-view-flex">
+          <p>評價：</p>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+        </div>
+        <p>天數：15天</p>
+        <div class="pro-item-view-flex">
+          <p>難易度:</p>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>    
+        </div>
+        <div class="pro-item-view">    
+          <div class="heart-flex">
+            <span class="material-icons">favorite_border</span>
+            <span class="heart-text">212</span>  
+          </div>
+          <span class="price"><h4>NTD76500</h4></span>
+        </div>
+      </div>
+      <div class="pro-item">
+        <div class="pro-item-pic">
+          <img src="img/himalaya1.jpg" alt="EBC">
+        </div>
+        <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
+        <div class="pro-item-view-flex">
+          <p>評價：</p>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+          <span class="tree"><img src="img/tree.png" alt="tree"></span>
+        </div>
+        <p>天數：15天</p>
+        <div class="pro-item-view-flex">
+          <p>難易度:</p>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>
+          <span class="hike">
+            <i class="fas fa-hiking"></i>
+          </span>    
+        </div>
+        <div class="pro-item-view">    
+          <div class="heart-flex">
+            <span class="material-icons">favorite_border</span>
+            <span class="heart-text">212</span>  
+          </div>
+          <span class="price"><h4>NTD76500</h4></span>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="product__wrap">
-    <h2 id="product__guideTitle">嚮導介紹</h2>
-    <div class="product__guide">
-      <div class="product__guideImg">
-        <img src="img/guide1.jpg" alt="guide1">
-      </div>
-      <div class="product__guideInfo">
-        <h3>登山嚮導</h3>
-        <span class="product__guideName">Dave Chew</span>
-        <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵、高海拔遠征、攀岩極冰攀略有涉獵、高海拔遠征、攀岩極冰攀略有涉獵。</p>
-      </div>
-      <div class="product__guideCapability">
-        <h3>嚮導綜合能力</h3>
-        <canvas id="canvas" width="300" height="200"></canvas>
-      </div>
-    </div>
-  </section>
-
+    </section>
+    <script src="js/product.js"></script>
   <script>
   var canvas = document.getElementById("canvas");
 

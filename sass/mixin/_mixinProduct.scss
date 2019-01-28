@@ -1,0 +1,10 @@
+@mixin rwd($max, $min){
+  @media screen and (max-width: $max + px) and (min-width: $min + px){@content;}
+
+}
+@mixin rwdmax($max){
+  @media screen and (max-width: $max + px){@content;}
+}
+@mixin rwdmin($min){
+  @media screen and (min-width: $min + px){@content;}
+}

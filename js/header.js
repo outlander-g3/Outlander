@@ -53,22 +53,22 @@ window.addEventListener("load", () => {
   }
 
   // nav的卷軸事件
-  var scr = window.scrollY;
-  var headerdAll = document.querySelector("#headerAll");
-  var burgerText = document.querySelector("#burgerText");
-  if (web > 768) {
-      window.addEventListener("scroll", () => {
-          if (scr < window.scrollY) {
-              headerdAll.style.top = "-60px";
-              burgerText.style.top = "-60px";
-          }
-          else if (scr > window.scrollY) {
-              headerdAll.style.top = "0px";
-              burgerText.style.top = "0px";
-          }
-          scr = window.scrollY;
-      })
-  }
+  // var scr = window.scrollY;
+  // var headerdAll = document.querySelector("#headerAll");
+  // var burgerText = document.querySelector("#burgerText");
+  // if (web > 768) {
+  //     window.addEventListener("scroll", () => {
+  //         if (scr < window.scrollY) {
+  //             headerdAll.style.top = "-60px";
+  //             burgerText.style.top = "-60px";
+  //         }
+  //         else if (scr > window.scrollY) {
+  //             headerdAll.style.top = "0px";
+  //             burgerText.style.top = "0px";
+  //         }
+  //         scr = window.scrollY;
+  //     })
+  // }
 
   // 搜尋的點擊事件
   var filter = document.querySelector(".filter");

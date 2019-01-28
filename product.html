@@ -8,8 +8,8 @@
       rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/copy_index.css">
   <link rel="stylesheet" href="css/product.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="js/header.js"></script>
   <title>Document</title>
@@ -115,7 +115,7 @@
         </span>
       </p>
       <p class="product__price">$173,000 NTD</p>
-      <button class="btn-main-s">查看時間</button>
+      <button class="btn-main-s checkTime">查看時間</button>
     </div>
   </div>
   <div class="product__weather">
@@ -207,7 +207,7 @@
       </ul>
       <div class="product__submenuPrice">
         <p class="product__price">$173,000 NTD</p>
-        <button class="btn-main-s">查看時間</button>
+        <button class="btn-main-s checkTime">查看時間</button>
       </div>
     </div>
   </div>
@@ -411,7 +411,7 @@
         <div class="product__guideCapability">
           <h3 class="product__guideName">Dave Chew</h3>
           <h3>嚮導綜合能力</h3>
-          <canvas id="canvas"></canvas>
+          <canvas id="canvas" width="300" height="300"></canvas>
         </div>
       </div>
     </section>
@@ -625,7 +625,7 @@
     </div>
     </section>
     <footer id="footer">
-      <img id="footer-img" src="img/暫時用的圖/foo1.png" alt="footer">
+      <img id="footer-img" src="img/footer.png" alt="footer">
       <div id="footer-all">
         <ul>
           <li>關於我們</li>

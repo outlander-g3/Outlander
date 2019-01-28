@@ -1,6 +1,9 @@
 @import"base/_var.scss";
 @import"base/_var_jn.scss";
 @import "mixin/_mixin.scss";
+@import "_header.scss";
+@import "_footer.scss";
+
 // @import "mixin/_mixin-customized.scss";
 p{
     font-family: "Microsoft JhengHei";
@@ -46,61 +49,13 @@ i{
 }
 
 
-.nav_menu,footer{
-    @include phone-width(){
-        display: none;
-    }
-}
-  
-nav {
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
-    font-size: 0; /*除去4px*/
-    h1
-        img{
-            height: 60px;
-            padding-left: 20px;
-            padding-top: 5px;
-            vertical-align: middle;
-        }
-    li{
-        float: left;
-    }
-    @include phone-width() {
-        height: 56px;
-        h1 img{
-            height: 40px;
-            padding-top: 11px;
-        }
-    }
-}
-nav,.mw_1200{
-    max-width: 1200px;
-    min-width: 375px;
-    margin: auto;
-}
 
-.nav_txt,.nav_icon{
-    float: left;
-}
-.nav_txt > li > a {
-    font-size: 16px;
-    color: $color-text;
-    line-height: 70px;
-    padding-left: 20px;
-}
-.nav_icon{
-    padding: 0 20px 0 32px;
-    i{
-        color: $color-text;
-        line-height: 70px;
-    }
-}
 
 /*****  個人日誌開始  *****/ 
 
 .jnBg{
+    @include mTop(58);
+    @include pBottom(100);
     background-color: $color-main-blue;
     width: 100%;
     // height: 3000px;
@@ -152,11 +107,11 @@ nav,.mw_1200{
 #jnContent__info{
     color: $color-text;
     position: sticky;
-    top: 10px;
+    top: 68px;
     bottom: 100px;
     #jnContent__info--pos{
         position: sticky;
-        top: 10px;
+        top: 70px;
     }
     h2{
         @include f20b;
@@ -164,7 +119,7 @@ nav,.mw_1200{
         line-height: 1.6;
     }
     @include pad-width(){
-        padding: 20px 20px 0 30px;
+        padding: 20px 20px 50px 30px;
     }
 }
 .jnContent__social{
@@ -234,6 +189,12 @@ nav,.mw_1200{
     @include pad-width(){
         position: relative;
         top: 10px;
+        &::after{
+            content: '';
+            display: block;
+            width: 100px;
+            height: 50px;
+        }
     }
 }
 .clearfix{
@@ -241,13 +202,12 @@ nav,.mw_1200{
 }
 
 
-// .jnFB{
-//     position: relative;
-//     top: 50px;
-//     height: 600px;
-//     margin: auto;
-//     background-color: aliceblue;
-// }
+.jnFB{
+    position: relative;
+    top: 50px;
+    margin: auto;
+    background-color: aliceblue;
+}
 
 .jnFB{
     background-color: $color-white;
@@ -264,12 +224,3 @@ nav,.mw_1200{
         margin: auto;
     }
 }
-
-// .jnFB__plr40{
-//     @include small-pad-width(){
-//         padding: 20px 20px;
-//     }
-//     @include pad-width(){
-//         padding: 20px 40px;
-//     }
-// }

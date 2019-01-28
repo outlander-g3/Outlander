@@ -99,7 +99,7 @@ var x, i, j, selElmnt, a, b, c;
 
 
 function cuShowScenery(e){
-alert(123);
+// alert(123);
 }
 /* 按鈕--控制查看風景內容【icon__serach, icon__】*/
 var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption"); 
@@ -124,6 +124,20 @@ function cuAddSceneryC(){
     if(cuCustom__zone.style.display == ''){
         cuCustom__zone.style.display = 'none';
     }
+}
+// 
+function cuWatchScenery(){
+    var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
+    cuCustomDetailBg.style.display = 'block';
+    console.log(cuCustomDetailBg);
+    // var btn_cuWatchScenery = O('btn_cuWatchScenery');
+    // alert();
+}
+/*768以上 按鈕--查看詳細資訊【加入景點】 */
+function closeDetail(){
+    var btn_cuAddOne = O('btn_cuAddOne');
+    var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
+    cuCustomDetailBg.style.display = 'none';
 }
 
 /* btn選擇日期及嚮導 --> 畫面切換到 */
@@ -182,17 +196,39 @@ function backPickSc(){
 function init(){
     var btn_cuCheckScenery = document.getElementById("btn_cuCheckScenery");
     btn_cuCheckScenery.addEventListener("click",cuShowScenery);
+    
+    
     /* 按鈕--控制風景【確認加入】*/ 
     var btn_cuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
     btn_cuAddSceneryConfirm.addEventListener("click",cuAddSceneryC);
+    
+
+    /*768以上 按鈕--查看詳細資訊 */
+    var btn_cuWatchScenery = document.getElementsByClassName('btn_cuWatchScenery');
+    for(var j=0 ; j<btn_cuWatchScenery.length;j++){
+        btn_cuWatchScenery[j].addEventListener('click',cuWatchScenery);
+    }
+
+
+    /*768以上 按鈕--詳細資訊【加入景點】 */
+    /*第二件事 按下後將景點加到dropZone*/ 
+    var btn_cuAddOne = O('btn_cuAddOne');
+    btn_cuAddOne.addEventListener('click',closeDetail);
+    /*待處理～～～～～～～～～～第二件事 按下後將景點加到dropZone*/ 
+    // btn_cuAddOne.addEventListener('click',addIndrop);
+
+
     var cuCustom__showOption = document.getElementsByClassName("cuCustom__sceneryItem");
     for(var i=0;i<cuCustom__showOption.length;i++){
         cuCustom__showOption[i].addEventListener("mouseover",showOption);
         cuCustom__showOption[i].addEventListener("mouseout",closeOption);
     }
+
+
     /* btn選擇日期及嚮導 --> 畫面切換到 */
     var btn_cuPickTG=document.getElementById('btn_cuPickTG');
     btn_cuPickTG.addEventListener('click',showPickTG);
+
 
     var btnCuBack=O('btn_cuBack');
     btnCuBack.addEventListener('click',backPickSc);

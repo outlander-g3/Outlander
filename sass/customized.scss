@@ -62,6 +62,7 @@ i{
         max-width: 1200px;
         overflow: hidden;
         margin: auto;
+        height: 800px;
     // };
 }    
 #cu__step2{
@@ -511,15 +512,28 @@ nav,.mw_1200,.cuCustom,.cu__step2{
         background: rgba(0, 0, 0, 0.65);
     }
 }
-#btn_cuAddScenery,#btn_cuWatchScenery{
+.btn_cuAddScenery,.btn_cuWatchScenery{
+
+    @include small-pad-width() {
+        display: none;
+    }
     @include pad-width() {
-        font-size: 50px;
-        line-height: 180px;
+        border: none;
+        background-color: transparent;
+        padding: 0;
         cursor: pointer;
-        border-color: none;
+        i{
+            font-size: 50px;
+            line-height: 180px;
+            cursor: pointer;
+            border-color: none;
+            color: $color-white;
+        }
     }
 
+
 }
+
 #btn_cuAddScenery--confirm{
     @include small-pad-width() {
         @include btn;
@@ -568,21 +582,30 @@ nav,.mw_1200,.cuCustom,.cu__step2{
     z-index: 1;
 }
 .cuCustom__detail--content{
-    padding: 20px;
+    @include pad-width(){
+        padding: 20px;
+    }
 }
 #cuCustom__detail{
     @include pad-width(){
+        @include br4;
         width: 556px;
         height: 600px;
         background-color: $color-white;
         margin: auto;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         h4{
             @include f20b;
         }
         p{
             line-height: 1.6;
         }
-
+        img{
+            @include cu_br(4,4);
+        }
     }
 }
 #btn_cuAddOne{

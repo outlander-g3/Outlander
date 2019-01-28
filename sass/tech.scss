@@ -1,3 +1,291 @@
-p{
-
+@import "mixin/_mixin.scss";
+@import "base/_var.scss";
+@import "base/header";
+@import "base/footer";
+ol, ul {
+    list-style: none; 
 }
+html{
+    font-size: 16px;
+    @media screen and (max-width:767px){
+        font-size: 12px;
+    }     
+}
+body{
+    *{
+        font-family: "微軟正黑體";
+    }
+}
+* { 
+    // outline: 1px solid blue; 
+    h1 {
+        color: #21a97e;
+        font-family: "微軟正黑體";
+    }
+    h2{
+        line-height: 1.6;
+        font-size:2.2rem;
+        font-weight: normal;
+        color: #ffffff;
+        font-family: "微軟正黑體";
+    }
+    h3{
+        font-size: 2rem;
+        font-weight: normal;
+        color: #ffffff;
+        line-height: 1.6;
+        font-family: "微軟正黑體";
+
+    }
+    h4{
+        font-size: 1.8rem;
+        line-height: 1.4;
+        color:#32545c;
+        font-family: "微軟正黑體";
+    }
+    h5{
+        font-size: 1.6rem; 
+        line-height: 1.4;
+        color: #ffffff;
+        font-family: "微軟正黑體";
+    }
+    p{
+        font-size:1.4rem;
+        line-height:1.6;
+        color:#484848;
+        color: #ffffff;
+        font-family: "微軟正黑體";
+    }
+    
+}
+.clearfix{
+    clear:both;
+}
+body{
+	background-color:#165c7c;
+}
+#wrapper {
+	position: relative;
+	width:1200px;
+}
+#branding {
+	width: 100%;
+	background: #fff;
+	}
+	#branding h1 {
+		width: 940px;
+		padding: 10px 15px;
+		margin: 0 auto;
+		text-transform: uppercase;
+		font-size: 18px;
+		font-weight: bold;
+		}
+
+/* Nav
+*****************************************************************/
+
+// nav#primary {
+// 	z-index: 5;
+// 	position: fixed;
+// 	top: 50%;
+// 	right: 16px;
+// 	margin-top: -40px;
+// }
+// nav#primary li {
+// 	position: relative;
+// 	height: 20px;
+// }
+// nav#primary a {
+// 	display: block;
+// 	width: 20px;
+// 	height: 20px;
+// 	text-indent: -9999px;
+// 	background: transparent url('http://jonathannicol.com/projects/parallax-scrolling/img/nav-dot.png') 4px 4px no-repeat;
+// }
+// nav#primary a:hover, nav#primary a.active {
+// 	background: transparent url('http://jonathannicol.com/projects/parallax-scrolling/img/nav-dot.png') 4px -16px no-repeat;
+// }
+// nav#primary h1 {
+// 	position: absolute;
+// 	right: 22px;
+// 	top: -7px;
+// 	display: none;
+// 	padding: 4px 20px 4px 7px;;
+// 	color: #fff;
+// 	white-space: nowrap;
+// 	background: transparent url('http://jonathannicol.com/projects/parallax-scrolling/img/nav-arrow.png') 100% 50% no-repeat;
+// 	}
+// nav.next-prev {
+// 	margin: 20px 0 0 0;
+// 	}
+// 	a.prev,
+// 	a.next {
+// 		display: block;
+// 		width: 15px;
+// 		height: 11px;
+// 		text-indent: -9999px;
+// 		}
+// 	a.prev {
+// 		margin: 0 auto 5px auto;
+// 		background: transparent url('http://jonathannicol.com/projects/parallax-scrolling/img/scroll-arrow-up.png') 0 0 no-repeat;
+// 		}
+// 		a.prev:hover {
+// 			background: transparent url('http://jonathannicol.com/projects/parallax-scrolling/img/scroll-arrow-up.png') 0 -11px no-repeat;
+// 			}
+// 	a.next {
+// 		margin: 5px auto 0 auto;
+// 		background: transparent url('http://jonathannicol.com/projects/parallax-scrolling/img/scroll-arrow-down.png') -1px 0 no-repeat;
+// 		}
+// 		a.next:hover {
+// 			background: transparent url('http://jonathannicol.com/projects/parallax-scrolling/img/scroll-arrow-down.png') -1px -11px no-repeat;
+// 			}
+
+/* Parallax
+*****************************************************************/
+
+/* content */
+#content {
+	z-index: 4;
+	position: relative;
+	padding: 0 10px;
+	margin: 0 auto;
+	line-height: 1.7;
+	}
+	#content article {
+		width: 400px;
+		}
+		#manned-flight ,
+		#frameless-parachute,
+		#english-channel,
+		#about {
+			padding-top: 105px;
+			}
+		#manned-flight {
+			position: absolute;
+            top: 0px;
+            left:300px;
+			}
+		#frameless-parachute {
+			position: absolute;
+            top: 1090px;
+            left:300px;
+			}
+		#english-channel {
+			position: absolute;
+            top: 2180px;
+            left:300px;
+			}
+			#content h1 {
+				margin: 0 0 25px 0;
+				font-size: 60px;
+				font-weight: normal;
+				line-height: 65px;
+				}
+		#about {
+			position: absolute;
+            top: 2800px;
+            left:300px;
+            a{
+                color:#ffff;
+            }
+		}
+/* foreground (ballons/landscape) */
+#parallax-bg3 {
+	z-index: 3;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 100%;
+	max-width: 1200px;
+
+	/*margin-left: -470px;*/ /* move left by half element's width */
+	}
+	/* mountain */
+	#bg3-1 {
+		position: absolute;
+		top: 100px;
+		left: 0px;
+		}
+	#bg3-2 {
+		position: absolute;
+		top: 812px;
+		left: 0px;
+		}
+	#bg3-3 {
+		position: absolute;
+		top: 1628px;
+		left: 0px;
+		width: 70%;
+		}
+	#bg3-3 img{
+		width: 100%;
+	}
+	#bg3-4 {
+		position: absolute;
+		top: 2300px;
+		left: -500px;
+		}
+	
+/* midground (clouds) */
+#parallax-bg2 {
+	z-index: 2;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg2-1 {
+		position: absolute;
+		top: 162px;
+		left: 200px;
+		}
+	#bg2-2 {
+		position: absolute;
+		top: 300px;
+		left: 1150px;
+		}
+	#bg2-3 {
+		position: absolute;
+		top: 543px;
+		left: -35px;
+		}
+	#bg2-4 {
+		position: absolute;
+		top: 1180px;
+		left: -300px;
+		}
+	#bg2-5 {
+		position: absolute;
+		top: 900px;
+		left: 890px;
+		}
+/* background (clouds) */
+#parallax-bg1 {
+	z-index: 1;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg1-1 {
+		position: absolute;
+		top: 85px;
+		left: -270px;
+		}
+	#bg1-2 {
+		position: absolute;
+		top: 440px;
+		left: 795px;
+		}
+	#bg1-3 {
+		position: absolute;
+		top: 900px;
+		left: -220px;
+		}
+	#bg1-4 {
+		position: absolute;
+		top: 1020px;
+		left: 450px;
+		}

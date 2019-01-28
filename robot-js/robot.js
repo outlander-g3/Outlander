@@ -175,5 +175,3 @@ var qaList = [
           elementModal.classList.add(CLASS_MODAL_ACTIVE)
   
         },true)
-
-        console.log

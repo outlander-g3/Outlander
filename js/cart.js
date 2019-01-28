@@ -98,6 +98,7 @@ add.addEventListener('click', addPassanger, false);
 mi.addEventListener('click', miPassanger, false);
 
 function addPassanger() {
+    //乘客人數
     if (count.innerHTML == 5) {
         return;
     }
@@ -111,11 +112,14 @@ function addPassanger() {
     i1.innerText = 'person';
     let i2 = document.createElement('i');
     i2.innerText = count.innerHTML;
-
+    detailCount.innerHTML = count.innerHTML;
     div.append(i1);
     div.append(i2);
     a.append(div);
     passengerTab.append(a);
+
+    //呼叫改變金額函數
+    newTotal();
 }
 function miPassanger() {
     if (count.innerHTML == 1) {
@@ -123,4 +127,44 @@ function miPassanger() {
     }
     count.innerHTML = parseInt(count.innerHTML) - 1;
     passengerTab.removeChild(passengerTab.lastChild);
+
+    //呼叫改變金額函數
+    newTotal();
+}
+
+var total = document.querySelector('.ctDetail__total--num');
+var sum = document.querySelector('.ctDetail__cal--sum');
+var dis = document.querySelector('.ctDetail__cal--dis');
+function newTotal() {
+    sum.innerHTML = 10500 * count.innerHTML;
+    total.innerHTML = parseInt(sum.innerHTML) + parseInt(dis.innerHTML);
+}
+
+//紅利點數是否折抵
+var memPoint = document.querySelector('#memPoint');
+memPoint.addEventListener('click', function () {
+    if (memPoint.checked) {
+        dis.innerHTML = '-300';
+    }
+    else {
+        dis.innerHTML = 0;
+    }
+    //呼叫改變金額函數
+    newTotal();
+}, false);
+
+
+//檢查訂購條款是否被勾選
+var ctRule = document.querySelector('#ctRule');
+var btnPay = document.querySelectorAll('.btn-pay');
+for (let i = 0; i < btnPay.length; i++) {
+    btnPay[i].addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!ctRule.checked) {
+            alert('請詳閱並同意訂購條款');
+        }
+        else {
+            window.location = 'paid.php';
+        }
+    }, false);
 }

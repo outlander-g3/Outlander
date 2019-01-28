@@ -13,6 +13,13 @@ if (winWidth < 768) {
 function ctResize() {
     // console.log(winWidth);
     winWidth = document.body.clientWidth;
+    //看有沒有被按全螢幕
+    if (winWidth == window.screen.width) {
+        $('ctProduct').style.display = 'block';
+        $('ctProfile').style.display = 'block';
+        $('ctPay').style.display = 'block';
+
+    }
     //本來就>768 拉往小768 要藏
     //本來<768 拉往小768 不動
     //本來就>768 拉往大768 不動
@@ -76,4 +83,43 @@ function preToFile() {
     $('ctProfile').style.display = 'block';
     $('ctPay').style.display = 'none';
     ctPreStep(2);
+}
+
+window.addEventListener('fullscreen', ctResize, false);
+
+
+//旅客人數
+var count = document.querySelector('#count');
+var add = document.querySelector('.ctCountBox__a--plus');
+var mi = document.querySelector('.ctCountBox__a--mi');
+var passengerTab = document.querySelector('.ctPassanger__tab');
+add.addEventListener('click', addPassanger, false);
+mi.addEventListener('click', miPassanger, false);
+
+function addPassanger() {
+    if (count.innerHTML == 5) {
+        return;
+    }
+    count.innerHTML = parseInt(count.innerHTML) + 1;
+    let a = document.createElement('a');
+    a.setAttribute('herf', 'javascript:;');
+    let div = document.createElement('div');
+    div.setAttribute('class', 'row');
+    let i1 = document.createElement('i');
+    i1.setAttribute('class', 'material-icons');
+    i1.innerText = 'person';
+    let i2 = document.createElement('i');
+    i2.innerText = count.innerHTML;
+
+    div.append(i1);
+    div.append(i2);
+    a.append(div);
+    passengerTab.append(a);
+}
+function miPassanger() {
+    if (count.innerHTML == 1) {
+        return;
+    }
+    count.innerHTML = parseInt(count.innerHTML) - 1;
+    passengerTab.removeChild(passengerTab.lastChild);
 }

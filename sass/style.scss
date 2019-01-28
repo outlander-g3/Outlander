@@ -2,6 +2,9 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
 
+@import "_header.scss";
+@import "_footer.scss";
+
 *{
     font-family: "微軟正黑體";
 }

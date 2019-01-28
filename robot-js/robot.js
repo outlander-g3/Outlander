@@ -135,9 +135,9 @@ var qaList = [
     
     
     
-        const CLASS_RBCIRCLE = '.rbcircle';
-        const CLASS_RBICON = '.rbicon-elements';
-        const CLASS_RBMODAL = '.rbmodal-wrapper';
+        const CLASS_CIRCLE = '.rbcircle';
+        const CLASS_ICON = '.rbicon-elements';
+        const CLASS_MODAL = '.rbmodal-wrapper';
         const CLASS_ICON_ACTIVE = 'js-icon-active';
         const CLASS_MODAL_ACTIVE = 'js-modal-active';
     

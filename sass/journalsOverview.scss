@@ -1,13 +1,19 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-journalsOverview.scss";
+@import "_header.scss";
+@import "_footer.scss";
 
 *{
     // outline: 1px solid red;
     select:focus, button{
         outline: none;
     }
-    font-family: "Microsoft JhengHei";
+}
+body{
+    *{
+        font-family: "Microsoft JhengHei";
+    }
 }
 .jo__wrap{
     // background: rgba(94, 183, 197, 0.2);
@@ -17,6 +23,7 @@
     background-position: center; 
     background-repeat: no-repeat; 
     background-size:cover;
+    padding-top: 100px;
 }
 .jo__map{
     position: relative;
@@ -170,7 +177,7 @@
         }   
     }
     .joForm__input {
-        z-index: 1000;
+        z-index: 100;
         position: absolute;
         display: inline-block;
         width: 170px;

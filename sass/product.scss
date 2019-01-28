@@ -442,7 +442,7 @@
   box-shadow: $shadow;
   &.fixed{
     position: fixed;
-    top: 0;
+    top: 54px;
     background-color: #fff;
     z-index: 100;
     .product__wrap{
@@ -586,20 +586,26 @@
     }
   }
   .product__map{
+    img{
+      position: sticky;
+    }
     @include rwdmin(992){
       width: 40%; 
+      img{
+        width: 100%;
+        top: 250px;
+      }
     }
     @include rwd(991,768){
       width: 50%; 
       padding-left: 20px;
+      img{
+        width: 165%;
+        top: 700px;
+      }
     }
     @include rwdmax(767){
       display: none;
-    }
-    img{
-      width: 100%;
-      position: sticky;
-      top: 250px;
     }
   }
 }
@@ -932,7 +938,6 @@
 }
 .product__reviewBackground{
   position: relative;
-  overflow: hidden;
   .product__reviewBackgroundImg{
     position: absolute;
     top: 50px;
@@ -1043,9 +1048,11 @@
   display: flex;
   padding: 20px 0;
 }
+.pro-item+.pro-item{
+  margin-left: 20px;
+}
 .pro-item{                /*//兩欄寬的flex*/
 width: 50%;
-/*margin: 0.5%;*/
 border:1.5px solid #265057;
 border-radius: 4px;
 padding: 0.6%;

@@ -98,9 +98,7 @@ var x, i, j, selElmnt, a, b, c;
         document.addEventListener("click", closeAllSelect);
 
 
-function cuShowScenery(e){
-// alert(123);
-}
+
 /* 按鈕--控制查看風景內容【icon__serach, icon__】*/
 var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption"); 
 function showOption(){   
@@ -118,14 +116,25 @@ function closeOption(){
     }
 }
 
-/* 按鈕--控制風景【確認加入】*/ 
-function cuAddSceneryC(){
-    var cuCustom__zone= document.getElementById("cuCustom__zone");
-    if(cuCustom__zone.style.display == ''){
-        cuCustom__zone.style.display = 'none';
+/*767以下*/ 
+/* 按鈕--開始風景列表*/ 
+var cuCustomSceneryZoneBg =O('cuCustom__sceneryZone--bg');
+function cuShowScenery(){
+    if(cuCustomSceneryZoneBg.style.display = 'none'){
+        
+        cuCustomSceneryZoneBg.style.display = 'block';
     }
+    console.log(this);
+    
 }
-// 
+/* 按鈕--控制風景【確認加入】同時關閉風景列表*/ 
+function cuAddSceneryC(){
+    if(cuCustomSceneryZoneBg.style.display == 'block'){
+        cuCustomSceneryZoneBg.style.display = 'none';
+    }
+
+}
+
 function cuWatchScenery(){
     var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
     cuCustomDetailBg.style.display = 'block';

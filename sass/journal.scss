@@ -54,7 +54,6 @@ i{
 /*****  個人日誌開始  *****/ 
 
 .jnBg{
-    @include mTop(58);
     @include pBottom(100);
     background-color: $color-main-blue;
     width: 100%;
@@ -103,7 +102,15 @@ i{
         padding: 0 20px 35px 20px;
     }
 }
-
+#jnContent__imgCtrl{
+    position: relative;
+}
+#jnIcon__fav{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: opacify($color: #F78080, $amount: 1);
+}
 #jnContent__info{
     color: $color-text;
     position: sticky;

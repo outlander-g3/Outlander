@@ -21,6 +21,8 @@
         js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2&appId=2118561601789454&autoLogAppEvents=1';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
+
     <nav id="headerAll">
         <div class="header">
             <ul id="logo">
@@ -98,7 +100,12 @@
                 <div class="row jnJCC">
                     <!-- 文章內容開始 -->
                     <section id="jnContent">
-                        <img src="img/jn_img1.png" class="inContent__img">
+                        <div class="jnContent__imgCtrl">
+                            <img src="img/jn_img1.png" class="inContent__img">
+                            <span id="jnIcon__fav">
+                                <i class="material-icons">favorite_border</i>
+                            </span>
+                        </div>
                         <div id="jnContent__plr20"> <!--此容器內物件才padding: 0 20px-->
                             <p id="jnContent__1thP">
                                 日本飛驒山脈，長野縣松本市、岐阜縣高山市交界，槍岳之下，槍岳山莊的早朝屋南邊朝燒岩稜<br>

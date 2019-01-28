@@ -72,39 +72,39 @@ var qaList = [
       // }
       
       function append(line) { // 將 line 放到「對話區」顯示。
-        var message = document.getElementById("message");
+        var rb__message = document.getElementById("rb__message");
         // 取出對話框 
-        message.innerHTML += '<div class="person_text text__show"> <img src="baseline_person_black_24dp.png"><p>'+line+"</p></div><BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
-        message.scrollTop = message.scrollHeight;
+        rb__message.innerHTML += '<div class="person_text rbtext__show"> <img src="../img/baseline_person_black_24dp.png"><p>'+line+"</p></div><BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
+        rb__message.scrollTop = rb__message.scrollHeight;
         // document.getElementById("massage").style. 
-        if ("message") {
-          document.getElementById("message").style.color="#484848";
+        if ("rb__message") {
+          document.getElementById("rb__message").style.color="#484848";
         } else if ("message") {
-          document.getElementById("message").style.fontFamily="Microsoft JhengHei";
+          document.getElementById("rb__message").style.fontFamily="Microsoft JhengHei";
         } else {
-          document.getElementById("massage").style.backgroundcolor="#ffffff";
+          document.getElementById("rb__massage").style.backgroundcolor="#ffffff";
         }
         // 捲動到最下方。
       }
   
       function append1(line) { // 將 line 放到「對話區」顯示。
-        var message = document.getElementById("message");
+        var rb__message = document.getElementById("rb__message");
         // 取出對話框 
-        message.innerHTML +="<div class='text__show'>"+line+"<BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
-        message.scrollTop = message.scrollHeight; 
-        if ("message") {
-          document.getElementById("message").style.color="#484848";
-        } else if ("message") {
-          document.getElementById("message").style.fontFamily="Microsoft JhengHei";
+        rb__message.innerHTML +="<div class='rbtext__show'>"+line+"<BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
+        rb__message.scrollTop = rb__message.scrollHeight; 
+        if ("rb__message") {
+          document.getElementById("rb__message").style.color="#484848";
+        } else if ("rb__message") {
+          document.getElementById("rb__message").style.fontFamily="Microsoft JhengHei";
         } else {
-          document.getElementById("massage").style.backgroundcolor="#ffffff";
+          document.getElementById("rb__massage").style.backgroundcolor="#ffffff";
         }
         // 捲動到最下方。
       }
   
       function answer() { // 回答問題
         setTimeout(function () { // 停頓 1 到 3 秒再回答問題 (因為若回答太快就不像人了，人打字需要時間)
-          append1('<img src="/img/logo.png">'+"<p>"+ getAnswer()+"</p>");
+          append1('<img src="../img/logo.png">'+"<p>"+ getAnswer()+"</p>");
         }, 1000+random(2000));
       }
   
@@ -135,9 +135,9 @@ var qaList = [
   
   
   
-      const CLASS_CIRCLE = '.circle';
-      const CLASS_ICON = '.icon-elements';
-      const CLASS_MODAL = '.modal-wrapper';
+      const CLASS_CIRCLE = '.rbcircle';
+      const CLASS_ICON = '.rbicon-elements';
+      const CLASS_MODAL = '.rbmodal-wrapper';
       const CLASS_ICON_ACTIVE = 'js-icon-active';
       const CLASS_MODAL_ACTIVE = 'js-modal-active';
   

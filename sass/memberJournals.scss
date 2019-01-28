@@ -10,6 +10,12 @@ body{
         font-family: "微軟正黑體";
     }
 }
+.row{
+    height: 1000px;
+}
+#currentWebsite{
+    color:$color-main-yellow;
+}
 .msJournals{
     padding: 50px;
     margin: auto;

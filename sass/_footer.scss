@@ -45,8 +45,11 @@
                 cursor: pointer;
                 @media (min-width:768px) {
                     padding-right:20px;
-                    width: 40%;
+                    width: 50%;
                     text-align: left;
+                }
+                @media (min-width:1200px) {
+                    width: 40%;
                 }
                 i{
                     margin: 0 10px;

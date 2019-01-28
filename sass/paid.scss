@@ -4,7 +4,7 @@
 
 h2{
     text-align: center;
-    @include pTop(20);
+    @include pTop(100);
     @include f20b();
 }
 .pdPaid{

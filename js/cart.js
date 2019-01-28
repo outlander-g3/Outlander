@@ -90,6 +90,7 @@ window.addEventListener('fullscreen', ctResize, false);
 
 //旅客人數
 var count = document.querySelector('#count');
+var detailCount = document.querySelector('#detailCount');
 var add = document.querySelector('.ctCountBox__a--plus');
 var mi = document.querySelector('.ctCountBox__a--mi');
 var passengerTab = document.querySelector('.ctPassanger__tab');

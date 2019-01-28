@@ -102,15 +102,17 @@ var x, i, j, selElmnt, a, b, c;
 /* 按鈕--控制查看風景內容【icon__serach, icon__】*/
 var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption"); 
 function showOption(){   
+   
+    // console.log(this);
     for(var j=0;j<cuCustom__showOption.length;j++){
-        if(this.children[2] == cuCustom__showOption[j]){
+        if(this.children[3] == cuCustom__showOption[j]){
             cuCustom__showOption[j].style.display = 'block';
         }
     }
 }
 function closeOption(){ 
     for(var j=0;j<cuCustom__showOption.length;j++){
-        if(this.children[2] == cuCustom__showOption[j]){
+        if(this.children[3] == cuCustom__showOption[j]){
             cuCustom__showOption[j].style.display = 'none';
         }
     }

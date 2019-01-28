@@ -9,6 +9,15 @@ function scrollToPosition(e){
   var checkTime = document.getElementsByClassName("checkTime");
   
   e.preventDefault();
+
+  for(var i=0; i<productLink.length; i++){
+    productLink[i].classList.remove("bold");
+  }
+
+  if(this.classList.contains("bold") === false){
+    this.classList.add("bold");
+  }
+  
   if(this == productLink[0]){
     window.scrollTo({
       left: 0,
@@ -48,7 +57,7 @@ function scrollToPosition(e){
 window.addEventListener("scroll", ()=>{
   var st = this.scrollY;
   var product__submenu = document.getElementById("product__submenu");
-  if(st < lastScrollY && st > (product__submenu.offsetTop+500)){
+  if(st < lastScrollY && st > (product__submenu.offsetTop)){
     product__submenu.classList.add("fixed");
   }else{
     product__submenu.classList.remove("fixed");

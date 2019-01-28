@@ -2,6 +2,8 @@
 @import"base/_var_cu.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-customized.scss";
+@import "_header.scss";
+@import "_footer.scss";
 p{
     font-family: "Microsoft JhengHei";
 }
@@ -62,11 +64,7 @@ i{
 }
 
 
-.nav_menu,footer{
-    @include phone-width(){
-        display: none;
-    }
-}
+
 .cuMask{
     // @include pad-width() {
         max-width: 1200px;
@@ -96,50 +94,13 @@ i{
     // background-color: $color-lightgreen;
     @include cu_ColorSelect(.76);
 }
-nav {
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
-    font-size: 0; /*除去4px*/
-    h1
-        img{
-            height: 60px;
-            padding-left: 20px;
-            padding-top: 5px;
-            vertical-align: middle;
-        }
-    li{
-        float: left;
-    }
-    @include phone-width() {
-        height: 56px;
-        h1 img{
-            height: 40px;
-            padding-top: 11px;
-        }
-    }
-}
-nav,.mw_1200,.cuCustom,.cu__step2{
+
+.mw_1200,.cuCustom,.cu__step2{
     max-width: 1200px;
     margin: auto;
 }
 
-.nav_txt,.nav_icon{
-    float: left;
-}
-.nav_txt > li > a {
-    font-size: 16px;
-    color: $color-text;
-    line-height: 70px;
-    padding-left: 20px;
-}
-.nav_icon{
-    padding: 0 20px 0 32px;
-    i{
-        color: $color-text;
-        line-height: 70px;
-    }
-}
+
 
 /*客製化開始*/
 .cu_bg{
@@ -149,6 +110,13 @@ nav,.mw_1200,.cuCustom,.cu__step2{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding-top: 58px;
+    h2{
+        @include f20b;
+        padding: 20px 0 0px;
+        color: $color-subTitle;
+        text-align: center;
+    }
 }
 .cuProcess{
     display: flex;
@@ -744,54 +712,4 @@ nav,.mw_1200,.cuCustom,.cu__step2{
     justify-content: center;
     flex-wrap: wrap;
     @include mTop(20);
-}
-/*footer*/
-footer{
-    width: 100%;
-    height: 180px;
-    background-color: #2f2f2f;
-    .footer_ptb{
-        display: flex;
-        justify-content: space-between;
-        padding: 50px 20px 0;
-        div{
-            color: $color-white;
-        }
-    }
-    .footer_info{
-        li{
-            padding-bottom: 6px;
-            display: block;
-        }
-    }
-    a{
-        color: $color-white;
-        line-height: 19px;
-    }
-    .footer_subscribe{
-        text-align: center;
-        input[type="text"]{
-            border:1px solid $color-white;
-            border-radius: 4px 0 0 4px;
-            padding: 10px 47px 10px 8px;
-            background: none;
-            color: $color-white;
-        }
-        input[type="submit"]{
-            border:1px solid $color-white;
-            border-radius: 0 4px 4px 0; 
-            padding: 10px; 
-            background:$color-white;
-            cursor:pointer;
-            transform: translateX(-6px);
-        }
-        p{
-            padding-top: 46px;
-        }
-    }
-    .footer_social{
-        i{
-            padding: 0 16px 26px 0;
-        }
-    }
 }

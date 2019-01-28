@@ -12,6 +12,7 @@
     }
     #footer-all{
         width: 100%;
+        // background-color: rgba(0,0,0,.3);
         display: flex;
         flex-wrap: wrap;
         position: absolute;
@@ -71,7 +72,7 @@
     }
         @media (min-width:768px) {
             #footer-img{
-                top: -200%;
+                // top: -200%;
             }
             #footer-all{
                 flex-wrap: nowrap;

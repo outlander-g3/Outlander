@@ -11,14 +11,24 @@ body{
 #currentWebsite{
     color:$color-main-yellow;
 }
+.mainContent{
+    padding-top: 50px;
+    height: 1000px;
+    @media only screen and (max-width:1024px) {
+        height: 2100px;
+    }
+}
 .msEquipment{
     //共用
+    box-sizing: border-box;
     padding: 50px;
     margin: auto;
     position: absolute;
+    // position: relative;
     left: 250px;
     @include rwd(mobile){
         position: static;
+        padding: 10px;
     }
     h3{
         padding: 40px 0px 20px;

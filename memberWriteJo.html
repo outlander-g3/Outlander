@@ -18,115 +18,204 @@
 </head>
 
 <body>
-    <nav class="msNav ">
-        <h2>會員系統</h2>
-        <ul>
-            <li><a href="memberSystem.html">個人中心</a></li>
-            <li><a href="memberOrders.html">我的訂單</a></li>
-            <li><a href="memberJournals.html" id="currentWebsite">登山日誌</a></li>
-            <li><a href="memberEquip.html">行前裝備</a></li>
-        </ul>
-    </nav>
-
-    <div class="msEquipment">
-        <div class="member-title">
-            <h3>編輯日誌</h3>
-        </div>
-        <section id="edit-log">
-            <div id="img"><img src="https://picsum.photos/600/300/?random=1"></div>
-            <ul>
-                <li>日誌標題:<input class="msEquipment__input" type="text" id="name"></li>
-                <li>登山地點:
-                    <span class="msEquipment__input" id="msEquipment__input">
-                        <input type="radio" name="location" value="Asia" checked="checked" id="locat-asia">
-                        <label for="locat-asia">富士山</label>
-
-                        <input type="radio" name="location" value="Europe" checked="checked" id="locat-europe">
-                        <label for="locat-europe">喜馬拉雅山</label>
-
-                        <input type="radio" name="location" value="Africa" checked="checked" id="locat-africa">
-                        <label for="locat-africa">玉山</label>
-                    </span></li>
-                <li>出發日期:<input id="date" type="text" value="">
-                    <span class="msEquipment__input" id="date-text">
-                        <label id="date-label-1">請選擇日期</label>
-                        <table class="calendar">
-                            <tbody>
-                                <tr>
-                                    <td class="mm" colspan="2"><span id="mm-sp">月份</span> <i id="left-1" class="material-icons">keyboard_arrow_left</i></td>
-                                    <td class="yy" colspan="2"><span id="yy-sp">年份</span><i id="right-1" class="material-icons">keyboard_arrow_right</i></td>
-                                </tr>
-                                <tr>
-                                    <th>Sun</th>
-                                    <th>Mon</th>
-                                    <th>Tue</th>
-                                    <th>Wed</th>
-                                    <th>Thu</th>
-                                    <th>Fri</th>
-                                    <th>Sat</th>
-                                </tr>
-                            </tbody>
-                            <tbody id="calendar-tb">
-
-
-                            </tbody>
-                        </table>
-
-                    </span></li>
-                <li id="li-4">結束日期:<input id="date_1" type="text" value="">
-                    <span class="msEquipment__input" id="date-text-2">
-                        <label id="date-label-2">請選擇日期</label>
-                        <table class="calendar">
-                            <tbody>
-                                <tr>
-                                    <td class="mm" colspan="2"><span id="mm-sp-1"> 月份</span> <i id="left-2" class="material-icons">keyboard_arrow_left</i></td>
-                                    <td class="yy" colspan="2"><span id="yy-sp-1">年份</span><i id="right-2" class="material-icons">keyboard_arrow_right</i></td>
-                                </tr>
-                                <tr>
-                                    <th>Sun</th>
-                                    <th>Mon</th>
-                                    <th>Tue</th>
-                                    <th>Wed</th>
-                                    <th>Thu</th>
-                                    <th>Fri</th>
-                                    <th>Sat</th>
-                                </tr>
-                            </tbody>
-                            <tbody id="calendar-tb-1">
-                            </tbody>
-
-                        </table>
-                    </span></li>
+    <nav id="headerAll">
+        <div class="header">
+            <ul id="logo">
+                <li><a href="index.html"><img src="img/logo.png" alt="logo"></a></li>
+                <div id="searchAll">
+                    <input type="text" id="search">
+                    <i class="material-icons">search</i>
+                </div>
             </ul>
-        </section>
-
-
-        <section id="text-input">
-            <ul>
-                <li><i class="material-icons">format_bold</i></li>
-                <li><i class="material-icons">format_italic</i></li>
-                <li><i class="material-icons">format_line_spacing</i></li>
-                <li><i class="material-icons">format_list_bulleted</i></li>
-                <li><i class="material-icons">format_list_numbered</i></li>
-                <li><i class="material-icons">format_underlined</i></li>
-                <li><i class="material-icons">insert_photo</i></li>
-                <li><i class="material-icons">color_lens</i></li>
-                <li><i class="material-icons">videocam</i></li>
-                <li><i class="material-icons">notes</i></li>
-            </ul>
-            <div contenteditable="true" id="text-block">
-
+            <div id="burger" v-on:click="bur">
+                <span class="burger-1" id="burSpan1"></span>
+                <span class="burger-2" id="burSpan2"></span>
+                <span class="burger-3" id="burSpan3"></span>
             </div>
-            <form action="#" id="daylog-from">
-                <textarea name="daylog" id="daylog" cols="30" rows="10"></textarea>
-                <button>取消</button>
-                <button>存為草稿</button>
-                <button>發佈</button>
-            </form>
+            <ul id="burgerText">
+                <span id="burgerText-X" v-on:click="out"></span>
+                <li><a href="#">登山行程</a></li>
+                <li><a href="#">客製行程</a></li>
+                <li><a href="#">登山日誌</a></li>
+                <li><a href="#">登山技巧</a></li>
+                <li v-if="web<768"><a href="#">機器人</a></li>
+                <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
+                <li v-if="web<768" id="member">會員專區
+                    <ul id="member-child">
+                        <li><a class="member-a" href="#">個人中心</a></li>
+                        <li><a class="member-a" href="#">訂單</a></li>
+                        <li><a class="member-a" href="#">登山日誌</a></li>
+                        <li><a class="member-a" href="#">行前裝備</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="filter">
+            <div id="filterList">
+                <ul id="filterListLi">
+                    <li>亞洲</li>
+                    <li>歐洲</li>
+                    <li>非洲</li>
+                    <li>北美洲</li>
+                    <li>南美洲</li>
+                    <li>大洋洲</li>
+                </ul>
+                <div id="filterListImg">
+                    <div class="filterListImg-img">
+                        <img src="img/mountain資料/玉山/pic_781_14.jpg">
+                    </div>
+                    <div class="filterListImg-img">
+                        <img src="img/mountain資料/少女峰/2000x2000-0-70-a837fa982028e9587ed5abaa0ca6ef0a.jpg">
+                    </div>
+                    <div class="filterListImg-img">
+                        <img src="img/mountain資料/聖母峰/6ba08327f04d2b1fd59e8126e0f8d92a.jpg">
+                    </div>
+                    <div class="filterListImg-img">
+                        <img src="img/mountain資料/富士山/mt-fuji-japan-top-ports.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <img id="robot" src="img/暫時用的圖/robot-solid.png" alt="機器人">
+    <i id="up" class="material-icons">keyboard_arrow_up</i>
 
 
-        </section>
+
+    <div class="mainEditArea">
+        <nav class="msNav ">
+            <h2>會員系統</h2>
+            <ul>
+                <li><a href="memberSystem.html">個人中心</a></li>
+                <li><a href="memberOrders.html">我的訂單</a></li>
+                <li><a href="memberJournals.html" id="currentWebsite">登山日誌</a></li>
+                <li><a href="memberEquip.html">行前裝備</a></li>
+            </ul>
+        </nav>
+
+        <div class="msEquipment">
+            <div class="member-title">
+                <h3>編輯日誌</h3>
+            </div>
+            <section id="edit-log">
+                <div id="img"><img src="https://picsum.photos/600/300/?random=1"></div>
+                <ul>
+                    <li>日誌標題:<input class="msEquipment__input" type="text" id="name"></li>
+                    <li>登山地點:
+                        <span class="msEquipment__input" id="msEquipment__input">
+                            <input type="radio" name="location" value="Asia" checked="checked" id="locat-asia">
+                            <label for="locat-asia">富士山</label>
+
+                            <input type="radio" name="location" value="Europe" checked="checked" id="locat-europe">
+                            <label for="locat-europe">喜馬拉雅山</label>
+
+                            <input type="radio" name="location" value="Africa" checked="checked" id="locat-africa">
+                            <label for="locat-africa">玉山</label>
+                        </span></li>
+                    <li>出發日期:<input id="date" type="text" value="">
+                        <span class="msEquipment__input" id="date-text">
+                            <label id="date-label-1">請選擇日期</label>
+                            <table class="calendar">
+                                <tbody>
+                                    <tr>
+                                        <td class="mm" colspan="2"><span id="mm-sp">月份</span> <i id="left-1" class="material-icons">keyboard_arrow_left</i></td>
+                                        <td class="yy" colspan="2"><span id="yy-sp">年份</span><i id="right-1" class="material-icons">keyboard_arrow_right</i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Sun</th>
+                                        <th>Mon</th>
+                                        <th>Tue</th>
+                                        <th>Wed</th>
+                                        <th>Thu</th>
+                                        <th>Fri</th>
+                                        <th>Sat</th>
+                                    </tr>
+                                </tbody>
+                                <tbody id="calendar-tb">
+
+
+                                </tbody>
+                            </table>
+
+                        </span></li>
+                    <li id="li-4">結束日期:<input id="date_1" type="text" value="">
+                        <span class="msEquipment__input" id="date-text-2">
+                            <label id="date-label-2">請選擇日期</label>
+                            <table class="calendar">
+                                <tbody>
+                                    <tr>
+                                        <td class="mm" colspan="2"><span id="mm-sp-1"> 月份</span> <i id="left-2" class="material-icons">keyboard_arrow_left</i></td>
+                                        <td class="yy" colspan="2"><span id="yy-sp-1">年份</span><i id="right-2" class="material-icons">keyboard_arrow_right</i></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Sun</th>
+                                        <th>Mon</th>
+                                        <th>Tue</th>
+                                        <th>Wed</th>
+                                        <th>Thu</th>
+                                        <th>Fri</th>
+                                        <th>Sat</th>
+                                    </tr>
+                                </tbody>
+                                <tbody id="calendar-tb-1">
+                                </tbody>
+
+                            </table>
+                        </span></li>
+                </ul>
+            </section>
+
+
+            <section id="text-input">
+                <ul>
+                    <li><i class="material-icons">format_bold</i></li>
+                    <li><i class="material-icons">format_italic</i></li>
+                    <li><i class="material-icons">format_line_spacing</i></li>
+                    <li><i class="material-icons">format_list_bulleted</i></li>
+                    <li><i class="material-icons">format_list_numbered</i></li>
+                    <li><i class="material-icons">format_underlined</i></li>
+                    <li><i class="material-icons">insert_photo</i></li>
+                    <li><i class="material-icons">color_lens</i></li>
+                    <li><i class="material-icons">videocam</i></li>
+                    <li><i class="material-icons">notes</i></li>
+                </ul>
+                <div contenteditable="true" id="text-block">
+
+                </div>
+                <form action="#" id="daylog-from">
+                    <textarea name="daylog" id="daylog" cols="30" rows="10"></textarea>
+                    <button>取消</button>
+                    <button>存為草稿</button>
+                    <button>發佈</button>
+                </form>
+
+
+            </section>
+        </div>
     </div>
+    <footer id="footer">
+        <img id="footer-img" src="img/暫時用的圖/foo1.png" alt="footer">
+        <div id="footer-all">
+            <ul>
+                <li>關於我們</li>
+                <li>聯繫我們</li>
+                <li>使用條款</li>
+                <li>尋找分店</li>
+            </ul>
+            <div id="footer-icon">
+                <span><i class="fab fa-facebook-f"></i>Facebook</span>
+                <span><i class="fab fa-instagram"></i>Instagram</span>
+                <span><i class="fab fa-twitter"></i>Twitter</span>
+            </div>
+            <div id="footer-input">
+                <div>
+                    <input type="text">
+                    <button>訂閱</button>
+                </div>
+                <span>COPYRIGHT © 2018 Outlander All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
     <script src="js/header.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/memberWriteJo.js"></script>

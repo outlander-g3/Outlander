@@ -2,18 +2,19 @@
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-memberSystem.scss";
 
-// *{
-//     outline: 1px solid red;
-// }
+*{
+    // outline: 1px solid red;
+}
 .mainContent{
     height: 1000px;
-    // min-height: 100vh;
 }
+
 .row img{
     width: 100%;
 }
 .row{
     padding-top: 50px;
+    color: $color-text;
 }
 #currentWebsite{
     color:$color-main-yellow;
@@ -84,7 +85,7 @@ body{
     padding: 50px;
     margin: auto;
     position: absolute;
-    left: 250px;
+     left: 250px;
     @include rwd(mobile){
         position: static;
     }

@@ -287,25 +287,25 @@
     display: none;
 }
 @media (min-width:768px){
-    #robot{
-        display: block;
-        position: fixed;
-        top: 70%;
-        left: 95%;
-        width: 42px;
-        height: 42px;
-        border: 1px solid #aaa;
-        border-radius: $border-radius-btn;
-        cursor: pointer;
-        z-index: 3;
-    }
+    // #robot{
+    //     display: block;
+    //     position: fixed;
+    //     top: 70%;
+    //     left: 95%;
+    //     width: 42px;
+    //     height: 42px;
+    //     border: 1px solid #aaa;
+    //     border-radius: $border-radius-btn;
+    //     cursor: pointer;
+    //     z-index: 3;
+    // }
     
     #up{
         display: block;
         position: fixed;
         z-index: 3;
         top: 80%;
-        left: 95%;
+        left: 93%;
         width: 42px;
         @include f30 ();
         text-align: center;
@@ -316,3 +316,335 @@
     }
 
 }
+// 機器人加入
+
+
+
+
+
+/*---------------robot視窗控制---------------------------*/
+.rbcircle {
+    display: flex;
+    justify-content: center;
+    background-color: #50E3C2;
+    cursor:pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    z-index: 999;
+    position: fixed;
+    left: 92.5%;
+    top: 90%;
+    background-image:url("../img/機器人/robot-solid.png");
+    background-repeat: no-repeat;
+    outline: none;
+    }
+    .rbcircle:hover {
+    transform: translateY(-3px);
+    
+    }
+    
+    .rbclose:hover {
+    transform: translateY(-3px);
+    }
+    
+    
+    .rbmodal-wrapper {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
+    border-radius: 3px;
+    width: 376px;
+    height: 400px;
+    position: fixed;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    visibility: hidden;
+    opacity: 0;
+    bottom: 80px;
+    transition: opacity 200ms ease-out, bottom 200ms ease-out;
+    border-radius: 5px;
+    }
+    
+    .rbmodal-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px;
+    border: none;
+    border-top: 1px solid #E6E7F0;
+    font-size: 14px;
+    font-weight: 300;
+    }
+    
+    textarea::placeholder {
+    color: #CACEDB;
+    }
+    
+    .js-modal-active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 100px;
+    z-index: 99999;
+    }
+    
+    #out{
+      cursor: pointer;
+    }
+    
+    
+    
+    /*------------robot對話控制--------------------------------*/
+    
+    .rbhead{
+      background-color:#32545c;
+      max-width:376px;
+      width: 100%;
+      // width: 100%;
+      height: 82px;
+      
+    }
+    
+    
+    .rbhead__box{
+      width: 376px;
+      height: 82px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      background-color:#32545c;
+    }
+    
+    .rblogo__box{
+      width: 200px;
+      height: 82px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      @media (max-width:767px) {
+            flex: 7;
+      }
+    }
+    
+    .rbhead__box img{
+      width: 50px;
+      height: 45px;
+    } 
+    
+    h2{
+      font-size: 20px;
+      font-family:Microsoft JhengHei;
+      color: #ffffff;
+    }
+    
+    #rb__message{
+      max-width:376px;
+      width: 100%;
+      height: 400px;
+      background-image:url("../img/機器人/photo-1541456419250-opacity-0.3.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      overflow:auto;
+      font-family:Microsoft JhengHei;
+      color: #484848; 
+    }
+    
+    #rb__message img{
+    max-width:30px;
+    width: 90%;
+    height:10%;
+    padding:5px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    }
+    
+    .rbtext__show{
+    display: flex;
+    flex-direction:row;
+    }
+    .rbtext__show img{
+    margin:5px;
+    }
+    
+    .rbtext__show p{
+    max-width:140px;
+    /*width: 100%;*/
+    background-color: #ffffff;
+    border-radius: 23px;
+    padding: 5px ;
+    line-height: 36px;
+    word-break: break-word;
+    }
+    
+    .rbinput__text{
+      display:inline-block;
+      max-width:376px;
+      width: 100%;
+    }
+    
+    #say{
+    font-size:20px;
+    font-family:Microsoft JhengHei;
+    }
+    
+    .rbtext__input{
+      display: flex;
+      flex-direction: row;
+      align-content: flex-end;
+      max-width:377px;
+      width: 100%;
+      height: 40px;
+      background-color: #ffffff;
+      border: 1px solid #989898;
+    }
+    .rbtext__input textarea{
+      max-width:330px;
+      width: 100%;
+      border: none;
+      /*font-size:30px;*/
+      line-height: center;
+    }
+    
+    .rbtext__input .butn{
+      max-width:40px;
+      width: 100%;
+      
+    }
+    
+    .person_text{
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row-reverse;
+    }
+    
+    .rbmodal__wrapper__rwd{
+    display:none; 
+    }
+    .rbclose2{
+        display: none;
+    }
+    
+    @media  (max-width: 767px){
+    
+    #model{
+    //   display:inline;
+      width:100%;
+      height:100%;
+    //   position:inherit;
+        // display: block;
+        // z-index: 999;
+        bottom: unset;
+        right: unset;
+    }
+    
+    .rblogo{
+      flex-basis:-1;
+      flex-grow:0;
+    }
+    
+    .rbcircle{
+    display:none;
+    }
+    
+    #modal{
+      display:inline; 
+    }
+    
+    .rbhead{
+      background-color:#32545c;
+      max-width:768px;
+      width: 100%;
+      height: 12vh;
+    }
+    
+    .rbhead__box{
+        max-width: 1200px;
+        width: 100%;
+        height: 12vh;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    .rbclose{
+        padding-left: 20px;
+        flex: 3;
+    }
+    .rbout{
+        display: none;
+    }
+    .rbclose2{
+        display: block;
+        cursor: pointer;
+    }
+    .rbhead__box img{
+      max-width:8vh;
+      width: 100%;
+      height:6vh;
+    } 
+    
+    #rbout{
+      padding-right: 20px;
+    }
+    
+    
+    .rbhead__box h1{
+      font-size:4vh;
+      font-family:Microsoft JhengHei;
+      color: #ffffff;
+      flex-grow: 1;
+    } 
+    
+    .rbtext__show p{
+      font-size: 2vh;
+      line-height: 6vh;
+    }
+    
+    
+    #rb__message{
+    max-width:1200px;
+    width: 100%;
+    height:80vh;
+    background-repeat: no-repeat;
+    background-size: 120%;
+    overflow:auto;
+    font-family:Microsoft JhengHei;
+    color: #484848; 
+    }
+    
+    #rb__message img{
+    max-width: 7vh;
+    width: 100%;
+    }
+    
+    .rbinput__text{
+    display:inline-block;
+    max-width:1200px;
+    width: 100%;
+    }
+    
+    .rbtext__input{
+    max-width: 74vh;
+    width: 100%;
+    height: 8vh;
+    }
+    
+    .rbtext__input textarea{
+      max-width: unset;
+      width: 100%;
+    }
+    
+    .rbtext__input .butn{
+      max-width: 8vh;
+    
+      background-color: #989898;
+      width: 100%;
+    }
+    
+    #say{
+      font-size: 5vh;
+    }
+    
+    }

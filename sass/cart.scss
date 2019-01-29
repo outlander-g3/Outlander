@@ -438,7 +438,33 @@ a{
     }
 }
 
+.ctPaid{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    // height: 50%;
+    background-color:#fff;
+    display: none;
+    h2{
+        text-align: center;
+        @include pTop(100);
+        @include f20b();
+        }
+    >div{
+    width: 335px;
+    margin:20px auto;
+    @include ctBorder();
+    @include br4();
 
+    p{
+        padding: 20px 50px;
+    }
+    a{
+        color: $color-btn-sub;
+    }
+    }
+}
 
 @include rwd(desktop){
 

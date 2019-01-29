@@ -16,5 +16,8 @@
     "gulp-sourcemaps": "^2.6.4",
     "jquery": "^3.3.1",
     "scrollmagic": "^2.0.6"
+  },
+  "devDependencies": {
+    "gulp-connect-php": "^1.0.3"
   }
 }

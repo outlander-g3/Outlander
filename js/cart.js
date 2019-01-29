@@ -164,7 +164,11 @@ for (let i = 0; i < btnPay.length; i++) {
             alert('請詳閱並同意訂購條款');
         }
         else {
-            window.location = 'paid.php';
+            // window.location = 'paid.php';
+            //跳出.ctPaid
+            // var winJump = document.querySelector('.ctPaid');
+            // winJump.style.display = 'block';
+            winJump('.btn-pay', '.ctPaid');
         }
     }, false);
 }

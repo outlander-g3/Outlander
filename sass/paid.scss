@@ -2,23 +2,27 @@
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-cart.scss";
 
-h2{
-    text-align: center;
-    @include pTop(100);
-    @include f20b();
-}
-.pdPaid{
+
+.ctPaid{
     // text-align: center;
     // width: 50%;
     width: 335px;
     margin:20px auto;
-    @include ctBorder();
-    @include br4();
-    p{
-        padding: 20px 50px;
+    h2{
+    text-align: center;
+    @include pTop(100);
+    @include f20b();
     }
-    a{
-        color: $color-btn-sub;
+    >div{
+        @include ctBorder();
+        @include br4();
+        p{
+            padding: 20px 50px;
+        }
+        a{
+            color: $color-btn-sub;
+        }
+
     }
 }
 // @include o;

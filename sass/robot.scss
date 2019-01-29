@@ -117,10 +117,13 @@ opacity: 1;
 bottom: 100px;
 }
 
-#out{
+#rbout{
   cursor: pointer;
 }
 
+.rbreturn{
+  display:none;
+}
 
 
 /*------------robot對話控制--------------------------------*/
@@ -360,6 +363,14 @@ height: 8vh;
   position:inherit;
 }
 
+.rbclose{
+  display:none;
+}
+
+.rbreturn{
+  display:inline;
+}
+
 .rblogo{
   flex-basis:-1;
   flex-grow:0;
@@ -395,6 +406,7 @@ display:none;
 
 #rbout{
   padding-right: 20px;
+  src: url(../img/baseline_keyboard_arrow_left_white_24dp.png);
 }
 
 

@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cart.css">
     <script src="js/vue.min.js"></script>
-    <script src="js/header.js"></script>
 </head>
 
 <body>
-    <!-- <nav id="headerAll">
+    <nav id="headerAll">
         <div class="header">
             <ul id="logo">
                 <li><a href="index.html"><img src="img/logo.png" alt="logo"></a></li>
@@ -74,7 +73,7 @@
                 </div>
             </div>
         </div>
-    </nav> -->
+    </nav>
     <div class="ctStep__title--mobile">
         <div class="row">
             <div class="ctStep__item ctStep--on" id="ctStep1">
@@ -94,231 +93,212 @@
         </div>
     </div>
 
-    <form action="paid.php">
-        <!-- 第一步驟選日期 -->
-        <div class="ctProduct" id="ctProduct">
-            <h2>步驟1 決定日期</h2>
-            <div class="row">
-                <div class="ctProduct__img">
-                    <!-- <img src='img/fuji.jpg' alt=''> -->
-                </div>
-                <div class="ctProduct__text">
-                    <h3 class="ctProduct__text--title">日本 - 槍岳、表銀座縱走</h3>
-                    <div class="ctProduct__text--content">
-                        <p>出發日：2019/01/05 (六)</p>
-                        <p>回程日：2019/01/07 (一)</p>
-                        <p>天數 : 3日</p>
-                        <p>費用 : 10500/人</p>
-                    </div>
-                    <a href="javascript:;" class="ctProduct__btn--date btn-sub-s">修改日期</a>
-                </div>
+    <!-- <form action="paid.php"> -->
+    <!-- 第一步驟選日期 -->
+    <div class="ctProduct" id="ctProduct">
+        <h2>步驟1 決定日期</h2>
+        <div class="row">
+            <div class="ctProduct__img">
+                <!-- <img src='img/fuji.jpg' alt=''> -->
             </div>
-            <div class="ctMobile__btn">
-                <a href="javascript:;" class="ctMobile__btn--front btn-sub-s">上一頁</a>
-                <a href="javascript:;" class="ctMobile__btn--next btn-main-s" id="ctProductNextBtn">下一步</a>
+            <div class="ctProduct__text">
+                <h3 class="ctProduct__text--title">日本 - 槍岳、表銀座縱走</h3>
+                <div class="ctProduct__text--content">
+                    <p>出發日：2019/01/05 (六)</p>
+                    <p>回程日：2019/01/07 (一)</p>
+                    <p>天數 : 3日</p>
+                    <p>費用 : 10500/人</p>
+                </div>
+                <a href="javascript:;" class="ctProduct__btn--date btn-sub-s">修改日期</a>
             </div>
         </div>
+        <div class="ctMobile__btn">
+            <a href="javascript:;" class="ctMobile__btn--front btn-sub-s">上一頁</a>
+            <a href="javascript:;" class="ctMobile__btn--next btn-main-s" id="ctProductNextBtn">下一步</a>
+        </div>
+    </div>
 
 
 
-        <!-- 第二步驟填資料 -->
-        <div class="ctProfile" id="ctProfile">
-            <h2>步驟2 資料填寫</h2>
-            <div class="ctCount">
-                <div class="row">
-                    <span>旅客人數：</span>
-                    <div class="ctCountBox">
-                        <div class="row">
-                            <a href="javascript:;" class="ctCountBox__a--mi">
-                                <i class="material-icons">remove</i>
-                            </a>
-                            <span id="count">1</span>
-                            <a href="javascript:;" class="ctCountBox__a--plus">
-                                <i class="material-icons">add</i>
-                            </a>
-                        </div>
+    <!-- 第二步驟填資料 -->
+    <div class="ctProfile" id="ctProfile">
+        <h2>步驟2 資料填寫</h2>
+        <div class="ctCount">
+            <div class="row">
+                <span>旅客人數：</span>
+                <div class="ctCountBox">
+                    <div class="row">
+                        <a href="javascript:;" class="ctCountBox__a--mi">
+                            <i class="material-icons">remove</i>
+                        </a>
+                        <span id="count">1</span>
+                        <a href="javascript:;" class="ctCountBox__a--plus">
+                            <i class="material-icons">add</i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="ctContact">
-                    <p class="ctContact__title">
-                        <span>訂購人資料：</span>
-                    </p>
+        </div>
+        <div class="row">
+            <div class="ctContact">
+                <p class="ctContact__title">
+                    <span>訂購人資料：</span>
+                </p>
 
-                    <p>
-                        <span>訂購人姓名</span>
-                        <input type="text" name="name" id="">
-                    </p>
-                    <p>
-                        <span>電子信箱</span>
-                        <input type="text" name="" id="">
-                    </p>
-                    <p>
-                        <span>聯絡電話</span>
-                        <input type="text" name="" id="">
-                    </p>
-                </div>
-                <div class="ctPassanger">
-                    <div class="ctPassanger__tab">
-                        <!-- 到時候要用ＪＳ動態生 hidden欄位夾-->
-                        <a href="javascript:;">
+                <p>
+                    <span>訂購人姓名</span>
+                    <input type="text" name="name" id="">
+                </p>
+                <p>
+                    <span>電子信箱</span>
+                    <input type="text" name="" id="">
+                </p>
+                <p>
+                    <span>聯絡電話</span>
+                    <input type="text" name="" id="">
+                </p>
+            </div>
+            <div class="ctPassanger">
+                <div class="ctPassanger__tab">
+                    <label>
+                        <a href="javascript:;" class="who">
                             <div class="row">
                                 <i class="material-icons">person</i>
                                 <i>1</i>
+                                <input type="hidden" name="psgName" id="" value=" ">
+                                <input type="hidden" name="psgBd" id="" value="">
+                                <input type="hidden" name="psgId" id="" value="">
+                                <input type="hidden" name="psgTel" id="" value="">
                             </div>
                         </a>
-                        <!-- <a href="javascript:;">
-                            <div class="row">
-                                <i class="material-icons">person</i>
-                                <i>2</i>
-                            </div>
-                        </a>
-                        <a href="javascript:;">
-                            <div class="row">
-                                <i class="material-icons">person</i>
-                                <i>3</i>
-                            </div>
-                        </a> -->
-                        <!-- <a href="javascript:;">
-                        <div class="row">
-                            <i class="material-icons">person</i>
-                            <i>4</i>
-                        </div>
-                    </a>
-                    <a href="javascript:;">
-                        <div class="row">
-                            <i class="material-icons">person</i>
-                            <i>5</i>
-                        </div>
-                    </a> -->
-                    </div>
-                    <div class="ctPassanger__input">
-                        <p>
-                            <span>旅客姓名</span>
-                            <input type="text" name="" id="">
-                        </p>
-                        <p>
-                            <span>生日日期</span>
-                            <input type="date" name="" id="">
-                        </p>
-                        <p>
-                            <span>身分證字號</span>
-                            <input type="text" name="" id="">
-                        </p>
-                        <p>
-                            <span>聯絡電話</span>
-                            <input type="text" name="" id="">
-                        </p>
-                    </div>
+                    </label>
                 </div>
-            </div>
-            <div class="ctMobile__btn">
-                <a href="javascript:;" class="ctMobile__btn--front btn-sub-s" id="ctProfilePreBtn">上一步</a>
-                <a href="javascript:;" class="ctMobile__btn--next btn-main-s" id="ctProfileNextBtn">下一步</a>
+                <div class="ctPassanger__input">
+                    <p>
+                        <span>旅客姓名</span>
+                        <input type="text" id="psgName" value="">
+                    </p>
+                    <p>
+                        <span>生日日期</span>
+                        <input type="date" id="psgBd" value="">
+                    </p>
+                    <p>
+                        <span>身分證字號</span>
+                        <input type="text" id="psgId" value="">
+                    </p>
+                    <p>
+                        <span>聯絡電話</span>
+                        <input type="text" id="psgTel" value="">
+                    </p>
+                </div>
             </div>
         </div>
+        <div class="ctMobile__btn">
+            <a href="javascript:;" class="ctMobile__btn--front btn-sub-s" id="ctProfilePreBtn">上一步</a>
+            <a href="javascript:;" class="ctMobile__btn--next btn-main-s" id="ctProfileNextBtn">下一步</a>
+        </div>
+    </div>
 
-        <!-- 第三步付款資訊 -->
-        <div class="ctPay" id="ctPay">
-            <h2>步驟3 付款資訊</h2>
-            <div class="ctDetail">
-                <h2>訂單詳情</h2>
-                <div class="ctDetail__content">
-                    <div class="ctDetail__text">
-                        <p>日本 - 槍岳、表銀座縱走</p>
-                        <p>出發日：2019/01/05 (六)</p>
-                        <p>回程日：2019/01/07 (一)</p>
-                        <p>費用 : 10500/人</p>
-                        <p>旅客人數 : <span id="detailCount">1</span>人</p>
-                    </div>
-                    <div class="ctDetail__cal">
-                        <p>
-                            <span>總金額 NTD</span>
-                            <span class="ctDetail__cal--sum ctDetail__cal--num">10500</span>
-                        </p>
-                        <p>
-                            <span>紅利折抵 NTD</span>
-                            <span class="ctDetail__cal--dis ctDetail__cal--num">0</span>
-                        </p>
-                    </div>
-                    <div class="ctDetail__total">
-                        <p>
-                            <span>應付金額 NTD</span>
-                            <span class="ctDetail__total--num">10200</span>
-                        </p>
-                    </div>
+    <!-- 第三步付款資訊 -->
+    <div class="ctPay" id="ctPay">
+        <h2>步驟3 付款資訊</h2>
+        <div class="ctDetail">
+            <h2>訂單詳情</h2>
+            <div class="ctDetail__content">
+                <div class="ctDetail__text">
+                    <p>日本 - 槍岳、表銀座縱走</p>
+                    <p>出發日：2019/01/05 (六)</p>
+                    <p>回程日：2019/01/07 (一)</p>
+                    <p>費用 : 10500/人</p>
+                    <p>旅客人數 : <span id="detailCount">1</span>人</p>
                 </div>
-                <div class="ctDesktop__btn">
-                    <button type="submit" class="btn-main-s btn-pay">確認付款</button>
+                <div class="ctDetail__cal">
+                    <p>
+                        <span>總金額 NTD</span>
+                        <span class="ctDetail__cal--sum ctDetail__cal--num">10500</span>
+                    </p>
+                    <p>
+                        <span>紅利折抵 NTD</span>
+                        <span class="ctDetail__cal--dis ctDetail__cal--num">0</span>
+                    </p>
+                </div>
+                <div class="ctDetail__total">
+                    <p>
+                        <span>應付金額 NTD</span>
+                        <span class="ctDetail__total--num">10200</span>
+                    </p>
                 </div>
             </div>
-            <div class="row">
-                <div class="ctRule">
-                    <h3>訂購條款</h3>
-                    <div class="ctRule__text">
-                        <p>若於行程前7天退訂，可全額退款。</p>
-                        <p>若於行程前3-7天退訂，可半額退款。</p>
-                        <p>若於行程前3天內退訂，則是20%退款。</p>
-                        <p>若行程取消為天災人禍之因素，無條件全額退款。</p>
-                    </div>
-                    <div class="ctRule__check">
-                        <input type="checkbox" id="memPoint">
-                        <label for="memPoint">使用紅利點數折抵</label>
-                        <p>您持有的紅利點數為：300點 </p>
-                        <p>(每10點可折抵1元，單筆最高折抵500元)</p>
-                        <input type="checkbox" id="ctRule">
-                        <label for="ctRule">我已詳閱並同意行程購買的條款</label for="ctRule">
-                    </div>
-                </div>
-                <div class="ctCredit">
-                    <h3>信用卡資訊</h3>
-                    <div class="ctCredit__text">
-                        <p>
-                            <span>持卡人姓名</span>
-                            <span><input type="text" name="" id=""></span>
-                        </p>
-                        <p>
-                            <span>信用卡卡號</span>
-                            <span><input type="date" name="" id=""></span>
-                        </p>
-                        <p>
-                            <span>到期月/年</span>
-                            <!-- 想用php迴圈做ＱＡＱ -->
-                            <span>
-                                <select name="" id="" class="ctCredit__select--month" width="72">
-                                    <option value="">01</option>
-                                    <option value="">02</option>
-                                    <option value="">03</option>
-                                    <option value="">04</option>
-                                </select>
-                                <select name="" id="" class="ctCredit__select--year">
-                                    <option value="">2019</option>
-                                    <option value="">2020</option>
-                                    <option value="">2021</option>
-                                    <option value="">2022</option>
-                                </select>
-                            </span>
-                        </p>
-                        <p>
-                            <span>安全碼</span>
-                            <span><input type="text" name="" id=""></span>
-                        </p>
-                        <p>
-                            <i class="fab fa-cc-mastercard"></i>
-                            <i class="fab fa-cc-visa"></i>
-                            <i class="fab fa-cc-jcb"></i>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="ctMobile__btn">
-                <a href="javascript:;" class="ctMobile__btn--front btn-sub-s" id="ctPayPreBtn">上一步</a>
-                <button type="submit" class="ctMobile__btn--next btn-main-s btn-pay">確認付款</button>
+            <div class="ctDesktop__btn">
+                <button type="submit" class="btn-main-s btn-pay">確認付款</button>
             </div>
         </div>
-    </form>
+        <div class="row">
+            <div class="ctRule">
+                <h3>訂購條款</h3>
+                <div class="ctRule__text">
+                    <p>若於行程前7天退訂，可全額退款。</p>
+                    <p>若於行程前3-7天退訂，可半額退款。</p>
+                    <p>若於行程前3天內退訂，則是20%退款。</p>
+                    <p>若行程取消為天災人禍之因素，無條件全額退款。</p>
+                </div>
+                <div class="ctRule__check">
+                    <input type="checkbox" id="memPoint">
+                    <label for="memPoint">使用紅利點數折抵</label>
+                    <p>您持有的紅利點數為：300點 </p>
+                    <p>(每10點可折抵1元，單筆最高折抵500元)</p>
+                    <input type="checkbox" id="ctRule">
+                    <label for="ctRule">我已詳閱並同意行程購買的條款</label for="ctRule">
+                </div>
+            </div>
+            <div class="ctCredit">
+                <h3>信用卡資訊</h3>
+                <div class="ctCredit__text">
+                    <p>
+                        <span>持卡人姓名</span>
+                        <span><input type="text" name="" id=""></span>
+                    </p>
+                    <p>
+                        <span>信用卡卡號</span>
+                        <span><input type="date" name="" id=""></span>
+                    </p>
+                    <p>
+                        <span>到期月/年</span>
+                        <!-- 想用php迴圈做ＱＡＱ -->
+                        <span>
+                            <select name="" id="" class="ctCredit__select--month" width="72">
+                                <option value="">01</option>
+                                <option value="">02</option>
+                                <option value="">03</option>
+                                <option value="">04</option>
+                            </select>
+                            <select name="" id="" class="ctCredit__select--year">
+                                <option value="">2019</option>
+                                <option value="">2020</option>
+                                <option value="">2021</option>
+                                <option value="">2022</option>
+                            </select>
+                        </span>
+                    </p>
+                    <p>
+                        <span>安全碼</span>
+                        <span><input type="text" name="" id=""></span>
+                    </p>
+                    <p>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-jcb"></i>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="ctMobile__btn">
+            <a href="javascript:;" class="ctMobile__btn--front btn-sub-s" id="ctPayPreBtn">上一步</a>
+            <button type="submit" class="ctMobile__btn--next btn-main-s btn-pay">確認付款</button>
+        </div>
+    </div>
+    <!-- </form> -->
     <div class="ctPaid">
         <h2>訂購完成</h2>
         <div>
@@ -328,8 +308,11 @@
             <p>回到<a href="index.php">『山行者首頁』</a>繼續逛逛</p>
         </div>
     </div>
-    <script src="js/cart.js"></script>
+    <button type="submit" class="btn-main-s" id="test">TEST</button>
     <script src="js/common.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
 </body>
 
 </html>

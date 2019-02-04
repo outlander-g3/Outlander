@@ -2,12 +2,12 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
 
-@import "_header.scss";
+// @import "_header.scss";
 @import "_footer.scss";
 
-*{
-    font-family: "微軟正黑體";
-}
+// *{
+//     font-family: "微軟正黑體";
+// }
 a{
     text-decoration: none;
 }
@@ -19,26 +19,30 @@ a{
 @include grid(12);
 
 //四個字的主按鈕
-.#{$btn-main-s}{
+.btn-main-s{
     background-color:$color-btn-main;
+    border:2px solid $color-btn-main;
     @include btn();
     @include btn-s();
 }
 //六個字的主按鈕
-.#{$btn-main-l}{
+.btn-main-l{
     background-color:$color-btn-main;
+    border:2px solid $color-btn-main;
     @include btn();
     @include btn-l();
 }
 //四個字次按鈕
-.#{$btn-sub-s}{
+.btn-sub-s{
     background-color:$color-btn-sub;
+    border:2px solid $color-btn-sub;
     @include btn();
     @include btn-s();
 }
-//六個字主按鈕
-.#{$btn-sub-l}{
+//六個字次按鈕
+.btn-sub-l{
     background-color:$color-btn-sub;
+    border:2px solid $color-btn-sub;
     @include btn();
     @include btn-l();
 }
@@ -51,3 +55,5 @@ a{
     box-shadow: $shadow;
 }
 
+//直接呼叫，改inputText樣式
+@include inputText();

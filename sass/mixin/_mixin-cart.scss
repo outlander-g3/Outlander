@@ -38,7 +38,7 @@ $desktop: 1200px;
 //給訂購人和旅客資訊用
 @mixin ctBox {
     
-    padding: 30px 20px;
+    // padding: 30px 20px;
     @include ctBorder();
     p{
         // @include pLeft(20);
@@ -49,15 +49,18 @@ $desktop: 1200px;
             margin-right: 20px;
         }
         input{
-            width: 180px;
+            width: 166px;
             height: 32px;
             @include br4();
-            @include rwd(medium){
-                width: 120px;
-            }
+            // @include rwd(medium){
+            //     width: 120px;
+            // }
+            // @include rwd(mobile){
+            //     width: 180px;
+            // }
         }
         &:not(:first-child){
-            @include pTop(30);
+            @include pTop(5);
         }
     }
 }
@@ -86,4 +89,56 @@ $desktop: 1200px;
         flex-wrap: wrap;
         width: 100%;
     }
+}
+
+
+@mixin step(){
+        padding:80px 20px 20px 20px;
+        width: 330px;
+        margin: auto;
+        text-align: center;
+        // display: ;
+       @include rwd(mobile){
+           display: none;
+       }
+        .row{
+            justify-content: space-between;
+            .ctStep__item{
+                color:$color-main2;
+                .ctStep__item--circle{
+                    $size:34px;
+                    height: $size;
+                    width: $size;
+                    border-radius: 50%;
+                    border:2px solid $color-main2;
+                    line-height: $size;
+                    margin: auto;
+                    font-weight: bold;
+                }
+                .ctStep__item--text{
+                    white-space: nowrap;
+                    @include f16;
+                    @include pTop(4);
+                }  
+            }
+            .ctStep__line{
+                margin: 0 -7px;
+                width: 100%;
+                height: 2px;
+                background-color: $color-main1;
+                @include mTop(16);
+            }
+            .ctStep__line--on{
+                height: 2px;
+                background-color: $color-main2;
+            }
+            .ctStep__circle--on{
+                color:$color-white;
+                background-color: $color-main2;
+            }
+            .ctStep--on{
+                font-weight: bold;
+            }
+        }
+    
 }

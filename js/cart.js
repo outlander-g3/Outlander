@@ -1,25 +1,23 @@
 
 
-function $(id) {
-    return document.getElementById(id);
-}
 // 初始寬度
 var winWidth = document.body.clientWidth;
 var currentWin = winWidth;
 //改變寬度
 window.addEventListener('resize', ctResize, false);
 if (winWidth < 768) {
-    $('ctProfile').style.display = 'none';
-    $('ctPay').style.display = 'none';
+    $('.ctProfile').css('display', 'none');
+    $('.ctPay').css('display', 'none');
 }
 function ctResize() {
     // console.log(winWidth);
     winWidth = document.body.clientWidth;
     //看有沒有被按全螢幕
     if (winWidth == window.screen.width) {
-        $('ctProduct').style.display = 'block';
-        $('ctProfile').style.display = 'block';
-        $('ctPay').style.display = 'block';
+        $('.ctProduct').css('display', 'block');
+        $('.ctProfile').css('display', 'block');
+        $('.ctPay').css('display', 'block');
+        $('.ctDetail').css('display', 'block');
 
     }
     //本來就>768 拉往小768 要藏
@@ -27,13 +25,15 @@ function ctResize() {
     //本來就>768 拉往大768 不動
     //本來<768 拉往大768 全開
     if (winWidth < 768 && currentWin > 768) {
-        $('ctProfile').style.display = 'none';
-        $('ctPay').style.display = 'none';
+        $('.ctProfile').css('display', 'none');
+        $('.ctPay').css('display', 'none');
+        $('.ctSticky').css('display', 'none');
     }
     else if ((winWidth > 768 && currentWin > 768)) {
-        $('ctProduct').style.display = 'block';
-        $('ctProfile').style.display = 'block';
-        $('ctPay').style.display = 'block';
+        $('.ctProduct').css('display', 'block');
+        $('.ctProfile').css('display', 'block');
+        $('.ctPay').css('display', 'block');
+        $('.ctSticky').css('display', 'block');
     }
     currentWin = winWidth;
 }
@@ -45,11 +45,13 @@ function ctScrollTop() {
     });
 }
 var ctSteps = document.querySelectorAll('.ctStep__item');
+var ctStepCircle = document.querySelectorAll('.ctStep__item--circle');
 var ctStepLine = document.querySelectorAll('.ctStep__line');
 
 //根據step正在哪頁改變的簡寫
 function ctNextStep(i) {
     ctSteps[i + 1].classList.add("ctStep--on");
+    ctStepCircle[i + 1].classList.add("ctStep__circle--on");
     ctStepLine[i].classList.add("ctStep__line--on");
     ctScrollTop();
 }
@@ -58,32 +60,34 @@ function ctPreStep(i) {
     ctStepLine[i - 1].classList.remove("ctStep__line--on");
     ctScrollTop();
 }
-$("ctProductNextBtn").addEventListener('click', nextToFile, false);
+$("#ctProductNextBtn").click(nextToFile);
 function nextToFile() {
-    $('ctProfile').style.display = 'block';
-    $('ctProduct').style.display = 'none';
+    $('.ctProfile').css('display', 'block');
+    $('.ctProduct').css('display', 'none');
     ctNextStep(0);
 }
 
-$("ctProfileNextBtn").addEventListener('click', nextToPay, false);
+$("#ctProfileNextBtn").click(nextToPay);
 function nextToPay() {
-    $('ctProfile').style.display = 'none';
-    $('ctPay').style.display = 'block';
+    $('.ctProfile').css('display', 'none');
+    $('.ctPay').css('display', 'block');
+    $('.ctSticky').css('display', 'block');
     ctNextStep(1);
 }
 
 
-$("ctProfilePreBtn").addEventListener('click', preToProduct, false);
+$("#ctProfilePreBtn").click(preToProduct);
 function preToProduct() {
-    $('ctProduct').style.display = 'block';
-    $('ctProfile').style.display = 'none';
+    $('.ctProduct').css('display', 'block');
+    $('.ctProfile').css('display', 'none');
     ctPreStep(1);
 }
 
-$("ctPayPreBtn").addEventListener('click', preToFile, false);
+$("#ctPayPreBtn").click(preToFile);
 function preToFile() {
-    $('ctProfile').style.display = 'block';
-    $('ctPay').style.display = 'none';
+    $('.ctProfile').css('display', 'block');
+    $('.ctPay').css('display', 'none');
+    $('.ctSticky').css('display', 'none');
     ctPreStep(2);
 }
 

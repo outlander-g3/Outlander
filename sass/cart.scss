@@ -3,7 +3,7 @@
 @import "mixin/_mixin-cart.scss";
 
 $block-margin:50px;
-$block-size:682px;
+$block-size:710px;
 *{
     transition: 0.5s;
 }
@@ -12,9 +12,9 @@ img{
 }
 //次標 ｒｗｄ的時候變成 h2要藏
 h2{
-    color: $color-subTitle;
+    // color: $color-subTitle;
     @include f20b();
-    @include pBottom(20);
+    @include pBottom(5);
     @include rwd(mobile){
         display: none;
     }
@@ -28,10 +28,12 @@ a{
     display: block;
 }
 .ctMobile__btn{
-    text-align: right;
+    // text-align: right;
     padding: 12px 0;
     @include rwd(mobile){
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        // text-align: center;
     }
 }
 .ctMobile__btn--next,
@@ -41,9 +43,10 @@ a{
         display: inline-block;
     }
 }
-.ctMobile__btn--front{
-    @include mRight(20);
-}
+
+
+
+
 .ctStep__title--mobile{
     // @include block();
     padding:80px 20px 20px 20px;
@@ -55,13 +58,13 @@ a{
     .row{
         justify-content: space-between;
         .ctStep__item{
-            color:$color-text;
+            color:$color-main2;
             .ctStep__item--circle{
                 $size:30px;
                 height: $size;
                 width: $size;
                 border-radius: 50%;
-                border:1px solid $color-text;
+                border:2px solid $color-main2;
                 line-height: $size;
                 margin: auto;
             }
@@ -72,43 +75,63 @@ a{
             }  
         }
         .ctStep__line{
-            margin: 0 -16px;
+            margin: 0 -7px;
             width: 100%;
-            height: 1px;
-            background-color: $color-text;
-            @include mTop(17);
+            height: 2px;
+            background-color: $color-main1;
+            @include mTop(16);
         }
         .ctStep__line--on{
             height: 2px;
-            background-color: $color-subTitle;
+            background-color: $color-main2;
+        }
+        .ctStep__circle--on{
+            color:$color-white;
+            background-color: $color-main2;
         }
         .ctStep--on{
-            $color:$color-subTitle;
-            color:$color;
             font-weight: bold;
-            .ctStep__item--circle{
-                border-color: $color;
-                box-shadow: 0 0 0 1px $color;
-            }   
         }
-        //桌機用拉的到手機會跳
-        // .ctStep--on::-webkit-scrollbar{
-        // }
     }
 }
 
+
+
+body>.row{
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    @include rwd(desktop){
+        flex-direction: column;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+    
+}
 // 第一步驟
 .ctProduct{
     // font-size: 10px;
     width: $block-size;
     margin: $block-margin;
     @include pTop(50);
-    .row{
+    @include rwd(mobile){
+        width: 335px;
+    }
+    .ctStep__title{
+        @include step();
+    }
+    >.row{
+
+        
         @include rwdWrap();
         @include ctBorder();
         @include br4();
         .ctProduct__img{
             width: 335px;
+            height: 230px;
             overflow: hidden;
             background-image: url(../img/fuji.jpg);
             background-size: cover ;
@@ -134,6 +157,9 @@ a{
             .btn-sub-s{
                 margin:10px 0;
             }
+            @include rwd(mobile){
+                padding: 20px 10px;
+            }
         }
     }
 }
@@ -147,67 +173,104 @@ a{
         max-width: 400px;
         margin: auto;
     }
-    //選人數
-    .ctCount{
-        $size:32px;
-        height: $size;
-        font-size: 0;
-        @include f16();
-        line-height: $size;
-        .ctCountBox{
-            width: 112px;
-            @include br4();
-            @include ctBorder();
-            .row{
-                justify-content: space-between;
-                
-                a{
-                    width: $size;
-                    background-color: $color-main-yellow;
-                    text-align: center;
-                    i{
-                        vertical-align: middle;
-                    }
-                }
-            }
-        }
+    .ctStep__title{
+        @include step();
     }
+    //選人數
+    
 
     >.row{
         justify-content: space-between;
+        align-items: flex-end;
         @include rwdWrap();
-        //訂購人
-        .ctContact{
-            // width: 50%;
-            max-width: 400px;
-            margin-top: 36px;
-            @include ctBox();
-            @include br4();
-            .ctContact__title{
-                @include f20();
-                height: 36px;
-                line-height: 36px;
-                text-align: left;
+        .ctC{
+            width: 335px;
+            .ctCount{
+                $size:32px;
+                height: $size;
+                font-size: 0;
+                line-height: $size;
+                .row{
+        
+                    >span{
+                        @include f20();
+                }
+                .ctCountBox{
+                    width: 130px;
+                    border:2px solid $color-btn-main;
+                    background-color: $color-btn-main;
+                    border-radius: 60px;
+                    .row{
+                        justify-content: space-between; 
+                        >span{
+                            @include f16();
+                        }
+                        a{
+                            width: $size;
+                            // background-color: $color-btn-main;
+                            text-align: center;
+                            vertical-align: middle;
+                            &:first-child{
+                                border-radius: 60px 0 0 60px;
+                            }
+                            &:last-child{
+                                border-radius: 0 60px  60px 0;
+                            }
+                            i{
+                                vertical-align: middle;
+                                font-weight: bold;
+                                color:$color-white;
+                                font-size: 20pt;
+                            }
+                        }
+                        span{
+                            background-color: $color-white;
+                            display: inline-block;
+                            width: 52px;
+                            text-align: center;
+                        }
+                    }
+                }
+                }
+                
+            }
+            .ctContact{
+                width: 335px;
+                margin-top: 36px;
+                height: 230px;
+                @include ctBox();
+                @include br4();
+                >div{
+                    box-sizing:border-box;
+                    padding: 20px;
+                    .ctContact__title{
+                        @include f20();
+                        height: 36px;
+                        line-height: 36px;
+                        text-align: left;
+                    }
+                    
+                }
             }
         }
+        //訂購人
         //旅客資訊
         .ctPassanger{
             // width: 50%;
-            max-width: 400px;
+            // max-width: 400px;
+            width: 335px;
             @include rwd(mobile){
                 @include mTop(20);
             }
             .ctPassanger__tab{
                 font-size: 0;
-                .who{
-                    background-color: steelblue;
-                }
                 a{
                     box-sizing: border-box;
                     width: 20%;
                     height: 36px;
                     vertical-align: middle;
                     text-align: center;
+                    cursor: pointer;
                     @include f16();
                     @include ctBR__tab();
                     .row{
@@ -216,13 +279,36 @@ a{
                         margin: auto;
                         i{
                             line-height: 36px;
+                            height: 20px;
+                            width: 20px;
+                            color:$color-gray1;
+                            &:nth-child(2){
+                                display: none;
+                            }
+                        }
+                    }
+                    &.who{
+                        i{
+                            color:$color-btn-main;
                         }
                     }
                 }
             }
             .ctPassanger__input{
                 border-radius: 0 0 4px 4px;
+                height: 230px;
+                box-sizing: border-box;
                 @include ctBox();
+                >div{
+                    padding: 20px;
+                    box-sizing: border-box;
+                    .ctPassanger__title{
+                        @include f20();
+                        height: 36px;
+                        line-height: 36px;
+                        text-align: left;
+                    }
+                }
             }
         }
 
@@ -231,76 +317,17 @@ a{
 
 // 第三步驟付款
 .ctPay{
-    width: $block-size;
+    width: 710px;
     margin: $block-margin;
 
-    
-    .ctDetail{
-        width: 326px;
-        max-width:400px;
-        position: fixed;
-        top:100px;
-        right:50px;
-        @include rwd(desktop){
-            position: relative;
-            top: 0;
-            left: 0;
-            h2{
-                display: block;
-            }
-        }
-
-    @include rwd(mobile){
-        width: 100%;
+    .ctStep__title{
+        @include step();
     }
-        .ctDetail__content{
-            @include ctBorder();
-            @include br4();
-            p{
-                @include f16();
-                padding: 4px 0;
-            }
-            .ctDetail__text{
-                width: 300px;
-                max-width: 100%;
-                padding: 12px;
-                text-align: left;
-            }
-            .ctDetail__cal{
-                padding: 12px;
-                text-align: right;
-                border-top:1px solid $color-border;
-                border-bottom:1px solid $color-border;
-                .ctDetail__cal--num{
-                    display: inline-block;
-                    width: 80px;
-                }
-            }
-            .ctDetail__total{
-                padding: 12px;
-                text-align: right;
-                .ctDetail__total--num{
-                    display: inline-block;
-                    width: 80px;
-                }
-            }
-        }
-        .ctDesktop__btn{
-            position: relative;
-            @include rwd(desktop){
-                display: none;
-            }
-            .btn-pay{
-                position: absolute;
-                right:0;
-                @include mTop(20);
-            }
-        }
-    }
-    .row{
+    >.row{
         @include rwdWrap();
-        @include br4();
-        @include ctBorder();
+        justify-content: space-between;
+        // @include br4();
+        // @include ctBorder();
         h3{
             @include f20();
         }
@@ -312,6 +339,10 @@ a{
         }
         .ctRule{
             padding: 20px;
+            width: 335px;
+            box-sizing: border-box;
+            @include ctBorder();
+            @include br4();
             .ctRule__text{
                 @include f14();
                 @include pTop(10);
@@ -345,12 +376,14 @@ a{
                     line-height: $size;
                     margin-right: 5px;
                     @include br4();
-                    @include ctBorder();
+                    border:1px solid gray;
                 }
                 input[type='checkbox']:checked + label::before{
                     content:'\2713';
                     text-align: center;
-                    background-color: $color-main-yellow;
+                    background-color: $color-main1;
+                    border-color:$color-main1;
+                    color:#FFF;
                 }
             }
     
@@ -358,11 +391,15 @@ a{
     }
     .ctCredit{
         padding: 20px;
-        border-left: $ctBorder;
-        @include rwd(mobile){
-            border-left: none;
-            border-top:$ctBorder;
-        }
+        width: 335px;
+        box-sizing: border-box;
+        @include ctBorder();
+        @include br4();
+        // border-left: $ctBorder;
+        // @include rwd(mobile){
+        //     border-left: none;
+        //     border-top:$ctBorder;
+        // }
         
         .ctCredit__text{
         p{
@@ -373,18 +410,22 @@ a{
                 margin-right: 20px;
             }
             input{
-                width: 180px;
+                width: 166px;
                 height: 32px;
                 @include br4();
-                @include rwd(medium){
-                    width: 120px;
-                }
+                // @include rwd(medium){
+                //     width: 120px;
+                // }
+            // @include rwd(mobile){
+            //     width: 180px;
+            // }
                 box-sizing: border-box;
             }
             select{
                 height: 32px;
                 display: inline-block;
                 line-height: 32px;
+                border:1px solid $color-btn-main;
                 option{
                     font-size: 24px;
                 }
@@ -399,30 +440,36 @@ a{
             &:nth-child(4) span:nth-child(2) {
                 display: inline-block;
                 text-align: left;
-                width: 180px;
-                @include rwd(medium){
-                    width: 120px;
-                }
+                width: 166px;
+                // @include rwd(medium){
+                //     width: 120px;
+                // }
             }
             i{
                 width: 30px;
                 font-size: 24px;
                 @include pLeft(20);
             }
-            .ctCredit__select--month,&:nth-child(4) input{
+            /////年月啦
+            .ctCredit__select--month{
                 display:inline-block;
-                width: 72px;
-                margin-right: 1px;
-                @include rwd(medium){
-                    width: 54px;
-                }
+                width: 80px;
+                margin-left:1px;
+                // @include rwd(medium){
+                //     width: 54px;
+                // }
             }
             
             .ctCredit__select--year{
-                width: 102px;
-                @include rwd(medium){
-                    width: 60px;
-                }
+                width: 80px;
+                margin-left: 2px;
+                // @include rwd(medium){
+                //     width: 60px;
+                // }
+            }
+            &:nth-child(4) input{
+                width: 80px;
+                // margin-left: 5px;
             }
         }
         }
@@ -440,7 +487,82 @@ a{
         max-width: 400px;
     }
 }
+.ctSticky{
+    width: 335px;
+    height: 30%;
+    position: sticky;
+    top:100px;
+    @include rwd(desktop){
+        // align-self: flex-start;
+        position: relative;
+        right:0;
+        top: 0;
+        width: 100%;
+        @include pTop(50);
+        h2{
+            display: block;
+        }
+    }
+    @include rwd(mobile){
+        display:none;
+        @include pTop(20);
+        // width: 100%;
+        // box-sizing: border-box;
+        // padding: 20px;
+    }
+    .ctDetail{
+        width: 335px;
+        // right:50px;
+        @include rwd(desktop){
+            // align-self: flex-start;
+            position: relative;
+            right:0;
+            top: 0;
+        }
+        .ctDetail__content{
+            @include ctBorder();
+            @include br4();
+            p{
+                @include f16();
+                padding: 4px 0;
+            }
+            .ctDetail__text{
+                width: 300px;
+                max-width: 100%;
+                padding: 20px;
+                text-align: left;
+            }
+            .ctDetail__cal{
+                padding:12px 20px;
+                text-align: right;
+                border-top:1px solid $color-border;
+                border-bottom:1px solid $color-border;
+                .ctDetail__cal--num{
+                    display: inline-block;
+                    width: 80px;
+                }
+            }
+            .ctDetail__total{
+                padding: 20px;
+                text-align: right;
+                .ctDetail__total--num{
+                    display: inline-block;
+                    width: 80px;
+                }
+            }
+        }
+        .ctDetail__btn{
+            text-align: right;
+            padding: 12px 0;
+            @include rwd(mobile){
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        
+    }
 
+}
 .ctPaid{
     position: fixed;
     top: 0;
@@ -470,12 +592,12 @@ a{
 }
 
 @include rwd(desktop){
-
     .ctProduct,
     .ctProfile,
-    .ctPay{
+    .ctPay,
+    .ctDetail{
         width: 100%;
-        margin: auto;
+        margin:0 auto;
         box-sizing: border-box;
         div{
             width: 100%;
@@ -483,20 +605,21 @@ a{
         }
     }
     .ctProduct{
-        padding:80px 50px 50px 50px;
+        // padding:80px 20px 20px 20px;
+        @include pTop(80);
     }
-    .ctProfile,
-    .ctPay{
-        padding: 50px;
+    .ctDetail{
+        width: 335px;
     }
 }
 @include rwd(mobile){
     .ctProduct,
     .ctProfile,
-    .ctPay{
+    .ctPay,
+    .ctDetail{
         width: 100%;
-        padding: 20px;
-        margin: auto;
+        max-width: 335px;
+        // padding: 20px;
         box-sizing: border-box;
         div{
             width: 100%;
@@ -504,4 +627,5 @@ a{
         }
     }
 }
-@include o;
+// @include o;
+

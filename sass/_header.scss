@@ -72,6 +72,7 @@
     width: 100%;
     max-width: 768px;
     position: fixed;
+    background: white;
     top: 0;
     left: 0;
     display: flex;
@@ -233,7 +234,6 @@
                 position: unset;
                 max-width: 1200px;
                 #burger+#burgerText{
-                    background: white;
                     li:hover a{
                         opacity: 0.5;
                     }
@@ -257,7 +257,8 @@
             #burgerText{
                 max-width: 1920px;
                 height: 58px;
-                background: transparent;
+                // background: transparent;
+                background: white;
                 display: flex;
                 left: unset;
                 justify-content: flex-end;

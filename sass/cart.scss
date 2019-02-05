@@ -18,9 +18,9 @@ h2{
     // color: $color-subTitle;
     @include f20b();
     @include pBottom(5);
-    @include rwd(mobile){
-        display: none;
-    }
+    // @include rwd(mobile){
+    //     display: none;
+    // }
 }
 a{
     display: inline-block;
@@ -362,7 +362,7 @@ body>.row{
                     @include pLeft(33); 
                     @include f14();
                 }
-                @include checkbox(20,1);
+                @include checkbox(20,0);
             }
     
         
@@ -542,33 +542,45 @@ body>.row{
     }
 
 }
-.ctPaid{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-    // height: 50%;
-    background-color:#fff;
-    display: none;
-    h2{
-        text-align: center;
-        @include pTop(100);
-        @include f20b();
-        }
-    >div{
-    width: 335px;
-    margin:20px auto;
-    @include ctBorder();
-    @include br4();
 
-    p{
-        padding: 20px 50px;
-    }
-    a{
-        color: $color-btn-sub;
-    }
+.ctPaid{
+    .jpCont{
+        @include pBottom(50);
+        p:not(:first-child){
+            padding: 10px 0px;
+        }
+        a{
+            color: $color-white;
+        }
     }
 }
+// .ctPaid{
+//     position: fixed;
+//     top: 0;
+//     width: 50%;
+//     left: 0;
+//     // height: 50%;
+//     background-color:#fff;
+//     display: none;
+//     h2{
+//         text-align: center;
+//         @include pTop(100);
+//         @include f20b();
+//         }
+//     >div{
+//     width: 335px;
+//     margin:20px auto;
+//     @include ctBorder();
+//     @include br4();
+
+//     p{
+//         padding: 20px 50px;
+//     }
+//     a{
+//         color: $color-btn-sub;
+//     }
+//     }
+// }
 
 @include rwd(desktop){
     .ctProduct,
@@ -606,5 +618,5 @@ body>.row{
         }
     }
 }
-@include o;
+// @include o;
 

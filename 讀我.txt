@@ -49,4 +49,4 @@ html:
 2.flex=>  .row （但主次軸怎樣的請自己決定
 3.格線=>  .col-4  .col-md-4 .col-lg-4 .col-xl-4
 4.陰影=>  .shadow-text .shadow-box
-5.跳窗=> .winJump（摳winJump.html結構 ，common.js什麼的也請帶走
+5.跳窗=> （摳winJump.html結構 ，common.js什麼的也請帶走

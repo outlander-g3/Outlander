@@ -280,3 +280,4 @@ for (let i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('input', bring, false);
 }
 
+winJump('.btn-pay', '.ctPaid');

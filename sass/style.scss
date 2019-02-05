@@ -18,6 +18,23 @@ a{
 //呼叫格線
 @include grid(12);
 
+//跳窗左邊鈕
+.btn-jump-left{
+    background-color:$color-btn-sub;
+    border:2px solid $color-btn-sub;
+    width: 116px;
+    @include btn();
+}
+
+//跳窗右邊鈕
+.btn-jump-right{
+    background-color:$color-btn-main;
+    border:2px solid $color-btn-main;
+    width: 116px;
+    @include btn();
+}
+
+
 //四個字的主按鈕
 .btn-main-s{
     background-color:$color-btn-main;
@@ -57,3 +74,34 @@ a{
 
 //直接呼叫，改inputText樣式
 @include inputText();
+
+
+//跳窗
+.winJump{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 350px;
+    box-sizing: border-box;
+    background-color: $color-main1;
+    color:$color-white;
+    display: none;
+    .jpTitle{
+        padding: 12px 15px;
+        @include f16();
+        color:$color-white;
+        background-image: url(../img/winJump.png);
+    }
+
+    .jpCont{
+        padding: 50px 50px 0px 50px;
+        line-height: 26px;
+    }
+    .jpBtn{
+        >.row{
+            justify-content: space-between;
+            padding: 39px 38px 38px 50px;
+        }
+    }
+}

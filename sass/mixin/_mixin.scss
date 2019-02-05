@@ -82,6 +82,7 @@
     overflow: visible;
     -webkit-appearance: none;
     outline: none;
+    box-shadow: $shadow;
 }
 @mixin btn-s{
     width: 142px;
@@ -124,5 +125,41 @@
         &:hover{
             border-color:$color-gray1;
         }
+    }
+}
+
+
+@mixin checkbox($size){
+
+    label{
+        display: inline-block;
+        padding: 5px 0;
+        
+        i:not(:last-child){
+            color:$color-main1;
+                display:inline-block;
+                font-size: $size+pt;
+                // margin: auto;
+                @include mRight(5);
+                vertical-align: middle;
+                
+        } 
+        i:first-child{
+            display: none;
+        }
+        i:last-child{
+            display:inline-block;
+            vertical-align: middle;
+        }
+    }
+    input[type='checkbox']{
+        position: absolute;
+        clip:rect(0,0,0,0);
+    }
+    input[type='checkbox']:checked + label i:nth-child(2){
+        display: none;
+    }
+    input[type='checkbox']:checked + label i:nth-child(1){
+        display: inline-block;
     }
 }

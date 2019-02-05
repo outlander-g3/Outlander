@@ -17,7 +17,8 @@ function ctResize() {
         $('.ctProduct').css('display', 'block');
         $('.ctProfile').css('display', 'block');
         $('.ctPay').css('display', 'block');
-        $('.ctDetail').css('display', 'block');
+        $('.ctSticky').css('display', 'block');
+        $('.ctSticky').css('position', 'sticky');
 
     }
     //本來就>768 拉往小768 要藏

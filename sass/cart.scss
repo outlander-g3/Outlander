@@ -4,6 +4,9 @@
 
 $block-margin:50px;
 $block-size:710px;
+body{
+    background-color: $color-white;
+}
 *{
     transition: 0.5s;
 }
@@ -353,38 +356,13 @@ body>.row{
             }
             .ctRule__check{
                 @include pTop(10);
-                label{
-                    display: inline-block;
-                    padding: 5px 0;
-                }
                 p{
                     padding: 4px 0;
                     color:$color-text;
                     @include pLeft(33); 
                     @include f14();
                 }
-                input[type='checkbox']{
-                    position: absolute;
-                    clip:rect(0,0,0,0);
-                }
-                input[type='checkbox'] + label::before{
-                    content:'\a0';
-                    display:inline-block;
-                    $size:20px;
-                    width: $size;
-                    height: $size;
-                    line-height: $size;
-                    margin-right: 5px;
-                    @include br4();
-                    border:1px solid gray;
-                }
-                input[type='checkbox']:checked + label::before{
-                    content:'\2713';
-                    text-align: center;
-                    background-color: $color-main1;
-                    border-color:$color-main1;
-                    color:#FFF;
-                }
+                @include checkbox(20);
             }
     
         
@@ -449,6 +427,7 @@ body>.row{
                 width: 30px;
                 font-size: 24px;
                 @include pLeft(20);
+                color:$color-main1;
             }
             /////年月啦
             .ctCredit__select--month{
@@ -491,6 +470,7 @@ body>.row{
     width: 335px;
     height: 30%;
     position: sticky;
+    position : -webkit-sticky;
     top:100px;
     @include rwd(desktop){
         // align-self: flex-start;
@@ -527,7 +507,6 @@ body>.row{
                 padding: 4px 0;
             }
             .ctDetail__text{
-                width: 300px;
                 max-width: 100%;
                 padding: 20px;
                 text-align: left;
@@ -627,5 +606,5 @@ body>.row{
         }
     }
 }
-// @include o;
+@include o;
 

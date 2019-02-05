@@ -83,6 +83,9 @@
     -webkit-appearance: none;
     outline: none;
     box-shadow: $shadow;
+    &:hover{
+        filter: brightness(120%);
+    }
 }
 @mixin btn-s{
     width: 142px;

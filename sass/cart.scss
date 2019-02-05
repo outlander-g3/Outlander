@@ -362,7 +362,7 @@ body>.row{
                     @include pLeft(33); 
                     @include f14();
                 }
-                @include checkbox(20);
+                @include checkbox(20,1);
             }
     
         

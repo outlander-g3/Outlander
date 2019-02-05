@@ -30,7 +30,10 @@ background-color:$color-btn-main;
 4.個別的padding => pTop(40)
 5.個別的margint => mTop(40)
 6.input:text 的樣式=> @include inputText(); 已經在style.scss呼叫，效能不好的話可以改到個別scss
-7.checkbox，要包好，順序要對： @include checkbox(20)就是像購物車的20 checkbox(24)
+7.checkbox，要包好，順序要對，第一個參數是大小，第二個參數是有沒有背景色 0=沒 1=有
+sass: @include checkbox(20,0)就是像購物車的20且無被景色 
+        其他看設計checkbox(24,1) 就是大小24但有背景色
+html:
     <input type="checkbox" id="memPoint">
     <label for="memPoint">
         <i class="material-icons">check_box</i>

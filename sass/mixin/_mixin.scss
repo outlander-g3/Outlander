@@ -129,19 +129,24 @@
 }
 
 
-@mixin checkbox($size){
+@mixin checkbox($size,$bg){
 
     label{
         display: inline-block;
         padding: 5px 0;
         
         i:not(:last-child){
-            color:$color-main1;
-                display:inline-block;
-                font-size: $size+pt;
-                // margin: auto;
-                @include mRight(5);
-                vertical-align: middle;
+            @if $bg=='0'{
+                color:$color-main1;
+            }
+            @else{
+                color:$color-white;
+            }
+            display:inline-block;
+            font-size: $size+pt;
+            // margin: auto;
+            @include mRight(5);
+            vertical-align: middle;
                 
         } 
         i:first-child{

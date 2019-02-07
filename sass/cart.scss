@@ -119,7 +119,9 @@ body>.row{
     // font-size: 10px;
     width: $block-size;
     margin: $block-margin;
-    @include pTop(50);
+    @include rwd(desktop){
+        @include pTop(60);
+    }
     @include rwd(mobile){
         width: 335px;
     }
@@ -245,11 +247,11 @@ body>.row{
                 @include br4();
                 >div{
                     box-sizing:border-box;
-                    padding: 20px;
+                    padding:10px 20px;
                     .ctContact__title{
                         @include f20();
-                        height: 36px;
-                        line-height: 36px;
+                        height: 26px;
+                        line-height: 26px;
                         text-align: left;
                     }
                     
@@ -303,12 +305,12 @@ body>.row{
                 box-sizing: border-box;
                 @include ctBox();
                 >div{
-                    padding: 20px;
+                    padding:10px 20px;
                     box-sizing: border-box;
                     .ctPassanger__title{
                         @include f20();
-                        height: 36px;
-                        line-height: 36px;
+                        height: 26px;
+                        line-height: 26px;
                         text-align: left;
                         
                     }
@@ -603,12 +605,14 @@ body>.row{
     position: sticky;
     position : -webkit-sticky;
     top:100px;
+    display: flex;
     @include rwd(desktop){
         // align-self: flex-start;
         position: relative;
         right:0;
         top: 0;
         width: 100%;
+        // margin: 0;
         @include pTop(50);
         h2{
             display: block;
@@ -626,9 +630,10 @@ body>.row{
         // right:50px;
         @include rwd(desktop){
             // align-self: flex-start;
-            position: relative;
+            position: absolute;
             right:0;
             top: 0;
+            @include mTop(50);
         }
         .ctDetail__content{
             @include ctBorder();
@@ -721,17 +726,17 @@ body>.row{
     .ctPay,
     .ctDetail{
         width: 100%;
-        margin:0 auto;
+        margin:0px auto;
         box-sizing: border-box;
         div{
             width: 100%;
             box-sizing: border-box;
         }
     }
-    .ctProduct{
+    // .ctProduct{
         // padding:80px 20px 20px 20px;
-        @include pTop(80);
-    }
+        // @include pTop(80);
+    // }
     .ctDetail{
         width: 335px;
     }

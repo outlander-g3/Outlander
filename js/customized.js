@@ -174,3 +174,51 @@ function init(){
 }
 
 window.addEventListener("load",init);
+
+$('.cuForm__input--C').click( bbb = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $(this).toggleClass('expanded');
+    $('#' + $(e.target).attr('for')).prop('checked', true);
+    var aaa =e.target;
+    $('.cuForm__input--M label').hide();
+   
+    if(aaa.innerText == '亞洲'){
+        
+        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="choose" id="mount-choose">');
+        $('.cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
+        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="Himalayas" id="mount-himalayas"');
+        $('.cuForm__input--M').append('<label for="mount-himalayas">珠穆朗瑪峰</label>');
+        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="fuji" id="mount-fuji"');
+        $('.cuForm__input--M').append('<label for="mount-fuji">富士山</label>');
+        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="Jade" id="mount-jade">');
+        $('.cuForm__input--M').append('<label for="mount-jade">玉山</label>');
+        // if($('input').val() == $('label').val()){
+        //     console.log($('label').val());
+
+        //     $('.cuForm__input--M').click(function (e2) {
+        //         e2.preventDefault();
+        //         e2.stopPropagation();
+        //         $(this).toggleClass('expanded');
+        //         $('#' + $(e2.target).attr('for')).prop('checked', true);
+        //         $(document).click(function () {
+        //             $('.cuForm__input--M').removeClass('expanded');
+        //         });
+        //     });
+        // }
+    }
+    });
+    $(document).click(function () {
+        $('.cuForm__input--C').removeClass('expanded');
+    }
+    );
+
+$('.cuForm__input--M').click(function (e2) {
+    e2.preventDefault();
+    e2.stopPropagation();
+    $(this).toggleClass('expanded');
+    $('#' + $(e2.target).attr('for')).prop('checked', true);
+    $(document).click(function () {
+        $('.cuForm__input--M').removeClass('expanded');
+    });
+});

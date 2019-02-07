@@ -214,6 +214,7 @@ i{
 }
 .cuForm__input--M{
     z-index: 1;
+  
 }
 .cuForm__input {
     position: absolute;
@@ -246,7 +247,6 @@ i{
 .cuForm__input label {
     border-top: .06em solid #d9d9d9;
     display: block;
-    font-style: 16px bold !important;
     padding-Left: 5px;
     font-size: 16px;
     font-weight: bold;
@@ -715,7 +715,7 @@ i{
     background-color: rgba(31,31,31,.6);
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 3;
     display: none;
     
 }

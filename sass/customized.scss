@@ -4,6 +4,9 @@
 @import "mixin/_mixin-customized.scss";
 @import "_header.scss";
 @import "_footer.scss";
+body{
+    background: $color-white;
+}
 p{
     font-family: "Microsoft JhengHei";
 }
@@ -80,7 +83,7 @@ i{
 
     }
     @include pad-width(){
-        transform: translateY(-633px) translateX(1200px);
+        // transform: translateY(-633px) translateX(1200px);
     }
 }  
 .cuStyle__pick{
@@ -104,17 +107,18 @@ i{
 
 /*客製化開始*/
 .cu_bg{
-    background-image: url("../img/cu_bg2.jpg");
-    height: 931px;
+    background-image: url("../img/bg_main.svg");
     width: 100%;
-    background-size: cover;
-    background-position: center;
+    min-height: 306px;
     background-repeat: no-repeat;
     padding-top: 58px;
+    @include small-pad-width(){
+        background-position: center;
+    }
     h2{
-        @include f20b;
-        padding: 20px 0 0px;
-        color: $color-subTitle;
+        @include f30b;
+        padding: 105px 0 0px;
+        color:$color-white;
         text-align: center;
     }
 }
@@ -193,61 +197,15 @@ i{
     font-family: Arial;
     width:300px;
     select {
-    display: none; /*hide original SELECT element: */
-    }
-}
-
-.select-selected {
-    @include cu_ColorSelect(.76);
-    margin-top: 10px;
-    &:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
+        width: 331px;
+        border: 1px solid $color-btn-main;
+        border-radius: 21px;
+        padding: 10px 0 10px 20px; 
+    // display: none; /*hide original SELECT element: */
     }
 }
 
 
-
-        /* Point the arrow upwards when the select box is open (active): */
-        .select-selected.select-arrow-active:after {
-        border-color: transparent transparent #fff transparent;
-        top: 7px;
-        }
-
-        /* style the items (options), including the selected item: */
-        .select-items div,.select-selected {
-        color: #ffffff;
-        padding: 11px 16px;
-        border: 1px solid transparent;
-        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-        cursor: pointer;
-        }
-
-        /* Style items (options): */
-        .select-items {
-        @include cu_ColorSelect(1);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        z-index: 99;
-        // width: 100%;
-        }
-
-        /* Hide the items when the select box is closed: */
-        .select-hide {
-        display: none;
-        }
-
-        .select-items div:hover, .same-as-selected {
-        background-color: rgba(0, 0, 0, 0.1);
-        }
 /*客製化空間*/
 
 /*調整風景順序*/ 
@@ -268,7 +226,8 @@ i{
         @include cu_br(4,4);
     }
     @include small-pad-width() {
-        height: 369px;
+        // height: 369px;
+        height: 430px;
         margin: 20px;
     }
     @include pad-width() {
@@ -470,7 +429,7 @@ i{
     }
     @include pad-width() {
         margin: 10px auto;
-        height: 480px;
+        height: 424px;
     }
 }
 .cuDropScenery__item1{
@@ -536,6 +495,47 @@ i{
     font-family: "Arial";
     font-weight: normal;
 }
+.cuCustom__count{
+    margin: auto;
+    color: $color-main2;
+    @include f16b;
+    @include small-pad-width(){
+        text-align: left;
+    }
+    @include pad-width(){
+        text-align: right;
+    }
+    &::before{
+        content: '';
+        height: 1px;
+        background-color: $color-main2;
+        display: block;
+        @include small-pad-width(){
+            width: 80%;   
+            margin: 20px 0 10px 10px;
+        }
+        @include pad-width(){
+            width: 94%;   
+            margin: 20px 0 20px 10px;
+        }
+    }
+}
+.cuCustom__count1{
+    @include small-pad-width(){
+        @include pLeft(10);
+    }
+}
+.cuCustom__count2{
+    @include pad-width(){
+        @include pRight(20);
+    }
+}
+// .cuCustom__line{
+//     display: inline-block;
+//     width: 90%;   
+//     height: 1px;
+//     background-color: $color-main2;
+// }
 .btn_cuIcon--clear{
     position: absolute;
     top:10px;

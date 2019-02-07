@@ -42,6 +42,7 @@
 @mixin pRight($paddingRight){
     padding-Right: $paddingRight + px;
 }
+
 //個別的margin  要下就include mTop(100)就是100px
 @mixin mTop($marginTop){
     margin-top: $marginTop + px;
@@ -57,6 +58,7 @@
 }
 
 
+
 //區塊
 @mixin block {
     padding:50px 20px;
@@ -68,19 +70,28 @@
 }
 //按鈕的規範
 @mixin btn {
-    height: 42px;
-    border-radius:$border-radius-btn;
+    // height: 42px;
+    border-radius:60px;
     color:#fff;
-    display:block;
+    display:inline-block;
     text-align: center;
-    @include f16b();
-    line-height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 38px; 
+    cursor: pointer;
+    overflow: visible;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: $shadow;
+    &:hover{
+        filter: brightness(120%);
+    }
 }
 @mixin btn-s{
-    width: 130px;
+    width: 142px;
 }
 @mixin btn-l {
-    width: 162px;
+    width: 160px;
 }
 
 //格線
@@ -92,5 +103,71 @@
         .col-xl-#{$i}{
             width: (100%/$num) * $i;
         }
+    }
+}
+
+@mixin ctTextBlock(){
+    @include rwd(medium){
+        max-width: 500px;
+        margin: auto;
+    }
+}
+
+//給input:text的設定
+@mixin inputText(){
+    input[type='text'],
+    input[type='date']{
+        border:1px solid $color-ph;
+        background-color: $color-white;
+        @include pLeft(10);
+        @include br4();
+        &::placeholder{
+            color:$color-text;
+            @include f16();
+        }
+        &:hover{
+            border-color:$color-gray1;
+        }
+    }
+}
+
+
+@mixin checkbox($size,$bg){
+
+    label{
+        display: inline-block;
+        padding: 5px 0;
+        
+        i:not(:last-child){
+            @if $bg==0{
+                color:$color-main1;
+            }
+            @else{
+                color:$color-white;
+            }
+            display:inline-block;
+            font-size: $size+pt;
+            // margin: auto;
+            @include mRight(5);
+            vertical-align: middle;
+                
+        } 
+        i:first-child{
+            display: none;
+        }
+        i:last-child{
+            display:inline-block;
+            vertical-align: middle;
+        }
+    }
+    input[type='checkbox']{
+        position: absolute;
+        clip:rect(0,0,0,0);
+    }
+    input[type='checkbox']:checked + label i:nth-child(2){
+        display: none;
+    }
+    input[type='checkbox']:checked + label i:nth-child(1){
+        display: inline-block;
     }
 }

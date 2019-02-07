@@ -39,6 +39,9 @@ body{
         @include f30b;
         color: $color-white;
         margin: auto;
+        @include rwd(mobile){
+            margin-top: 35px;
+        }
        
 
     }

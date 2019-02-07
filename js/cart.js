@@ -8,6 +8,12 @@ window.addEventListener('resize', ctResize, false);
 if (winWidth < 768) {
     $('.ctProfile').css('display', 'none');
     $('.ctPay').css('display', 'none');
+    $('.date').css({
+        'position': 'fixed',
+        'left': '20px',
+        'top': '30%',
+    });
+    console.log('0');
 }
 function ctResize() {
     // console.log(winWidth);
@@ -19,7 +25,11 @@ function ctResize() {
         $('.ctPay').css('display', 'block');
         $('.ctSticky').css('display', 'block');
         $('.ctSticky').css('position', 'sticky');
-
+        $('.date').css({
+            'position': 'absolute',
+            'left': '0',
+            'top': '0',
+        });
     }
     //本來就>768 拉往小768 要藏
     //本來<768 拉往小768 不動
@@ -28,13 +38,21 @@ function ctResize() {
     if (winWidth < 768 && currentWin > 768) {
         $('.ctProfile').css('display', 'none');
         $('.ctPay').css('display', 'none');
-        $('.ctSticky').css('display', 'none');
+        $('.ctSticky').css('display', 'none'); $('.date').css({
+            'position': 'fixed',
+            'left': '20px',
+            'top': '30%',
+        });
     }
     else if ((winWidth > 768 && currentWin > 768)) {
         $('.ctProduct').css('display', 'block');
         $('.ctProfile').css('display', 'block');
         $('.ctPay').css('display', 'block');
-        $('.ctSticky').css('display', 'block');
+        $('.ctSticky').css('display', 'block'); $('.date').css({
+            'position': 'absolute',
+            'left': '0',
+            'top': '0',
+        });
     }
     currentWin = winWidth;
 }
@@ -203,18 +221,15 @@ memPoint.addEventListener('click', function () {
 
 //檢查訂購條款是否被勾選
 var ctRule = document.querySelector('#ctRule');
-var btnPay = document.querySelectorAll('.btn-pay');
-for (let i = 0; i < btnPay.length; i++) {
-    btnPay[i].addEventListener('click', function (e) {
-        e.preventDefault();
-        if (!ctRule.checked) {
-            alert('請詳閱並同意訂購條款');
-        }
-        else {
-            winJump_if(btnPay[i], '.ctPaid');
-        }
-    }, false);
-}
+var btnPay = '.btn-pay';
+$(btnPay).click(function (e) {
+    if (!ctRule.checked) {
+        alert('請詳閱並同意訂購條款');
+    }
+    else {
+        winJump_if(btnPay, '.ctPaid')
+    }
+});
 
 
 
@@ -280,4 +295,9 @@ for (let i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('input', bring, false);
 }
 
-winJump('.btn-pay', '.ctPaid');
+// winJump('.btn-pay', '.ctPaid');
+
+$('#psgBd').click(function (e) {
+    e.preventDefault();
+    $('.date').css('display', 'block');
+});

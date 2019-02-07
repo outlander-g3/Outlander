@@ -44,7 +44,8 @@ $desktop: 1200px;
         // @include pLeft(20);
         @include f16();
         text-align: right;
-        // width: 300px;
+        width: 300px;// 
+        @include pTop(5);
         span{
             margin-right: 20px;
         }
@@ -52,6 +53,7 @@ $desktop: 1200px;
             width: 166px;
             height: 32px;
             @include br4();
+            // @include pTop(5);
             // @include rwd(medium){
             //     width: 120px;
             // }
@@ -59,9 +61,9 @@ $desktop: 1200px;
             //     width: 180px;
             // }
         }
-        &:not(:first-child){
-            @include pTop(5);
-        }
+        // &:not(:first-child){
+        //     @include pTop(5);
+        // }
     }
 }
 //給tab的BR

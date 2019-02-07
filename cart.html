@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>山行者 - 結帳頁面</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cart.css">
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -17,27 +17,34 @@
 </head>
 
 <body>
-    <!-- <nav id="headerAll">
-        <div class="header">
-            <ul id="logo">
-                <li><a href="index.html"><img src="img/logo.png" alt="logo"></a></li>
-                <div id="searchAll">
-                    <input type="text" id="search">
+
+    <div id="header">
+        <nav id="header-all">
+            <div id="header-left">
+                <div id="logo">
+                    <a href="index.html">
+                        <img src="img/logo.png" alt="logo">
+                    </a>
+                </div>
+                <div id="search">
+                    <input type="text" placeholder="搜索世界">
                     <i class="material-icons">search</i>
                 </div>
-            </ul>
-            <div id="burger" v-on:click="bur">
-                <span class="burger-1" id="burSpan1"></span>
-                <span class="burger-2" id="burSpan2"></span>
-                <span class="burger-3" id="burSpan3"></span>
             </div>
-            <ul id="burgerText">
+            <div id="burger">
+                <div id="burger-all" v-on:click="bur">
+                    <span id="burger-1"></span>
+                    <span id="burger-2"></span>
+                    <span id="burger-3"></span>
+                </div>
+            </div>
+            <ul id="burger-text">
                 <span id="burgerText-X" v-on:click="out"></span>
                 <li><a href="#">登山行程</a></li>
                 <li><a href="#">客製行程</a></li>
                 <li><a href="#">登山日誌</a></li>
                 <li><a href="#">登山技巧</a></li>
-                <li v-if="web<768"><a href="#">機器人</a></li>
+                <li v-if="web<768">機器人</li>
                 <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
                 <li v-if="web<768" id="member">會員專區
                     <ul id="member-child">
@@ -48,34 +55,91 @@
                     </ul>
                 </li>
             </ul>
-        </div>
-        <div class="filter">
-            <div id="filterList">
-                <ul id="filterListLi">
-                    <li>亞洲</li>
-                    <li>歐洲</li>
-                    <li>非洲</li>
-                    <li>北美洲</li>
-                    <li>南美洲</li>
-                    <li>大洋洲</li>
-                </ul>
-                <div id="filterListImg">
-                    <div class="filterListImg-img">
-                        <img src="img/mountain資料/玉山/pic_781_14.jpg">
-                    </div>
-                    <div class="filterListImg-img">
-                        <img src="img/mountain資料/少女峰/2000x2000-0-70-a837fa982028e9587ed5abaa0ca6ef0a.jpg">
-                    </div>
-                    <div class="filterListImg-img">
-                        <img src="img/mountain資料/聖母峰/6ba08327f04d2b1fd59e8126e0f8d92a.jpg">
-                    </div>
-                    <div class="filterListImg-img">
-                        <img src="img/mountain資料/富士山/mt-fuji-japan-top-ports.jpg">
+            <div class="filter">
+                <div id="filterList">
+                    <ul id="filterListLi">
+                        <li class="list" id="asia-list">亞洲</li>
+                        <li class="list">歐洲</li>
+                        <li class="list">非洲</li>
+                        <li class="list">北美洲</li>
+                        <li class="list">南美洲</li>
+                        <li class="list">大洋洲</li>
+                    </ul>
+                    <div id="filterListImg">
+                        <div id="asia-img" class="in">
+                            <div class="filterListImg-img">
+                                <img src="img/玉山/1.jpg">
+                                <h3>玉山</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/聖母峰/1.jpg">
+                                <h3>聖母峰</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/富士山/1.jpg">
+                                <h3>富士山</h3>
+                            </div>
+                        </div>
+                        <div id="europe" class="in">
+                            <div class="filterListImg-img">
+                                <img src="img/少女峰/1.jpg">
+                                <h3>少女峰</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/少女峰/2.jpg">
+                                <h3>少女峰</h3>
+                            </div>
+                        </div>
+                        <div id="africa" class="in">
+                            <div class="filterListImg-img">
+                                <img src="img/吉利馬札羅/1.jpg">
+                                <h3>吉利馬札羅</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/吉利馬札羅/2.jpg">
+                                <h3>吉利馬札羅</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/馬丘比丘/1.jpg">
+                                <h3>馬丘比丘</h3>
+                            </div>
+                        </div>
+                        <div id="na" class="in">
+                            <div class="filterListImg-img">
+                                <img src="img/聖克魯斯/1.JPG">
+                                <h3>聖克魯斯</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/優勝美地/1.jpg">
+                                <h3>優勝美地</h3>
+                            </div>
+                        </div>
+                        <div id="sa" class="in">
+                            <div class="filterListImg-img">
+                                <img src="img/百內國家公園/1.jpg">
+                                <h3>百內國家公園</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/百內國家公園/2.jpg">
+                                <h3>百內國家公園</h3>
+                            </div>
+                        </div>
+                        <div id="oceania" class="in">
+                            <div class="filterListImg-img">
+                                <img src="img/阿斯帕林/1.JPG">
+                                <h3>阿斯帕林山</h3>
+                            </div>
+                            <div class="filterListImg-img">
+                                <img src="img/阿斯帕林/2.jpg">
+                                <h3>阿斯帕林山</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav> -->
+        </nav>
+    </div>
+
     <div class="ctStep__title--mobile">
         <div class="row">
             <div class="ctStep__item ctStep--on" id="ctStep1">
@@ -188,16 +252,22 @@
                                     </p>
 
                                     <p>
-                                        <span>姓名</span>
-                                        <input type="text" name="name" id="">
+                                        <label for="memName">
+                                            <span>姓名</span>
+                                            <input type="text" name="name" id="memName" value="">
+                                        </label>
                                     </p>
                                     <p>
-                                        <span>電子信箱</span>
-                                        <input type="text" name="" id="">
+                                        <label for="memMail">
+                                            <span>電子信箱</span>
+                                            <input type="text" name="" id="memMail" value="">
+                                        </label>
                                     </p>
                                     <p>
-                                        <span>聯絡電話</span>
-                                        <input type="text" name="" id="">
+                                        <label for="memTel">
+                                            <span>聯絡電話</span>
+                                            <input type="text" name="" id="memTel" value="">
+                                        </label>
                                     </p>
                                 </div>
                             </div>
@@ -223,21 +293,72 @@
                                     <p class="ctPassanger__title">
                                         <span>旅客資料</span>
                                     </p>
+
                                     <p>
-                                        <span>旅客姓名</span>
-                                        <input type="text" id="psgName" value="">
+                                        <label for="psgName">
+                                            <span>旅客姓名</span>
+                                            <input type="text" id="psgName" value="">
+                                        </label>
+                                    </p>
+
+                                    <p>
+                                        <label for="psgBd">
+                                            <span>生日日期</span>
+                                            <input type="text" id="psgBd" value="">
+
+                                        </label>
+                                        <div class="date">
+                                            <ul>
+                                                <li>
+                                                    <!-- <span id="date-text"> -->
+                                                    <!-- <label id="date-label-1">請選擇日期</label> -->
+                                                    <table class="calendar">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="mm" colspan="2">
+                                                                    <span id="mm-sp">月份</span>
+                                                                    <i id="left-1"
+                                                                        class="material-icons">keyboard_arrow_left</i>
+                                                                </td>
+                                                                <td class="yy" colspan="2">
+                                                                    <span id="yy-sp">年份</span>
+                                                                    <i id="right-1"
+                                                                        class="material-icons">keyboard_arrow_right</i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Sun</th>
+                                                                <th>Mon</th>
+                                                                <th>Tue</th>
+                                                                <th>Wed</th>
+                                                                <th>Thu</th>
+                                                                <th>Fri</th>
+                                                                <th>Sat</th>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody id="calendar-tb">
+
+
+                                                        </tbody>
+                                                    </table>
+
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </p>
+
+                                    <p>
+                                        <label for="psgId">
+                                            <span>身分證字號</span>
+                                            <input type="text" id="psgId" value="">
+                                        </label>
                                     </p>
                                     <p>
-                                        <span>生日日期</span>
-                                        <input type="date" id="psgBd" value="">
-                                    </p>
-                                    <p>
-                                        <span>身分證字號</span>
-                                        <input type="text" id="psgId" value="">
-                                    </p>
-                                    <p>
-                                        <span>聯絡電話</span>
-                                        <input type="text" id="psgTel" value="">
+                                        <label for="psgTel">
+                                            <span>聯絡電話</span>
+                                            <input type="text" id="psgTel" value="">
+                                        </label>
                                     </p>
                                 </div>
                             </div>
@@ -301,34 +422,51 @@
                             <h3>信用卡資訊</h3>
                             <div class="ctCredit__text">
                                 <p>
-                                    <span>持卡人姓名</span>
-                                    <span><input type="text" name="" id=""></span>
+                                    <label for="">
+                                        <span>持卡人姓名</span>
+                                        <span><input type="text" name="" id=""></span>
+                                    </label>
                                 </p>
                                 <p>
-                                    <span>信用卡卡號</span>
-                                    <span><input type="date" name="" id=""></span>
+                                    <label for="">
+                                        <span>信用卡卡號</span>
+                                        <span><input type="text" name="" id=""></span>
+                                    </label>
                                 </p>
                                 <p>
                                     <span>到期月/年</span>
-                                    <!-- 想用php迴圈做ＱＡＱ -->
                                     <span>
                                         <select name="" id="" class="ctCredit__select--month" width="72">
                                             <option value="">01</option>
                                             <option value="">02</option>
                                             <option value="">03</option>
                                             <option value="">04</option>
+                                            <option value="">05</option>
+                                            <option value="">06</option>
+                                            <option value="">07</option>
+                                            <option value="">08</option>
+                                            <option value="">09</option>
+                                            <option value="">10</option>
+                                            <option value="">11</option>
+                                            <option value="">12</option>
                                         </select>
                                         <select name="" id="" class="ctCredit__select--year">
                                             <option value="">2019</option>
                                             <option value="">2020</option>
                                             <option value="">2021</option>
                                             <option value="">2022</option>
+                                            <option value="">2023</option>
+                                            <option value="">2024</option>
+                                            <option value="">2025</option>
+                                            <option value="">2026</option>
                                         </select>
                                     </span>
                                 </p>
                                 <p>
-                                    <span>安全碼</span>
-                                    <span><input type="text" name="" id=""></span>
+                                    <label for="safe">
+                                        <span>安全碼</span>
+                                        <span><input type="text" name="" id="safe"></span>
+                                    </label>
                                 </p>
                                 <p>
                                     <i class="fab fa-cc-mastercard"></i>
@@ -393,11 +531,26 @@
             </div>
         </div>
     </div>
+    <div class="jpBase ctPaid">
+        <div class="jpWin">
+            <div class="jpTitle">
+                <h2>訂購完成</h2>
+            </div>
+            <div class="jpCont">
+                <p>感謝您此次的購買！！</p>
+                <p>前往<a href="">『訂單查詢』</a>查看訂單</p>
+                <p>前往<a href="">『裝備清單』</a>製作專屬清單</p>
+                <p>回到<a href="index.php">『山行者首頁』</a>繼續逛逛</p>
+            </div>
+        </div>
+    </div>
 
 
-    <script src="js/common.js"></script>
-    <script src="js/cart.js"></script>
-    <!-- <script src="js/header.js"></script> -->
 </body>
 
 </html>
+
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/header.js"></script>
+<script src="js/date.js"></script>

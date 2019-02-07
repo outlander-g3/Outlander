@@ -2,7 +2,7 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
 
-// @import "_header.scss";
+@import "_header.scss";
 @import "_footer.scss";
 
 // *{
@@ -114,3 +114,66 @@ a{
         }
 }
 }
+
+
+//會員登入
+.memLogin{
+    display: block;
+    .jpWin{
+        .jpCont{
+            p{
+                @include pBottom(18);
+            }
+            >div{
+                position: relative;
+                width: 250px;
+                i{
+                    position: absolute;
+                    color:$color-gray1;
+                    font-size: 22pt;
+                    // top:50%;
+                    transform: translate(12px,8px);
+                } 
+                input{
+                    width: 100%;
+                    line-height: 42px;
+                    box-sizing: border-box;
+                    @include pLeft(45);
+                    &::placeholder{
+                        color:$color-gray1;
+                    }                   
+                 }
+                 span{
+                     display: inline-block;
+                     @include pTop(4);
+                     color:#D94646;
+                 }
+            }
+            .jpCont--psw{
+                @include mTop(10);
+            }
+        }
+        .jpBtn{
+            @include pTop(38);
+            @include pBottom(50);
+            text-align: center;
+        }
+        .memLogin--bottom{
+            position: absolute;
+            bottom: 5px;
+            .row{
+                width: 350px;
+                justify-content: space-between;
+                a{
+                    color: $color-white;
+                    padding: 5px;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// *{
+//     outline: 1px solid red;
+// }

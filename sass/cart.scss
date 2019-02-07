@@ -310,8 +310,136 @@ body>.row{
                         height: 36px;
                         line-height: 36px;
                         text-align: left;
+                        
                     }
                 }
+                .date{
+                    display: none;
+                    
+                    ul{
+                        width: 335px; 
+                        border:1px solid $color-btn-main;
+                        position: absolute;
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        background-color: $color-white;
+                            li{
+                             
+                            padding: 22px 28px;
+                            line-height: 40px;
+                                    font-size: 1rem;
+                                    position: relative;
+                                    i{
+                                        vertical-align: middle;
+                                    }
+                                    // #date-text{
+                                    //     position: absolute;
+                                    //     display: inline-block;
+                                    //     width: 400px;//之後把這邊改%數
+                                    //     min-height: 42px;
+                                    //     max-height: 42px;
+                                    //     line-height: 42px;
+                                    //     overflow: hidden;
+                                    //     cursor: pointer;
+                                    //     text-align: left;
+                                    //     color: #fff;
+                                    //     outline: none;
+                                    //     border-radius: 21px;
+                                    //     background-color: #5db7c5;
+                                    //     transition: 0.3s all ease-in-out;
+                                    //     &::after {
+                                    //         content: "";
+                                    //         position: absolute;
+                                    //         right: 10%;
+                                    //         top: 1.2em;
+                                    //         border: 0.4em solid #fff;
+                                    //         border-color: #fff transparent transparent transparent;
+                                    //         transition: .4s all ease-in-out; 
+                                    //       }
+                                    //     input {
+                                    //         display: none;
+                                    //     }
+                                    //     label {
+                                    //         border-top:0.06em solid #d9d9d9;
+                                    //         display: block;
+                                    //         @include pLeft(10);
+                                    //         cursor: pointer;
+                                    //         font-family: "Microsoft JhengHei";
+                                    //         position: relative;
+                                    //         transition: 0.3s color ease-in-out;
+                                    //         @include f16b;
+                                    //     }
+                                    //     label:nth-child(2) {
+                                    //         @include mTop(42);
+                                    //     }
+                                      
+                                    // }
+                                    //     .expanded {
+                                    //     background-color: #5db7c5;
+                                    //     border-radius: 21px;
+                                    //     padding: 0;
+                                    //     max-height: 100%;
+                                    //     &::after {
+                                    //         transform: rotate(-180deg);
+                                    //         top: 0.6em;
+                                    //       }
+                                    //   }
+                                    }
+                        }
+                        
+                        .expanded{
+                        z-index: 999;
+                        }
+                        #date{
+                        display: none;
+                        }
+                        
+                        // 這邊是顯示日曆的SCSS
+                        #date-text label,#date-text-2 label{
+                            border-top: unset;
+                        }
+                        #calendar-tb{
+                            z-index: 2;
+                        }
+                        .calendar{
+                            width: 100%;
+                            cursor: auto;
+                            i{
+                                cursor: pointer;
+                            }
+                            .mm{
+                                position: relative;
+                                i{   
+                                    position: absolute;
+                                    left: 230%;
+                                    top: 20%;
+                                }
+                            }
+                            .yy{
+                                position: relative;
+                                i{
+                                    position: absolute;
+                                    top: 20%;
+                                    left: 180%;
+                                }
+                            }
+                            tr{
+                                th{
+                                    text-align: center;
+                                }
+                                td{
+                                    text-align: center;
+                                    cursor: pointer;
+                                    margin: 5px;
+                                }
+                            }
+                        }
+                }
+                
+            
+            
             }
         }
 
@@ -380,6 +508,7 @@ body>.row{
         // }
         
         .ctCredit__text{
+            @include pTop(8);
         p{
             font-size: 0;
             @include f16();
@@ -466,6 +595,8 @@ body>.row{
         max-width: 400px;
     }
 }
+
+//訂單
 .ctSticky{
     width: 335px;
     height: 30%;
@@ -543,6 +674,7 @@ body>.row{
 
 }
 
+//跳窗
 .ctPaid{
     .jpCont{
         @include pBottom(50);
@@ -551,6 +683,7 @@ body>.row{
         }
         a{
             color: $color-white;
+            text-decoration: $color-white;
         }
     }
 }
@@ -618,5 +751,5 @@ body>.row{
         }
     }
 }
-// @include o;
+@include o;
 

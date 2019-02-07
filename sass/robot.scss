@@ -10,17 +10,17 @@
 .rbcircle {
 display: flex;
 justify-content: center;
-background-color: #50E3C2;
+background-color: #50E3C200;
 cursor:pointer;
 width: 60px;
 height: 60px;
-border-radius: 50%;
+// border-radius: 50%;
 border: none;
 position: fixed;
 bottom: 20px;
 right: 20px;
 /* transition: transform 200ms ease-in-out;*/
-background-image:url(../img/robot-solid.png);
+background-image:url(../img/comment-dots.png);
 background-repeat: no-repeat;
 outline: none;
 }
@@ -82,7 +82,7 @@ left: -14px;
 .rbmodal-wrapper {
 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
 border-radius: 3px;
-width: 376px;
+width: 350px;
 height: 400px;
 position: absolute;
 right: 20px;
@@ -129,23 +129,23 @@ bottom: 100px;
 /*------------robot對話控制--------------------------------*/
 
 .rbhead{
-  background-color:#32545c;
-  max-width:376px;
+  background-color:#f4f4f4;
+  max-width:350px;
   width: 100%;
   // width: 100%;
-  height: 82px;
+  height: 45px;
   
 }
 
 
 .rbhead__box{
-  width: 376px;
-  height: 82px;
+  width: 350px;
+  height: 45px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color:#32545c;
+  background-color:#f4f4f4;
 }
 
 .rblogo__box{
@@ -158,21 +158,21 @@ bottom: 100px;
 }
 
 .rbhead__box img{
-  width: 50px;
-  height: 45px;
+  width: 35px;
+  height: 36px;
 } 
 
-h2{
-  font-size: 20px;
+h1{
+  font-size:14px;
   font-family:Microsoft JhengHei;
-  color: #ffffff;
+  color: #484848;
 }
 
 #rb__message{
-  max-width:376px;
+  max-width:350px;
   width: 100%;
   height: 400px;
-  background-image:url("../img/photo-1541456419250-opacity-0.3.png");
+  background-image:url("../img/message-backimg.png");
   background-size: 100%;
   /*opacity:0.3;*/
   background-repeat: no-repeat;
@@ -210,7 +210,7 @@ word-break: break-word;
 
 .rbinput__text{
   display:inline-block;
-  max-width:376px;
+  max-width:350px;
   width: 100%;
 }
 
@@ -237,8 +237,11 @@ font-family:Microsoft JhengHei;
   line-height: center;
 }
 
-.rbtext__input .butn{
-  max-width:40px;
+.rbtext__input .rbbutn{
+  max-width:24px;
+  height: 24px;
+  margin: auto;
+  padding: 10px; 
   width: 100%;
   
 }

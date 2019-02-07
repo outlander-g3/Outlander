@@ -1,5 +1,13 @@
+//卡片的圓角
+@mixin br8{
+    border-radius: 8px;
+}
+
+
+
+
 $mobile: 767px;
-$medium: 991px;
+$medium: 1024px;
 $desktop: 1200px;
 @mixin rwd($breakpoint) {
     @if $breakpoint==mobile {

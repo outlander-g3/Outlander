@@ -80,8 +80,8 @@ left: -14px;
 }*/
 
 .rbmodal-wrapper {
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
-border-radius: 3px;
+box-shadow: 0 1px 2px #dddddd;
+border-color:#dddddd;
 width: 350px;
 height: 400px;
 position: absolute;
@@ -172,7 +172,7 @@ h1{
   max-width:350px;
   width: 100%;
   height: 400px;
-  background-image:url("../img/message-backimg.png");
+  background-image:url("../img/message-backimg-1.png");
   background-size: 100%;
   /*opacity:0.3;*/
   background-repeat: no-repeat;
@@ -199,13 +199,14 @@ margin:5px;
 }
 
 .rbtext__show p{
-max-width:140px;
+max-width:270px;
 /*width: 100%;*/
 background-color: #ffffff;
-border-radius: 23px;
+border-radius: 1px solid #dddddd;
 padding: 5px ;
 line-height: 36px;
 word-break: break-word;
+margin:5px;
 }
 
 .rbinput__text{
@@ -217,17 +218,18 @@ word-break: break-word;
 #say{
 font-size:20px;
 font-family:Microsoft JhengHei;
+background-color: #f4f4f4;
 }
 
 .rbtext__input{
   display: flex;
   flex-direction: row;
   align-content: flex-end;
-  max-width:377px;
+  max-width:349px;
   width: 100%;
-  height: 40px;
-  background-color: #ffffff;
-  border: 1px solid #989898;
+  height: 42px;
+  background-color: #f4f4f4;
+  border: 1px solid #dddddd;
 }
 .rbtext__input textarea{
   max-width:330px;

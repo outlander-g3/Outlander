@@ -74,7 +74,7 @@ var qaList = [
       function append(line) { // 將 line 放到「對話區」顯示。
         var rb__message = document.getElementById("rb__message");
         // 取出對話框 
-        rb__message.innerHTML += '<div class="person_text rbtext__show"> <img src="../img/baseline_person_black_24dp.png"><p>'+line+"</p></div><BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
+        rb__message.innerHTML += '<div class="person_text rbtext__show"> <p>'+line+"</p></div><BR/>"+"\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
         rb__message.scrollTop = rb__message.scrollHeight;
         // document.getElementById("massage").style. 
         if ("rb__message") {

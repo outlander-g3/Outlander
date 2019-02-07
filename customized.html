@@ -148,7 +148,7 @@
             <div class="cuProcess__line"></div>
             <div class="cuProcess__second">
                 <div class="cuProcess__circle" id="cuProcessFill">2</div>
-                <p>選擇日期及嚮導</p>
+                <p id="cuProcessFill__title">選擇日期及嚮導</p>
             </div>
         </div>
 
@@ -173,28 +173,52 @@
                 <div class="cuCustom">
                     <div class="cuCustom__crtlRWD">
                         
-                        <form class="">
-                            <span class="joForm__input">
+                        <form class="cuSelect">
+                            <span class="cuForm__input cuForm__input--C">
+                                <input type="radio" name="AreaType" value="choose" checked="checked" id="mount-choose">
+                                <label for="mount-choose">請選擇洲別</label>
+                
+                                <input type="radio" name="AreaType" value="Asia" id="mount-A1">
+                                <label for="mount-A1">亞洲</label>
+                
+                                <input type="radio" name="AreaType" value="Europe" id="mount-A2">
+                                <label for="mount-A2">歐洲</label>
+                
+                                <input type="radio" name="AreaType" value="Africa" id="mount-A3">
+                                <label for="mount-A3">非洲</label>
+                
+                                <input type="radio" name="AreaType" value="NorthA" id="mount-A4">
+                                <label for="mount-A4">北美洲</label>
+                
+                                <input type="radio" name="AreaType" value="SouthA" id="mount-A5">
+                                <label for="mount-A5">南美洲</label>
+                
+                                <input type="radio" name="AreaType" value="Oceania" id="mount-A6">
+                                <label for="mount-A6">大洋洲</label>
+                            </span>
+                        </form>
+                        <form class="cuSelect">
+                            <span class="cuForm__input cuForm__input--M">
                                 <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
-                                <label for="mount-choose">請選擇地點</label>
+                                <label for="mount-choose">請選擇山岳</label>
                 
                                 <input type="radio" name="mountType" value="Fuji" id="mount-fuji">
-                                <label for="mount-fuji">亞洲</label>
+                                <label for="mount-fuji">富士山</label>
                 
                                 <input type="radio" name="mountType" value="Himalayas" id="mount-himalayas">
-                                <label for="mount-himalayas">歐洲</label>
+                                <label for="mount-himalayas">珠穆朗瑪峰</label>
                 
                                 <input type="radio" name="mountType" value="Paine" id="mount-paine">
-                                <label for="mount-paine">非洲</label>
+                                <label for="mount-paine">百內國家公園</label>
                 
                                 <input type="radio" name="mountType" value="Jade" id="mount-jade">
-                                <label for="mount-jade">北美洲</label>
+                                <label for="mount-jade">玉山</label>
                 
                                 <input type="radio" name="mountType" value="Alps" id="mount-alps">
-                                <label for="mount-alps">南美洲</label>
+                                <label for="mount-alps">阿爾卑斯山-少女峰</label>
                 
                                 <input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">
-                                <label for="mount-machu">大洋洲</label>
+                                <label for="mount-machu">馬丘比丘</label>
                 
                                 <input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">
                                 <label for="mount-cruz">聖克魯斯</label>
@@ -212,45 +236,6 @@
                                 <label for="mount-others">其他</label>
                             </span>
                         </form>
-                        <form class="">
-                                <span class="joForm__input">
-                                    <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
-                                    <label for="mount-choose">請選擇地點</label>
-                    
-                                    <input type="radio" name="mountType" value="Fuji" id="mount-fuji">
-                                    <label for="mount-fuji">富士山</label>
-                    
-                                    <input type="radio" name="mountType" value="Himalayas" id="mount-himalayas">
-                                    <label for="mount-himalayas">珠穆朗瑪峰</label>
-                    
-                                    <input type="radio" name="mountType" value="Paine" id="mount-paine">
-                                    <label for="mount-paine">百內國家公園</label>
-                    
-                                    <input type="radio" name="mountType" value="Jade" id="mount-jade">
-                                    <label for="mount-jade">玉山</label>
-                    
-                                    <input type="radio" name="mountType" value="Alps" id="mount-alps">
-                                    <label for="mount-alps">阿爾卑斯山-少女峰</label>
-                    
-                                    <input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">
-                                    <label for="mount-machu">馬丘比丘</label>
-                    
-                                    <input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">
-                                    <label for="mount-cruz">聖克魯斯</label>
-                    
-                                    <input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">
-                                    <label for="mount-kilimanjaro">吉力馬札羅山</label>
-                    
-                                    <input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
-                                    <label for="mount-yosemite">優勝美地國家公園</label>
-                    
-                                    <input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">
-                                    <label for="mount-aspalin">阿斯帕林國家公園</label>
-                    
-                                    <input type="radio" name="mountType" value="Others" id="mount-others">
-                                    <label for="mount-others">其他</label>
-                                </span>
-                            </form>
                                    
                         <div id="cuCustom__zone">
                             <!-- 風景列表 -->
@@ -447,52 +432,60 @@
             <!-- 客製化第二步驟（選時間、嚮導） -->
             <section id="cu__step2">
                 <div id="cuCustom2">
-                    <div>
-                        <label for="" class="cuStyle__pick">選擇出發日期</label>
-                        <input type="date" id="cuTime__start">
-                    </div>
-                    <div class="cuStyle__ptb10">
-                        <label for="" class="cuStyle__pick">選擇結束日期</label>
-                        <input type="date" id="cuTime__end">
-                    </div>
-                    <!-- <div class="custom-select cu_selectNum1" >
-                        <select>
-                            <option value="0">請選擇出發日期</option>
-                        </select>
-                    </div>
-                    <div class="custom-select" >
-                        <select>
-                            <option value="0">請選擇結束日期</option>
-                        </select>
-                    </div> -->
+                        <div class="cuProcess cuProcess2">
+                                <div class="cuProcess__first">
+                                    <div class="cuProcess__circle cuProcess__circle--done">1</div>
+                                    <p>選擇行程</p>
+                                </div>
+                                <div class="cuProcess__line"></div>
+                                <div class="cuProcess__second">
+                                    <div class="cuProcess__circle" id="cuProcessFill2">2</div>
+                                    <p>選擇日期及嚮導</p>
+                                </div>
+                            </div>
+                            <form class="cuSelect">
+                                    <span class="cuForm__input cuForm__input--D">
+                                        <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
+                                        <label for="mount-choose">請選擇開始日期</label>
+                                    </span>
+                                </form>
+                                <form class="cuSelect">
+                                        <span class="cuForm__input cuForm__input--D">
+                                            <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
+                                            <label for="mount-choose">請選擇結束日期</label>
+                                        </span>
+                                    </form>               
         
                     <h3>選擇嚮導</h3>
                     <div class="cu__pickGuide">
-                        <button id="btn_cuLeft">
-                            <i class="material-icons">keyboard_arrow_left</i>
-                        </button>
+                       
                         <div class="cu__guideList">
-                            <div class="cu__guideList--mask">
-                                <div class="cu__guideItem cu__guideItem1">
-                                    <img src="img/cu_guideItem1.png" alt="">
-                                    <h4>Vivian</h4>
-                                    <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
-                                </div>
-                                <div class="cu__guideItem cu__guideItem2">
-                                    <img src="img/cu_guideItem1.png" alt="">
-                                    <h4>Vivian</h4>
-                                    <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
-                                </div>
-                                <div class="cu__guideItem cu__guideItem3">
-                                    <img src="img/cu_guideItem1.png" alt="">
-                                    <h4>Vivian</h4>
-                                    <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>
+                            <div class="cuGuide__crtl cuGuide__crtl1">
+                                <p class="cuGuide__subtitle">可選擇之嚮導</p>
+                                <div class="cu__guideListBg cu__guideList--pick">
+                                    <div class="cu__guideList--mask">
+                                        <div class="cu__guideItem cu__guideItem1">
+                                            <img src="img/cu_guideItem--s.svg" alt="">
+                                        </div>                 
+                                        <div class="cu__guideItem cu__guideItem1">
+                                            <img src="img/cu_guideItem--s.svg" alt="">
+                                        </div>                 
+                                        <div class="cu__guideItem cu__guideItem1">
+                                            <img src="img/cu_guideItem--s.svg" alt="">
+                                        </div>                 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <button  id="btn_cuRight">
-                            <i class="material-icons">keyboard_arrow_right</i>
-                        </button>
+
+                            <div class="cuGuide__crtl cuGuide__crtl2">
+                                <p class="cuGuide__subtitle cuGuide__subtitle2">已選擇之嚮導</p>
+                                <div class="cu__guideListBg cu__guideList--picked">                                    
+                                    <img src="img/cu_guideItem1.png" alt="">
+                                    <h4>Vivian</h4>
+                                    <p>擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>                         
+                                </div>
+                            </div>
+                        </div>                  
         
                     </div>
                 </div>
@@ -504,43 +497,31 @@
                 </div>
             </section>
         </div> 
-        <footer id="footer">
-                <img id="footer-img" src="img/foo1.png" alt="footer">
-                <div id="footer-all">
-                    <ul>
-                        <li>關於我們</li>
-                        <li>聯繫我們</li>
-                        <li>使用條款</li>
-                        <li>尋找分店</li>
-                    </ul>
-                    <div id="footer-icon">
-                        <span><i class="fab fa-facebook-f"></i>Facebook</span>
-                        <span><i class="fab fa-instagram"></i>Instagram</span>
-                        <span><i class="fab fa-twitter"></i>Twitter</span>
-                    </div>
-                    <div id="footer-input">
-                        <div>
-                            <input type="text">
-                            <button>訂閱</button>
-                        </div>
-                        <span>COPYRIGHT © 2018 Outlander All rights reserved.</span>
-                    </div>
-                </div>
-            </footer>
+        
    
     
     <script src="js/customized.js"></script>
     <script>
 
-			$('.joForm__input').click(function (e) {
+			$('.cuForm__input--C').click(function (e) {
 				e.preventDefault();
 				e.stopPropagation();
 				$(this).toggleClass('expanded');
 				$('#' + $(e.target).attr('for')).prop('checked', true);
 				});
 				$(document).click(function () {
-					$('.joForm__input').removeClass('expanded');
-				});
+					$('.cuForm__input--C').removeClass('expanded');
+                });
+            $('.cuForm__input--M').click(function (e2) {
+                e2.preventDefault();
+                e2.stopPropagation();
+                $(this).toggleClass('expanded');
+                $('#' + $(e2.target).attr('for')).prop('checked', true);
+                $(document).click(function () {
+                    $('.cuForm__input--M').removeClass('expanded');
+                });
+            });
+            
 
 		</script>
 </body>

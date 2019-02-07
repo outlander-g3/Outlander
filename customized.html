@@ -172,32 +172,85 @@
                 <!-- 選擇器__洲別及山岳 -->
                 <div class="cuCustom">
                     <div class="cuCustom__crtlRWD">
-                        <div class="custom-select cu_selectNum1" >
-                            <select>
-                                <option value="0">請選擇洲別</option>
-                                <option value="1">亞洲</option>
-                                <option value="2">歐洲</option>
-                                <option value="3">非洲</option>
-                                <option value="4">北美洲</option>
-                                <option value="5">南美洲</option>
-                                <option value="6">大洋洲</option>
-                            </select>
-                        </div>
-                        <div class="custom-select" >
-                            <select>
-                                <option value="0">請選擇山岳</option>
-                                <option value="1">富士山</option>
-                                <option value="2">喜馬拉雅山-珠穆朗瑪峰</option>
-                                <option value="3">阿爾卑斯山-少女峰</option>
-                                <option value="4">吉力馬札羅山優勝美地</option>
-                                <option value="5">優勝美地</option>
-                                <option value="6">馬丘比丘-印加</option>
-                                <option value="7">百內國家公園</option>
-                                <option value="8">聖克魯斯</option>
-                                <option value="9">阿斯帕林</option>
-                                <option value="10">玉山</option>
-                            </select>
-                        </div>
+                        
+                        <form class="">
+                            <span class="joForm__input">
+                                <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
+                                <label for="mount-choose">請選擇地點</label>
+                
+                                <input type="radio" name="mountType" value="Fuji" id="mount-fuji">
+                                <label for="mount-fuji">亞洲</label>
+                
+                                <input type="radio" name="mountType" value="Himalayas" id="mount-himalayas">
+                                <label for="mount-himalayas">歐洲</label>
+                
+                                <input type="radio" name="mountType" value="Paine" id="mount-paine">
+                                <label for="mount-paine">非洲</label>
+                
+                                <input type="radio" name="mountType" value="Jade" id="mount-jade">
+                                <label for="mount-jade">北美洲</label>
+                
+                                <input type="radio" name="mountType" value="Alps" id="mount-alps">
+                                <label for="mount-alps">南美洲</label>
+                
+                                <input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">
+                                <label for="mount-machu">大洋洲</label>
+                
+                                <input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">
+                                <label for="mount-cruz">聖克魯斯</label>
+                
+                                <input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">
+                                <label for="mount-kilimanjaro">吉力馬札羅山</label>
+                
+                                <input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
+                                <label for="mount-yosemite">優勝美地國家公園</label>
+                
+                                <input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">
+                                <label for="mount-aspalin">阿斯帕林國家公園</label>
+                
+                                <input type="radio" name="mountType" value="Others" id="mount-others">
+                                <label for="mount-others">其他</label>
+                            </span>
+                        </form>
+                        <form class="">
+                                <span class="joForm__input">
+                                    <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
+                                    <label for="mount-choose">請選擇地點</label>
+                    
+                                    <input type="radio" name="mountType" value="Fuji" id="mount-fuji">
+                                    <label for="mount-fuji">富士山</label>
+                    
+                                    <input type="radio" name="mountType" value="Himalayas" id="mount-himalayas">
+                                    <label for="mount-himalayas">珠穆朗瑪峰</label>
+                    
+                                    <input type="radio" name="mountType" value="Paine" id="mount-paine">
+                                    <label for="mount-paine">百內國家公園</label>
+                    
+                                    <input type="radio" name="mountType" value="Jade" id="mount-jade">
+                                    <label for="mount-jade">玉山</label>
+                    
+                                    <input type="radio" name="mountType" value="Alps" id="mount-alps">
+                                    <label for="mount-alps">阿爾卑斯山-少女峰</label>
+                    
+                                    <input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">
+                                    <label for="mount-machu">馬丘比丘</label>
+                    
+                                    <input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">
+                                    <label for="mount-cruz">聖克魯斯</label>
+                    
+                                    <input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">
+                                    <label for="mount-kilimanjaro">吉力馬札羅山</label>
+                    
+                                    <input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
+                                    <label for="mount-yosemite">優勝美地國家公園</label>
+                    
+                                    <input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">
+                                    <label for="mount-aspalin">阿斯帕林國家公園</label>
+                    
+                                    <input type="radio" name="mountType" value="Others" id="mount-others">
+                                    <label for="mount-others">其他</label>
+                                </span>
+                            </form>
                                    
                         <div id="cuCustom__zone">
                             <!-- 風景列表 -->
@@ -477,6 +530,19 @@
    
     
     <script src="js/customized.js"></script>
+    <script>
+
+			$('.joForm__input').click(function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				$(this).toggleClass('expanded');
+				$('#' + $(e.target).attr('for')).prop('checked', true);
+				});
+				$(document).click(function () {
+					$('.joForm__input').removeClass('expanded');
+				});
+
+		</script>
 </body>
 </html>
 

@@ -317,7 +317,7 @@ body>.row{
                 }
                 .date{
                     display: none;
-                    
+                    position: relative;
                     ul{
                         width: 335px; 
                         border:1px solid $color-btn-main;
@@ -329,8 +329,8 @@ body>.row{
                         background-color: $color-white;
                             li{
                              
-                            padding: 22px 28px;
-                            line-height: 40px;
+                                    padding: 22px 28px;
+                                    line-height: 40px;
                                     font-size: 1rem;
                                     position: relative;
                                     i{
@@ -435,6 +435,9 @@ body>.row{
                                     text-align: center;
                                     cursor: pointer;
                                     margin: 5px;
+                                    &:hover{
+                                        background-color: $color-btn-main;
+                                    }
                                 }
                             }
                         }
@@ -535,10 +538,18 @@ body>.row{
                 display: inline-block;
                 line-height: 32px;
                 border:1px solid $color-btn-main;
+                border-radius: 16px;              
+                appearance:none;
+                -moz-appearance:none;
+                -webkit-appearance:none;
+                background-color: $color-white;
+                @include pLeft(20);
                 option{
                     font-size: 24px;
+                    background-color: $color-white;
                 }
-                @include ctBorder();
+                // @include ctBorder();
+                text-shadow: none;
             }
             &:first-child{
                 @include mTop(8);
@@ -756,5 +767,6 @@ body>.row{
         }
     }
 }
-@include o;
+// @include o;
+
 

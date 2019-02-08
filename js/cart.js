@@ -77,6 +77,7 @@ function ctNextStep(i) {
 function ctPreStep(i) {
     ctSteps[i].classList.remove("ctStep--on");
     ctStepLine[i - 1].classList.remove("ctStep__line--on");
+    ctStepCircle[i].classList.remove("ctStep__circle--on");
     ctScrollTop();
 }
 $("#ctProductNextBtn").click(nextToFile);

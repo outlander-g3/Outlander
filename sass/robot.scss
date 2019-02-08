@@ -151,7 +151,7 @@ bottom: 100px;
 }
 
 .rblogo__box{
-  width: 200px;
+  width: 340px;
   height: 82px;
   display: flex;
   flex-direction: row;
@@ -163,6 +163,10 @@ bottom: 100px;
   width: 35px;
   height: 36px;
 } 
+.rbmtsss img{
+  width: 105px;
+  height: 35px;
+}
 
 h1{
   font-size:14px;
@@ -196,6 +200,8 @@ border-radius: 50%;
   max-width:350px;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 // #rb__message .rbimg_box{
@@ -405,7 +411,7 @@ height: 8vh;
 @media screen and (min-width: 360px) and (max-width: 767px){
 
 #model{
-  display:inline;
+  // display:inline;
   width:100%;
   height:100%;
   position:inherit;
@@ -461,7 +467,7 @@ display:none;
 .rbhead__box h1{
   font-size:4vh;
   font-family:Microsoft JhengHei;
-  color: #ffffff;
+  color: #484848;
   flex-grow: 1;
 } 
 

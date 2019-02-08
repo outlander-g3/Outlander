@@ -60,8 +60,8 @@ var qaList = [
         append(document.getElementById("say").value);
       
          // 先將使用者輸入的問句放到「對話區」顯示。
-        // input.value="";
-         // document.getElementById("say").value="";//輸出後欄位空白,但導致對話判斷失效。
+        input.value="";
+         document.getElementById("say").value="";//輸出後欄位空白,但導致對話判斷失效。
         answer(); // 然後回答使用者的問題。
       }
       

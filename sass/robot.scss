@@ -192,6 +192,23 @@ background-color: #ffffff;
 border-radius: 50%;
 }
 
+.rbkeyWord{
+  max-width:350px;
+  width: 100%;
+  display: flex;
+}
+
+// #rb__message .rbimg_box{
+// background-color: #ffffff;
+// border-radius: 50%;
+// }
+
+#rb__message .rbkeyWord{
+  display: flex;
+}
+
+
+
 #rb__message .rbkeyWord button{
   margin: 0;
   padding: 0;
@@ -215,6 +232,7 @@ border-radius: 50%;
 .rbtext__show{
 display: flex;
 flex-direction:row;
+padding-top: 15px;
 }
 .rbtext__show img{
 margin:5px;

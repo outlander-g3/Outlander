@@ -1,0 +1,106 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "mixin/_mixin-memberSystem.scss";
+
+*{
+    // outline: 1px solid red;
+}
+body{
+    background-color: $color-white;
+    color: $color-text;
+    
+}
+.memberBanner{
+    position: relative;
+    padding-top: 60px;
+    max-width: 1200px;
+    margin: auto;
+    img{
+    width: 100%;
+    height: auto;
+    }
+    h2{
+        @include f30b;
+        color: $color-main1;
+        // padding-left: 50px;
+        position: absolute;
+        top: 40%;
+        left: 5%;
+        @include rwd(mobile){
+            @include f20b;
+        }
+    }   
+}
+.memberWrap{
+    position: relative;
+}
+.maximunInfoAndContent{
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+}
+.memberInfo{
+    width: 360px;
+    height: 623px;
+    margin-top: 50px;
+    box-shadow: $shadow;
+    position:sticky;
+    top: 0px;
+    
+    .row{
+        flex-direction: column;
+        @include rwd(medium){
+            flex-direction: row;
+        }
+        @include rwd(mobile){
+            flex-direction: column;
+        }
+        div{
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px 0 10px 0;
+        }
+    }
+    
+    .memberPic{
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        }
+    }
+    #name{
+        @include f20b;
+        color: $color-main2;
+    }
+    #email{
+        @include f16;
+    }
+    #pointIntro{
+        width: 260px;
+        h4{
+            @include f20b;
+            padding-top: 20px;
+        }
+        span{
+            display: block;
+            padding-top: 10px;
+            @include f16;
+        }
+        img{
+            color: $color-main1;
+            width: 40px;
+        }
+        p{
+            @include f16;
+        }
+        .pointIntroRow{
+            display: flex;
+            flex-direction: row;
+
+        }
+    }
+}  

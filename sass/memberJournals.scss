@@ -24,7 +24,7 @@ body{
     }
 }
 #currentWebsite{
-    color:$color-main-yellow;
+    // color:$color-main-yellow;
 }
 .msJournals{
     padding: 50px;
@@ -83,7 +83,7 @@ body{
     #table-title{
             background-color: $color-btn-sub;
         th{
-            color: $color-subTitle;
+            // color: $color-subTitle;
             padding: 10px 5px;
             @include f16b();
             border: 1px solid $color-btn-sub;
@@ -175,7 +175,7 @@ body{
                 padding: 10px;
             }
             h4{
-                color:$color-subTitle;
+                // color:$color-subTitle;
                 font-size: 1.3rem;
                 padding: 10px;
             }
@@ -269,7 +269,7 @@ body{
                 .jo__publish{
                     // @include f14;
                     font-size: 12px;
-                    color:$color-subTitle;
+                    // color:$color-subTitle;
                 }
                 h3{
                     @include f20b;

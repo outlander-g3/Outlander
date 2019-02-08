@@ -9,7 +9,7 @@ body{
     }
 }
 #currentWebsite{
-    color:$color-main-yellow;
+    // color:$color-main-yellow;
 }
 .mainContent{
     padding-top: 50px;
@@ -32,7 +32,7 @@ body{
     }
     h3{
         padding: 40px 0px 20px;
-        @include f20b();
+        @include f20b;
         @include rwd(mobile){
             text-align: center;
         }

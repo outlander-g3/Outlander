@@ -54,9 +54,10 @@ i{
 /*****  個人日誌開始  *****/ 
 
 .jnBg{
-    // @include pTop(58);
+    @include pTop(58);
     @include pBottom(100);
-    background-color: $color-main-blue;
+    background-color: $color-main3;
+    background-image: url('../img/jn_bg.svg');
     width: 100%;
     // height: 3000px;
 }

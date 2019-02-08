@@ -458,7 +458,7 @@ i{
 
 }
 .cuCustom__sceneryItem{
-    // background: url("../img/cu__sceneryItem3.jpg") ;
+    @include br4;
     background-size: cover;
     margin: 10px;
     position: relative;

@@ -1,8 +1,8 @@
 @import "mixin/_mixin.scss";
 @import "base/_var.scss";
-*{
-    outline: 1px solid blue;
-}
+// *{
+//     outline: 1px solid blue;
+// }
 html {
     font-size: 16px; 
     @media screen and (max-width: 767px) {
@@ -11,15 +11,17 @@ html {
         } 
     }
 }
-  body{
-      background-color: $color-white;
-  }
+//   body{
+//       background-color: $color-white;
+//   }
   body * {
     font-family: "微軟正黑體"; 
 }
   
   * {
-    font-family: "微軟正黑體"; }
+    font-family: "微軟正黑體"; 
+}
+
     * h2 {
       line-height: 1.6;
       font-size: 2.2rem;
@@ -31,6 +33,7 @@ html {
       font-size: 2rem;
       font-weight: normal;
       line-height: 1.6;
+      color: $color-main2;
     }
 
     * h4 {
@@ -93,8 +96,6 @@ html {
             font-size: 1.4rem;
         }
     }
-
-
     text-align: left;
     position: absolute;
     z-index: 3;
@@ -111,11 +112,11 @@ html {
     height: 100%;
 }
 #mode{
-    text-decoration:underline; 
     color: $color-white;
+    border-bottom: 1px $color-white solid;
     @media screen and (max-width:767px){
         color:$color-text;
-        text-decoration:none;
+
     }
 }
 /////////////////////////三種按鈕
@@ -137,12 +138,132 @@ html {
     max-width: 1200px;
     margin: auto;
     @include pTop(30);
-  
 }
 .drop-flex{
     display: flex;
     justify-content: space-between;
 }
+
+
+//////////////日曆///////
+.datecont{
+    position: relative;
+    flex: 1;
+    display: flex;
+    // flex-direction: column;
+    // justify-content: space-around;
+    li{
+        line-height: 50px;
+        font-size: 1rem;
+        position: relative;
+        #date-text{
+            position: absolute;
+            display: inline-block;
+            width: 320px;//之後把這邊改%數
+            min-height: 42px;
+            max-height: 42px;
+            line-height: 42px;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: left;
+            color: #fff;
+            outline: none;
+            border-radius: 21px;
+            background-color: #5db7c5;
+            transition: 0.3s all ease-in-out;
+            &::after {
+                content: "";
+                position: absolute;
+                right: 10%;
+                top: 1.2em;
+                border: 0.4em solid #fff;
+                border-color: #fff transparent transparent transparent;
+                transition: .4s all ease-in-out; 
+              }
+            input {
+                display: none;
+            }
+            label {
+                border-top:0.06em solid #d9d9d9;
+                display: block;
+                @include pLeft(10);
+                cursor: pointer;
+                font-family: "Microsoft JhengHei";
+                position: relative;
+                transition: 0.3s color ease-in-out;
+                @include f16b;
+            }
+            label:nth-child(2) {
+                @include mTop(42);
+            }
+          
+        }
+            .expanded {
+            background-color: #5db7c5;
+            border-radius: 21px;
+            padding: 0;
+            max-height: 100%;
+            &::after {
+                transform: rotate(-180deg);
+                top: 0.6em;
+              }
+          }
+        }
+    }
+li{
+    #date-text.expanded{
+        max-height: 400px;
+    }
+}
+.expanded{
+z-index: 999;
+}
+#date{
+display: none;
+}
+
+// 這邊是顯示日曆的SCSS
+#date-text label,#date-text-2 label{
+    border-top: unset;
+}
+#calendar-tb{
+    z-index: 2;
+}
+.calendar{
+    width: 100%;
+    cursor: auto;
+    i{
+        cursor: pointer;
+    }
+    .mm{
+        position: relative;
+        i{   
+            position: absolute;
+            left: 230%;
+            top: 20%;
+        }
+    }
+    .yy{
+        position: relative;
+        i{
+            position: absolute;
+            top: 20%;
+            left: 180%;
+        }
+    }
+    tr{
+        th{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+            cursor: pointer;
+            margin: 5px;
+        }
+    }
+}
+//////以上為月曆//////
+
 #date .joForm__input{
     width:320px;
 }
@@ -192,6 +313,7 @@ html {
     cursor: pointer;
     position: relative;
     transition: 0.3s color ease-in-out; 
+ 
 }
 
 
@@ -237,8 +359,150 @@ html {
     max-width: 2500px;
     margin:auto;
     position: relative;
-    top:-300px;
+    z-index: -3;
 }
 .cloud-wrap img{
     width:100%;
+    position: absolute;
+    left:0;
+    top:-400px;
+}
+.m-wrap{
+    width: 100%;
+    max-width: 2500px;
+    margin: auto;
+    text-align: center;
+    position: absolute;
+}  
+.m-wrap img{
+    width: 100%;
+    // position:absolute;
+}
+/////////行程商品////////////
+.pro-product-wrap{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+    @include pTop(50);
+}
+.pro-product-wrap-topic{
+    @include pBottom(200);
+}
+.pro-product-wrap-pic{
+    background-image: url(img/bm.png);
+    height:200px;
+    width: 1200px;
+}
+.pro-item-flex{
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width:767px){
+        flex-wrap: wrap;
+    }
+    @media screen and (max-width:768px)and(max-width:991px){
+        padding: 3%;
+        }
+}
+.pro-item-flex-three{
+   display: flex;
+    a{
+        display: block;
+    }
+}
+//一個商品卡 //
+.pro-item{      
+    width: 50%;
+    margin: 0.7%;
+    border:1.5px solid #265057;
+    border-radius: 4px;
+    padding: 0.3%;
+    box-shadow: $shadow;
+    text-align: left;
+    a{
+        position: relative;
+    }
+    background-color:rgba(8,139,154,0.1);
+    @media screen and (max-width:767px){
+    width: 100%;
+    margin:0 0.1% 3% 0.1%;
+    }  
+}
+.pro-item:hover{
+    box-shadow:3px 3px 3px rgba(36, 111, 119, 0.3);
+}
+.pro-item-three{ //三欄寬
+    width: 30%;
+    margin: 1%;
+    @media screen and (max-width:767px){
+    width: 100%;
+    margin:0 0.1% 3% 0.1%;
+    }
+}
+.pro-item-pic-hot{
+    position: relative;
+}
+.pro-item-pic-hot::before{
+    content: "熱門";
+    width:95px;
+    height:44px;
+    background-color:$color-btn-sub;
+    position: absolute;
+    top:8px;
+    left:-22px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 44px;
+    color:$color-white;
+    font-size: 22px;
+}
+.pro-item-pic img{
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+.pro-item-view-flex{
+    display: flex;
+}
+.pro-item-view-float p,span{
+    float: left;
+}
+.pro-item-view-float h4{
+    float:right;
+}
+.tree_f{
+    width: 35px;
+    height: 35px;
+    align-self:center;   
+    
+}
+.tree-three{
+    @media screen and (min-width:768px)and(max-width:991px){
+        width: 29px;
+        height: 29px;
+        }
+}
+.tree_f img{
+    width: 100%;
+}
+.hike{
+    font-size: 1.8rem;
+    margin: 5px;
+}
+.material-icons{
+    color:#088B9A;
+    padding-right: 8px;
+}
+
+.hike i{
+    color:#088B9A;
+}
+.heart-flex{
+    width:20%;
+}
+.pro-item-view{
+    display: flex;
+    span{
+        align-self: center; 
+    }
 }

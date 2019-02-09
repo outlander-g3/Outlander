@@ -9,14 +9,35 @@
     <link rel="stylesheet" href="css/productsOverview.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="js/vue.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <!-- <script src="js/vue.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
     <title>Outlander</title>
 </head>
 
 <body> 
     <!-- HEADER -->
-    <div id="header">
+    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <!-- <div id="header-nav">
+        <div id="header">
             <nav id="header-all">
                 <div id="header-left">
                     <div id="logo">
@@ -37,7 +58,6 @@
                     </div>
                 </div>
                 <ul id="burger-text">
-                    <span id="burgerText-X" v-on:click="out"></span>
                     <li><a href="#">登山行程</a></li>
                     <li><a href="#">客製行程</a></li>
                     <li><a href="#">登山日誌</a></li>
@@ -53,8 +73,94 @@
                         </ul>
                     </li>
                 </ul>
+                <div class="filter">
+                    <div id="filterList">
+                        <ul id="filterListLi">
+                            <li class="list" id="asia-list">亞洲</li>
+                            <li class="list">歐洲</li>
+                            <li class="list">非洲</li>
+                            <li class="list">北美洲</li>
+                            <li class="list">南美洲</li>
+                            <li class="list">大洋洲</li>
+                        </ul>
+                        <div id="filterListImg">
+                            <div id="asia-img" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/玉山/1.jpg">
+                                    <h3>玉山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/聖母峰/1.jpg">
+                                    <h3>聖母峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/富士山/1.jpg">
+                                    <h3>富士山</h3>
+                                </div>
+                            </div>
+                            <div id="europe" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/1.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/2.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
+                            </div>
+                            <div id="africa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/1.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/2.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/馬丘比丘/1.jpg">
+                                    <h3>馬丘比丘</h3>
+                                </div>
+                            </div>
+                            <div id="na" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/聖克魯斯/1.JPG">
+                                    <h3>聖克魯斯</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/優勝美地/1.jpg">
+                                    <h3>優勝美地</h3>
+                                </div>
+                            </div>
+                            <div id="sa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/1.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/2.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
+                            </div>
+                            <div id="oceania" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/1.JPG">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/2.jpg">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </nav>
-        </div>        
+        </div>
+    </div> -->
+<!-- <script src="js/header.js"></script>  -->
+<!-- 以上為header -->
+
     <!-- BANNER -->
     <div class="po-wrap">
         <div class="po-banner">
@@ -89,14 +195,36 @@
         </div>            
     </div>     -->
 <!------------------以下為篩選bar ------------------------>
-<div class="po-wrap-filter">   
+<div class="po-wrap-filter"> 
     <div class="drop-flex">
-            <form class="" id="date">
-                    <span class="joForm__input">
-                        <input type="radio" name="date-choose" value="choose" checked="checked" id="date-choose">
-                        <label for="date-choose">請選擇日期</label>
-                    </span>
-            </form>
+        <!-- 月曆 -->
+        <ul class="datecont">
+                <li><input id="date" type="text" value="">
+                    <span id="date-text">
+                        <label id="date-label">請選擇日期</label>
+                        <table class="calendar">
+                            <tbody>
+                                <tr>
+                                    <td class="mm" colspan="2"><span id="mm-sp">月份</span> <i id="left-1" class="material-icons">keyboard_arrow_left</i></td>
+                                    <td class="yy" colspan="2"><span id="yy-sp">年份</span><i id="right-1" class="material-icons">keyboard_arrow_right</i></td>
+                                </tr>
+                                <tr>
+                                    <th>Sun</th>
+                                    <th>Mon</th>
+                                    <th>Tue</th>
+                                    <th>Wed</th>
+                                    <th>Thu</th>
+                                    <th>Fri</th>
+                                    <th>Sat</th>
+                                </tr>
+                            </tbody>
+                            <tbody id="calendar-tb">
+                            </tbody>
+                        </table>
+        
+                    </span></li>
+            </ul>
+            <!-- 月曆 -->
             <form class="" id="cont">
                     <span class="joForm__input">
                         <input type="radio" name="contType" value="choose" checked="checked" id="cont-choose">
@@ -142,19 +270,20 @@
                         <label for="cont-choose">請選擇預算</label>
                     </span>
             </form>
-    </div>       
+    </div>     
 </div> 
 <div class="cloud-wrap">
-    <img src="img/cloud.png" alt="cloud">
-</div>
+        <img src="img/cloud.png" alt="cloud">
+    </div>  
+
 
 <!-- 以下為精選行程 -->
-    <!-- <div class="pro-product-wrap">
-            <h2>精選行程</h2>
+    <div class="pro-product-wrap pro-product-wrap-topic">
+            <h3>精選行程</h3>
             <h5>你一生必去的經典登山路線</h5>
-                <div class="pro-item-flex"> -->
+                <div class="pro-item-flex"> 
                     <!-- 1個商品卡 -->
-                    <!-- <div class="pro-item">
+                   <div class="pro-item">
                     <a href="products.html">
                         <div class="pro-item-pic">
                             <img src="img/ebc.jpg" alt="EBC">
@@ -162,337 +291,176 @@
                         <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
                         <div class="pro-item-view-flex">
                             <p>評價：</p>
-                            <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                            <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                            <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                            <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                            <span class="tree"><img src="img/tree.png" alt="tree"></span>
+                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                            
                         </div>
                         <p>天數：15天</p>
-                        <div class="pro-item-view-flex">
+                        <div class="pro-item-view-float">
                             <p>難易度：</p>
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                            </span>
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                            </span>
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                            </span> 
+                                <div class="hike-float">
+                                    <span class="hike">
+                                        <i class="fas fa-hiking"></i>
+                                        <i class="fas fa-hiking"></i>
+                                        <i class="fas fa-hiking"></i>
+                                    </span> 
+                                </div>
+                                <h4>NTD76500</h4>  
+                                <div class="clearfix"></div>      
                         </div>
-                        <div class="pro-item-view">    
-                            <div class="heart-flex">
-                                <span class="material-icons">favorite_border</span>
-                                <span class="heart-text">212</span>  
-                            </div>
-                            <span class="price"><h4>NTD76500</h4></span>
-                        </div>
+                        <div class="clearfix"></div>  
                         </a>  
-                    </div> -->
-                
+                    </div> 
                     <!-- 1個商品卡 -->
                      <!-- 2個商品卡 -->
-                     <!-- <div class="pro-item"><a href="products.html">
-                            <div class="pro-item-pic">
-                                <img src="img/ebc.jpg" alt="EBC">
-                            </div>
-                            <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
-                            <div class="pro-item-view-flex">
-                                <p>評價：</p>
-                                <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree"><img src="img/tree.png" alt="tree"></span>
-                            </div>
-                            <p>天數：15天</p>
-                            <div class="pro-item-view-flex">
-                                <p>難易度：</p>
-                                <span class="hike">
-                                    <i class="fas fa-hiking"></i>
-                                </span>
-                                <span class="hike">
-                                    <i class="fas fa-hiking"></i>
-                                </span>
-                                <span class="hike">
-                                    <i class="fas fa-hiking"></i>
-                                </span> 
-                            </div>
-                            <div class="pro-item-view">    
-                                <div class="heart-flex">
-                                    <span class="material-icons">favorite_border</span>
-                                    <span class="heart-text">212</span>  
+                            <!-- 1個商品卡 -->
+                           <div class="pro-item">
+                            <a href="products.html">
+                                <div class="pro-item-pic">
+                                    <img src="img/ebc.jpg" alt="EBC">
                                 </div>
-                                <span class="price"><h4>NTD76500</h4></span>
-                            </div>
-                        </a>  
-                        </div> -->
-                        <!-- 2個商品卡 -->                    
-                <!-- </div>      
-        </div> -->
-
-        <!-- 以下為熱門行程----------------------------------------------------------------------->
-         <!-- <div class="pro-product-wrap">
-            <h2>熱門行程</h2>
+                                <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
+                                <div class="pro-item-view-flex">
+                                    <p>評價：</p>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                </div>
+                                <p>天數：15天</p>
+                                <div class="pro-item-view-float">
+                                    <p>難易度：</p>
+                                        <div class="hike-float">
+                                            <span class="hike">
+                                                <i class="fas fa-hiking"></i>
+                                                <i class="fas fa-hiking"></i>
+                                                <i class="fas fa-hiking"></i>
+                                            </span> 
+                                        </div>
+                                        <h4>NTD76500</h4>  
+                                        <div class="clearfix"></div>      
+                                </div>
+                                <div class="clearfix"></div>  
+                                </a>  
+                            </div>                     
+                     
+        </div>
+        <div class="m-wrap">
+            <img src="img/bm.png" alt="moutain">
+        </div>
+<!-- 以下為熱門行程----------------------------------------------------------------------->
+         <div class="pro-product-wrap ">
+            <h3>熱門行程</h3>
             <h5>年度最受歡迎登山路線</h5>
-                <div class="pro-item-flex pro-item-flex-three"> -->
+                
+                <div class="pro-item-flex pro-item-flex-three">
                     <!-- 1個商品卡 -->
-                    <!-- <div class="pro-item pro-item-three">
-                        <a href="products.html">
-                            <div class="pro-item-pic">
-                                <img src="img/ebc.jpg" alt="EBC">
-                            </div>
-                            <h5>探索尼泊爾•安娜普娜基地營健行15日</h5>
-                            <div class="pro-item-view-flex">
-                                <p>評價：</p>
-                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                            </div>
-                            <p>天數：15天</p>
-                            <div class="pro-item-view-flex">
-                                <p>難易度：</p>
-                                <span class="hike">
-                                    <i class="fas fa-hiking"></i>
-                                </span>
-                                <span class="hike">
-                                    <i class="fas fa-hiking"></i>
-                                </span>
-                                <span class="hike">
-                                    <i class="fas fa-hiking"></i>
-                                </span>    
-                            </div>
-                            <div class="pro-item-view">    
-                                <div class="heart-flex">
-                                    <span class="material-icons">favorite_border</span>
-                                    <span class="heart-text">212</span>  
+                    <div class="pro-item pro-item-three">
+                            <a href="products.html">
+                                <div class="pro-item-pic pro-item-pic-hot">
+                                    <img src="img/ebc.jpg" alt="EBC">
                                 </div>
-                                <span class="price"><h4>NTD76500</h4></span>
-                            </div>
-                        </a>
-                        </div> -->
+                                <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
+                                <div class="pro-item-view-flex">
+                                    <p>評價：</p>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                    <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                    
+                                </div>
+                                <p>天數：15天</p>
+                                <div class="pro-item-view-float">
+                                    <p>難易度：</p>
+                                        <div class="hike-float">
+                                            <span class="hike">
+                                                <i class="fas fa-hiking"></i>
+                                                <i class="fas fa-hiking"></i>
+                                                <i class="fas fa-hiking"></i>
+                                            </span> 
+                                        </div>
+                                        <h4>NTD76500</h4>  
+                                        <div class="clearfix"></div>      
+                                </div>
+                                <div class="clearfix"></div>  
+                                </a>  
+                            </div> 
                         <!-- 1個商品卡 -->
                          <!-- 2個商品卡 -->
-                         <!-- <div class="pro-item pro-item-three">
+                         <div class="pro-item pro-item-three">
                                 <a href="products.html">
-                                    <div class="pro-item-pic">
+                                    <div class="pro-item-pic pro-item-pic-hot">
                                         <img src="img/ebc.jpg" alt="EBC">
                                     </div>
-                                    <h5>探索尼泊爾•安娜普娜基地營健行15日</h5>
+                                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
                                     <div class="pro-item-view-flex">
                                         <p>評價：</p>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
+                                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                        
                                     </div>
                                     <p>天數：15天</p>
-                                    <div class="pro-item-view-flex">
+                                    <div class="pro-item-view-float">
                                         <p>難易度：</p>
-                                        <span class="hike">
-                                            <i class="fas fa-hiking"></i>
-                                        </span>
-                                        <span class="hike">
-                                            <i class="fas fa-hiking"></i>
-                                        </span>
-                                        <span class="hike">
-                                            <i class="fas fa-hiking"></i>
-                                        </span>    
+                                            <div class="hike-float">
+                                                <span class="hike">
+                                                    <i class="fas fa-hiking"></i>
+                                                    <i class="fas fa-hiking"></i>
+                                                    <i class="fas fa-hiking"></i>
+                                                </span> 
+                                            </div>
+                                            <h4>NTD76500</h4>  
+                                            <div class="clearfix"></div>      
                                     </div>
-                                    <div class="pro-item-view">    
-                                        <div class="heart-flex">
-                                            <span class="material-icons">favorite_border</span>
-                                            <span class="heart-text">212</span>  
-                                        </div>
-                                        <span class="price"><h4>NTD76500</h4></span>
-                                    </div>
-                                </a>
-                                </div> -->
+                                    <div class="clearfix"></div>  
+                                    </a>  
+                                </div> 
                             <!-- 2個商品卡 -->   
                             <!-- 3個商品卡 -->
-                            <!-- <div class="pro-item pro-item-three">
+                            <div class="pro-item pro-item-three">
                                     <a href="products.html">
-                                        <div class="pro-item-pic">
+                                        <div class="pro-item-pic pro-item-pic-hot">
                                             <img src="img/ebc.jpg" alt="EBC">
                                         </div>
-                                        <h5>探索尼泊爾•安娜普娜基地營健行15日</h5>
+                                        <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
                                         <div class="pro-item-view-flex">
                                             <p>評價：</p>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
+                                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                                            
                                         </div>
                                         <p>天數：15天</p>
-                                        <div class="pro-item-view-flex">
+                                        <div class="pro-item-view-float">
                                             <p>難易度：</p>
-                                            <span class="hike">
-                                                <i class="fas fa-hiking"></i>
-                                            </span>
-                                            <span class="hike">
-                                                <i class="fas fa-hiking"></i>
-                                            </span>
-                                            <span class="hike">
-                                                <i class="fas fa-hiking"></i>
-                                            </span>    
-                                        </div>
-                                        <div class="pro-item-view">    
-                                            <div class="heart-flex">
-                                                <span class="material-icons">favorite_border</span>
-                                                <span class="heart-text">212</span>  
-                                            </div>
-                                            <span class="price"><h4>NTD76500</h4></span>
-                                        </div>
-                                    </a>
-                                    </div>  -->
-                          <!-- 3個商品卡 -->
-                          <!-- <div class="pro-item pro-item-three">
-                                <a href="products.html">
-                                    <div class="pro-item-pic">
-                                        <img src="img/ebc.jpg" alt="EBC">
-                                    </div>
-                                    <h5>探索尼泊爾•安娜普娜基地營健行15日</h5>
-                                    <div class="pro-item-view-flex">
-                                        <p>評價：</p>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                    </div>
-                                    <p>天數：15天</p>
-                                    <div class="pro-item-view-flex">
-                                        <p>難易度：</p>
-                                        <span class="hike">
-                                            <i class="fas fa-hiking"></i>
-                                        </span>
-                                        <span class="hike">
-                                            <i class="fas fa-hiking"></i>
-                                        </span>
-                                        <span class="hike">
-                                            <i class="fas fa-hiking"></i>
-                                        </span>    
-                                    </div>
-                                    <div class="pro-item-view">    
-                                        <div class="heart-flex">
-                                            <span class="material-icons">favorite_border</span>
-                                            <span class="heart-text">212</span>  
-                                        </div>
-                                        <span class="price"><h4>NTD76500</h4></span>
-                                    </div>
-                                </a>
-                                </div> -->
-                            <!-- 1個商品卡 -->
-                             <!-- 2個商品卡 -->
-                             <!-- <div class="pro-item pro-item-three">
-                                    <a href="products.html">
-                                        <div class="pro-item-pic">
-                                            <img src="img/ebc.jpg" alt="EBC">
-                                        </div>
-                                        <h5>探索尼泊爾•安娜普娜基地營健行15日</h5>
-                                        <div class="pro-item-view-flex">
-                                            <p>評價：</p>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                        </div>
-                                        <p>天數：15天</p>
-                                        <div class="pro-item-view-flex">
-                                            <p>難易度：</p>
-                                            <span class="hike">
-                                                <i class="fas fa-hiking"></i>
-                                            </span>
-                                            <span class="hike">
-                                                <i class="fas fa-hiking"></i>
-                                            </span>
-                                            <span class="hike">
-                                                <i class="fas fa-hiking"></i>
-                                            </span>    
-                                        </div>
-                                        <div class="pro-item-view">    
-                                            <div class="heart-flex">
-                                                <span class="material-icons">favorite_border</span>
-                                                <span class="heart-text">212</span>  
-                                            </div>
-                                            <span class="price"><h4>NTD76500</h4></span>
-                                        </div>
-                                    </a>
-                                    </div> -->
-                                <!-- 2個商品卡 -->   
-                                <!-- 3個商品卡 -->
-                                <!-- <div class="pro-item pro-item-three">
-                                        <a href="products.html">
-                                            <div class="pro-item-pic">
-                                                <img src="img/ebc.jpg" alt="EBC">
-                                            </div>
-                                            <h5>探索尼泊爾•安娜普娜基地營健行15日</h5>
-                                            <div class="pro-item-view-flex">
-                                                <p>評價：</p>
-                                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                                <span class="tree tree-three"><img src="img/tree.png" alt="tree"></span>
-                                            </div>
-                                            <p>天數：15天</p>
-                                            <div class="pro-item-view-flex">
-                                                <p>難易度：</p>
-                                                <span class="hike">
-                                                    <i class="fas fa-hiking"></i>
-                                                </span>
-                                                <span class="hike">
-                                                    <i class="fas fa-hiking"></i>
-                                                </span>
-                                                <span class="hike">
-                                                    <i class="fas fa-hiking"></i>
-                                                </span>    
-                                            </div>
-                                            <div class="pro-item-view">    
-                                                <div class="heart-flex">
-                                                    <span class="material-icons">favorite_border</span>
-                                                    <span class="heart-text">212</span>  
+                                                <div class="hike-float">
+                                                    <span class="hike">
+                                                        <i class="fas fa-hiking"></i>
+                                                        <i class="fas fa-hiking"></i>
+                                                        <i class="fas fa-hiking"></i>
+                                                    </span> 
                                                 </div>
-                                                <span class="price"><h4>NTD76500</h4></span>
-                                            </div>
-                                        </a>
-                                        </div>    -->
-                              <!-- 3個商品卡 -->
-                    <!-- </div>                    
-                </div>      
-        </div>
-        <footer id="footer">
-                <img id="footer-img" src="img/foo1.png" alt="footer">
-                <div id="footer-all">
-                    <ul>
-                        <li>關於我們</li>
-                        <li>聯繫我們</li>
-                        <li>使用條款</li>
-                        <li>尋找分店</li>
-                    </ul>
-                    <div id="footer-icon">
-                        <span><i class="fab fa-facebook-f"></i>Facebook</span>
-                        <span><i class="fab fa-instagram"></i>Instagram</span>
-                        <span><i class="fab fa-twitter"></i>Twitter</span>
-                    </div>
-                    <div id="footer-input">
-                        <div>
-                            <input type="text">
-                            <button>訂閱</button>
-                        </div>
-                        <span>COPYRIGHT © 2018 Outlander All rights reserved.</span>
-                    </div>
+                                                <h4>NTD76500</h4>  
+                                                <div class="clearfix"></div>      
+                                        </div>
+                                        <div class="clearfix"></div>  
+                                        </a>  
+                                    </div> 
+                          <!-- 3個商品卡 -->
                 </div>
-            </footer>   -->
+<div class="pro-product-wrap-pic">
+
+</div>                
 
 </body>
 </html>
+<script src="js/date.js"></script>
+
 <script>
         $('.joForm__input').click(function (e) {
             e.preventDefault();

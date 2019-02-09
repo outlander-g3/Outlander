@@ -9,14 +9,12 @@ function doFirst(){
 	for(var i=0; i<list.length; i++){
         list[i].addEventListener('click', function(){
             var cuSceneryInfo = document.querySelector('#'+this.id+' input').value;
-            console.log(cuSceneryInfo);
             addItem(this.id,cuSceneryInfo);
 		});
 	}	
 }
 // alert();
-function addItem(itemId,itemValue){
-
+function addItem(itemId,itemValue){	
     //風景列表物件代號
     var cu_IDNum = itemValue.split('|')[3];
     var cu_ID =O(cu_IDNum);
@@ -62,11 +60,11 @@ function addItem(itemId,itemValue){
     
     
 	//先判斷此處是否已有物件，如果有就先刪除
-	// if(cuCustom__dropSceneryNew.hasChildNodes()){
-        // 	while(cuCustom__dropSceneryNew.childNodes.length >= 1){
-            // 		cuCustom__dropSceneryNew.removeChild(cuCustom__dropSceneryNew.firstChild)
-            // 	}
-            // }	
+	if(cuCustom__dropSceneryNew.hasChildNodes()){
+        	while(cuCustom__dropSceneryNew.childNodes.length >= 1){
+            		cuCustom__dropSceneryNew.removeChild(cuCustom__dropSceneryNew.firstChild)
+            	}
+            }	
             
     //再顯示新物件
     var cuCustom__dropMask = document.getElementsByClassName('cuCustom__dropMask')[0];
@@ -82,35 +80,44 @@ function addItem(itemId,itemValue){
     var cuCustom__sceneryZoneOF = O('cuCustom__sceneryZone--OF');
     cuCustom__sceneryZoneOF.removeChild(cu_ID);
 
-    console.log(cuCustom__dropMask.childNodes);
     var btn_cuDelete= cuCustom__dropSceneryNew.appendChild(btn_cuIconClear);
     btn_cuDelete.addEventListener('click',function(){
         cuCustom__dropMask.removeChild(cuCustom__dropSceneryNew);
         cuCustom__sceneryZoneOF.insertBefore(cu_ID,cuCustom__sceneryZoneOF.childNodes[0]);
+        //刪除時，扣除金額
+        cuAmount -= itemPrice;
+        storage.removeItem(itemId);
+        
+        // 解到這 會變成億次全部刪掉
+        // storage['addItemList'] -= itemId + ', ';
+        document.getElementById('cuAmount').innerText = cuAmount;
     })
 	//存入storage
-	// if(storage[itemId]){
-	// 	alert('You have checked.');
-	// }else{
-	// 	storage['addItemList'] += itemId + ', ';
-	// 	storage[itemId] = itemValue;
-	// }
-
+	if(storage[itemId]){
+        // alert('You have checked.');
+	}else{
+        storage['addItemList'] += itemId + ', ';
+		storage[itemId] = itemValue;
+	}
+    
 	// // 計算購買數量和小計
-	// var itemString = storage.getItem('addItemList');
-	// var items = itemString.substr(0,itemString.length-2).split(', ');
+    var itemString = storage.getItem('addItemList');
+    // var itemStringa = storage.removeItem('addItemList');
+   
+    var items = itemString.substr(0,itemString.length-2).split(', ');
+    console.log(itemString);
+    console.log(items);
 	// // items是陣列 
-	// // console.log(items);		 ["A1001", "A1005", "A1006", "A1002"]
-
-	// subtotal = 0;
-	// for(var key in items){		//use items[key]
-	// 	var itemInfo = storage.getItem(items[key]);
-	// 	var itemPrice = parseInt(itemInfo.split('|')[2]);
-
-	// 	subtotal += itemPrice;
-	// }
+    // var cuAmount =O('cuAmount');
+	cuAmount = 0;
+	for(var key in items){		//use items[key]
+        var itemInfo = storage.getItem(items[key]);
+        console.log(itemInfo);
+		var itemPrice = parseInt(itemInfo.split('|')[2]);        
+		cuAmount += itemPrice;
+	}
 
 	// document.getElementById('itemCount').innerText = items.length;
-	// document.getElementById('subtotal').innerText = subtotal;
+    document.getElementById('cuAmount').innerText = cuAmount;
 }
 window.addEventListener('load', doFirst);

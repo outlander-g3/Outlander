@@ -2,29 +2,97 @@
 function O(id){
     return (typeof id == 'object'? i : document.getElementById(id));
     }
-// function S(aaa){
-//     // console.log(O(id));
-//     return (O(id).style.aaa);
-//     alert();
-//     }
 
-function cuSlide(){
-    let cuProcessFill2= O('cuProcessFill2');
-    let cu__pickGuide=document.getElementsByClassName('cu__pickGuide')[0];
-    cu__pickGuide.scrollIntoView({behavior: "smooth"});
-    setTimeout(function () {
-        cuProcessFill2.style.transitionDuration = "1s";
-        cuProcessFill2.style.backgroundColor = '#088B9A';
-        cuProcessFill2.style.color = '#fff';
-    },900);
+var cuProcess1= O('cuProcess1');
+var cuProcess2= O('cuProcess2');
+var cuForm__inputC = O('cuForm__input--C');
+var cuForm__inputM = O('cuForm__input--M');
 
+function cuSlide1(){
+    //控制767以下，步驟一及步驟一左右滑動，步驟二顏色圓圈填色
+    enquire.register("screen and (max-width: 767px)", {     
+        match: function() {
+            // let cuCustom=O('cuCustom');
+            // cuCustom.scrollIntoView({behavior: "smooth"});
+            cuForm__inputC.style.transform = "translateX(0px)";
+            cuForm__inputM.style.transform = "translateX(0px)";
+            O('cu__step1').style.transform = "translateX(0px)";
+            O('cu__step2').style.transform = " translateY(-643px) translateX(1200px)";
+            O('cu__step1').style.transitionDuration = "0.9s";
+            },
+        });
+}
+function cuSlide1_768(){
+    enquire.register("screen and (min-width: 768px)", {     
+        match: function() {
+                let cuCustom=O('cuCustom');
+                cuCustom.scrollIntoView({behavior: "smooth"});
+
+               
+            },
+        });
+}
+function cuSlide2(){
+    //控制767以下，步驟一及步驟一左右滑動，步驟二顏色圓圈填色
+    enquire.register("screen and (max-width: 767px)", {     
+        match: function() {
+                let cuProcess2= O('cuProcess2');
+                setTimeout(function () {
+                    cuProcess2.style.transitionDuration = "0.5s";
+                    cuProcess2.style.backgroundColor = '#088B9A';
+                    cuProcess2.style.color = '#fff';
+                },900);
+
+                cuForm__inputC.style.transform = "translateX(-1200px)";
+                cuForm__inputM.style.transform = "translateX(-1200px)";
+                O('cu__step1').style.transform = "translateX(-1200px)";
+                O('cu__step2').style.transform = " translateY(-643px) translateX(0px)";
+                O('cu__step2').style.transitionDuration = "0.9s";
+            },
+        });
+
+    //控制767以上，步驟二顏色圓圈填色
+    enquire.register("screen and (min-width: 768px)", {     
+        match: function() {
+                let cuProcessFill2= O('cuProcessFill2');
+                let cuCustom2=O('cuCustom2');
+                cuCustom2.scrollIntoView({behavior: "smooth"});
+
+                setTimeout(function () {
+                    cuProcessFill2.style.transitionDuration = "1s";
+                    cuProcessFill2.style.backgroundColor = '#088B9A';
+                    cuProcessFill2.style.color = '#fff';
+                },900);
+            },
+        });
+}
+
+/* btn選擇日期及嚮導 --> 畫面切換到 */
+
+function showPickTG(){
+    cuProcess2.style.transitionDuration = "0.5s";
+    cuProcess2.style.backgroundColor = '#088B9A';
+    cuProcess2.style.color = '#fff';
+    
+    cuForm__inputC.style.transform = "translateX(-1200px)";
+    cuForm__inputM.style.transform = "translateX(-1200px)";
+    O('cu__step1').style.transform = "translateX(-1200px)";
+    O('cu__step2').style.transform = " translateY(-643px) translateX(0px)";
+    O('cu__step2').style.transitionDuration = "0.9s";
+    enquire.register("screen and (max-width: 767px)", {     
+        match: function() {
+                // JavaScript here
+                // 當CSS media query計算的視窗寬度小於769px時執行
+                // 網頁載入時執行一次
+                // 之後每次改變視窗時會再執行一次
+            },
+        });
 }
 
 /* 按鈕--控制查看風景內容【icon__serach, icon__】*/
 var cuCustom__showOption = document.getElementsByClassName("cuCustom__showOption"); 
 function showOption(){   
    
-    // console.log(this);
     for(var j=0;j<cuCustom__showOption.length;j++){
         if(this.children[3] == cuCustom__showOption[j]){
             cuCustom__showOption[j].style.display = 'block';
@@ -46,9 +114,7 @@ function cuShowScenery(){
     if(cuCustomSceneryZoneBg.style.display = 'none'){
         
         cuCustomSceneryZoneBg.style.display = 'block';
-    }
-    console.log(this);
-    
+    }    
 }
 /* 按鈕--控制風景【確認加入】同時關閉風景列表*/ 
 function cuAddSceneryC(){
@@ -62,9 +128,8 @@ function cuWatchScenery(){
     var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
     cuCustomDetailBg.style.display = 'block';
     console.log(cuCustomDetailBg);
-    // var btn_cuWatchScenery = O('btn_cuWatchScenery');
-    // alert();
 }
+
 /*768以上 按鈕--查看詳細資訊【加入景點】 */
 function closeDetail(){
     var btn_cuAddOne = O('btn_cuAddOne');
@@ -72,45 +137,21 @@ function closeDetail(){
     cuCustomDetailBg.style.display = 'none';
 }
 
-/* btn選擇日期及嚮導 --> 畫面切換到 */
-var cuProcessFill= O('cuProcessFill');
-function showPickTG(){
-    cuProcessFill.style.backgroundColor = '#088B9A';
-    cuProcessFill.style.color = '#fff';
 
-    enquire.register("screen and (max-width: 767px)", {     
-        match: function() {
-                // JavaScript here
-                // 當CSS media query計算的視窗寬度小於769px時執行
-                // 網頁載入時執行一次
-                // 之後每次改變視窗時會再執行一次
-                O('cu__step1').style.transform = "translateX(-1200px)";
-                O('cu__step2').style.transform = " translateY(-643px) translateX(0px)";
-            },
-        });
-    enquire.register("screen and (min-width: 768px)", {     
-
-        match: function() {
-                // JavaScript here
-                // 當CSS media query計算的視窗寬度大於等於768px時執行
-                // 網頁載入時執行一次
-                // 之後每次改變視窗時會再執行一次
-                // O('cu__step1').style.transform = "translateX(-1200px)";
-                // O('cu__step2').style.transform = " translateY(-633px) translateX(0px)";
-            },
-        });
-}
 function backPickSc(){
-    cuProcessFill.style.backgroundColor = 'transparent';
-    cuProcessFill.style.color = '#088B9A';
+    cuProcess2.style.backgroundColor = 'transparent';
+    cuProcess2.style.color = '#088B9A';
     enquire.register("screen and (max-width: 767px)", {     
         match: function() {
                 // JavaScript here
                 // 當CSS media query計算的視窗寬度小於769px時執行
                 // 網頁載入時執行一次
                 // 之後每次改變視窗時會再執行一次
+                cuForm__inputC.style.transform = "translateX(0px)";
+                cuForm__inputM.style.transform = "translateX(0px)";
                 O('cu__step1').style.transform = "translateX(0px)";
-                O('cu__step2').style.transform = " translateY(-551px) translateX(1200px)";
+                O('cu__step1').style.transitionDuration = "0.9s";
+                O('cu__step2').style.transform = " translateY(-643px) translateX(1200px)";
             },
         });
     enquire.register("screen and (min-width: 768px)", {     
@@ -126,10 +167,16 @@ function backPickSc(){
         });
 }
 function init(){
-    var cuProcessFill = O('cuProcessFill');
-    cuProcessFill.addEventListener('click',cuSlide);
-    let cuProcessFillTitle=O('cuProcessFill__title');
-    cuProcessFillTitle.addEventListener('click',cuSlide);
+    // var cuProcess2 = O('cuProcess2');
+    cuProcess1.addEventListener('click',cuSlide1);
+    // let cuProcessFillTitle=O('cuProcessFill__title');
+    // cuProcessFillTitle.addEventListener('click',cuSlide);
+    let cuProcess1_768= O('cuProcess1_768');
+    cuProcess1_768.addEventListener('click',cuSlide1_768);
+    
+    cuProcess2.addEventListener('click',cuSlide2);
+    let cuProcessFillTitle2=O('cuProcessFill__title2');
+    cuProcessFillTitle2.addEventListener('click',cuSlide2);
 
 
     var btn_cuCheckScenery = document.getElementById("btn_cuCheckScenery");

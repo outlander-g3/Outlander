@@ -12,140 +12,17 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/memberSystem.css"> -->
-    <link rel="stylesheet" href="css/memberEquip.css">
-    <link rel="stylesheet" href="css/memberJournals.css">
-    <link rel="stylesheet" href="css/memberOrders.css">
+    <!-- <link rel="stylesheet" href="css/memberEquip.css"> -->
+    <!-- <link rel="stylesheet" href="css/memberJournals.css"> -->
+    <!-- <link rel="stylesheet" href="css/memberOrders.css"> -->
     <link rel="stylesheet" href="css/memberCommon.css">
 </head>
 
 <body>
-    <div id="header">
-        <nav id="header-all">
-            <div id="header-left">
-                <div id="logo">
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="logo">
-                    </a>
-                </div>
-                <div id="search">
-                    <input type="text" placeholder="搜索世界">
-                    <i class="material-icons">search</i>
-                </div>
-            </div>
-            <div id="burger">
-                <div id="burger-all" v-on:click="bur">
-                    <span id="burger-1"></span>
-                    <span id="burger-2"></span>
-                    <span id="burger-3"></span>
-                </div>
-            </div>
-            <ul id="burger-text">
-                <span id="burgerText-X" v-on:click="out"></span>
-                <li><a href="#">登山行程</a></li>
-                <li><a href="#">客製行程</a></li>
-                <li><a href="#">登山日誌</a></li>
-                <li><a href="#">登山技巧</a></li>
-                <li v-if="web<768">機器人</li>
-                <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
-                <li v-if="web<768" id="member">會員專區
-                    <ul id="member-child">
-                        <li><a class="member-a" href="#">個人中心</a></li>
-                        <li><a class="member-a" href="#">訂單</a></li>
-                        <li><a class="member-a" href="#">登山日誌</a></li>
-                        <li><a class="member-a" href="#">行前裝備</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="filter">
-                <div id="filterList">
-                    <ul id="filterListLi">
-                        <li class="list" id="asia-list">亞洲</li>
-                        <li class="list">歐洲</li>
-                        <li class="list">非洲</li>
-                        <li class="list">北美洲</li>
-                        <li class="list">南美洲</li>
-                        <li class="list">大洋洲</li>
-                    </ul>
-                    <div id="filterListImg">
-                        <div id="asia-img" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/玉山/1.jpg">
-                                <h3>玉山</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/聖母峰/1.jpg">
-                                <h3>聖母峰</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/富士山/1.jpg">
-                                <h3>富士山</h3>
-                            </div>
-                        </div>
-                        <div id="europe" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/1.jpg">
-                                <h3>少女峰</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/2.jpg">
-                                <h3>少女峰</h3>
-                            </div>
-                        </div>
-                        <div id="africa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/1.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/2.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/馬丘比丘/1.jpg">
-                                <h3>馬丘比丘</h3>
-                            </div>
-                        </div>
-                        <div id="na" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/聖克魯斯/1.JPG">
-                                <h3>聖克魯斯</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/優勝美地/1.jpg">
-                                <h3>優勝美地</h3>
-                            </div>
-                        </div>
-                        <div id="sa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/1.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/2.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                        </div>
-                        <div id="oceania" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/1.JPG">
-                                <h3>阿斯帕林山</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/2.jpg">
-                                <h3>阿斯帕林山</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-
     <!-- 會員中心共同banner -->
     <div class="memberBanner">
         <h2>會員中心</h2>
-        <img src="img/banner.png" alt="">
+        <img src="img/banner-(1).jpg" alt="">
     </div>
     <div class="memberWrap">
         <!-- 會員左側個人資訊卡片 -->
@@ -159,9 +36,11 @@
                         <div id="name">Marie Chen</div>
                         <div id="email">mariechen@gmail.com</div>
                     </div>
-                    <div id="point">
-                        <span>75</span>紅利點數
+                    <div id="pointNum">
+                        <span id="point">75點</span><span>紅利點數</span>
                     </div>
+                </div>
+                <div class="row">
                     <div id="pointIntro">
                         <h4>紅利折抵辦法</h4>
                         <span>每10點可於消費時折抵1元。</span>
@@ -185,176 +64,14 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
 
 
-    <div class="msJournals">
-        <h3>已下訂</h3>
-        <div class="all__ordercards">
-            <div class="one__ordercard">
-                <div class="orderImg">
-                    <img src="img/fuji1.jpeg" alt="">
-                </div>
-                <div class="orderInfo">
-                    <div class="orderText">
-                        <p>訂單編號:<span>0214589</span></p>
-                        <p>訂單狀態:<span>已下訂</span></p>
-                    </div>
-                    <!-- <span>訂單編號0214589</span> -->
-                    <!-- <span>訂單狀態:已下訂</span> -->
-                    <h4>日本 - 槍岳、表銀座縱走</h4>
-                    <div class="orderText">
-                        <p>人數:<span>5</span>人</p>
-                        <p>天數:<span>7</span>天</p>
-                    </div>
-                    <!-- <p>人數:5人</p> -->
-                    <!-- <p>天數:7天</p> -->
-                    <p class="price">NTD 174,500</p>
-                </div>
-                <!-- <div class="duration">
-                        <div> <img src="https://picsum.photos/100/100/?random=1" alt=""></div>
-                        <div> <img src="https://picsum.photos/100/100/?random=1" alt=""></div>
-                    </div> -->
-                <div class="fourButtons">
-                    <div class="img-buttons">
-                        <img src="img/trash.png" alt="">
-                    </div>
-                    <div class="img-buttons">
-                        <img src="img/qrcode.png" alt="">
-                    </div>
-                    <button class="btn">裝備</button>
-                    <button class="btn">明細</button>
-                </div>
 
-            </div>
-            <div class="one__ordercard">
-                <div class="orderImg">
-                    <img src="img/fuji1.jpeg" alt="">
-                </div>
-                <div class="orderInfo">
-                    <div class="orderText">
-                        <p>訂單編號:<span>0214589</span></p>
-                        <p>訂單狀態:<span>已下訂</span></p>
-                    </div>
-                    <!-- <span>訂單編號0214589</span> -->
-                    <!-- <span>訂單狀態:已下訂</span> -->
-                    <h4>日本 - 槍岳、表銀座縱走</h4>
-                    <div class="orderText">
-                        <p>人數:<span>5</span>人</p>
-                        <p>天數:<span>7</span>天</p>
-                    </div>
-                    <!-- <p>人數:5人</p> -->
-                    <!-- <p>天數:7天</p> -->
-                    <p class="price">NTD 174,500</p>
-                </div>
-                <!-- <div class="duration">
-                            <div> <img src="https://picsum.photos/100/100/?random=1" alt=""></div>
-                            <div> <img src="https://picsum.photos/100/100/?random=1" alt=""></div>
-                        </div> -->
-                <div class="fourButtons">
-                    <div class="img-buttons">
-                        <img src="img/trash.png" alt="">
-                    </div>
-                    <div class="img-buttons">
-                        <img src="img/qrcode.png" alt="">
-                    </div>
-                    <button class="btn">裝備</button>
-                    <button class="btn">明細</button>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <button class="btn">查看更多</button>
-
-
-        <section id="myjo">
-            <h3>歷史訂單</h3>
-            <div class="all__ordercards">
-                <!-- <div class="one__ordercard">
-                        <div class="orderImg">
-                            <img src="img/fuji1.jpeg" alt="">
-                        </div>
-                        <div class="orderInfo">
-                            <span>訂單編號0214510</span>
-                            <span>訂單狀態:已完成</span>
-                            <h4>日本 - 槍岳、表銀座縱走</h4>
-                            <p>人數:5人</p>
-                            <p>天數:7天</p>
-                            <p class="price">NTD 174,500</p>
-                        </div>
-                        <div class="fourButtons history">
-                            <button class="btn">我要評價</button>
-                            <button class="btn">再次預定</button>
-                        </div>
-    
-                    </div> -->
-                <div class="one__ordercard">
-                    <div class="orderImg">
-                        <img src="img/fuji1.jpeg" alt="">
-                    </div>
-                    <div class="orderInfo">
-                        <div class="orderText">
-                            <p>訂單編號:<span>0214589</span></p>
-                            <p>訂單狀態:<span>已下訂</span></p>
-                        </div>
-                        <!-- <span>訂單編號0214589</span> -->
-                        <!-- <span>訂單狀態:已下訂</span> -->
-                        <h4>日本 - 槍岳、表銀座縱走</h4>
-                        <div class="orderText">
-                            <p>人數:<span>5</span>人</p>
-                            <p>天數:<span>7</span>天</p>
-                        </div>
-                        <!-- <p>人數:5人</p> -->
-                        <!-- <p>天數:7天</p> -->
-                        <p class="price">NTD 174,500</p>
-                    </div>
-                    <div class="fourButtons">
-                        <button class="btn btn-1">我要評價</button>
-                        <button class="btn btn-1">再次預定</button>
-                    </div>
-
-                </div>
-                <div class="one__ordercard">
-                    <div class="orderImg">
-                        <img src="img/fuji1.jpeg" alt="">
-                    </div>
-                    <div class="orderInfo">
-                        <div class="orderText">
-                            <p>訂單編號:<span>0214589</span></p>
-                            <p>訂單狀態:<span>已下訂</span></p>
-                        </div>
-                        <!-- <span>訂單編號0214589</span> -->
-                        <!-- <span>訂單狀態:已下訂</span> -->
-                        <h4>日本 - 槍岳、表銀座縱走</h4>
-                        <div class="orderText">
-                            <p>人數:<span>5</span>人</p>
-                            <p>天數:<span>7</span>天</p>
-                        </div>
-                        <!-- <p>人數:5人</p> -->
-                        <!-- <p>天數:7天</p> -->
-                        <p class="price">NTD 174,500</p>
-                    </div>
-                    <div class="fourButtons">
-                        <button class="btn btn-1">我要評價</button>
-                        <button class="btn btn-1">再次預定</button>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <button class="btn">查看更多</button>
-
-
-        </section>
 
 
     </div>

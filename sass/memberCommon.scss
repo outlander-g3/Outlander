@@ -1,6 +1,6 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
-@import "mixin/_mixin-memberSystem.scss";
+@import "mixin/_mixin-memberCommon.scss";
 
 *{
     // outline: 1px solid red;
@@ -8,12 +8,23 @@
 body{
     background-color: $color-white;
     color: $color-text;
+    *{
+        font-family: "微軟正黑體";
+    }
     
 }
 .memberBanner{
+    // background-image: url("../img/banner.jpg");
+    // background-position: center; 
+    // background-repeat: no-repeat; 
+    // background-size:cover;
+    // height: 300px;
+
+
     position: relative;
     padding-top: 60px;
-    max-width: 1200px;
+    max-width: 2500px;
+    width: 100%;
     margin: auto;
     img{
     width: 100%;
@@ -41,20 +52,30 @@ body{
 }
 .memberInfo{
     width: 360px;
-    height: 623px;
-    margin-top: 50px;
+    height: 600px;
+    margin-top: 20px;
     box-shadow: $shadow;
-    position:sticky;
-    top: 0px;
+    // position:sticky;
+    // top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    @include rwd(medium){
+        flex-direction: row;
+        margin: auto;
+        height: 290px;
+        width: 600px;
+    }
     
     .row{
+        padding-top: 20px;
         flex-direction: column;
-        @include rwd(medium){
-            flex-direction: row;
-        }
-        @include rwd(mobile){
-            flex-direction: column;
-        }
+        // @include rwd(medium){
+        //     flex-direction: row;
+        // }
+        // @include rwd(mobile){
+        //     flex-direction: column;
+        // }
         div{
             margin: 0 auto;
             text-align: center;
@@ -79,8 +100,28 @@ body{
     #email{
         @include f16;
     }
+    #pointNum{
+        #point{
+            color: $color-btn-sub;
+            @include f40;
+            @include rwd(medium){
+                border-radius: 50%;
+                background-color: $color-btn-sub;
+                color: $color-white;
+            }
+        }
+        span{
+           @include rwd(medium){
+            //    display: none;
+           }
+        }
+    }
     #pointIntro{
         width: 260px;
+        padding-top: 40px;
+        @include rwd(medium){
+            padding-top: 0;
+        }
         h4{
             @include f20b;
             padding-top: 20px;

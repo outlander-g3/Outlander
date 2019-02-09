@@ -30,6 +30,14 @@ body{
     width: 100%;
     height: auto;
     }
+    #showOnlyDesktop{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include rwd(medium){
+            display: none;
+        }
+    }
     h2{
         @include f30b;
         color: $color-main1;
@@ -44,6 +52,16 @@ body{
 }
 .memberWrap{
     position: relative;
+    max-width: 1200px;
+    padding: 40px 20px 0 20px;
+    margin: auto;
+    .rowWithTab{  
+        display: flex;
+        @include rwd(medium){
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }
 .maximunInfoAndContent{
     max-width: 1200px;
@@ -51,8 +69,8 @@ body{
     position: relative;
 }
 .memberInfo{
-    width: 360px;
-    height: 600px;
+    // width: 360px;
+    // height: 600px;
     margin-top: 20px;
     box-shadow: $shadow;
     // position:sticky;
@@ -63,8 +81,8 @@ body{
     @include rwd(medium){
         flex-direction: row;
         margin: auto;
-        height: 290px;
-        width: 600px;
+        // height: 290px;
+        // width: 600px;
     }
     
     .row{
@@ -112,13 +130,13 @@ body{
         }
         span{
            @include rwd(medium){
-            //    display: none;
+               display: none;
            }
         }
     }
     #pointIntro{
         width: 260px;
-        padding-top: 40px;
+        // padding-top: 40px;
         @include rwd(medium){
             padding-top: 0;
         }
@@ -141,7 +159,111 @@ body{
         .pointIntroRow{
             display: flex;
             flex-direction: row;
-
         }
     }
 }  
+.tab.theme-a {
+    text-align: center;
+    position: relative;
+  }
+  
+ul{
+    font-size: 0;
+    width: 40%;
+    display: inline-block;
+    // text-align: left;
+    top: 20px;
+    padding: 0;
+}
+  
+  .tab-component {
+    position: relative;
+    // width: 50%;
+    display: inline-block;
+    section {
+        width: 100%;
+        display: inline-block;
+        text-align: left;
+        position: relative;
+        top: 20px;
+        padding: 30px;
+        box-sizing: border-box;
+        display: none;
+        &:first-of-type {
+            display: inline-block;
+        }
+        h3{
+            @include f20b;
+            color: $color-text;
+            padding-bottom: 10px;
+        }
+        .currentOrders{
+
+        }
+        .historyOrders{
+            padding-top: 70px;
+        }
+        
+
+    }
+  }
+  
+  .tab{
+    li{
+        float: none;
+        list-style: none;
+        display: inline-block;
+        width: 33.33%;
+        text-align: left;
+        text-indent: 15px;
+        @include f14;
+        padding: 0;
+        height: 30px;
+        position: relative;
+    }
+    a{
+        @include f20b;
+        padding: 0;
+        color: #088B9A;
+        // width: 100%;
+        height: 100%;
+        display: inline-block;
+        line-height: 30px;
+        vertical-align: middle;
+        text-decoration: none;
+    }
+  } 
+  .tab-underline {
+    height: 2px;
+    padding-top: 5px;
+    width: 100%;
+    // background-color: #EDEDF0;
+    border-radius: 3px;
+    position: relative;
+    .line {
+        width: 21%;
+        display: inline-block;
+        height: 2px;
+        background-color: #088B9A;
+        position: absolute;
+        left:0;
+        transition: .3s ease-in-out;
+      }
+  }  
+  .tab li.active:first-child ~ .tab-underline .line {
+    left: 9%;
+  }
+  
+  .tab li.active:nth-child(2) ~ .tab-underline .line {
+    left: 42.5%;
+  }
+  
+  .tab li.active:last-of-type ~ .tab-underline .line {
+    left: 75.5%;
+  }
+  
+  
+  
+//   .tab-component section:first-of-type {
+//     display: inline-block;
+//   }

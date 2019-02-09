@@ -6,7 +6,7 @@
 
 
 $mobile: 767px;
-$medium: 991px;
+$medium: 1024px;
 $desktop: 1200px;
 @mixin rwd($breakpoint) {
     @if $breakpoint==mobile   {

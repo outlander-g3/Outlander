@@ -87,9 +87,16 @@ function addItem(itemId,itemValue){
         //刪除時，扣除金額
         cuAmount -= itemPrice;
         storage.removeItem(itemId);
-        
-        // 解到這 會變成億次全部刪掉
-        // storage['addItemList'] -= itemId + ', ';
+        // // 計算購買數量和小計
+        var itemString = storage.getItem('addItemList');
+
+        var items = itemString.substr(0,itemString.length-2).split(', ');
+        for(var j=0;j<=items.length;j++){    
+            if(items[j] == itemId){
+                items.splice(j,1);
+                storage.setItem('addItemList', items);
+            }
+        };
         document.getElementById('cuAmount').innerText = cuAmount;
     })
 	//存入storage
@@ -105,14 +112,11 @@ function addItem(itemId,itemValue){
     // var itemStringa = storage.removeItem('addItemList');
    
     var items = itemString.substr(0,itemString.length-2).split(', ');
-    console.log(itemString);
-    console.log(items);
-	// // items是陣列 
-    // var cuAmount =O('cuAmount');
+   
+    
 	cuAmount = 0;
 	for(var key in items){		//use items[key]
-        var itemInfo = storage.getItem(items[key]);
-        console.log(itemInfo);
+		var itemInfo = storage.getItem(items[key]);
 		var itemPrice = parseInt(itemInfo.split('|')[2]);        
 		cuAmount += itemPrice;
 	}

@@ -537,7 +537,7 @@ i{
     background: url("../img/cu__sceneryItem3.jpg") ;
 
 }
-.cuCustom__dropScenery{
+.cuCustom__dropSceneryNew{
     @include br4;
     // background: url("../img/cu__sceneryItem3.jpg") ;
     background-position: 50% 70%;
@@ -545,7 +545,7 @@ i{
     margin: 10px;
     position: relative;
     color: $color-white;
-
+    cursor: move;
     &::before{
         content: '';
         width: 100%;

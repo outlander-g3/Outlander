@@ -429,6 +429,230 @@ ul{
 
     }
 
+    #tab-c{
+        .eqSelect{
+            // position: relative;
+            // height: 44px;
+            .joForm__input {
+                position: absolute;
+                display: inline-block;
+                width: 300px;
+                text-indent: 10px;
+                min-height: 42px;
+                max-height: 42px;
+                line-height: 42px;
+                overflow: hidden;
+                cursor: pointer;
+                text-align: left;
+                white-space: nowrap;
+                color: #f27f22;
+                outline: none;
+                border-radius: 21px;
+                background-color: #f4f4f4;
+                border: 2px solid #f27f22;
+                transition: 0.3s all ease-in-out; 
+            }
+    
+    
+    
+            .joForm__input input {
+                display: none; 
+            }
+    
+    
+            .joForm__input label {
+                border-top: .06em solid #d9d9d9;
+                display: block;
+                font-style: 16px bold !important;
+                padding-Left: 5px;
+                font-size: 16px;
+                font-weight: bold;
+                font-family: Microsoft JhengHei;
+                cursor: pointer;
+                position: relative;
+                transition: 0.3s color ease-in-out; 
+            }
+    
+    
+            .joForm__input label:nth-child(2) {
+                margin-top: 42px; 
+            }
+    
+    
+            .joForm__input input:checked + label {
+                display: block;
+                border-top: none;
+                position: absolute;
+                top: 0; 
+            }
+    
+    
+            .joForm__input input:checked + label:nth-child(2) {
+                margin-top: 0px;
+                position: relative; 
+            }
+    
+    
+            .joForm__input::after {
+                content: "";
+                position: absolute;
+                right: 10%;
+                top: 1.2em;
+                border: 0.4em solid #484848;
+                border-color: #f27f22 transparent transparent transparent;
+                transition: .4s all ease-in-out; 
+            }
+    
+    
+            .joForm__input.expanded {
+                background-color: #f4f4f4;
+                border: 2px solid #f27f22;
+                border-radius: 21px;
+                padding: 0;
+                max-height: 100%; 
+            }
+    
+    
+            .joForm__input.expanded::after {
+                transform: rotate(-180deg);
+                top: 0.6em; 
+            }
+        }
+        >.row{
+            
+            padding: 20px 0;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            @include mTop(44);
+            @include rwd(mobile){
+                justify-content: center;
+            }
+            .eqList{
+                width: 372px;
+                height: 392px;
+                background-color: $color-main1;
+                color:$color-white;
+                box-sizing: border-box;
+                padding:10px;
+                margin: 10px 0;
+                &:nth-child(even){
+                    // @include mLeft(20);
+                }
+                @media only screen and (max-width: 1024px) {
+                    width: 49%;
+                }
+                @include rwd(mobile){
+                    width: 100%;
+                    padding: 0;
+                }
+                .eqCont{
+                    padding: 10px 20px;
+                    // border:1px solid $color-white;
+                    @media only screen and (max-width: 1024px) {
+                        padding: 10px 0;
+                    }
+                    @include rwd(medium){
+                        padding: 10px;
+                    }
+                    
+                    @include br4();
+                    h3{
+                        color:$color-white;
+                    }
+                    ul{
+                        width: 310px;
+                        // max-height: 272px;
+                        overflow: auto;
+                        ::-webkit-scrollbar { width: 0 ;}
+                    li{
+                        font-size: 0;
+                        background-color: rgba(244,244,244,.2);
+                        // box-sizing: border-box;
+                        width: 310px;
+                        display: flex;
+                        justify-content: space-between;
+                        &:not(:first-child){
+                            @include mTop(4);
+                        }
+                        label{
+                            font-size: 0;
+                            width: 276px;
+                            @include pLeft(10);
+                            span{
+                                @include f16();
+                                display: inline-block;
+                                line-height: 42px;
+                                vertical-align: middle;
+                                max-width: 240px;
+                            }
+                            i{
+                                font-size: 24px;
+                                // display:inline-block;
+                                vertical-align: middle;
+                                float: right;
+                                @include mTop(10);
+                            }
+                            i:nth-child(3){
+                                display: none;
+                            }
+                            
+                            input[type='checkbox']{
+                                position: absolute;
+                                clip:rect(0,0,0,0);
+                            }
+                            input[type='checkbox']:checked + i:nth-child(4){
+                                display: none; 
+                            }
+                            input[type='checkbox']:checked + i:nth-child(3){
+                                display: inline-block;
+                            }
+                        }
+                        // label{
+                        //     i{
+                        //         line-height: 42px;
+                        //     }
+                            
+
+                        // }
+                        >i:last-child{
+                            font-size: 24px;
+                            display: inline-block;
+                            line-height:42px;
+                            vertical-align: middle;
+                            @include mLeft(4);
+                        }
+                    }
+                    }
+                    .eqPlus{
+                        box-sizing: border-box;
+                        position: relative;
+                        @include mTop(4);
+                        input{
+                            
+                            width: 300px;
+                            display: block;
+                            border:none;
+                            border-radius: 0;
+                            background-color: rgba(244,244,244,.8);
+                            height: 42px;
+                            @include f16();
+                        }
+                        i{
+                            position: absolute;
+                            right:14px;
+                            top: 50%;
+                            width: 20px;
+                            color:$color-main2;
+                            font-weight: bolder;
+                            transform: translate(0,-50%);
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
   
   .tab{
     li{

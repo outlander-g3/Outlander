@@ -3,7 +3,7 @@
 @import "mixin/_mixin-memberCommon.scss";
 
 *{
-    outline: 1px solid red;
+    // outline: 1px solid red;
 }
 body{
     position: relative;
@@ -238,6 +238,7 @@ ul{
             .oneOrderCard{
                 box-shadow: $shadow;
                 @include br4;
+                margin-bottom: 30px;
                 @media (max-width:992px) {
                    
                 }
@@ -313,11 +314,48 @@ ul{
                         
                         .duration{
                             display: flex;
-                            align-items: flex-start;
+                            align-items: center;
                             justify-content: space-around; 
                             padding-bottom: 10px;
                             @include rwd(mobile){
                                 display: none;
+                            }
+                            .dateImg{
+                                position: relative;
+                                #startYearMonth{
+                                    @include f16b;
+                                    color: $color-white;
+                                    position: absolute;
+                                    top: 8%;
+                                    left: 10%;
+                                }
+                                #startDay{
+                                    @include f30b;
+                                    font-size: 40px;
+                                    color: $color-main2;
+                                    position: absolute;
+                                    top: 43%;
+                                    left: 20%;
+                                }
+                                #endYearMonth{
+                                    @include f16b;
+                                    color: $color-white;
+                                    position: absolute;
+                                    top: 8%;
+                                    left: 10%;
+                                }
+                                #endDay{
+                                    @include f30b;
+                                    font-size: 40px;
+                                    color: $color-main2;
+                                    position: absolute;
+                                    top: 43%;
+                                    left: 20%;
+                                }
+                            }
+                            .material-icons{
+                                @include f30b;
+                                color: $color-text;
                             }
                         }
                         .fourButtons{  
@@ -357,17 +395,40 @@ ul{
                         }
                     }                 
                 }
+            }   
+        }
+    }
+    .downArrow{
+        a{
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+    }
+        .currentOrders{
+            #currentOrdersArrow{
+                font-size: 50px;
+                color: $color-btn-main;
+                
             }
         }
-
-        
         .historyOrders{
             padding-top: 70px;
+            .btnRate{
+                background-color: $color-btn-main;
+            }
+            .btnSecondOrder{
+                background-color: $color-btn-sub;
+            }
+            #historyOrdersArrow{
+                font-size: 50px;
+                color: $color-btn-main;
+            }
         }
         
 
     }
-  }
+
   
   .tab{
     li{

@@ -54,15 +54,19 @@ body{
     }   
 }
 .memberWrap{
-    position: relative;
+    position: relative; 
+    max-width: 1200px;
+    padding: 40px 20px 0 20px;
+    margin: auto;
     @include rwd(medium){
         position: absolute;
         top: 50%;
     }
+    @include rwd(mobile){
+        top: 60%;
+    }
     
-    max-width: 1200px;
-    padding: 40px 20px 0 20px;
-    margin: auto;
+   
     .rowWithTab{  
         position: relative;
         display: flex;
@@ -239,26 +243,39 @@ ul{
                 }
                 .rowWithOrder{
                     display: flex;
-                    @include rwd(mobile){}
+                    @include rwd(mobile){
+                        flex-wrap: wrap;
+                    }
                     .orderImg{
                         width: 30%;
-                        // img{
-                        //     width: 100%;
-                        // }
+                        @include rwd(mobile){
+                            width: 100%;
+                        }
+                        img{
+                            display: none;
+                            @include rwd(mobile){
+                                display: block;
+                                width: 100%;
+                            }
+                            
+                        }
 
                         background-image: url("../img/himalaya1.jpg");
                         background-position: center; 
                         background-repeat: no-repeat; 
                         background-size:cover;
-                        // height: 300px;
                     }
                     .orderInfo{
+                        max-width: 37%;
                         padding: 10px;
                         color:$color-text;
                         flex: auto;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
+                        @include rwd(mobile){
+                            max-width: 100%;
+                        }
                         .orderText{
                             display: flex;
                             // flex-wrap: wrap;
@@ -270,7 +287,8 @@ ul{
                         }
                         h4{
                             @include f20b;
-                            padding: 5px;     
+                            padding: 5px;  
+                            line-height: 1.5rem;   
                         }
                         p{
                             @include f14;
@@ -286,8 +304,11 @@ ul{
                     }
                     .dateAndButtons{
                         padding: 10px;
-                        @include rwd(medium){
-                            padding: 0;
+                        @include rwd(mobile){
+                            width: 100%;
+                            justify-content: flex-end;
+                            padding: 0 0 10px 0;
+        
                         }
                         
                         .duration{
@@ -295,9 +316,9 @@ ul{
                             align-items: flex-start;
                             justify-content: space-around; 
                             padding-bottom: 10px;
-                            // @include rwd(medium){
-                            //     display: none;
-                            // }
+                            @include rwd(mobile){
+                                display: none;
+                            }
                         }
                         .fourButtons{  
                             display: flex;
@@ -307,7 +328,7 @@ ul{
                                 // width: 100%;
                                 justify-content: flex-end;
                             }
-                            // @include pBottom(10);
+                            @include pTop(10);
                             // justify-content: space-between;
                             .img-buttons{
                                 margin:0 5px;

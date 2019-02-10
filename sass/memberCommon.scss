@@ -3,7 +3,7 @@
 @import "mixin/_mixin-memberCommon.scss";
 
 *{
-    outline: 1px solid red;
+    // outline: 1px solid red;
 }
 body{
     position: relative;
@@ -186,6 +186,9 @@ body{
         .pointIntroRow{
             display: flex;
             flex-direction: row;
+            div{
+                padding: 0 10px 0 10px;
+            }
         }
     }
 } 
@@ -565,6 +568,7 @@ ul{
                         // max-height: 272px;
                         overflow: auto;
                         ::-webkit-scrollbar { width: 0 ;}
+                        // max-height: 300px;
                     li{
                         font-size: 0;
                         background-color: rgba(244,244,244,.2);

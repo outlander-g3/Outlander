@@ -127,7 +127,6 @@ function cuAddSceneryC(){
 function cuWatchScenery(){
     var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
     cuCustomDetailBg.style.display = 'block';
-    console.log(cuCustomDetailBg);
 }
 
 /*768以上 按鈕--查看詳細資訊【加入景點】 */
@@ -168,14 +167,23 @@ function backPickSc(){
 }
 
 
+
+
+
+
+
+
+
+
 /*****  計算價格數量及動態新增刪除到【我的風景路線規劃】  *****/ 
 var storage = sessionStorage;
 
-// alert();
+
 function addItem(itemId,itemValue){	
     //風景列表物件代號
     var cu_IDNum = itemValue.split('|')[3];
     var cu_ID =O(cu_IDNum);
+    console.log(cu_ID);
    
     //新增風景最大容器
     var cuCustom__dropSceneryNew = document.createElement('div');
@@ -237,6 +245,99 @@ function addItem(itemId,itemValue){
     cuCustom__sceneryContent.appendChild(cu_fIconCampground);
     btn_cuIconClear.appendChild(cu_mIconClear);
 
+
+
+
+
+
+
+
+
+
+    // 此串是給【768以上】  拖曳事件   draggable使用  
+    // var cuCustom__dropSceneryD = document.querySelectorAll('.cuCustom__dropSceneryNew');
+    // [].forEach.call(cuCustom__dropSceneryD, addDnDHandlers);
+
+    // var dragSrcEl = null;
+
+    // function handleDragStart(e) {
+    //     // Target (this) element is the source node.
+    //     dragSrcEl = this;
+        
+    //     e.dataTransfer.effectAllowed = 'move';
+    //     e.dataTransfer.setData('text/html', this.outerHTML);
+
+    // }
+    // function handleDragOver(e) {
+    //     if (e.preventDefault) {
+    //         e.preventDefault(); // Necessary. Allows us to drop.
+    //     }
+    //     this.classList.add('cu_over');
+
+    //     e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+    //     return false;
+    // }
+
+    // function handleDragEnter(e) {
+    //     // this / e.target is the current hcu_over target.
+    // }
+
+    // function handleDragLeave(e) {
+    //     this.classList.remove('cu_over');  // this / e.target is previous target element.
+    // }
+
+    // function handleDrop(e) {
+    //     // this/e.target is current target element.
+
+    //     if (e.stopPropagation) {
+    //         e.stopPropagation(); // Stops some browsers from redirecting.
+    //     }
+
+    //     // Don't do anything if dropping the same column we're dragging.
+    //     if (dragSrcEl != this) {
+    //         // Set the source column's HTML to the HTML of the column we dropped on.
+    //         //alert(this.outerHTML);
+    //         //dragSrcEl.innerHTML = this.innerHTML;
+    //         //this.innerHTML = e.dataTransfer.getData('text/html');
+    //         this.parentNode.removeChild(dragSrcEl);
+    //         var dropHTML = e.dataTransfer.getData('text/html');
+    //         this.insertAdjacentHTML('beforebegin',dropHTML);
+    //         var dropElem = this.previousSibling;
+
+    //         // dropElem.childNodes[2].addEventListener('click',changeItemCount);
+    //         addDnDHandlers(dropElem);
+            
+            
+    //     }
+    //             dropElem.childNodes[2].addEventListener('click',function(){
+                    
+    //                 cuCustom__dropMask.removeChild(dropElem);
+    //                 cuCustom__sceneryZoneOF.insertBefore(cu_ID,cuCustom__sceneryZoneOF.childNodes[0]);
+    //                 console.log(cu_ID);
+    //             });
+        
+    //     this.classList.remove('cu_over');
+    //     return false;
+    // }
+
+    // function handleDragEnd(e) {
+    //     // this/e.target is the source node.
+    //     this.classList.remove('over');
+    //     /*[].forEach.call(cols, function (col) {
+    //         col.classList.remove('cu_over');
+    //     });*/
+    // }
+
+    // function addDnDHandlers(elem) {
+    //     elem.addEventListener('dragstart', handleDragStart, false);
+    //     elem.addEventListener('dragenter', handleDragEnter, false)
+    //     elem.addEventListener('dragover', handleDragOver, false);
+    //     elem.addEventListener('dragleave', handleDragLeave, false);
+    //     elem.addEventListener('drop', handleDrop, false);
+    //     elem.addEventListener('dragend', handleDragEnd, false);
+
+    // }
 	//存入storage
 	if(storage[itemId]){
         // alert('You have checked.');
@@ -267,7 +368,7 @@ function addItem(itemId,itemValue){
         storage['addItemList'] = storage['addItemList'].replace(itemId+', ','');
         // storage.setItem('addItemList',storage.getItem('addItemList').replace(itemId+', ',''));
 
-        // 3.再將該筆tr刪除
+        // 3.再將該筆div刪除
         cuCustom__dropMask.removeChild(cuCustom__dropSceneryNew);
         cuCustom__sceneryZoneOF.insertBefore(cu_ID,cuCustom__sceneryZoneOF.childNodes[0]);
     }
@@ -289,9 +390,9 @@ function addItem(itemId,itemValue){
 	// // 計算購買數量和小計
     var itemString = storage.getItem('addItemList');
     // var itemStringa = storage.removeItem('addItemList');
-   
+    
     var items = itemString.substr(0,itemString.length-2).split(', ');
-   
+    
     
 	cuAmount = 0;
 	for(var key in items){		//use items[key]
@@ -303,6 +404,34 @@ function addItem(itemId,itemValue){
 	O('cuQuan').innerText = items.length;
     O('cuAmount').innerText = cuAmount;
 }
+
+
+function cuShowGuide(){
+    var cu__guideItem = document.getElementsByClassName('cu__guideItem');
+    let cuGuide_picL = O('cuGuide_picL');
+    cuGuide_picL.src = this.childNodes[1].src;
+    this.style.border = '1px solid rgba(244, 244, 244, 1)';
+    console.log(this.childNodes[3].value.split('|')[0]);
+    O('cuGuide_name').innerText = this.childNodes[3].value.split('|')[0];
+    O('cuGuide_expertise').innerText  = this.childNodes[3].value.split('|')[1];
+
+   
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -360,7 +489,6 @@ function init(){
 
     var btnCuBack=O('btn_cuBack');
     btnCuBack.addEventListener('click',backPickSc);
-    // alert(123);
 
     if(storage['addItemList'] == null){
 		storage['addItemList'] = '';	 //storage.setItem('addItemList','');
@@ -373,7 +501,15 @@ function init(){
             var cuSceneryInfo = document.querySelector('#'+this.id+' input').value;
             addItem(this.id,cuSceneryInfo);
 		});
-	}
+    }
+    
+
+    // 客製化第二步驟，嚮導點小圖換大圖
+    var cu__guideItem = document.getElementsByClassName('cu__guideItem');
+   
+    for(var l=0;l<cu__guideItem.length;l++){
+        cu__guideItem[l].addEventListener('click',cuShowGuide);
+    }
 }
 
 window.addEventListener("load",init);

@@ -348,6 +348,18 @@ i{
     }
 }
 
+
+.cu_over {
+    // border: 5px solid $color-main1;
+    &::before{
+        content: '';
+        border-top: 3px solid $color-main1;
+        // border-radius: 21px;
+        position: relative;
+        top: -7px;
+    }
+  }
+
 /*風景列表*/ 
 #cuCustom__sceneryTitle{
     @include f16b;
@@ -548,6 +560,7 @@ i{
     cursor: move;
     &::before{
         content: '';
+        @include br4;
         width: 100%;
         height: 100%;
         display: inline-block;
@@ -853,6 +866,8 @@ i{
 
     img {
         @include pTop(20);
+        width: 166px;
+        height: 166px;
     }
     h4{
         @include f16b;
@@ -909,6 +924,8 @@ i{
         bottom: 0;
         left: 0;
         margin: auto;
+        width: 110px;
+        height: 110px;
     }
 
 }

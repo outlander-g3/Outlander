@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/memberCommon.css">
+    <link rel="stylesheet" href="css/member.css">
 </head>
 
 <body>
@@ -814,6 +814,8 @@
     <script src="js/header.js"></script>
 
     <script>
+
+        //tab切換
         jQuery(document).ready(function ($) {
             $(".tab li a").on("click", function (e) {
                 e.preventDefault();
@@ -826,6 +828,7 @@
             });
         });
 
+        //下拉選單
         $('.joForm__input').click(function (e) {
             e.preventDefault();
             e.stopPropagation();
@@ -835,6 +838,8 @@
         $(document).click(function () {
             $('.joForm__input').removeClass('expanded');
         });
+
+        //載入更多訂單的js
         // var len = document.querySelectorAll(".oneOrderCard").length;
         // console.log(len);
         // for(var i = 1;i<len){
@@ -852,6 +857,29 @@
         // }
         // $(".oneOrderCard-1")
 
+        //增加裝備
+        $('.eqPlus input').keyup(function (e) {
+            //判斷按下enter
+            if (e.which == 13) {
+                //找到框框的ul
+                var ul = $(this).closest('.eqCont').children('ul');
+                //找到text的value
+                var val = $(this).val();
+                //每個item模板
+                var newItem = `<li>
+                                    <label for="sleep7">
+                                        <span>${val}</span>
+                                        <input type="checkbox" id="sleep7">
+                                        <i class="material-icons">check_box</i>
+                                        <i class="material-icons">check_box_outline_blank</i>
+                                        <div class="clearfix"></div>
+                                    </label>
+                                    <i class="material-icons delete">delete</i>d
+                                </li>`;
+                //新item插入ul
+                ul.append(newItem);
+            }
+        });
 
     </script>
 

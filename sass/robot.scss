@@ -6,6 +6,27 @@
   padding: 0;
 }
 
+@mixin btn {
+  // height: 42px;
+  border-radius:60px;
+  color:#fff;
+  display:inline-block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 38px; 
+  cursor: pointer;
+  overflow: visible;
+  -webkit-appearance: none;
+  outline: none;
+  box-shadow: $shadow;
+  &:hover{
+      filter: brightness(120%);
+  }
+}
+
+
+
 /*---------------robot視窗控制---------------------------*/
 .rbcircle {
 display: flex;
@@ -109,7 +130,7 @@ font-size: 14px;
 font-weight: 300;
 }
 
-textarea::placeholder {
+input::placeholder {
 color: #CACEDB;
 }
 
@@ -159,6 +180,14 @@ bottom: 100px;
   align-items: center;
 }
 
+.rblogo__box .rblogo{
+  padding-right: 90px;
+}
+
+.rblogo__box .rbarrow{
+  display:none;
+}
+
 .rbhead__box img{
   width: 35px;
   height: 36px;
@@ -172,12 +201,13 @@ h1{
   font-size:14px;
   font-family:Microsoft JhengHei;
   color: #484848;
+  padding-right: 10px;
 }
 
 #rb__message{
   max-width:350px;
   width: 100%;
-  height: 400px;
+  height: 280px;
   background-image:url("../img/message-backimg-1.png");
   background-size: 100%;
   /*opacity:0.3;*/
@@ -194,14 +224,19 @@ height:10%;
 padding:5px;
 background-color: #ffffff;
 border-radius: 50%;
+border-style: solid;
+border-width: 1px 1px 1px 1px;
+border-color: #dddddd;
 }
 
-.rbkeyWord{
+.rbkeyWord-btn{
   max-width:350px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding-bottom: 10px;
+  background-color: #f4f4f4;
 }
 
 // #rb__message .rbimg_box{
@@ -209,13 +244,13 @@ border-radius: 50%;
 // border-radius: 50%;
 // }
 
-#rb__message .rbkeyWord{
+.rbkeyWord-btn{
   display: flex;
 }
 
 
 
-#rb__message .rbkeyWord button{
+.rbkeyWord-btn button{
   margin: 0;
   padding: 0;
   border: 1px;
@@ -227,7 +262,7 @@ border-radius: 50%;
   // background-size: 100%;
 }
 
-#rb__message .rbkeyWord p{
+.rbkeyWord-btn p{
   color: #f4f4f4;
   font-family: Microsoft JhengHei;
   font-size: 14px;
@@ -256,6 +291,7 @@ margin:5px;
 border-color: #dddddd;
 border-style: solid;
 border-width: 1px 1px 1px 1px;
+
 }
 
 .rbinput__text{
@@ -280,7 +316,7 @@ background-color: #f4f4f4;
   background-color: #f4f4f4;
   border: 1px solid #dddddd;
 }
-.rbtext__input textarea{
+.rbtext__input input{
   max-width:330px;
   width: 100%;
   border: none;
@@ -425,9 +461,22 @@ height: 8vh;
   display:inline;
 }
 
+.rblogo__box .rblogo{
+  display:none;
+  // max-width: 6vh;
+}
+
 .rblogo{
   flex-basis:-1;
   flex-grow:0;
+}
+
+.rblogo__box .rbarrow{
+  display:inline;
+  max-width: 6vh;
+  flex-basis:-1;
+  flex-grow:0;
+  padding-right: 70px;
 }
 
 .rbcircle{
@@ -453,7 +502,7 @@ display:none;
 }
 
 .rbhead__box img{
-  max-width:8vh;
+  // max-width:8vh;
   width: 100%;
   height:6vh;
 } 
@@ -469,6 +518,7 @@ display:none;
   font-family:Microsoft JhengHei;
   color: #484848;
   flex-grow: 1;
+  padding-right: 30px;
 } 
 
 .rbtext__show p{
@@ -506,7 +556,7 @@ width: 100%;
 height: 8vh;
 }
 
-.rbtext__input textarea{
+.rbtext__input input{
   max-width: 48vh;
   width: 100%;
 }
@@ -520,5 +570,12 @@ height: 8vh;
 #say{
   font-size: 5vh;
 }
+
+.rbkeyWord-btn{
+  max-width:none;
+  width: 100%;
+}
+
+
 
 }

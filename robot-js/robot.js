@@ -74,7 +74,7 @@ var qaList = [
   
       function answer() { // 回答問題
         setTimeout(function () { // 停頓 1 到 3 秒再回答問題 (因為若回答太快就不像人了，人打字需要時間)
-          append1('<img src="../img/logo.png">'+"<p>"+ getAnswer()+"</p>");
+          append1('<img src="../img/logo-1.png">'+"<p>"+ getAnswer()+"</p>");
         }, 1000+random(2000));
       }
   

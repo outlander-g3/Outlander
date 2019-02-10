@@ -6,6 +6,7 @@
     outline: 1px solid red;
 }
 body{
+    position: relative;
     background-color: $color-white;
     color: $color-text;
     *{
@@ -47,15 +48,23 @@ body{
         left: 5%;
         @include rwd(mobile){
             @include f20b;
+            top: 50%;
         }
+
     }   
 }
 .memberWrap{
     position: relative;
+    @include rwd(medium){
+        position: absolute;
+        top: 50%;
+    }
+    
     max-width: 1200px;
     padding: 40px 20px 0 20px;
     margin: auto;
     .rowWithTab{  
+        position: relative;
         display: flex;
         @include rwd(medium){
             flex-direction: column;
@@ -77,6 +86,7 @@ body{
     // max-width: 1200px;
     margin: auto;
     position: relative;
+    background-color: $color-white;
     box-shadow: $shadow;
     // display: flex;
 }
@@ -90,6 +100,7 @@ body{
     @include rwd(medium){
         flex-direction: row;
         margin: auto;
+        justify-content: center;
         // height: 290px;
         // width: 600px;
     }
@@ -102,12 +113,12 @@ body{
         }
         @include rwd(mobile){
             flex-direction: column;
+            padding: 0;
         }
         div{
             margin: 0 auto;
             text-align: center;
             padding: 10px 0 10px 0;
-        }
     }
     
     .memberPic{
@@ -149,6 +160,9 @@ body{
         @include rwd(medium){
             padding-top: 0;
         }
+        @include rwd(mobile){
+            display:  none;
+        }
         h4{
             @include f20b;
             padding-top: 20px;
@@ -170,7 +184,11 @@ body{
             flex-direction: row;
         }
     }
-}  
+} 
+}
+
+
+
 .tab.theme-a {
     text-align: center;
     position: relative;
@@ -183,11 +201,14 @@ ul{
     // text-align: left;
     top: 20px;
     padding: 0;
+    @include rwd(mobile){
+        width: 100%;
+    }
 }
   
   .tab-component {
     position: relative;
-    // width: 50%;
+    width: 100%;
     display: inline-block;
     section {
         width: 100%;
@@ -209,9 +230,116 @@ ul{
             color: $color-text;
             padding-bottom: 10px;
         }
-        .currentOrders{
+        .allOrdersCard{
+            .oneOrderCard{
+                box-shadow: $shadow;
+                @include br4;
+                @media (max-width:992px) {
+                   
+                }
+                .rowWithOrder{
+                    display: flex;
+                    @include rwd(mobile){}
+                    .orderImg{
+                        width: 30%;
+                        // img{
+                        //     width: 100%;
+                        // }
 
+                        background-image: url("../img/himalaya1.jpg");
+                        background-position: center; 
+                        background-repeat: no-repeat; 
+                        background-size:cover;
+                        // height: 300px;
+                    }
+                    .orderInfo{
+                        padding: 10px;
+                        color:$color-text;
+                        flex: auto;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        .orderText{
+                            display: flex;
+                            // flex-wrap: wrap;
+                            // justify-content:space-around;
+                        }
+                        span{
+                            font-size: 12px;
+                            padding: 0 5px;               
+                        }
+                        h4{
+                            @include f20b;
+                            padding: 5px;     
+                        }
+                        p{
+                            @include f14;
+                            padding: 5px;         
+                            // font-family: "微軟正黑體";   
+                        }
+                        h4+.orderText>p>span{
+                            font-size: 14px;
+                        }
+                        .price{
+                            @include f16b;
+                        }
+                    }
+                    .dateAndButtons{
+                        padding: 10px;
+                        @include rwd(medium){
+                            padding: 0;
+                        }
+                        
+                        .duration{
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: space-around; 
+                            padding-bottom: 10px;
+                            // @include rwd(medium){
+                            //     display: none;
+                            // }
+                        }
+                        .fourButtons{  
+                            display: flex;
+                            align-items: flex-end;
+                            // flex-wrap: wrap;
+                            @include rwd(medium) {
+                                // width: 100%;
+                                justify-content: flex-end;
+                            }
+                            // @include pBottom(10);
+                            // justify-content: space-between;
+                            .img-buttons{
+                                margin:0 5px;
+                                width: 25px;
+                                height: 25px;
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                            button{
+                                @include btn;
+                                margin: 0 5px;
+                                height: 30px;
+                                line-height: 30px; 
+                                width: 80px; 
+                                @include rwd(mobile){
+                                    @include f14;
+                                }
+                            }
+                            .btnDetail{
+                                background-color: $color-btn-main;
+                            }
+                            .btnEquip{
+                                background-color: $color-btn-sub;
+                            }
+                        }
+                    }                 
+                }
+            }
         }
+
+        
         .historyOrders{
             padding-top: 70px;
         }
@@ -263,18 +391,35 @@ ul{
         position: absolute;
         left:0;
         transition: .3s ease-in-out;
+        @media only screen and (max-width:1024px) {
+            width: 28%;
+        }
+        @include rwd(mobile){
+            width: 24%;
+        }
+       
+        
       }
   }  
   .tab li.active:first-child ~ .tab-underline .line {
     left: 9%;
+    @include rwd(medium){
+        left: 0%;   
+    }
   }
   
   .tab li.active:nth-child(2) ~ .tab-underline .line {
     left: 42.5%;
+    @include rwd(medium){
+        left: 33.5%;   
+    }
   }
   
   .tab li.active:last-of-type ~ .tab-underline .line {
-    left: 75.5%;
+    left: 76%;
+    @include rwd(medium){
+        left: 67%;   
+    }
   }
   
   

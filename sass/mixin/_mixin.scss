@@ -71,6 +71,7 @@
 //按鈕的規範
 @mixin btn {
     // height: 42px;
+    border: none;
     border-radius:60px;
     color:#fff;
     display:inline-block;

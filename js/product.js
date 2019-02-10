@@ -1,4 +1,31 @@
 var lastScrollY = 0;
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("product__img");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block"; 
+  dots[slideIndex-1].className += " active";
+}
+
 function scrollToPosition(e){
   var product__submenu = document.getElementById("product__submenu");
   var productLink = document.querySelectorAll(".product__wrap a");
@@ -54,25 +81,54 @@ function scrollToPosition(e){
   }
 }
 
-window.addEventListener("scroll", ()=>{
-  var st = this.scrollY;
+function showMore(){
+  var showMore = document.getElementById("showMore");
+  showMore.style.display = "none";
+  for (var k=0; k<route.length; k++){
+    route[k].style.display = "block";
+  }
+}
+
+var swiper = new Swiper('.product__guideGroup', {
+  spaceBetween: 30,
+  effect: 'slide',
+  loop: true,
+  mousewheel: {
+    invert: false,
+  },
+  // autoHeight: true,
+  pagination: {
+    el: '.product__guide__pagination',
+    clickable: true,
+  }
+});
+
+window.addEventListener("scroll", (e)=>{
   var product__submenu = document.getElementById("product__submenu");
-  if(st < lastScrollY && st > (product__submenu.offsetTop)){
+  if(document.documentElement.scrollTop > 600 || document.body.scrollTop > 600){
     product__submenu.classList.add("fixed");
   }else{
     product__submenu.classList.remove("fixed");
   }
-  lastScrollY = st;
 })
 
-window.addEventListener("load", ()=>{
+window.addEventListener("load", (e)=>{
   var productLink = document.querySelectorAll(".product__wrap a");
   var checkTime = document.getElementsByClassName("checkTime");
+  route = document.getElementsByClassName("route");
+  var showRoute = document.getElementById("showRoute");
+  
   for(var i=0; i<productLink.length; i++){
     productLink[i].addEventListener("click", scrollToPosition);
   }
   for(var j=0; j<checkTime.length; j++){
     checkTime[j].addEventListener("click", scrollToPosition);
   }
-  var product__submenu = document.getElementById("product__submenu");
+  if(document.body.clientWidth < 767){
+    for (var k=0; k<route.length; k++){
+      route[k].style.display = "none";
+    }
+    route[1].style.display = "block";
+    showRoute.addEventListener("click", showMore);
+  }
 })

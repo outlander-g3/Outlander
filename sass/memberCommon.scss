@@ -78,11 +78,12 @@ body{
     width: 100%;
     box-sizing: border-box;
     @include rwd(medium){
-        position: absolute;
-        top: 50%;
+        // position: absolute;
+        top: -71px;
+
     }
     @include rwd(mobile){
-        top: 60%;
+        // top: 60%;
     }
     
    
@@ -246,11 +247,13 @@ ul{
         padding: 30px;
         box-sizing: border-box;
         display: none;
+        margin-bottom: 30px;
         &:first-of-type {
             display: inline-block;
         }
         @include rwd(medium){
-            padding: 30px 0 30px 0;
+            padding: 30px 0 0px 0;
+            margin: unset;
         }
         h3{
             @include f20b;

@@ -83,7 +83,7 @@ i{
 
     }
     @include pad-width(){
-        background: url('../img/bg_sub.svg');
+        background: url('../img/bg_sub2.svg');
 
     }
 }  
@@ -797,7 +797,12 @@ i{
     h3{
         @include f20b;
         color: $color-lifegreen;
-        padding: 20px 0 10px 20px;
+        @include small-pad-width(){
+            padding: 50px 0 10px 20px;
+        }
+        @include pad-width(){
+            padding: 60px 0 10px 150px;
+        }
     }
 }
 .cu__pickGuide{
@@ -895,7 +900,7 @@ i{
 }
 .cu__guideList--mask{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     overflow: auto;
     text-align: center;
@@ -937,6 +942,11 @@ i{
 #btn_cuBack{
     @include pad-width(){
         display: none;
+    }
+}
+#btn_cuBooking{
+    @include pad-width(){
+        @include mBottom(50);
     }
 }
 .cuCtrlBtn{

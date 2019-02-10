@@ -7,132 +7,134 @@
     <title>Outlander - customized</title>
     <link rel="stylesheet" href="css/customized.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/day.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/vue.js"></script>
     <script src="js/enquire.min.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-    <div id="header">
-        <nav id="header-all">
-            <div id="header-left">
-                <div id="logo">
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="logo">
-                    </a>
+    <div id="header-nav">
+        <div id="header">
+            <nav id="header-all">
+                <div id="header-left">
+                    <div id="logo">
+                        <a href="index.html">
+                            <img src="img/logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div id="search">
+                        <input type="text" placeholder="搜索世界">
+                        <i class="material-icons">search</i>
+                    </div>
                 </div>
-                <div id="search">
-                    <input type="text" placeholder="搜索世界">
-                    <i class="material-icons">search</i>
+                <div id="burger">
+                    <div id="burger-all" v-on:click="bur">
+                        <span id="burger-1"></span>
+                        <span id="burger-2"></span>
+                        <span id="burger-3"></span>
+                    </div>
                 </div>
-            </div>
-            <div id="burger">
-                <div id="burger-all" v-on:click="bur">
-                    <span id="burger-1"></span>
-                    <span id="burger-2"></span>
-                    <span id="burger-3"></span>
-                </div>
-            </div>
-            <ul id="burger-text">
-                <span id="burgerText-X" v-on:click="out"></span>
-                <li><a href="#">登山行程</a></li>
-                <li><a href="#">客製行程</a></li>
-                <li><a href="#">登山日誌</a></li>
-                <li><a href="#">登山技巧</a></li>
-                <li v-if="web<768">機器人</li>
-                <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
-                <li v-if="web<768" id="member">會員專區
-                    <ul id="member-child">
-                        <li><a class="member-a" href="#">個人中心</a></li>
-                        <li><a class="member-a" href="#">訂單</a></li>
-                        <li><a class="member-a" href="#">登山日誌</a></li>
-                        <li><a class="member-a" href="#">行前裝備</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="filter">
-                <div id="filterList">
-                    <ul id="filterListLi">
-                        <li class="list" id="asia-list">亞洲</li>
-                        <li class="list">歐洲</li>
-                        <li class="list">非洲</li>
-                        <li class="list">北美洲</li>
-                        <li class="list">南美洲</li>
-                        <li class="list">大洋洲</li>
-                    </ul>
-                    <div id="filterListImg">
-                        <div id="asia-img" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/玉山/1.jpg">
-                                <h3>玉山</h3>
+                <ul id="burger-text">
+                    <li><a href="#">登山行程</a></li>
+                    <li><a href="#">客製行程</a></li>
+                    <li><a href="#">登山日誌</a></li>
+                    <li><a href="#">登山技巧</a></li>
+                    <li v-if="web<768">機器人</li>
+                    <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
+                    <li v-if="web<768" id="member">會員專區
+                        <ul id="member-child">
+                            <li><a class="member-a" href="#">個人中心</a></li>
+                            <li><a class="member-a" href="#">訂單</a></li>
+                            <li><a class="member-a" href="#">登山日誌</a></li>
+                            <li><a class="member-a" href="#">行前裝備</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="filter">
+                    <div id="filterList">
+                        <ul id="filterListLi">
+                            <li class="list" id="asia-list">亞洲</li>
+                            <li class="list">歐洲</li>
+                            <li class="list">非洲</li>
+                            <li class="list">北美洲</li>
+                            <li class="list">南美洲</li>
+                            <li class="list">大洋洲</li>
+                        </ul>
+                        <div id="filterListImg">
+                            <div id="asia-img" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/玉山/1.jpg">
+                                    <h3>玉山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/聖母峰/1.jpg">
+                                    <h3>聖母峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/富士山/1.jpg">
+                                    <h3>富士山</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/聖母峰/1.jpg">
-                                <h3>聖母峰</h3>
+                            <div id="europe" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/1.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/2.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/富士山/1.jpg">
-                                <h3>富士山</h3>
+                            <div id="africa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/1.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/2.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/馬丘比丘/1.jpg">
+                                    <h3>馬丘比丘</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div id="europe" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/1.jpg">
-                                <h3>少女峰</h3>
+                            <div id="na" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/聖克魯斯/1.JPG">
+                                    <h3>聖克魯斯</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/優勝美地/1.jpg">
+                                    <h3>優勝美地</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/2.jpg">
-                                <h3>少女峰</h3>
+                            <div id="sa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/1.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/2.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div id="africa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/1.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/2.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/馬丘比丘/1.jpg">
-                                <h3>馬丘比丘</h3>
-                            </div>
-                        </div>
-                        <div id="na" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/聖克魯斯/1.JPG">
-                                <h3>聖克魯斯</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/優勝美地/1.jpg">
-                                <h3>優勝美地</h3>
-                            </div>
-                        </div>
-                        <div id="sa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/1.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/2.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                        </div>
-                        <div id="oceania" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/1.JPG">
-                                <h3>阿斯帕林山</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/2.jpg">
-                                <h3>阿斯帕林山</h3>
+                            <div id="oceania" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/1.JPG">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/2.jpg">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
 
 
@@ -415,19 +417,47 @@
                                     <p>選擇日期及嚮導</p>
                                 </div>
                             </div>
+                            <ul>
+                                    <li><input id="date" type="text" value="">
+                                        <span id="date-text">
+                                            <label id="date-label">請選擇日期</label>
+                                            <table class="calendar">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="mm" colspan="2"><span id="mm-sp">月份</span> <i id="left-1" class="material-icons">keyboard_arrow_left</i></td>
+                                                        <td class="yy" colspan="2"><span id="yy-sp">年份</span><i id="right-1" class="material-icons">keyboard_arrow_right</i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Sun</th>
+                                                        <th>Mon</th>
+                                                        <th>Tue</th>
+                                                        <th>Wed</th>
+                                                        <th>Thu</th>
+                                                        <th>Fri</th>
+                                                        <th>Sat</th>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody id="calendar-tb">
+                            
+                            
+                                                </tbody>
+                                            </table>
+                            
+                                        </span></li>
+                                </ul>
+                            <!-- <form class="cuSelect">
+                                <span class="cuForm__input cuForm__input--D">
+                                    <input type="radio" name="startType" value="choose" checked="checked" id="start-choose">
+                                    <label for="start-choose">請選擇開始日期</label>
+                                </span>
+                            </form>
                             <form class="cuSelect">
-                                    <span class="cuForm__input cuForm__input--D">
-                                        <input type="radio" name="startType" value="choose" checked="checked" id="start-choose">
-                                        <label for="start-choose">請選擇開始日期</label>
-                                    </span>
-                                </form>
-                                <form class="cuSelect">
-                                        <span class="cuForm__input cuForm__input--D">
-                                            <input type="radio" name="endType" value="choose" checked="checked" id="end-choose">
-                                            <label for="end-choose">請選擇結束日期</label>
-                                        </span>
-                                    </form>               
-        
+                                <span class="cuForm__input cuForm__input--D">
+                                    <input type="radio" name="endType" value="choose" checked="checked" id="end-choose">
+                                    <label for="end-choose">請選擇結束日期</label>
+                                </span>
+                            </form>                -->
+    
                     <h3>選擇嚮導</h3>
                     <div class="cu__pickGuide">
                        
@@ -471,9 +501,15 @@
                     <input type="submit" id="btn_cuBooking" class="cuBtn" value="訂購行程">
                 </div>
             </section>
-        </div>    
+        </div> 
+        
+        
+        <footer id="footer">
+            <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
+        </footer>
     
     <script src="js/customized.js"></script>
+    <script src="js/date.js"></script>
 
 </body>
 </html>

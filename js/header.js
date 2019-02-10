@@ -1,15 +1,23 @@
 window.addEventListener("load", () => {
     var web = window.innerWidth;
     // 漢堡設定
+    var cl =false;
     var burger = new Vue({
         el: "#burger-all",
         methods: {
             bur() {
-                if (web < 768) {
+                if (web < 768 && !cl) {
                     document.querySelector("#burger-text").style.left = "0%";
-                    document.querySelector("#burger-1").style.transform="rotate(45deg)";
+                    document.querySelector("#burger-1").style.cssText="transform:rotate(45deg);transform-origin:left center;top:3px";
                     document.querySelector("#burger-2").style.opacity="0";
-                    document.querySelector("#burger-3").style.transform="rotate(-45deg)";
+                    document.querySelector("#burger-3").style.cssText="transform:rotate(-45deg);transform-origin:left center";
+                    cl=true;
+                }else if(web<768 && cl){
+                    document.querySelector("#burger-text").style.left = "100%";
+                    document.querySelector("#burger-1").style.cssText="transform:rotate(0deg);transform-origin:left center;top:6px";
+                    document.querySelector("#burger-2").style.opacity="1";
+                    document.querySelector("#burger-3").style.cssText="transform:rotate(0deg);transform-origin:left center";
+                    cl=false;
                 }
             }
         }
@@ -19,16 +27,6 @@ window.addEventListener("load", () => {
         data: {
             web: web
         },
-        methods: {
-            out() {
-                if (web < 768) {
-                    document.querySelector("#burger-text").style.left = "100%";
-                    document.querySelector("#burger-1").style.transform="rotate(0deg)";
-                    document.querySelector("#burger-2").style.opacity="1";
-                    document.querySelector("#burger-3").style.transform="rotate(0deg)";
-                }
-            }
-        }
     })
     // 會員專區的子選單
     if (window.innerWidth < 768) {

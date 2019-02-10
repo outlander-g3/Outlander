@@ -22,127 +22,127 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script> -->
 
-
-    <div id="header">
-        <nav id="header-all">
-            <div id="header-left">
-                <div id="logo">
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="logo">
-                    </a>
+    <div id="header-nav">
+        <div id="header">
+            <nav id="header-all">
+                <div id="header-left">
+                    <div id="logo">
+                        <a href="index.html">
+                            <img src="img/logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div id="search">
+                        <input type="text" placeholder="搜索世界">
+                        <i class="material-icons">search</i>
+                    </div>
                 </div>
-                <div id="search">
-                    <input type="text" placeholder="搜索世界">
-                    <i class="material-icons">search</i>
+                <div id="burger">
+                    <div id="burger-all" v-on:click="bur">
+                        <span id="burger-1"></span>
+                        <span id="burger-2"></span>
+                        <span id="burger-3"></span>
+                    </div>
                 </div>
-            </div>
-            <div id="burger">
-                <div id="burger-all" v-on:click="bur">
-                    <span id="burger-1"></span>
-                    <span id="burger-2"></span>
-                    <span id="burger-3"></span>
-                </div>
-            </div>
-            <ul id="burger-text">
-                <span id="burgerText-X" v-on:click="out"></span>
-                <li><a href="#">登山行程</a></li>
-                <li><a href="#">客製行程</a></li>
-                <li><a href="#">登山日誌</a></li>
-                <li><a href="#">登山技巧</a></li>
-                <li v-if="web<768">機器人</li>
-                <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
-                <li v-if="web<768" id="member">會員專區
-                    <ul id="member-child">
-                        <li><a class="member-a" href="#">個人中心</a></li>
-                        <li><a class="member-a" href="#">訂單</a></li>
-                        <li><a class="member-a" href="#">登山日誌</a></li>
-                        <li><a class="member-a" href="#">行前裝備</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="filter">
-                <div id="filterList">
-                    <ul id="filterListLi">
-                        <li class="list" id="asia-list">亞洲</li>
-                        <li class="list">歐洲</li>
-                        <li class="list">非洲</li>
-                        <li class="list">北美洲</li>
-                        <li class="list">南美洲</li>
-                        <li class="list">大洋洲</li>
-                    </ul>
-                    <div id="filterListImg">
-                        <div id="asia-img" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/玉山/1.jpg">
-                                <h3>玉山</h3>
+                <ul id="burger-text">
+                    <li><a href="#">登山行程</a></li>
+                    <li><a href="#">客製行程</a></li>
+                    <li><a href="#">登山日誌</a></li>
+                    <li><a href="#">登山技巧</a></li>
+                    <li v-if="web<768">機器人</li>
+                    <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
+                    <li v-if="web<768" id="member">會員專區
+                        <ul id="member-child">
+                            <li><a class="member-a" href="#">個人中心</a></li>
+                            <li><a class="member-a" href="#">訂單</a></li>
+                            <li><a class="member-a" href="#">登山日誌</a></li>
+                            <li><a class="member-a" href="#">行前裝備</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="filter">
+                    <div id="filterList">
+                        <ul id="filterListLi">
+                            <li class="list" id="asia-list">亞洲</li>
+                            <li class="list">歐洲</li>
+                            <li class="list">非洲</li>
+                            <li class="list">北美洲</li>
+                            <li class="list">南美洲</li>
+                            <li class="list">大洋洲</li>
+                        </ul>
+                        <div id="filterListImg">
+                            <div id="asia-img" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/玉山/1.jpg">
+                                    <h3>玉山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/聖母峰/1.jpg">
+                                    <h3>聖母峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/富士山/1.jpg">
+                                    <h3>富士山</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/聖母峰/1.jpg">
-                                <h3>聖母峰</h3>
+                            <div id="europe" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/1.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/2.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/富士山/1.jpg">
-                                <h3>富士山</h3>
+                            <div id="africa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/1.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/2.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/馬丘比丘/1.jpg">
+                                    <h3>馬丘比丘</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div id="europe" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/1.jpg">
-                                <h3>少女峰</h3>
+                            <div id="na" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/聖克魯斯/1.JPG">
+                                    <h3>聖克魯斯</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/優勝美地/1.jpg">
+                                    <h3>優勝美地</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/2.jpg">
-                                <h3>少女峰</h3>
+                            <div id="sa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/1.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/2.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div id="africa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/1.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/2.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/馬丘比丘/1.jpg">
-                                <h3>馬丘比丘</h3>
-                            </div>
-                        </div>
-                        <div id="na" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/聖克魯斯/1.JPG">
-                                <h3>聖克魯斯</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/優勝美地/1.jpg">
-                                <h3>優勝美地</h3>
-                            </div>
-                        </div>
-                        <div id="sa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/1.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/2.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                        </div>
-                        <div id="oceania" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/1.JPG">
-                                <h3>阿斯帕林山</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/2.jpg">
-                                <h3>阿斯帕林山</h3>
+                            <div id="oceania" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/1.JPG">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/2.jpg">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
 
 
@@ -189,18 +189,15 @@
                             <img src="img/jn_img4.jpg" class="inContent__img">
                             <p>D4 一早到大南山營地，冷、風大、又濕，不停留。弓水山不再上，到頭鷹前拍了有人和沒人景色後，忍不住的也立腳架自拍。最後頭鷹山與他隊合照後輕裝往頭鷹北，但無路跡GPX，自己切，本應下300M再上200M返程相反，但才下100M海拔，一眼被樹枝刺傷不適，只好爬上岩石稜線上自拍撤退照，當晚宿奇峻營地大，晚上和友隊協作小喝閒聊（正好先前行程遇過認識），晚間傷的眼不適狂流淚單眼視力減弱，因而評估原計次日要走的釜碗西峰+釜碗山來回約12-14小時，恐不切當，僅走到中間的西峰，避免視力不良摸黑增加危險。</p>
                         </div>
-                        <input type="submit" id="btn__jnSeeProd" value="查看相關行程">
+
+                        <button id="btn__jnReport">檢舉日誌</button>
                     </section><!-- 文章內容結束-->
 
 
                     <!-- 作者資訊開始 -->
                     <div id="jnContent__info">
                         <div id="jnContent__info--pos">
-                            <div class="jnContent__social">
-                                <button><img src="img/jnIcon_insta.png" alt="instagram"></button>
-                                <button><img src="img/jnIcon_twiter.png" alt="twiter"></button>
-                                <button><img src="img/jnIcon_fb.png" alt="facebook"></button>
-                            </div>
+                          
                             <h2 id="jnContent__title">日本 - 槍岳、表銀座縱走</h2>
                             <div class="jnContent__infoW">
                                 <img src="img/jn_writer.png" id="jnContent__myphoto" alt="作者頭像">
@@ -213,8 +210,9 @@
                                 <h3>行程日期：</h3>
                                 <span id="jnContent__date">2019/01/05 - 2019/01/07</span>
                                 <h3>地點：</h3>
-                                <span id="jnContent__locate">2日本飛驒山脈</span>
-                                <button id="btn__jnReport">檢舉日誌</button>
+                                <span id="jnContent__locate">日本飛驒山脈</span>
+                                <!-- <button id="btn__jnReport">檢舉日誌</button> -->
+                                <input type="submit" id="btn__jnSeeProd" value="查看相關行程">
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -235,29 +233,8 @@
 
     </div>
     <footer id="footer">
-        <img id="footer-img" src="img/foo1.png" alt="footer">
-        <div id="footer-all">
-            <ul>
-                <li>關於我們</li>
-                <li>聯繫我們</li>
-                <li>使用條款</li>
-                <li>尋找分店</li>
-            </ul>
-            <div id="footer-icon">
-                <span><i class="fab fa-facebook-f"></i>Facebook</span>
-                <span><i class="fab fa-instagram"></i>Instagram</span>
-                <span><i class="fab fa-twitter"></i>Twitter</span>
-            </div>
-            <div id="footer-input">
-                <div>
-                    <input type="text">
-                    <button>訂閱</button>
-                </div>
-                <span>COPYRIGHT © 2018 Outlander All rights reserved.</span>
-            </div>
-        </div>
+        <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
     </footer>
-
     <script src="js/header.js"></script>
 
     <script src="js/journal.js"></script>

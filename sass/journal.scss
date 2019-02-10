@@ -131,19 +131,7 @@ i{
         padding: 20px 20px 50px 30px;
     }
 }
-.jnContent__social{
-    text-align: right;
-    button{
-        border: none;
-        padding: 0;
-        img{
-            vertical-align: middle;
-        }
-    }
-    @include small-pad-width(){
-        @include pTop(10);
-    }
-}
+
 
 .jnContent__infoW{
     #jnContent__myphoto{
@@ -181,10 +169,9 @@ i{
     background-color: $color-btn-sub;
     border: none; 
     cursor: pointer;
-    @include small-pad-width(){
-        position: absolute;
-        right: 0;     
-    }
+    margin: auto;
+    display: block;     
+    
 }
 #btn__jnSeeProd{
     @include btn;
@@ -193,7 +180,8 @@ i{
     border: none; 
     cursor: pointer;
     @include small-pad-width(){
-        margin: auto;
+        display: block;
+        margin-top: 10px;
     }
     @include pad-width(){
         position: relative;

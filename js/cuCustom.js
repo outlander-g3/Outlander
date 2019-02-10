@@ -91,7 +91,8 @@ function addItem(itemId,itemValue){
         var itemString = storage.getItem('addItemList');
 
         var items = itemString.substr(0,itemString.length-2).split(', ');
-        for(var j=0;j<=items.length;j++){    
+        for(var j=0;j<=items.length;j++){ 
+            console.log(items[j]);   
             if(items[j] == itemId){
                 items.splice(j,1);
                 storage.setItem('addItemList', items);
@@ -121,7 +122,7 @@ function addItem(itemId,itemValue){
 		cuAmount += itemPrice;
 	}
 
-	// document.getElementById('itemCount').innerText = items.length;
+	document.getElementById('cuQuan').innerText = items.length;
     document.getElementById('cuAmount').innerText = cuAmount;
 }
 window.addEventListener('load', doFirst);

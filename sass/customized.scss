@@ -617,6 +617,9 @@ i{
     @include small-pad-width(){
         @include pLeft(10);
     }
+    @include pad-width(){
+        @include pRight(20);
+    }
 }
 .cuCustom__count2{
     @include pad-width(){

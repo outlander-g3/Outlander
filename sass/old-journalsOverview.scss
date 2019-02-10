@@ -158,6 +158,11 @@ body{
 .row{
     justify-content: space-between;
     flex-wrap: wrap;      
+    width: 100%;
+    @include rwd(medium){
+        // flex-wrap: nowrap;
+    }
+
 }
 .btn-main-l{
     background-color:$color-btn-main;
@@ -197,7 +202,7 @@ body{
     background-position: center; 
     background-repeat: no-repeat; 
     background-size:cover;
-    // padding-top: 100px;
+    padding-bottom: 50px;
     vertical-align: top;
     @include rwd(mobile){
         padding: 20px;
@@ -290,8 +295,65 @@ body{
         margin:auto;
         max-width: 1200px;
         // padding: 50px 0px 50px 0px;
+        .row{
+            ~a{
+                width: 33.333333%;
+                @media (max-width:768px) {
+                    width: 50%;
+                }
+                @include rwd(mobile){
+                    width: 100%;
+                }
+            }
+        }
         a{
             display: block;
+            &:nth-child(1){
+                flex: 2;
+                @media (max-width:768px) {
+                    flex: 1;
+                }
+                +a{   
+                    flex: 1;
+                }
+                @include rwd(mobile){
+                    flex: unset;
+                }
+                .jo__onecard{
+                    width: 100%;
+                    display: flex;
+                    box-sizing: border-box;
+                    .latestJo{
+                        display: flex;
+                        box-shadow: $shadow;
+                        flex-direction: row;
+                        @media (max-width:768px) {
+                            flex-direction: column;
+                            
+                        }
+                        // @include rwd
+                        .jo__allinfo{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            .latestInfo{
+                                // justify-content: flex-start;
+                            }
+                            .icon{
+                                // justify-content: flex-end;
+                                
+                            }
+                        }
+                    }
+                    img{
+                        width: 60%;
+                        @media (max-width:768px) {
+                            width: 100%; 
+                            
+                        }
+                    }
+                }
+            }
             @media only screen and (min-width:1200px) {
 
             }
@@ -303,33 +365,45 @@ body{
                 }
                 .latestJo{
                     display: flex;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    
 
                     img{
-                        height: 440px;
+                        height: 438px;
                         border-radius: 8px 0px 0px 8px;
-                        @include rwd(mobile){
-                            border-radius: 8px 8px 0 0;
-                            height: 20%;
+                        
+                            
+                        @media (max-width:1024px) {
+                            height: 400px; 
+                            
                         }
+                        @media (max-width:768px) {
+                            height: unset; 
+                            
+                        }
+
                     }
                     .jo__allinfo{
                         border-radius: 0px 8px 8px 0px;
-                        @include rwd(mobile){
-                            border-radius: 0 0 8px 8px;
-                        }
+                       
                     }
                     @include rwd(mobile){
                         flex-direction: column;
                     }
 
                 }
-                width: 360px;
+                // width: 360px;
                 padding: 0px 20px 40px 20px;
                 @include rwd(medium){
-                    width: 300px;
+                    width: 50%;
+                }
+                @media only screen and (max-width: 1024px){
+                    width: unset;
                 }
                 @media only screen and (max-width: 768px){
-                    width: 344px;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
                 @include rwd(mobile){
                     width: 100%;
@@ -388,11 +462,13 @@ body{
                         }
                     }
                 }      
-        }        
-     }   
-}   
-
+            }        
+        }   
+    }
 }
+
+
+
 
    
 .joOverMore button{

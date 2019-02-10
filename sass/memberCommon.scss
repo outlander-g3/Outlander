@@ -5,6 +5,23 @@
 *{
     // outline: 1px solid red;
 }
+#header-all{
+    #burger-text{
+        li {
+            a{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+#filterList{
+    #filterListLi{
+        font-size: 1rem;
+    }
+}
+#burger-text{
+    top: unset;
+}
 body{
     position: relative;
     background-color: $color-white;
@@ -58,6 +75,8 @@ body{
     max-width: 1200px;
     padding: 40px 20px 0 20px;
     margin: auto;
+    width: 100%;
+    box-sizing: border-box;
     @include rwd(medium){
         position: absolute;
         top: 50%;
@@ -187,7 +206,7 @@ body{
             display: flex;
             flex-direction: row;
             div{
-                padding: 0px 10px 20px 10px;
+                padding: 0px 5px 20px 5px;
             }
             
         }
@@ -413,6 +432,8 @@ ul{
             #currentOrdersArrow{
                 font-size: 50px;
                 color: $color-btn-main;
+                cursor: pointer;
+                user-select: none;
                 
             }
         }
@@ -531,6 +552,7 @@ ul{
             @include mTop(44);
             @include rwd(mobile){
                 justify-content: center;
+                flex-direction: column;
             }
             .eqList{
                 width: 372px;
@@ -563,18 +585,30 @@ ul{
                     @include br4();
                     h3{
                         color:$color-white;
+                        margin: auto;
+                        width: 300px;
+                        @include rwd(mobile){
+                            width: 100%;
+                        }
                     }
                     ul{
-                        width: 310px;
-                        // max-height: 272px;
+                        width: 300px;
+                        max-height: 272px;
                         overflow: auto;
-                        ::-webkit-scrollbar { width: 0 ;}
+                        display: block;
+                        margin: auto;
+                        @include rwd (mobile){
+                            width: 100%;
+                        }
+                        &::-webkit-scrollbar{
+                            display: none;
+                        }
                         // max-height: 300px;
                     li{
                         font-size: 0;
                         background-color: rgba(244,244,244,.2);
                         // box-sizing: border-box;
-                        width: 310px;
+                        width: 100%;
                         display: flex;
                         justify-content: space-between;
                         &:not(:first-child){
@@ -582,7 +616,7 @@ ul{
                         }
                         label{
                             font-size: 0;
-                            width: 276px;
+                            width: 90%;
                             @include pLeft(10);
                             span{
                                 @include f16();
@@ -596,7 +630,9 @@ ul{
                                 // display:inline-block;
                                 vertical-align: middle;
                                 float: right;
-                                @include mTop(10);
+                                // @include mTop(10);
+                                line-height: 42px;
+
                             }
                             i:nth-child(3){
                                 display: none;
@@ -632,7 +668,11 @@ ul{
                     .eqPlus{
                         box-sizing: border-box;
                         position: relative;
-                        @include mTop(4);
+                        // @include mTop(4);
+                        @include rwd(mobile){
+                            width: 100%;
+                            margin: auto;
+                        }
                         input{
                             
                             width: 300px;
@@ -640,8 +680,13 @@ ul{
                             border:none;
                             border-radius: 0;
                             background-color: rgba(244,244,244,.8);
+                            padding: unset;
                             height: 42px;
+                            margin: 4px auto 0 auto;
                             @include f16();
+                            @include rwd (mobile){
+                                width: 100%;
+                            }
                         }
                         i{
                             position: absolute;
@@ -738,3 +783,10 @@ ul{
 //   .tab-component section:first-of-type {
 //     display: inline-block;
 //   }
+
+
+
+
+// ul::-webkit-scrollbar {
+//     display: none;
+// }

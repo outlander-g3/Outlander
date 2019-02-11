@@ -279,23 +279,28 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     @media screen and (max-width:767px){
         width: 100%;
     }
-    max-width: 320px;
+    // max-width: 320px;
     position: relative;
     flex: 1;
     display: flex;
     margin-right:1%;
+    height:46px;
     // flex-directio n: column;
     // justify-content: space-around;
     li{
         line-height: 50px;
         font-size: 1rem;
         position: relative;
+        @media screen and (max-width:767px){
+            width: 100%;
+        }
+
         #date-text{
             box-sizing: border-box;
             position: absolute;
             display: inline-block;
             width: 320px;//之後把這邊改%數
-            min-height: 42px;
+            min-height: 46px;
             max-height: 42px;
             line-height: 42px;
             overflow: hidden;
@@ -306,6 +311,9 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
             border: 2px solid #f27f22;
             border-radius: 21px;
             transition: 0.3s all ease-in-out;
+            @media screen and (max-width:767px){
+                width: 100%;
+            }
             &::after {
                 content: "";
                 position: absolute;
@@ -317,6 +325,9 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
               }
             input {
                 display: none;
+                @media screen and (max-width:767px){
+                    width: 100%;
+                }
             }
             label {
                 background-color: $color-white;
@@ -328,6 +339,9 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
                 position: relative;
                 transition: 0.3s color ease-in-out;
                 @include f16b;
+                @media screen and (max-width:767px){
+                    width: 100%;
+                }
             }
             label:nth-child(2) {
                 @include mTop(42);
@@ -356,6 +370,9 @@ z-index: 999;
 }
 #date{
 display: none;
+    @media screen and (max-width:767px){
+    width: 100%;
+    }
 }
 
 // 這邊是顯示日曆的SCSS
@@ -413,18 +430,30 @@ display: none;
 #date .joForm__input{
     width:320px;
     flex:1;
+    @media screen and (max-width:767px){
+        width: 100%;
+    }
 }
 #budget .joForm__input{
     width:320px;
     flex:1;
+    @media screen and (max-width:767px){
+        width: 100%;
+    }
 } 
 #cont .joForm__input{
     width:250px;
     flex:1;
+    @media screen and (max-width:767px){
+        width: 100%;
+    }
 }
 #level .joForm__input{
     width:250px;
     flex:1;
+    @media screen and (max-width:767px){
+        width: 100%;
+    }
 }
 
 .joForm__input {
@@ -445,10 +474,16 @@ display: none;
     background-color: #f4f4f4;
     border: 2px solid #f27f22;
     transition: 0.3s all ease-in-out; 
+    @media screen and (max-width:767px){
+        width: 100%;
+    }
 }
 
 .joForm__input input {
     display: none; 
+    @media screen and (max-width:767px){
+        width: 100%;
+    }
 }
 
 
@@ -463,6 +498,9 @@ display: none;
     cursor: pointer;
     position: relative;
     transition: 0.3s color ease-in-out; 
+    @media screen and (max-width:767px){
+        width: 100%;
+    }
  
 }
 

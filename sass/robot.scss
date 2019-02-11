@@ -44,7 +44,10 @@ right: 20px;
 background-image:url(../img/comment-dots.png);
 background-repeat: no-repeat;
 outline: none;
+position: relative;
 }
+
+
 .rbcircle:hover {
 transform: translateY(-3px);
 
@@ -117,6 +120,7 @@ opacity: 0;
 bottom: 80px;
 transition: opacity 200ms ease-out, bottom 200ms ease-out;
 // border-radius: 5px;
+position: fixed;
 }
 
 .rbmodal-input {

@@ -102,7 +102,30 @@ var qaList = [
         return "系統維護中"; // 如果發生任何錯誤，就回答「然後呢？」來混過去。
       }   
   
-  
+      //------視窗消失------//
+      var modal = document.querySelector("#model");
+      var rbcircle = document.querySelector(".rbcircle");
+      var on = false;
+      var body = document.getElementsByTagName("body")[0];
+      rbcircle.addEventListener("click", () => {
+          if (!on) {
+            model.style.cssText = "top: 60px;left: 15%;display:block";
+              on = true;
+          }
+          else if (on) {
+            model.style.display = "none";
+              on = false;
+          }
+      }, true);
+      model.addEventListener("click", () => {
+        model.style.display = "block";
+      }, true);
+      body.addEventListener("click", () => {
+        model.style.display = "none";
+      }, true);
+
+
+
   
   
       const CLASS_CIRCLE = '.rbcircle';

@@ -4,7 +4,6 @@
     outline: 1px solid blue;
 }
 html {
-    font-size: 16px; 
     @media screen and (max-width: 767px) {
       html {
         font-size: 12px; 
@@ -70,10 +69,13 @@ html {
     @media screen and (max-width:767px){
         @include pTop(60);
     }
-    
+}
+#canv{
+    position:absolute;
+    z-index: 2;
 }
 .po-banner{
-    z-index: 1;
+    z-index: 0;
 }
 #headerAll{
     max-width: 2500px;
@@ -96,6 +98,14 @@ html {
             font-size: 1.4rem;
         }
     }
+    a {
+        color: $color-white;
+        border-bottom: 1px $color-white solid;
+        @media screen and (max-width:767px){
+            color:$color-text;
+    
+        }
+    }
     text-align: left;
     position: absolute;
     z-index: 3;
@@ -111,14 +121,7 @@ html {
     width: 100%;
     height: 100%;
 }
-#mode{
-    color: $color-white;
-    border-bottom: 1px $color-white solid;
-    @media screen and (max-width:767px){
-        color:$color-text;
 
-    }
-}
 /////////////////////////三種按鈕
 .po-btn-sub-s--flex{
     display: none;
@@ -132,68 +135,70 @@ html {
     }
 }
 //////////////////三張卡片///
+
 $hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
 $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 .po-wrap-mode{
-    width: 100%;
-    max-width: 1200px;
+    z-index: 999;
     margin: auto;
-    height:800px;
+    position:absolute;
+    top:18%;
+    right:6%;
+    @media screen and (max-width:767px){
+        display: none;
+    }
+
 }
 .container {
-    padding: 40px 80px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
   }
-  
   .card-wrap {
     margin: 10px;
     transform: perspective(800px);
     transform-style: preserve-3d;
     cursor: pointer;
     // background-color: #fff;
-    
+   
     &:hover {
-      .card-info {
-        transform: translateY(0);
+        .card-info {
+          transform: translateY(0);
+        }
+        .card-info p {
+          opacity: 1;
+        }
+        .card-info, .card-info p {
+          transition: 0.6s $hoverEasing;
+        }
+        .card-info:after {
+          transition: 5s $hoverEasing;
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .card-bg {
+          transition: 
+            0.6s $hoverEasing,
+            opacity 5s $hoverEasing;
+          opacity: 0.8;
+        }
+        .card {
+          transition:
+            0.6s $hoverEasing,
+            box-shadow 2s $hoverEasing;
+          box-shadow:
+            rgba(white, 0.2) 0 0 40px 5px,
+            rgba(white, 1) 0 0 0 1px,
+            rgba(black, 0.66) 0 30px 60px 0,
+            inset #333 0 0 0 5px,
+            inset white 0 0 0 6px;
+        }
       }
-      .card-info p {
-        opacity: 1;
-      }
-      .card-info, .card-info p {
-        transition: 0.6s $hoverEasing;
-      }
-      .card-info:after {
-        transition: 5s $hoverEasing;
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .card-bg {
-        transition: 
-          0.6s $hoverEasing,
-          opacity 5s $hoverEasing;
-        opacity: 0.8;
-      }
-      .card {
-        transition:
-          0.6s $hoverEasing,
-          box-shadow 2s $hoverEasing;
-        box-shadow:
-          rgba(white, 0.2) 0 0 40px 5px,
-          rgba(white, 1) 0 0 0 1px,
-          rgba(black, 0.66) 0 30px 60px 0,
-          inset #333 0 0 0 5px,
-          inset white 0 0 0 6px;
-      }
-    }
   }
-  
   .card {
     position: relative;
     flex: 0 0 240px;
-    width: 240px;
-    height: 320px;
+    width: 20vh;
+    height: 28vh;
     background-color: #333;
     overflow: hidden;
     border-radius: 10px;
@@ -203,7 +208,6 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
       inset rgba(white, 0.5) 0 0 0 6px;
     transition: 1s $returnEasing;
   }
-  
   .card-bg {
     opacity: 0.5;
     position: absolute;
@@ -219,19 +223,21 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
       opacity 5s 1s $returnEasing;
     pointer-events: none;
   }
-  
   .card-info {
     padding: 20px;
     position: absolute;
-    bottom: 0;
+    left:25%;
+    bottom: 4%;
     color: #fff;
     transform: translateY(40%);
     transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-    
     p {
       opacity: 0;
       text-shadow: rgba(black, 1) 0 2px 3px;
       transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    h2{
+        font-size: 1.2rem;
     }
     
     * {
@@ -253,13 +259,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
       transition: 5s 1s $returnEasing;
     }
   }
-  
-  .card-info h1 {
-    font-family: "Playfair Display";
-    font-size: 36px;
-    font-weight: 700;
-    text-shadow: rgba(black, 0.5) 0 10px 10px;
-  }
+
 
 //////////////////////////////下拉選單////
 .po-wrap-filter{
@@ -274,7 +274,6 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     // justify-content: space-between;
 }
 
-
 //////////////日曆///////
 .datecont{
     @media screen and (max-width:767px){
@@ -284,6 +283,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     position: relative;
     flex: 1;
     display: flex;
+    margin-right:1%;
     // flex-directio n: column;
     // justify-content: space-around;
     li{
@@ -291,6 +291,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
         font-size: 1rem;
         position: relative;
         #date-text{
+            box-sizing: border-box;
             position: absolute;
             display: inline-block;
             width: 320px;//之後把這邊改%數
@@ -403,11 +404,12 @@ display: none;
 }
 //////以上為月曆//////
 .drop-flex form{
+    position: relative;
+    margin-right:1%;
     @media screen and (max-width:767px){
         width: 100%;
     }
 }
-
 #date .joForm__input{
     width:320px;
     flex:1;
@@ -495,6 +497,7 @@ display: none;
     border-radius: 21px;
     padding: 0;
     max-height: 100%; 
+ 
 }
 .joForm__input.expanded::after {
     transform: rotate(-180deg);
@@ -535,8 +538,11 @@ display: none;
     z-index: 3;
     @include pTop(50);
 }
+.pro-product-wrap h3,h5{
+    text-align: center
+}
 .pro-product-wrap-topic{
-    @include pBottom(200);
+    @include pBottom(100);
 }
 .pro-product-wrap-pic{
     background-image: url(img/bm.png);
@@ -677,6 +683,25 @@ display: none;
     }
 }
 
+////////山背景////////
+.mt-wrap{
+    width: 100%;
+    height: 100vh;
+    background-image:url(../img/bm.png) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: absolute;
+    @media screen and (min-width:992px){
+        top: 150%;
+    }
+    @media screen and (max-width:991px) and (min-width:768px){
+        top: 130%;
+    }
+    @media screen and (max-width:767px){
+        top: 215%;
+    }
+}
 // @media screen and (min-width:992px){
 // //桌機
 // }

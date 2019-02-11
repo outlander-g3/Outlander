@@ -124,16 +124,16 @@ position: fixed;
 z-index:1002;
 }
 
-.rbmodal-input {
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-padding: 15px;
-border: none;
-border-top: 1px solid #E6E7F0;
-font-size: 14px;
-font-weight: 300;
-}
+// .rbmodal-input {
+// display: flex;
+// flex-direction: column;
+// justify-content: flex-end;
+// padding: 15px;
+// border: none;
+// border-top: 1px solid #E6E7F0;
+// font-size: 14px;
+// font-weight: 300;
+// }
 
 input::placeholder {
 color: #CACEDB;
@@ -162,6 +162,7 @@ bottom: 100px;
   width: 100%;
   // width: 100%;
   height: 45px;
+  z-index:1003;
   
 }
 
@@ -183,6 +184,7 @@ bottom: 100px;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding-top: 5px;
 }
 
 .rblogo__box .rblogo{
@@ -206,7 +208,7 @@ h1{
   font-size:14px;
   font-family:Microsoft JhengHei;
   color: #484848;
-  padding-right: 10px;
+  padding-right: 30px;
 }
 
 #rb__message{
@@ -220,6 +222,7 @@ h1{
   overflow:auto;
   font-family:Microsoft JhengHei;
   color: #484848; 
+  z-index:1004;
 }
 
 #rb__message img{
@@ -242,6 +245,7 @@ border-color: #dddddd;
   justify-content: space-around;
   padding-bottom: 10px;
   background-color: #f4f4f4;
+  z-index:1005;
 }
 
 // #rb__message .rbimg_box{
@@ -249,9 +253,6 @@ border-color: #dddddd;
 // border-radius: 50%;
 // }
 
-.rbkeyWord-btn{
-  display: flex;
-}
 
 
 
@@ -304,6 +305,7 @@ border-width: 1px 1px 1px 1px;
   display:inline-block;
   max-width:350px;
   width: 100%;
+  z-index:1006;
 }
 
 #say{

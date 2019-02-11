@@ -146,28 +146,19 @@ window.addEventListener("load", () => {
             arr[k]=ss;
         }
     }
-var click = 0;
-var cl=false;
     function tdclass(e) {
-        if(!click){
             for(var i = 0 ; i<=len.length-1 ; i++){
-                arr[i].style.background="#5db7c5";
+                arr[i].style.background="#F4F4F4";
             }
-            e.target.style.background="red";
-            click++;
-            cl =arr.indexOf(e.target); 
-        }else{
-            if(cl<arr.indexOf(e.target)){
-                for (var l = cl;l<arr.indexOf(e.target)+1;l++){
-                    arr[l].style.background="red";
-                }
-            }else{
-                for (var l = cl;l>arr.indexOf(e.target)-1;l--){
-                    arr[l].style.background="red";
-                }
-            }
-                click=false;
-        }
+            e.target.style.background="#F99D19";
+            var value = document.querySelector("#mm-sp").innerText;
+            var mmtext = Number(arrmm.indexOf(value));//月
+            mmtext += 1;
+            var datevalue = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
+    
+            document.querySelector("#date-label").innerHTML = datevalue;
+            $('#date-text').removeClass('expanded');
+            document.querySelector("#date").value = datevalue;
     }
     load();
 })

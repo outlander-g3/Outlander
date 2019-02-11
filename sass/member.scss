@@ -1,6 +1,7 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-member.scss";
+@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
 *{
     // outline: 1px solid red;
@@ -782,7 +783,14 @@ ul{
     }
   }
   
+
   
+//跳窗
+#jpWin-delete{
+    p{
+        text-align: center;
+    }
+}
   
 //   .tab-component section:first-of-type {
 //     display: inline-block;

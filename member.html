@@ -245,7 +245,7 @@
                                                 </div>
                                             </div>
                                             <div class="fourButtons">
-                                                <a href="">
+                                                <a href="" class="btn-orderDelete">
                                                     <div class="img-buttons">
                                                         <img src="img/baseline-delete-24px.svg">
                                                     </div>
@@ -809,6 +809,34 @@
 
 
 
+
+    <!-- 跳窗html -->
+    <!-- 灰底 -->
+    <div class="jpBase deleteOrder">
+        <!-- 跳窗 -->
+        <div class="jpWin" id="jpWin-delete">
+            <!-- 標題 -->
+            <div class="jpTitle">
+                刪除訂單
+            </div>
+
+            <!-- 內容 -->
+            <div class="jpCont">
+                <p>
+                    您確定要刪除該筆訂單?
+                </p>
+            </div>
+
+            <!-- 按鈕 -->
+            <div class="jpBtn">
+                <div class="row">
+                    <a href="" class="btn-jump-left">取消</a>
+                    <a href="" class="btn-jump-right">確定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="js/vue.min.js"></script>
     <script src="js/header.js"></script>
@@ -828,6 +856,42 @@
             });
         });
 
+
+        // 跳窗 winJump_if
+        //給有條件的情況下使用 例如購物車要先勾選同意 
+        window.addEventListener("load", () => {
+            function winJump_if(btn, win) {
+                var winJump = document.querySelector(win);
+                winJump.style.display = 'block';
+            }
+            //無條件的狀況使用winJump
+            function winJump(btn, win, jpw) {
+                var btns = document.querySelectorAll(btn);
+                var winJump = document.querySelector(win);
+                var jpWin = document.querySelector(jpw);
+                winJump.style.height = document.body.offsetHeight;
+                for (let i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener('click', function (e) {
+                        e.preventDefault();
+                        winJump.style.display = 'block';
+                    }, true);
+                }
+                jpWin.addEventListener("click", () => {
+                    winJump.style.display = 'block';
+                }, true)
+                winJump.addEventListener("click", (e) => {
+                    winJump.style.display = 'none';
+                }, true)
+            }
+            winJump('.btn-orderDelete', '.deleteOrder', '#jpWin-delete');
+            winJump('.btn-qrCode', '.qrCode', '#jpWin-1');
+            winJump('.btn-orderDetails', '.orderDetails', '#jpWin-details');
+            winJump('.btn-rate', '.rate', '#jpWin-rate');
+        })
+        //跳窗使用：我要按下 .btn-ex ， .ctPaid要跳出來
+        // 就直接在我的js寫：
+
+
         //下拉選單
         $('.joForm__input').click(function (e) {
             e.preventDefault();
@@ -838,6 +902,8 @@
         $(document).click(function () {
             $('.joForm__input').removeClass('expanded');
         });
+
+
 
         //載入更多訂單的js
         // var len = document.querySelectorAll(".oneOrderCard").length;

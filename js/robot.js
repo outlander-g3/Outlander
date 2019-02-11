@@ -35,7 +35,7 @@ var qaList = [
       
          // 先將使用者輸入的問句放到「對話區」顯示。
         input.value="";
-         document.getElementById("say").value="";//輸出後欄位空白,但導致對話判斷失效。
+        //  document.getElementById("say").value="";//輸出後欄位空白,但導致對話判斷失效。
         answer(); // 然後回答使用者的問題。
       }
       
@@ -106,7 +106,9 @@ var qaList = [
         return "系統維護中"; // 如果發生任何錯誤，就回答「然後呢？」來混過去。
       }   
   
-      //------視窗消失------//
+
+
+      //------視窗點擊消失------//
       var modal = document.querySelector("#model");
       var rbcircle = document.querySelector(".rbcircle");
       var on = false;

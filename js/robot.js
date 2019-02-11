@@ -109,7 +109,7 @@ var qaList = [
       var body = document.getElementsByTagName("body")[0];
       rbcircle.addEventListener("click", () => {
           if (!on) {
-            model.style.cssText = "top: 60px;left: 15%;display:block";
+            model.style.cssText = "bottom:120px;display:block";
               on = true;
           }
           else if (on) {
@@ -154,7 +154,7 @@ var qaList = [
       elementCircle.addEventListener('click', () => triggerAnimation());
   
   
-      document.querySelector("#out").addEventListener("click",()=>{
+      document.querySelector("#rbout").addEventListener("click",()=>{
          elementIcon.classList.remove(CLASS_ICON_ACTIVE),
           elementModal.classList.remove(CLASS_MODAL_ACTIVE);
       })

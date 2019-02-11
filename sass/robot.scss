@@ -44,6 +44,7 @@ right: 20px;
 background-image:url(../img/comment-dots.png);
 background-repeat: no-repeat;
 outline: none;
+z-index:1001;
 }
 
 
@@ -120,6 +121,7 @@ bottom: 80px;
 transition: opacity 200ms ease-out, bottom 200ms ease-out;
 // border-radius: 5px;
 position: fixed;
+z-index:1002;
 }
 
 .rbmodal-input {

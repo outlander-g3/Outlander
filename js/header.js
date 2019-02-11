@@ -1,34 +1,32 @@
 window.addEventListener("load", () => {
     var web = window.innerWidth;
     // 漢堡設定
+    var cl =false;
     var burger = new Vue({
-        el: "#burger",
+        el: "#burger-all",
         methods: {
             bur() {
-                if (web < 768) {
-                    document.querySelector("#burgerText").style.left = "0%";
-                    document.querySelector("#burSpan1").classList.add("animation1");
-                    document.querySelector("#burSpan2").classList.add("animation2");
-                    document.querySelector("#burSpan3").classList.add("animation1");
+                if (web < 768 && !cl) {
+                    document.querySelector("#burger-text").style.left = "0%";
+                    document.querySelector("#burger-1").style.cssText="transform:rotate(45deg);transform-origin:left center;top:3px";
+                    document.querySelector("#burger-2").style.opacity="0";
+                    document.querySelector("#burger-3").style.cssText="transform:rotate(-45deg);transform-origin:left center";
+                    cl=true;
+                }else if(web<768 && cl){
+                    document.querySelector("#burger-text").style.left = "100%";
+                    document.querySelector("#burger-1").style.cssText="transform:rotate(0deg);transform-origin:left center;top:6px";
+                    document.querySelector("#burger-2").style.opacity="1";
+                    document.querySelector("#burger-3").style.cssText="transform:rotate(0deg);transform-origin:left center";
+                    cl=false;
                 }
             }
         }
     })
     var burgerText = new Vue({
-        el: "#burgerText",
+        el: "#burger-text",
         data: {
             web: web
         },
-        methods: {
-            out() {
-                if (web < 768) {
-                    document.querySelector("#burgerText").style.left = "100%";
-                    document.querySelector("#burSpan1").classList.remove("animation1");
-                    document.querySelector("#burSpan2").classList.remove("animation2");
-                    document.querySelector("#burSpan3").classList.remove("animation1");
-                }
-            }
-        }
     })
     // 會員專區的子選單
     if (window.innerWidth < 768) {
@@ -52,32 +50,14 @@ window.addEventListener("load", () => {
         })
     }
 
-    // nav的卷軸事件
-    var scr = window.scrollY;
-    var headerdAll = document.querySelector("#headerAll");
-    var burgerText = document.querySelector("#burgerText");
-    if (web > 768) {
-        window.addEventListener("scroll", () => {
-            if (scr < window.scrollY) {
-                headerdAll.style.top = "-60px";
-                burgerText.style.top = "-60px";
-            }
-            else if (scr > window.scrollY) {
-                headerdAll.style.top = "0px";
-                burgerText.style.top = "0px";
-            }
-            scr = window.scrollY;
-        })
-    }
-
-    // 搜尋的點擊事件
+//出現篩選
     var filter = document.querySelector(".filter");
     var search = document.querySelector("#search");
     var on = false;
     var body = document.getElementsByTagName("body")[0];
     search.addEventListener("click", () => {
         if (!on) {
-            filter.style.cssText = "top: 6%;left: 15%;display:block";
+            filter.style.cssText = "top: 60px;left: 15%;display:block";
             on = true;
         }
         else if (on) {
@@ -91,4 +71,35 @@ window.addEventListener("load", () => {
     body.addEventListener("click", () => {
         filter.style.display = "none";
     }, true);
-});
+
+
+
+//點擊切換圖片
+    $("#filterListLi li").click((e)=>{
+        $("#filterListLi li").css("color","#484848");
+        e.target.style.color="#088B9A";
+        var list = document.getElementsByClassName("list");
+        for(let i = 0 ; i<list.length;i++){
+            if(e.target == list[i]){
+                var index = i;
+            }
+        }
+            $(".in").hide();
+            if(web>768){
+                $(".in").eq(index).css("display","flex");
+            }else{
+                $(".in").eq(index).css("display","block");
+            }
+    })
+
+
+
+
+    // document.querySelector("#up").addEventListener("click", () => {
+    //     window.scrollTo({
+    //         top: 0,
+    //         behavior: "smooth"
+    //     });
+    // })
+
+})

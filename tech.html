@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="css/tech.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="js/vue.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/header.js"></script>
 
 </head>
@@ -16,38 +17,127 @@
 		<!-- Grab Google CDN's jQuery. fall back to local if necessary --> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
 
-        <nav id="headerAll">
-                <div class="header">
-                    <ul id="logo">
-                        <li><a href="index.html"><img src="img/logo.png" alt="logo"></a></li>
-                        <div id="searchAll">
-                            <input type="text" id="search">
-                            <i class="material-icons">search</i>
-                        </div>
-                    </ul>
-                    <div id="burger" v-on:click="bur">
-                        <span class="burger-1" id="burSpan1"></span>
-                        <span class="burger-2" id="burSpan2"></span>
-                        <span class="burger-3" id="burSpan3"></span>
-                    </div>
-                    <ul id="burgerText">
-                        <span id="burgerText-X" v-on:click="out"></span>
-                        <li><a href="#">登山行程</a></li>
-                        <li><a href="#">客製行程</a></li>
-                        <li><a href="#">登山日誌</a></li>
-                        <li><a href="#">登山技巧</a></li>
-                        <li v-if="web<768"><a href="#">機器人</a></li>
-                        <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
-                        <li v-if="web<768" id="member">會員專區
-                            <ul id="member-child">
-                                <li><a class="member-a" href="#">個人中心</a></li>
-                                <li><a class="member-a" href="#">訂單</a></li>
-                                <li><a class="member-a" href="#">登山日誌</a></li>
-                                <li><a class="member-a" href="#">行前裝備</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+		<div id="header-nav">
+			<div id="header">
+				<nav id="header-all">
+					<div id="header-left">
+						<div id="logo">
+							<a href="index.html">
+								<img src="img/logo.png" alt="logo">
+							</a>
+						</div>
+						<div id="search">
+							<input type="text" placeholder="搜索世界">
+							<i class="material-icons">search</i>
+						</div>
+					</div>
+					<div id="burger">
+						<div id="burger-all" v-on:click="bur">
+							<span id="burger-1"></span>
+							<span id="burger-2"></span>
+							<span id="burger-3"></span>
+						</div>
+					</div>
+					<ul id="burger-text">
+						<li><a href="productsOverview.html">登山行程</a></li>
+						<li><a href="customized.html">客製行程</a></li>
+						<li><a href="journalsOverview.html">登山日誌</a></li>
+						<li><a href="tech.html">登山技巧</a></li>
+						<li v-if="web<768">機器人</li>
+						<li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
+						<li v-if="web<768" id="member">會員專區
+							<ul id="member-child">
+								<li><a class="member-a" href="member.html">訂單</a></li>
+								<li><a class="member-a" href="member.html">登山日誌</a></li>
+								<li><a class="member-a" href="member.html">行前裝備</a></li>
+							</ul>
+						</li>
+					</ul>
+					<div class="filter">
+						<div id="filterList">
+							<ul id="filterListLi">
+								<li class="list" id="asia-list">亞洲</li>
+								<li class="list">歐洲</li>
+								<li class="list">非洲</li>
+								<li class="list">北美洲</li>
+								<li class="list">南美洲</li>
+								<li class="list">大洋洲</li>
+							</ul>
+							<div id="filterListImg">
+								<div id="asia-img" class="in">
+									<div class="filterListImg-img">
+										<img src="img/玉山/1.jpg">
+										<h3>玉山</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/聖母峰/1.jpg">
+										<h3>聖母峰</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/富士山/1.jpg">
+										<h3>富士山</h3>
+									</div>
+								</div>
+								<div id="europe" class="in">
+									<div class="filterListImg-img">
+										<img src="img/少女峰/1.jpg">
+										<h3>少女峰</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/少女峰/2.jpg">
+										<h3>少女峰</h3>
+									</div>
+								</div>
+								<div id="africa" class="in">
+									<div class="filterListImg-img">
+										<img src="img/吉利馬札羅/1.jpg">
+										<h3>吉利馬札羅</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/吉利馬札羅/2.jpg">
+										<h3>吉利馬札羅</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/馬丘比丘/1.jpg">
+										<h3>馬丘比丘</h3>
+									</div>
+								</div>
+								<div id="na" class="in">
+									<div class="filterListImg-img">
+										<img src="img/聖克魯斯/1.JPG">
+										<h3>聖克魯斯</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/優勝美地/1.jpg">
+										<h3>優勝美地</h3>
+									</div>
+								</div>
+								<div id="sa" class="in">
+									<div class="filterListImg-img">
+										<img src="img/百內國家公園/1.jpg">
+										<h3>百內國家公園</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/百內國家公園/2.jpg">
+										<h3>百內國家公園</h3>
+									</div>
+								</div>
+								<div id="oceania" class="in">
+									<div class="filterListImg-img">
+										<img src="img/阿斯帕林/1.JPG">
+										<h3>阿斯帕林山</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/阿斯帕林/2.jpg">
+										<h3>阿斯帕林山</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
 
         <div id="wrapper">	
            
@@ -134,57 +224,35 @@
 			
 			<!-- Parallax foreground -->
 			<div id="parallax-bg3">
-				<img id="bg3-1" src="img/01-2.png" alt="grass"/>
-				<img id="bg3-2" src="img/03-2.png" alt="niddle"/>
-				<img id="bg3-3" src="img/04-2.png" alt="tropical"/>
-				<img id="bg3-4" src="img/05-2.png" alt="song"/>
+				<img id="bg3-1" src="img/333.png" alt="grass"/>
+				<img id="bg3-2" src="img/444.png" alt="niddle"/>
+				<img id="bg3-3" src="img/555.png" alt="tropical"/>
+				<!-- <img id="bg3-4" src="img/05-2.png" alt="song"/> -->
 			</div>
 			
 			<!-- Parallax  midground clouds -->
 			<div id="parallax-bg2">
-				<img id="bg2-1" src="img/c-1-w.png" alt="cloud"/>
+				<img id="bg2-1" src="img/cloud-1.png" alt="cloud"/>
 				<!-- <img id="bg2-2" src="http://jonathannicol.com/projects/parallax-scrolling/img/cloud-lg1.png" alt="cloud"/> -->
-				<img id="bg2-3" src="img/c-2-ww.png" alt="cloud"/>
-				<img id="bg2-4" src="img/c-5-w.png" alt="cloud"/>
+				<img id="bg2-3" src="img/cloud-2.png" alt="cloud"/>
+				<img id="bg2-4" src="img/cloud-4.png" alt="cloud"/>
 				<!-- <img id="bg2-5" src="img/c-4-w.png"" alt="cloud"/> -->
 			</div>
 			
 			<!-- Parallax  background clouds -->
 			<div id="parallax-bg1">
 				<!-- <img id="bg1-1" src="img/01-cloud.png"alt="cloud"/> -->
-				<img id="bg1-2" src="img/c-2-ww.png" alt="cloud"/>
+				<img id="bg1-2" src="img/cloud-3.png" alt="cloud"/>
 				<!-- <img id="bg1-3" src="img/c-4-w.png" alt="cloud" width="1200px" /> -->
-				<img id="bg1-4" src="img/c-5-w.png" alt="cloud"/>
+				<!-- <img id="bg1-4" src="img/c-5-w.png" alt="cloud"/> -->
 			</div>
 		
 		</div>
 <!-- footer----------------->
-<footer id="footer">
-	<img id="footer-img" src="img/foo1.png" alt="footer">
-	<div id="footer-all">
-		<ul>
-			<li>關於我們</li>
-			<li>聯繫我們</li>
-			<li>使用條款</li>
-			<li>尋找分店</li>
-		</ul>
-		<div id="footer-icon">
-			<span><i class="fab fa-facebook-f"></i>Facebook</span>
-			<span><i class="fab fa-instagram"></i>Instagram</span>
-			<span><i class="fab fa-twitter"></i>Twitter</span>
-		</div>
-		<div id="footer-input">
-			<div>
-				<input type="text">
-				<button>訂閱</button>
-			</div>
-			<span>COPYRIGHT © 2018 Outlander All rights reserved.</span>
-		</div>
-	</div>
-</footer>
-		
 
-		
+<footer id="footer">
+    <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
+</footer>
 </body>
 <script>
 	$(document).ready(function() {

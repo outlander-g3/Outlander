@@ -1,7 +1,7 @@
 @import "mixin/_mixin.scss";
 @import "base/_var.scss";
-@import "base/_header";
-@import "base/_footer";
+
+// @import "base/_footer";
 ol, ul {
     list-style: none; 
 }
@@ -53,7 +53,7 @@ body{
         font-size:1.4rem;
         line-height:1.6;
         color:#5a5a5a;
-        color: $color-text;
+        // color: $color-text;
         font-family: "微軟正黑體";
     }
     
@@ -63,13 +63,13 @@ body{
     clear:both;
 }
 body{
-	background-color:#ebdd9e;
-	height: 5800px;
+	background-color: $color-white;
+	height: 3500px;
 }
 #wrapper {
 	position: relative;
 	width:1200px;
-	height:5600px;
+	height:3500px;
 }
 // #branding {
 // 	width: 100%;
@@ -150,7 +150,7 @@ body{
 			}
 		}
 		
-/* foreground (ballons/landscape) */
+/* foreground  */
 #parallax-bg3 {
 	z-index: 3;
 	position: fixed;
@@ -204,7 +204,7 @@ body{
 	#bg2-1 {
 		position: absolute;
 		top: 162px;
-		left: 200px;
+		left:-500px;
 		}
 	#bg2-2 {
 		position: absolute;
@@ -213,8 +213,8 @@ body{
 		}
 	#bg2-3 {
 		position: absolute;
-		top: 543px;
-		left: -35px;
+		top: 600px;
+		left:200px;
 		}
 	#bg2-4 {
 		position: absolute;
@@ -255,3 +255,14 @@ body{
 		top: 1020px;
 		left: 450px;
 		}
+#footer{
+			width: 100%;
+			background: $color-header;
+			p{
+				line-height: 88px;
+				padding:0 10px;
+				font-size: 0.6rem;
+				text-align: center;
+				color: #f4f4f4;
+			}
+}

@@ -246,6 +246,8 @@ border-color: #dddddd;
   padding-bottom: 10px;
   background-color: #f4f4f4;
   z-index:1005;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 // #rb__message .rbimg_box{

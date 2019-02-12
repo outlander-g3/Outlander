@@ -4,7 +4,7 @@
 @import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
 *{
-    outline: 1px solid red;
+    // outline: 1px solid red;
 }
 #header-all{
     #burger-text{
@@ -481,11 +481,11 @@ ul{
                 cursor: pointer;
                 text-align: left;
                 white-space: nowrap;
-                color: #f27f22;
+                color: $color-btn-main;
                 outline: none;
                 border-radius: 21px;
-                background-color: #f4f4f4;
-                border: 2px solid #f27f22;
+                background-color: $color-white;
+                border: 2px solid $color-btn-main;
                 transition: 0.3s all ease-in-out; 
             }
     
@@ -535,14 +535,14 @@ ul{
                 right: 10%;
                 top: 1.2em;
                 border: 0.4em solid #484848;
-                border-color: #f27f22 transparent transparent transparent;
+                border-color: $color-btn-main transparent transparent transparent;
                 transition: .4s all ease-in-out; 
             }
     
     
             .joForm__input.expanded {
-                background-color: #f4f4f4;
-                border: 2px solid #f27f22;
+                background-color: $color-white;
+                border: 2px solid $color-btn-main;
                 border-radius: 21px;
                 padding: 0;
                 max-height: 100%; 
@@ -738,7 +738,7 @@ ul{
     a{
         @include f20b;
         padding: 0;
-        color: #088B9A;
+        color: $color-main2;
         // width: 100%;
         height: 100%;
         display: inline-block;
@@ -758,7 +758,7 @@ ul{
         width: 21%;
         display: inline-block;
         height: 2px;
-        background-color: #088B9A;
+        background-color: $color-main2;
         position: absolute;
         left:0;
         transition: .3s ease-in-out;
@@ -824,7 +824,7 @@ ul{
                     content: "\f1bb";
                 }
                 > label { 
-                    color: #ddd; 
+                    color: $color-ph; 
                     float: right; 
                     cursor: pointer;
                 }
@@ -832,39 +832,39 @@ ul{
 
             .rating > input:checked ~ label, /* show gold star when clicked */
             .rating:not(:checked) > label:hover, /* hover current star */
-            .rating:not(:checked) > label:hover ~ label { color: #122B3F;  } /* hover previous stars in list */
+            .rating:not(:checked) > label:hover ~ label { color:$color-main3;  } /* hover previous stars in list */
             
             textarea{
                 display: block;
                 margin: auto;
                 font-size: 12px;
                 font-family: "microsoft jhenghei";
-                border: 1px solid #DDDDDD;
-                background-color: #F4F4F4;
+                border: 1px solid $color-ph;
+                background-color: $color-white;
                 margin-top: 6px;
                 border-radius: 4px;
                 resize: none;
                 &:-webkit-scrollbar-track{
                     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
                     border-radius: 10px;
-                    background-color: #f4f4f4;
+                    background-color: $color-white;
                   
                 }
                 &::-webkit-scrollbar{
                     width: 4px;
-                    background-color: #f4f4f4;
+                    background-color: $color-white;
                 }
                 &::-webkit-scrollbar-thumb{
                     border-radius: 10px;
                     box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-                    background-color: #989898;
+                    background-color:$color-gray1;
                 }
                 &::placeholder {
-                    color: #484848;
+                    color:$color-text;
                     font-size: 16px; 
                 }
                 &:hover {
-                    border-color: #989898; 
+                    border-color:$color-gray1; 
                 }
             }    
         }

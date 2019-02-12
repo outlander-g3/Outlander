@@ -466,7 +466,7 @@ ul{
                 z-index: 500;
                 position: absolute;
                 display: inline-block;
-                width: 300px;
+                width: 186px;
                 text-indent: 10px;
                 min-height: 42px;
                 max-height: 42px;
@@ -567,9 +567,9 @@ ul{
                 box-sizing: border-box;
                 padding:10px;
                 margin: 10px 0;
-                &:nth-child(even){
-                    // @include mLeft(20);
-                }
+                // &:nth-child(even){
+                //     // @include mLeft(20);
+                // }
                 @media only screen and (max-width: 1024px) {
                     width: 49%;
                 }
@@ -630,6 +630,7 @@ ul{
                                 vertical-align: middle;
                                 max-width: 240px;
                             }
+                            
                             i{
                                 font-size: 24px;
                                 // display:inline-block;
@@ -637,7 +638,6 @@ ul{
                                 float: right;
                                 // @include mTop(10);
                                 line-height: 42px;
-
                             }
                             i:nth-child(3){
                                 display: none;
@@ -647,11 +647,11 @@ ul{
                                 position: absolute;
                                 clip:rect(0,0,0,0);
                             }
-                            input[type='checkbox']:checked + i:nth-child(4){
-                                display: none; 
-                            }
                             input[type='checkbox']:checked + i:nth-child(3){
-                                display: inline-block;
+                                display: block;
+                            }
+                            input[type='checkbox']:checked ~ i:nth-child(4){
+                                display: none;
                             }
                         }
                         // label{
@@ -667,6 +667,9 @@ ul{
                             line-height:42px;
                             vertical-align: middle;
                             @include mLeft(4);
+                        }
+                        i{
+                            cursor: pointer;
                         }
                     }
                     }
@@ -701,6 +704,7 @@ ul{
                             color:$color-main2;
                             font-weight: bolder;
                             transform: translate(0,-50%);
+                            cursor: pointer;
                         }
                     }
                     

@@ -245,7 +245,8 @@
                                                 </div>
                                             </div>
                                             <div class="fourButtons">
-                                                <a href="" class="btn-orderDelete">
+                                                <a href="" class="
+                                                btn-orderDelete">
                                                     <div class="img-buttons">
                                                         <img src="img/baseline-delete-24px.svg">
                                                     </div>
@@ -660,7 +661,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep2">
@@ -670,7 +671,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep3">
@@ -680,7 +681,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep4">
@@ -690,7 +691,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep5">
@@ -700,7 +701,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep6">
@@ -710,7 +711,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                     </ul>
                                     <div class="eqPlus">
@@ -733,7 +734,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep2">
@@ -743,7 +744,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep3">
@@ -753,7 +754,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep4">
@@ -763,7 +764,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
 
                                         <li>
@@ -774,7 +775,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
                                             <label for="sleep6">
@@ -784,7 +785,7 @@
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
                                             </label>
-                                            <i class="material-icons delete">delete</i>d
+                                            <i class="material-icons delete">delete</i>
                                         </li>
                                     </ul>
                                     <div class="eqPlus">
@@ -943,8 +944,13 @@
                                     <i class="material-icons delete">delete</i>d
                                 </li>`;
                 //新item插入ul
-                ul.append(newItem);
+                ul.prepend(newItem);
             }
+        });
+
+        //刪減裝備
+        $('.delete').click(function () {
+            $(this).closest('li').remove();
         });
 
     </script>

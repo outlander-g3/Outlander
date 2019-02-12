@@ -152,9 +152,10 @@ var datevalue1;
     function tdclass(e) {
         if(!click){
             for(var i = 0 ; i<=len.length-1 ; i++){
-                arr[i].style.background="#5db7c5";
+                arr[i].style.background="#F4F4F4";
             }
-            e.target.style.background="red";
+            e.target.style.background="#F27F22";
+            e.target.style.color="#F4F4F4";
             click++;
             cl =arr.indexOf(e.target); 
             var value = document.querySelector("#mm-sp").innerText;
@@ -164,11 +165,13 @@ var datevalue1;
         }else{
             if(cl<arr.indexOf(e.target)){
                 for (var l = cl;l<arr.indexOf(e.target)+1;l++){
-                    arr[l].style.background="red";
+                    arr[l].style.background="#F27F22";
+                    arr[l].style.color="#F4F4F4";
                 }
             }else{
                 for (var l = cl;l>arr.indexOf(e.target)-1;l--){
-                    arr[l].style.background="red";
+                    arr[l].style.background="#F27F22";
+                    arr[l].style.color="#F4F4F4";
                 }
             }
             var value = document.querySelector("#mm-sp").innerText;

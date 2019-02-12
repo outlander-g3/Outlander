@@ -27,8 +27,6 @@ function cuSlide1_768(){
         match: function() {
                 let cuCustom=O('cuCustom');
                 cuCustom.scrollIntoView({behavior: "smooth"});
-
-               
             },
         });
 }
@@ -124,17 +122,59 @@ function cuAddSceneryC(){
 
 }
 
-function cuWatchScenery(){
+function cuWatchScenery(e){
+    let cuCustom__detail = document.createElement('div');
+    cuCustom__detail.id = 'cuCustom__detail';
+    let cuCustom__detailALL =e.currentTarget.previousElementSibling.children[0].value;
+    let cuDetail_input = document.createElement('input');
+    cuDetail_input.type = 'hidden';
+    cuDetail_input.value = cuCustom__detailALL;
+    let img = document.createElement('img');
+    img.src = '../img/'+cuCustom__detailALL.split('|')[1]+'';
+    img.classList.add('cuDetail__img');
+    let cuCustom__detailContent = document.createElement('div');
+    cuCustom__detailContent.classList.add('cuCustom__detail--content');
+    let cuDetailH4 = document.createElement('h4');
+    cuDetailH4.classList.add('cuCustom__detail--content&#x20;h4');
+    cuDetailH4.innerText = cuCustom__detailALL.split('|')[0];
+    let price = document.createElement('p');
+    price.innerText = "價格：" + cuCustom__detailALL.split('|')[2] + " NTW";
+    price.style.fontWeight = 'bold';
+    let detail = document.createElement('p');
+    let detailTitle = document.createElement('span');
+    let detailContent = document.createElement('span');
+    detailTitle.innerText = '景點介紹：';
+    detailTitle.style.fontWeight = 'bold';
+    detailContent.innerText = cuCustom__detailALL.split('|')[4];
+    let btn_cuAddOne =document.createElement('button');
+    btn_cuAddOne.classList.add('btn-main-s');
+    btn_cuAddOne.style.margin = 'auto';
+    btn_cuAddOne.style.display = 'block';
+    btn_cuAddOne.innerText = '加入景點';
+    btn_cuAddOne.id = 'btn_cuAddOne';
     var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
     cuCustomDetailBg.style.display = 'block';
+    cuCustomDetailBg.appendChild(cuCustom__detail);
+    cuCustom__detail.appendChild(img);
+    cuCustom__detail.appendChild(cuCustom__detailContent);
+    cuCustom__detailContent.appendChild(cuDetailH4);
+    cuCustom__detailContent.appendChild(price);
+    cuCustom__detailContent.appendChild(detail);
+    cuCustom__detailContent.appendChild(btn_cuAddOne);
+    detail.appendChild(detailTitle);
+    detail.appendChild(detailContent);
+
+    // var btn_cuAddOne = O('btn_cuAddOne');
+    btn_cuAddOne.addEventListener('click',function(){
+        var cuSceneryInfo = cuCustom__detailALL;
+        addItem(this.id,cuSceneryInfo);
+        var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
+        cuCustomDetailBg.style.display = 'none';
+    });
+    
 }
 
-/*768以上 按鈕--查看詳細資訊【加入景點】 */
-function closeDetail(){
-    var btn_cuAddOne = O('btn_cuAddOne');
-    var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
-    cuCustomDetailBg.style.display = 'none';
-}
+
 
 
 function backPickSc(){
@@ -183,7 +223,6 @@ function addItem(itemId,itemValue){
     //風景列表物件代號
     var cu_IDNum = itemValue.split('|')[3];
     var cu_ID =O(cu_IDNum);
-    console.log(cu_ID);
    
     //新增風景最大容器
     var cuCustom__dropSceneryNew = document.createElement('div');
@@ -191,8 +230,7 @@ function addItem(itemId,itemValue){
     // cuCustom__dropSceneryNew.id=cu_IDNum+"A";
     cuCustom__dropSceneryNew.classList.add("cuCustom__dropSceneryNew");
     cuCustom__dropSceneryNew.setAttribute("draggable","true");
-    cuCustom__dropSceneryNew.style.backgroundImage = ' url(../img/'+itemValue.split('|')[1]+')';
-
+    cuCustom__dropSceneryNew.style.backgroundImage = ' url(./../img/'+itemValue.split('|')[1]+')';
 	var cuCustom__sceneryContent= document.createElement('div');
     cuCustom__sceneryContent.classList.add("cuCustom__dropScenery&#x20;div:first-child");
     
@@ -411,12 +449,15 @@ function cuShowGuide(){
     let cuGuide_picL = O('cuGuide_picL');
     cuGuide_picL.src = this.childNodes[1].src;
     this.style.border = '1px solid rgba(244, 244, 244, 1)';
-    console.log(this.childNodes[3].value.split('|')[0]);
     O('cuGuide_name').innerText = this.childNodes[3].value.split('|')[0];
-    O('cuGuide_expertise').innerText  = this.childNodes[3].value.split('|')[1];
+    O('cuGuide_expertise').innerText  = this.childNodes[3].value.split('|')[1];   
+    for(var m=0;m<cu__guideItem.length;m++){
+        if(cu__guideItem[m] != this){
+            cu__guideItem[m].style.border = '1px solid rgba(244, 244, 244, .3)';
 
-   
-    
+        }
+    }
+
 }
 
 
@@ -467,13 +508,6 @@ function init(){
     }
 
 
-    /*768以上 按鈕--詳細資訊【加入景點】 */
-    /*第二件事 按下後將景點加到dropZone*/ 
-    var btn_cuAddOne = O('btn_cuAddOne');
-    btn_cuAddOne.addEventListener('click',closeDetail);
-    /*待處理～～～～～～～～～～第二件事 按下後將景點加到dropZone*/ 
-    // btn_cuAddOne.addEventListener('click',addIndrop);
-
 
     var cuCustom__showOption = document.getElementsByClassName("cuCustom__sceneryItem");
     for(var i=0;i<cuCustom__showOption.length;i++){
@@ -502,62 +536,100 @@ function init(){
             addItem(this.id,cuSceneryInfo);
 		});
     }
-    
+  
+
 
     // 客製化第二步驟，嚮導點小圖換大圖
     var cu__guideItem = document.getElementsByClassName('cu__guideItem');
-   
     for(var l=0;l<cu__guideItem.length;l++){
         cu__guideItem[l].addEventListener('click',cuShowGuide);
     }
 }
 
-window.addEventListener("load",init);
+window.addEventListener('load',init);
 
-$('.cuForm__input--C').click( bbb = function (e) {
+
+$('#cuForm__input--C').click( bbb = function (e) {
     e.preventDefault();
     e.stopPropagation();
     $(this).toggleClass('expanded');
     $('#' + $(e.target).attr('for')).prop('checked', true);
-    var aaa =e.target;
-    $('.cuForm__input--M label').hide();
+    $('#cuForm__input--M label').remove();
+    $('#cuForm__input--M input').remove();
+    switch(e.target.innerText){
+        case "亞洲" :
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">');
+        $('#cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Alps" id="mount-himalayas">');
+        $('#cuForm__input--M').append('<label for="mount-himalayas">珠穆朗瑪峰</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Alps" id="mount-fuji">');
+        $('#cuForm__input--M').append('<label for="mount-fuji">富士山</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Jade" id="mount-jade">');
+        $('#cuForm__input--M').append('<label for="mount-jade">玉山</label>');
    
-    if(aaa.innerText == '亞洲'){
+        break;
+        case "歐洲" :
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">');
+        $('#cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Alps" id="mount-alps">');
+        $('#cuForm__input--M').append('<label for="mount-alps">阿爾卑斯山-少女峰</label>');
+        break;
+        case "非洲" :
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">');
+        $('#cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">');
+        $('#cuForm__input--M').append('<label for="mount-kilimanjaro">吉力馬札羅山</label>');
+        break;
+        case "北美洲" :
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">');
+        $('#cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">');
+        $('#cuForm__input--M').append('<label for="mount-yosemite">優勝美地國家公園</label>');
+        break;
+        case "南美洲" :
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">');
+        $('#cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">');
+        $('#cuForm__input--M').append('<label for="mount-machu">馬丘比丘</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">');
+        $('#cuForm__input--M').append('<label for="mount-cruz">聖克魯斯</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Paine" id="mount-paine">');
+        $('#cuForm__input--M').append('<label for="mount-paine">百內國家公園</label>');
+        break;
+        case "大洋洲" :
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">');
+        $('#cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">');
+        $('#cuForm__input--M').append('<label for="mount-aspalin">阿斯帕林國家公園</label>');
+        break;
+        default:
+        $('#cuForm__input--M').append('<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">');
+        $('#cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
         
-        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="choose" id="mount-choose">');
-        $('.cuForm__input--M').append('<label for="mount-choose">請選擇山岳</label>');
-        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="Himalayas" id="mount-himalayas"');
-        $('.cuForm__input--M').append('<label for="mount-himalayas">珠穆朗瑪峰</label>');
-        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="fuji" id="mount-fuji"');
-        $('.cuForm__input--M').append('<label for="mount-fuji">富士山</label>');
-        $('.cuForm__input--M').append('<input type="radio" name="mountType" value="Jade" id="mount-jade">');
-        $('.cuForm__input--M').append('<label for="mount-jade">玉山</label>');
-        // if($('input').val() == $('label').val()){
-        //     console.log($('label').val());
+    }  
+});
 
-        //     $('.cuForm__input--M').click(function (e2) {
-        //         e2.preventDefault();
-        //         e2.stopPropagation();
-        //         $(this).toggleClass('expanded');
-        //         $('#' + $(e2.target).attr('for')).prop('checked', true);
-        //         $(document).click(function () {
-        //             $('.cuForm__input--M').removeClass('expanded');
-        //         });
-        //     });
-        // }
+$(document).click(function () {
+    $('#cuForm__input--C').removeClass('expanded');
     }
-    });
-    $(document).click(function () {
-        $('.cuForm__input--C').removeClass('expanded');
-    }
-    );
+);
 
-$('.cuForm__input--M').click(function (e2) {
+
+$('#cuForm__input--M').click(function aaa(e2) {
     e2.preventDefault();
     e2.stopPropagation();
     $(this).toggleClass('expanded');
-    $('#' + $(e2.target).attr('for')).prop('checked', true);
-    $(document).click(function () {
-        $('.cuForm__input--M').removeClass('expanded');
-    });
+    // $('#cuForm__input--M label').hide();
+    
+    $('#' + $(e2.target).attr('for')).prop('checked', true); 
+    // console.log($('#' + $(e2.target).attr('for')).prop('checked', true).attr('id'));   
+    if($('#' + $(e2.target).attr('for')).prop('checked', true).attr('id') == undefined){
+
+        $('#cuForm__input--M #mount-choose').remove();
+        $('#cuForm__input--M label:first-child').remove();
+    }
+});
+
+$(document).click(function () {
+    $('#cuForm__input--M').removeClass('expanded');
 });

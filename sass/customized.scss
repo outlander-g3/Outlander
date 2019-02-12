@@ -32,9 +32,7 @@ i{
     background-color: transparent;
     border: none;
 }
-.cuStyle__fwb{
-    font-weight: bold;
-}
+
 .cuStyle__ptb10{
     padding: 10px 0;
 }
@@ -745,18 +743,9 @@ i{
         top:50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        h4{
-            @include f20b;
-        }
-        p{
-            line-height: 1.6;
-        }
-        img{
-            @include cu_br(4,4);
-        }
-        i{
-            padding: 10px 0;
-        }
+        // img{
+        //     @include cu_br(4,4);
+        // }
     }
 }
 #cuCustom__price{
@@ -764,16 +753,32 @@ i{
         @include f16b;
     }
 }
+.cuDetail__img{
+    @include pad-width(){
+        @include cu_br(4,4);
+        width: 556px;
+        vertical-align: middle;
+    }
+}
 .cuCustom__detail--content{
     @include pad-width(){
         padding: 20px;
+        h4{
+            @include f20b;
+        }
+        p{
+            line-height: 1.6;
+        }
+        i{
+            padding: 10px 0;
+        }
+    
     }
 }
-#btn_cuAddOne{
-    @include btn-s;
-    margin: auto;
-    display: block;
-}
+// #btn_cuAddOne{
+//     margin: auto;
+//     display: block;
+// }
 #btn_cuPickTG{
     @include small-pad-width(){
     margin: auto;
@@ -954,4 +959,130 @@ i{
     justify-content: center;
     flex-wrap: wrap;
     @include mTop(20);
+}
+
+
+ul{
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    li{
+        line-height: 50px;
+        font-size: 1rem;
+        position: relative;
+        #date-text{
+            position: absolute;
+            display: inline-block;
+            width: 300px;//之後把這邊改%數
+            min-height: 42px;
+            max-height: 42px;
+            line-height: 42px;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: left;
+            color: $color-btn-main;
+            outline: none;
+            border-radius: 21px;
+            border: 2px solid $color-btn-main;
+            background-color: $color-white;
+            transition: 0.3s all ease-in-out;
+            &::after {
+                content: "";
+                position: absolute;
+                right: 10%;
+                top: 1.2em;
+                border: 0.4em solid $color-btn-main;
+                border-color: $color-btn-main transparent transparent transparent;
+                transition: .4s all ease-in-out; 
+              }
+            input {
+                display: none;
+            }
+            label {
+                border-top:0.06em solid #d9d9d9;
+                display: block;
+                @include pLeft(10);
+                cursor: pointer;
+                font-family: "Microsoft JhengHei";
+                position: relative;
+                transition: 0.3s color ease-in-out;
+                @include f16b;
+            }
+            label:nth-child(2) {
+                @include mTop(42);
+            }
+          
+        }
+            .expanded {
+            background-color: $color-btn-main;
+            border-radius: 21px;
+            padding: 0;
+            max-height: 100%;
+            &::after {
+                transform: rotate(-180deg);
+                top: 0.6em;
+              }
+          }
+        }
+    }
+li{
+    #date-text.expanded{
+        max-height: 400px;
+    }
+}
+.expanded{
+z-index: 999;
+}
+#date{
+display: none;
+}
+#date-text{
+@include small-pad-width(){
+    margin-left: 20px;
+}
+@include pad-width(){
+    margin-left: 150px;    
+}
+}
+// 這邊是顯示日曆的SCSS
+#date-text label,#date-text-2 label{
+    border-top: unset;
+}
+#calendar-tb{
+    z-index: 2;
+}
+.calendar{
+    width: 100%;
+    cursor: auto;
+    i{
+        cursor: pointer;
+    }
+    .mm{
+        position: relative;
+        i{   
+            position: absolute;
+            left: 230%;
+            top: 20%;
+        }
+    }
+    .yy{
+        position: relative;
+        i{
+            position: absolute;
+            top: 20%;
+            left: 180%;
+        }
+    }
+    tr{
+        th{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+            cursor: pointer;
+            margin: 5px;
+        }
+    }
 }

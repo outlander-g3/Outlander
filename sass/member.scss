@@ -4,7 +4,7 @@
 @import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
 *{
-    // outline: 1px solid red;
+    outline: 1px solid red;
 }
 #header-all{
     #burger-text{
@@ -33,16 +33,9 @@ body{
     
 }
 .memberBanner{
-    // background-image: url("../img/banner.jpg");
-    // background-position: center; 
-    // background-repeat: no-repeat; 
-    // background-size:cover;
-    // height: 300px;
-
-
     position: relative;
     padding-top: 60px;
-    max-width: 2500px;
+    // max-width: 2500px;
     width: 100%;
     margin: auto;
     img{
@@ -60,10 +53,20 @@ body{
     h2{
         @include f30b;
         color: $color-main1;
-        // padding-left: 50px;
-        position: absolute;
-        top: 40%;
-        left: 5%;
+        width: 1200px;
+        margin: auto;
+        height: 0;
+        position: relative;
+        top: 110px;
+        left: 20px;
+        // top: 40%;
+        // left: 5.5em;
+        @media(max-width:1024px) {
+            position: absolute;
+            top: 40%;
+            left: 20px;
+            width: 90%;
+        }
         @include rwd(mobile){
             @include f20b;
             top: 50%;
@@ -796,6 +799,7 @@ ul{
     }
 }
 .jpBase{
+    z-index: 1200;
     .jpWin{
         .jpCont{
             p{

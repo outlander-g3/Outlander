@@ -66,10 +66,27 @@ body{
 	background-color: $color-white;
 	height: 3500px;
 }
+
 #wrapper {
 	position: relative;
 	width:1200px;
 	height:3500px;
+}
+//banner////
+.scene_back{
+	position: relative;
+	top:0;
+}
+.banner{
+	position: absolute;
+	width: 100%;
+	transition: .5s;
+}
+#banner_back{
+	top:0;
+}
+#banner_front{
+	top:0;
 }
 // #branding {
 // 	width: 100%;
@@ -165,12 +182,11 @@ body{
 	#bg3-1 {
 		width:90%;
 		position: absolute;
-		top: 100px;
-		left: 0px;
+		top: 700px;
 		}
 	#bg3-2 {
 		position: absolute;
-		top:980px;
+		top:1500px;
 		left: 0px;
 		}
 	#bg3-3 {

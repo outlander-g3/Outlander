@@ -17,7 +17,7 @@
 		<!-- Grab Google CDN's jQuery. fall back to local if necessary --> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
 
-		<div id="header-nav">
+		<!-- <div id="header-nav">
 			<div id="header">
 				<nav id="header-all">
 					<div id="header-left">
@@ -137,8 +137,12 @@
 					</div>
 				</nav>
 			</div>
+		</div> -->
+		<div id="scene_back" class="scene">
+			<img id="banner_back" class="banner" src="img/banner_back.png">
+			<img id="banner_front" class="banner" src="img/banner.png">
+				<!-- <img id="pokemon7" class="" src="img/cloud-2.png"> -->
 		</div>
-
         <div id="wrapper">	
            
 			<!-- <nav id="primary">
@@ -254,6 +258,17 @@
     <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
 </footer>
 </body>
+<!-- banner -->
+<script>
+var sceneFront = document.getElementsByClassName('banner');
+window.addEventListener('scroll',()=>{
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	sceneFront[0].style.top = 0-(scrollTop*0.2) + "px";
+	sceneFront[1].style.top = 0-(scrollTop*0.5) + "px";
+});
+</script>
+<!-- banner -->
+
 <script>
 	$(document).ready(function() {
 

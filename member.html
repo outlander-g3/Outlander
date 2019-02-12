@@ -139,7 +139,7 @@
     <!-- 會員中心共同banner -->
     <div class="memberBanner">
         <h2>會員中心</h2>
-        <img src="img/banner.jpg" alt="">
+        <img src="img/banner-min.jpg" alt="">
         <img src="img/banner2.png" alt="" id="showOnlyDesktop">
     </div>
     <div class="memberWrap">
@@ -572,7 +572,7 @@
                                                 <div class=" img-buttons">
                                                     <!-- <img src="img/qrcode.png" alt=""> -->
                                                 </div>
-                                                <button class="btnRate">我要評價</button>
+                                                <a href="" class="btn-rate"><button class="btnRate">我要評價</button></a>
                                                 <button class="btnSecondOrder">再次預訂</button>
                                             </div>
                                         </div>
@@ -837,6 +837,54 @@
             </div>
         </div>
     </div>
+    <div class="jpBase rate">
+        <!-- 跳窗 -->
+        <div class="jpWin" id="jpWin-rate">
+
+            <!-- 標題 -->
+            <div class="jpTitle">
+                評價行程
+            </div>
+
+            <!-- 內容 -->
+            <div class="jpCont">
+                <p>
+                    來幫這次的行程評個分吧
+                </p>
+                <p class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label class="full" for="star5" title="非常值得"></label>
+
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label class="full" for="star4" title="還不錯"></label>
+
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label class="full" for="star3" title="普通"></label>
+
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label class="full" for="star2" title="有點不理想"></label>
+
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label class="full" for="star1" title="非常糟糕"></label>
+                </p>
+
+                <p>
+                    有什麼話想說
+                </p>
+                <!-- <input type="text"> -->
+                <textarea name="" id="" cols="31" rows="2"></textarea>
+
+            </div>
+
+            <!-- 按鈕 -->
+            <div class="jpBtn">
+                <div class="row">
+                    <a href="" class="btn-jump-left">取消評價</a>
+                    <a href="" class="btn-jump-right">送出評價</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="js/vue.min.js"></script>
@@ -885,8 +933,6 @@
                 }, true)
             }
             winJump('.btn-orderDelete', '.deleteOrder', '#jpWin-delete');
-            winJump('.btn-qrCode', '.qrCode', '#jpWin-1');
-            winJump('.btn-orderDetails', '.orderDetails', '#jpWin-details');
             winJump('.btn-rate', '.rate', '#jpWin-rate');
         })
         //跳窗使用：我要按下 .btn-ex ， .ctPaid要跳出來

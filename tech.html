@@ -236,17 +236,17 @@
 			
 			<!-- Parallax  midground clouds -->
 			<div id="parallax-bg2">
-				<img id="bg2-1" src="img/cloud-1.png" alt="cloud"/>
+				<!-- <img id="bg2-1" src="img/cloud-1.png" alt="cloud"/> -->
 				<!-- <img id="bg2-2" src="http://jonathannicol.com/projects/parallax-scrolling/img/cloud-lg1.png" alt="cloud"/> -->
-				<img id="bg2-3" src="img/cloud-2.png" alt="cloud"/>
+				<img id="bg2-3" src="img/cloud-2.png" alt="cloud"/> 
 				<img id="bg2-4" src="img/cloud-4.png" alt="cloud"/>
-				<!-- <img id="bg2-5" src="img/c-4-w.png"" alt="cloud"/> -->
+				<!-- <img id="bg2-5" src="img/c-4-w.png"" alt="cloud"/>
 			</div>
 			
 			<!-- Parallax  background clouds -->
 			<div id="parallax-bg1">
 				<!-- <img id="bg1-1" src="img/01-cloud.png"alt="cloud"/> -->
-				<img id="bg1-2" src="img/cloud-3.png" alt="cloud"/>
+				<!-- <img id="bg1-2" src="img/cloud-3.png" alt="cloud"/> -->
 				<!-- <img id="bg1-3" src="img/c-4-w.png" alt="cloud" width="1200px" /> -->
 				<!-- <img id="bg1-4" src="img/c-5-w.png" alt="cloud"/> -->
 			</div>
@@ -254,10 +254,12 @@
 		</div>
 <!-- footer----------------->
 
-<footer id="footer">
+<!-- <footer id="footer">
     <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
 </footer>
-</body>
+</body> -->
+
+
 <!-- banner -->
 <script>
 var sceneFront = document.getElementsByClassName('banner');
@@ -329,9 +331,13 @@ function () {
 /* Scroll the background layers */
 function parallaxScroll(){
 var scrolled = $(window).scrollTop();
-$('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
-$('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
-$('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
+// $('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
+// $('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
+// $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
+$('#parallax-bg1').css('top',(0-(scrolled*.1))+'px');
+$('#parallax-bg2').css('top',(0-(scrolled*.6))+'px');
+$('#parallax-bg3').css('top',(0-(scrolled*.9))+'px');
+
 }
 
 /* Set navigation dots to an active state as the user scrolls */

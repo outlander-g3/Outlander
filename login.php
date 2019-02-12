@@ -6,20 +6,21 @@ try {
 
     require_once("connectDb.php");
 
-    // $sql="select * from member where memMail='{$memMail}' and memPsw='{$memPsw}'";
-    // $member=$pdo->query($sql);
-
-    $sql="select * from member where memMail='{$memMail}'";
-    $member=$pdo->query($sql);
-    
+    $sql="select * from member where memMail=:memMail ";
+    $member=$pdo->prepare($sql);
+    $member->bindValue(':memMail',$memMail);
+    $member->execute();
     //檢查是否真有註冊過
     if($member->rowCount()==0){
         echo "none";
     }
     //代表有這人存在
     else{
-        $sql="select * from member where memMail='{$memMail}' and memPsw='{$memPsw}'";
-        $member=$pdo->query($sql);
+        $sql="select * from member where memMail=:memMail and memPsw=:memPsw ";
+        $member=$pdo->prepare($sql);
+        $member->bindValue(':memMail',$memMail);
+        $member->bindValue(':memPsw',$memPsw);
+        $member->execute();
         if($member->rowCount()==0){
             echo "pswError";
         }

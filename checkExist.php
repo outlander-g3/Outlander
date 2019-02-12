@@ -5,11 +5,11 @@ try {
 
     require_once("connectDb.php");
 
-    // $sql="select * from member where memMail='{$memMail}' and memPsw='{$memPsw}'";
-    // $member=$pdo->query($sql);
-
-    $sql="select * from member where memMail='{$memMail}'";
-    $member=$pdo->query($sql);
+    $sql="select * from member where memMail=:memMail ";
+    $member=$pdo->prepare($sql);
+    $member->bindValue(':memMail',$memMail);
+    $member->execute();
+    
     if($member->rowCount()==0){
         echo "none";
     }

@@ -13,131 +13,133 @@
     <link rel="stylesheet" href="css/cart.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.min.js"></script>
+    <script src="js/enquire.min.js"></script>
 
 </head>
 
 <body>
 
-    <div id="header">
-        <nav id="header-all">
-            <div id="header-left">
-                <div id="logo">
-                    <a href="index.html">
-                        <img src="img/logo.png" alt="logo">
-                    </a>
+
+    <div id="header-nav">
+        <div id="header">
+            <nav id="header-all">
+                <div id="header-left">
+                    <div id="logo">
+                        <a href="index.html">
+                            <img src="img/logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <div id="search">
+                        <input type="text" placeholder="搜索世界">
+                        <i class="material-icons">search</i>
+                    </div>
                 </div>
-                <div id="search">
-                    <input type="text" placeholder="搜索世界">
-                    <i class="material-icons">search</i>
+                <div id="burger">
+                    <div id="burger-all" v-on:click="bur">
+                        <span id="burger-1"></span>
+                        <span id="burger-2"></span>
+                        <span id="burger-3"></span>
+                    </div>
                 </div>
-            </div>
-            <div id="burger">
-                <div id="burger-all" v-on:click="bur">
-                    <span id="burger-1"></span>
-                    <span id="burger-2"></span>
-                    <span id="burger-3"></span>
-                </div>
-            </div>
-            <ul id="burger-text">
-                <span id="burgerText-X" v-on:click="out"></span>
-                <li><a href="#">登山行程</a></li>
-                <li><a href="#">客製行程</a></li>
-                <li><a href="#">登山日誌</a></li>
-                <li><a href="#">登山技巧</a></li>
-                <li v-if="web<768">機器人</li>
-                <li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
-                <li v-if="web<768" id="member">會員專區
-                    <ul id="member-child">
-                        <li><a class="member-a" href="#">個人中心</a></li>
-                        <li><a class="member-a" href="#">訂單</a></li>
-                        <li><a class="member-a" href="#">登山日誌</a></li>
-                        <li><a class="member-a" href="#">行前裝備</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="filter">
-                <div id="filterList">
-                    <ul id="filterListLi">
-                        <li class="list" id="asia-list">亞洲</li>
-                        <li class="list">歐洲</li>
-                        <li class="list">非洲</li>
-                        <li class="list">北美洲</li>
-                        <li class="list">南美洲</li>
-                        <li class="list">大洋洲</li>
-                    </ul>
-                    <div id="filterListImg">
-                        <div id="asia-img" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/玉山/1.jpg">
-                                <h3>玉山</h3>
+                <ul id="burger-text">
+                    <li><a href="productsOverview.html">登山行程</a></li>
+                    <li><a href="customized.html">客製行程</a></li>
+                    <li><a href="journalsOverview.html">登山日誌</a></li>
+                    <li><a href="tech.html">登山技巧</a></li>
+                    <li v-if="web<768">機器人</li>
+                    <li v-if="web>768"><a href="member.html"><i class="material-icons">person</i></a></li>
+                    <li v-if="web<768" id="member">會員專區
+                        <ul id="member-child">
+                            <li><a class="member-a" href="member.html">訂單</a></li>
+                            <li><a class="member-a" href="member.html">登山日誌</a></li>
+                            <li><a class="member-a" href="member.html">行前裝備</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="filter">
+                    <div id="filterList">
+                        <ul id="filterListLi">
+                            <li class="list" id="asia-list">亞洲</li>
+                            <li class="list">歐洲</li>
+                            <li class="list">非洲</li>
+                            <li class="list">北美洲</li>
+                            <li class="list">南美洲</li>
+                            <li class="list">大洋洲</li>
+                        </ul>
+                        <div id="filterListImg">
+                            <div id="asia-img" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/玉山/1.jpg">
+                                    <h3>玉山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/聖母峰/1.jpg">
+                                    <h3>聖母峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/富士山/1.jpg">
+                                    <h3>富士山</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/聖母峰/1.jpg">
-                                <h3>聖母峰</h3>
+                            <div id="europe" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/1.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/少女峰/2.jpg">
+                                    <h3>少女峰</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/富士山/1.jpg">
-                                <h3>富士山</h3>
+                            <div id="africa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/1.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/吉利馬札羅/2.jpg">
+                                    <h3>吉利馬札羅</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/馬丘比丘/1.jpg">
+                                    <h3>馬丘比丘</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div id="europe" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/1.jpg">
-                                <h3>少女峰</h3>
+                            <div id="na" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/聖克魯斯/1.JPG">
+                                    <h3>聖克魯斯</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/優勝美地/1.jpg">
+                                    <h3>優勝美地</h3>
+                                </div>
                             </div>
-                            <div class="filterListImg-img">
-                                <img src="img/少女峰/2.jpg">
-                                <h3>少女峰</h3>
+                            <div id="sa" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/1.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/百內國家公園/2.jpg">
+                                    <h3>百內國家公園</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div id="africa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/1.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/吉利馬札羅/2.jpg">
-                                <h3>吉利馬札羅</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/馬丘比丘/1.jpg">
-                                <h3>馬丘比丘</h3>
-                            </div>
-                        </div>
-                        <div id="na" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/聖克魯斯/1.JPG">
-                                <h3>聖克魯斯</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/優勝美地/1.jpg">
-                                <h3>優勝美地</h3>
-                            </div>
-                        </div>
-                        <div id="sa" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/1.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/百內國家公園/2.jpg">
-                                <h3>百內國家公園</h3>
-                            </div>
-                        </div>
-                        <div id="oceania" class="in">
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/1.JPG">
-                                <h3>阿斯帕林山</h3>
-                            </div>
-                            <div class="filterListImg-img">
-                                <img src="img/阿斯帕林/2.jpg">
-                                <h3>阿斯帕林山</h3>
+                            <div id="oceania" class="in">
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/1.JPG">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img src="img/阿斯帕林/2.jpg">
+                                    <h3>阿斯帕林山</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
 
     <div class="ctStep__title--mobile">
@@ -256,7 +258,7 @@
                                         <li>
                                             <label for="memName">
                                                 <span>姓名</span>
-                                                <input type="text" name="name" id="memName" value="">
+                                                <input type="text" name="memName" id="memName" value="">
                                             </label>
                                         </li>
                                         <li>
@@ -282,10 +284,10 @@
                                         <div class="row">
                                             <i class="material-icons">person</i>
                                             <i>1</i>
-                                            <input type="hidden" name="psgName" id="" value="">
-                                            <input type="hidden" name="psgBd" id="" value="">
-                                            <input type="hidden" name="psgId" id="" value="">
-                                            <input type="hidden" name="psgTel" id="" value="">
+                                            <input type="hidden" name="psgName"  value="">
+                                            <input type="hidden" name="psgBd"  value="">
+                                            <input type="hidden" name="psgId"  value="">
+                                            <input type="hidden" name="psgTel"  value="">
                                         </div>
                                     </a>
                                 </label>
@@ -413,7 +415,7 @@
                                     <i>使用紅利點數折抵</i>
                                 </label>
                                 <p>您持有的紅利點數為：300點 </p>
-                                <p>(每10點可折抵1元，單筆最高折抵500元)</p>
+                                <p>(每10點可折抵1元)</p>
                                 <input type="checkbox" id="ctRule">
                                 <label for="ctRule">
                                     <i class="material-icons">check_box</i>
@@ -425,60 +427,68 @@
                         <div class="ctCredit">
                             <h3>信用卡資訊</h3>
                             <div class="ctCredit__text">
-                                <p>
-                                    <label for="">
-                                        <span>持卡人姓名</span>
-                                        <span><input type="text" name="" id=""></span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <label for="">
-                                        <span>信用卡卡號</span>
-                                        <span><input type="text" name="" id=""></span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <span>到期月/年</span>
-                                    <span>
-                                        <select name="" id="" class="ctCredit__select--month">
-                                            <option value="">月</option>
-                                            <option value="">01</option>
-                                            <option value="">02</option>
-                                            <option value="">03</option>
-                                            <option value="">04</option>
-                                            <option value="">05</option>
-                                            <option value="">06</option>
-                                            <option value="">07</option>
-                                            <option value="">08</option>
-                                            <option value="">09</option>
-                                            <option value="">10</option>
-                                            <option value="">11</option>
-                                            <option value="">12</option>
-                                        </select>
-                                        <select name="" id="" class="ctCredit__select--year">
-                                            <option value="">年</option>
-                                            <option value="">2019</option>
-                                            <option value="">2020</option>
-                                            <option value="">2021</option>
-                                            <option value="">2022</option>
-                                            <option value="">2023</option>
-                                            <option value="">2024</option>
-                                            <option value="">2025</option>
-                                            <option value="">2026</option>
-                                        </select>
-                                    </span>
-                                </p>
-                                <p>
-                                    <label for="safe">
-                                        <span>安全碼</span>
-                                        <span><input type="text" name="" id="safe"></span>
-                                    </label>
-                                </p>
-                                <p>
-                                    <i class="fab fa-cc-mastercard"></i>
-                                    <i class="fab fa-cc-visa"></i>
-                                    <i class="fab fa-cc-jcb"></i>
-                                </p>
+                                <ul>
+                                    <li>
+                                        <label for="">
+                                            <span>持卡人姓名</span>
+                                            <span><input type="text" name="" id=""></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label for="">
+                                            <span>信用卡卡號</span>
+                                            <span><input type="text" name="" id=""></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <span>到期月/年</span>
+                                        <span>
+                                            <label for="month" class="ctCredit__select">
+                                                <select name="" id="month" class="ctCredit__select--month">
+                                                    <option value="">月</option>
+                                                    <option value="">01</option>
+                                                    <option value="">02</option>
+                                                    <option value="">03</option>
+                                                    <option value="">04</option>
+                                                    <option value="">05</option>
+                                                    <option value="">06</option>
+                                                    <option value="">07</option>
+                                                    <option value="">08</option>
+                                                    <option value="">09</option>
+                                                    <option value="">10</option>
+                                                    <option value="">11</option>
+                                                    <option value="">12</option>
+                                                </select>
+                                                <i class="material-icons">keyboard_arrow_down</i>
+                                            </label>
+                                            <label for="year" class="ctCredit__select">
+                                                <select name="" id="year" class="ctCredit__select--year">
+                                                    <option value="">年</option>
+                                                    <option value="">2019</option>
+                                                    <option value="">2020</option>
+                                                    <option value="">2021</option>
+                                                    <option value="">2022</option>
+                                                    <option value="">2023</option>
+                                                    <option value="">2024</option>
+                                                    <option value="">2025</option>
+                                                    <option value="">2026</option>
+                                                </select>
+                                                <i class="material-icons">keyboard_arrow_down</i>
+                                            </label>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <label for="safe">
+                                            <span>安全碼</span>
+                                            <span><input type="text" name="" id="safe"></span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-cc-mastercard"></i>
+                                        <i class="fab fa-cc-visa"></i>
+                                        <i class="fab fa-cc-jcb"></i>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
@@ -520,9 +530,12 @@
                     <button type="submit" class="btn-main-s btn-pay">確認付款</button>
                 </div>
             </div>
+            <div class="clearfix"></div>
         </div>
     </div>
-
+    <footer id="footer">
+        <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
+    </footer>
 
     <div class="jpBase ctPaid">
         <div class="jpWin">
@@ -531,22 +544,9 @@
             </div>
             <div class="jpCont">
                 <p>感謝您此次的購買！！</p>
-                <p>前往<a href="">『訂單查詢』</a>查看訂單</p>
-                <p>前往<a href="">『裝備清單』</a>製作專屬清單</p>
-                <p>回到<a href="index.php">『山行者首頁』</a>繼續逛逛</p>
-            </div>
-        </div>
-    </div>
-    <div class="jpBase ctPaid">
-        <div class="jpWin">
-            <div class="jpTitle">
-                <h2>訂購完成</h2>
-            </div>
-            <div class="jpCont">
-                <p>感謝您此次的購買！！</p>
-                <p>前往<a href="">『訂單查詢』</a>查看訂單</p>
-                <p>前往<a href="">『裝備清單』</a>製作專屬清單</p>
-                <p>回到<a href="index.php">『山行者首頁』</a>繼續逛逛</p>
+                <p>前往『<a href="">會員專區</a>』查看訂單</p>
+                <!-- <p>前往『<a href="">裝備清單</a>』製作專屬清單</p> -->
+                <p>回到『<a href="index.html">山行者首頁</a>』繼續逛逛</p>
             </div>
         </div>
     </div>
@@ -556,7 +556,6 @@
 
 </html>
 
-<script src="js/common.js"></script>
-<script src="js/cart.js"></script>
+<script src="js/common.js" defer></script>
 <script src="js/header.js"></script>
-<script src="js/date.js"></script>
+<script src="js/cart.js" defer></script>

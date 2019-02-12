@@ -5,6 +5,14 @@
 //         font-family: "微軟正黑體";
 //     }
 // }
+#header-nav{
+    background: $color-white;
+    width: 100%;
+    max-width: 2500px;
+    height: 60px;
+    position: fixed;
+    z-index: 997;
+}
 #header{
     margin: auto;
     width: 100%;
@@ -16,7 +24,6 @@
     position: fixed;
     display: flex;
     background-color: $color-white;
-    // opacity: 0.78;
     height: 60px;
     color:$color-main2;
     z-index: 998;
@@ -39,7 +46,7 @@
                 width: 100%;
                 min-width: 45px;
                 min-height: 47px;
-                max-width: 60px;
+                max-width: 50px;
             }
         }
         #search{
@@ -47,10 +54,9 @@
             align-self: center;
             margin-left: 20px;
             position: relative;
-            z-index: 1000;
             i{
                 position: absolute;
-                top: 2px;
+                top: 0px;
                 left: 85%;
                 cursor: pointer;
             }
@@ -86,15 +92,16 @@
             height: 27px;
             left: 90%;
             top: 15px;
+            z-index:1000; 
         }
         #burger-1{ 
-            top: 20%;
+            top: 6px;
         }
         #burger-2{
-            top: 40%;
+            top: 12px;
         }
         #burger-3{
-            top: 60%;
+            top: 18px;
         }
     }
     #burger-text{
@@ -109,23 +116,12 @@
             height: 60px;
             display: flex;
             flex-direction: row;
+            background-color: unset;
             position: unset;
             justify-content: flex-end;
         }
-        #burgerText-X{
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            top: 17px;
-            left: 85%;
-            cursor: pointer;
-            z-index: 3;
-            @media (min-width:768px) {
-                display: none;
-            }
-        }
         li{
-            line-height: 50px;
+            line-height: 70px;
             text-align: center;
             cursor: pointer;
             color:$color-header;
@@ -148,43 +144,16 @@
             }
         }
     }
-    #burger-text:after{
-        content: '';
-        display: block;
-        width: 30px;
-        height: 2px;
-        background: black;
-        position: absolute;
-        top: 30px;
-        left: 85%;
-        transform: rotate(40deg);
-        cursor: pointer;
-        @media (min-width:768px) {
-            display: none;
-        }
-    }
-    #burger-text::before{
-        content: '';
-        display: block;
-        width: 30px;
-        height: 2px;
-        background: black;
-        position: absolute;
-        top: 30px;
-        left: 85%;
-        transform: rotate(-40deg);
-        cursor: pointer;
-        @media (min-width:768px) {
-            display: none;
-        }
-    }
+  
     #member{
         position: relative;
         cursor: pointer;
         #member-child{
+            top: 50%;
             position: absolute;
             width: 100%;
-            top: 65%;
+            z-index: -1;
+            transition: all 0.5s;
             li a{
                 width: 100%;
                 text-align: center;
@@ -205,7 +174,6 @@
     }
     .filter{
         width: 70%;
-        background: white;
         border: 1px solid #aaa;
         height: 250px;
         position: fixed;
@@ -219,6 +187,7 @@
             #filterListLi{
                 flex: 1;
                 position: sticky;
+                background: $color-white;
                 li{
                     color: $color-text;
                     display: flex;
@@ -236,6 +205,7 @@
             overflow: auto;
             flex: 3;
             text-align: center;
+            background: #f4f4f475;
             @media (min-width:768px) {
                 .in{
                     display: flex;
@@ -253,6 +223,9 @@
                     right: 0;
                     margin: auto;
                     color:$color-white;
+                    text-shadow: $shadow;
+                    font-size: 1rem;
+                    font-weight: bold;
                 }
                 @media (min-width:768px) {
                     width: 33.333333%;

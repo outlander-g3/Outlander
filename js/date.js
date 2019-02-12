@@ -157,6 +157,8 @@ window.addEventListener("load", () => {
         document.querySelector("#psgBd").value = datevalue;
         // console.log(document.querySelector("#date").value);//確認送表單的value正確
         $('.date').css('display', 'none');
+        let inputBd = $('#psgBd').val();
+        $('.who').find("input[name='psgBd']").val(inputBd);
     }
     load();
 

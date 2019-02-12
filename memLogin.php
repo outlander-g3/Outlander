@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,24 +8,22 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.min.js"></script>
 </head>
 
-<body>
+<body> -->
 
-    <a href="" class="btn-main-s btn-ex">範例按鈕</a>
+    <!-- <a href="" class="btn-main-s btn-ex">範例按鈕</a> -->
 
     <div class="jpBase memLogin">
         <div class="jpWin">
             <div class="jpTitle">
                 會員登入
             </div>
-            <form action='login.php' method="post">
-            
-            
+            <!-- <form action='login.php' method="post" id="memForm">           -->
                 <div class="jpCont">
                     <div class="jpCont--mail">
                         <label for="memMail">
@@ -40,11 +38,9 @@
                         </label>
                     </div>
                 </div>
-
-                <div class="jpBtn">
-                    <a href="" class="btn-jump-right" id="login">登入</a>
+                <div class="jpBtn"><a class="btn-jump-right" id="login" href="javascript:;">登入</a>
                 </div>
-            </form>
+            <!-- </form> -->
             <div class="memLogin--bottom" id="">
                 <div class="row">
                     <a href="#" id="memForget">忘記密碼</a>
@@ -54,7 +50,7 @@
         </div>
     </div>
 
-    <script src="js/common.js"></script>
-</body>
+    <!-- <script src="js/common.js"></script> -->
+<!-- </body>
 
-</html>
+</html> -->

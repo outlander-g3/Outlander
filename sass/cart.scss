@@ -6,6 +6,14 @@ $block-margin:50px;
 $block-size:710px;
 body{
     background-color: $color-white;
+    background-image: url(../img/bm.png);
+    background-position: 0 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @include rwd(mobile){
+        background-image: none;
+    }
 }
 *{
     transition: 0.5s;
@@ -243,11 +251,18 @@ body>.row{
                 width: 335px;
                 margin-top: 36px;
                 height: 230px;
+                box-sizing:border-box;
                 @include ctBox();
                 @include br4();
+                @include rwd(mobile){
+                    width: 100%;
+                }
                 >div{
                     box-sizing:border-box;
                     padding:10px 20px;
+                    @include rwd(mobile){
+                        padding: 10px;
+                    }
                     .ctContact__title{
                         @include f20();
                         height: 26px;
@@ -307,6 +322,9 @@ body>.row{
                 >div{
                     padding:10px 20px;
                     box-sizing: border-box;
+                    @include rwd(mobile){
+                        padding: 10px;
+                    }
                     .ctPassanger__title{
                         @include f20();
                         height: 26px;
@@ -314,19 +332,30 @@ body>.row{
                         text-align: left;
                         
                     }
+                    li{
+                        position: relative;
+                    }
                 }
                 .date{
                     display: none;
                     position: relative;
                     ul{
-                        width: 335px; 
+                        width: 333px; 
                         border:1px solid $color-btn-main;
                         position: absolute;
                         flex: 1;
                         display: flex;
+                        z-index: 10;
                         flex-direction: column;
                         justify-content: space-around;
+                        left: -10px;
                         background-color: $color-white;
+                        @include rwd(mobile){
+                            position: fixed;
+                            top:30%;
+                            left: 50%;
+                            transform: translate(-50%,0);
+                        }
                             li{
                              
                                     padding: 22px 28px;
@@ -496,6 +525,9 @@ body>.row{
                     @include f14();
                 }
                 @include checkbox(20,0);
+                label{
+                    padding: 5px 0;
+                }
             }
     
         
@@ -507,92 +539,116 @@ body>.row{
         @include ctBorder();
         @include br4();
         // border-left: $ctBorder;
-        // @include rwd(mobile){
-        //     border-left: none;
-        //     border-top:$ctBorder;
-        // }
+        @include rwd(mobile){
+            @include mTop(20);
+        }
         
         .ctCredit__text{
             @include pTop(8);
-        p{
-            font-size: 0;
-            @include f16();
-            text-align: right;
-            span:first-child{
-                margin-right: 20px;
-            }
-            input{
-                width: 166px;
-                height: 32px;
-                @include br4();
-                // @include rwd(medium){
-                //     width: 120px;
-                // }
-            // @include rwd(mobile){
-            //     width: 180px;
-            // }
-                box-sizing: border-box;
-            }
-            select{
-                height: 32px;
-                display: inline-block;
-                line-height: 32px;
-                border:1px solid $color-btn-main;
-                border-radius: 16px;              
-                appearance:none;
-                -moz-appearance:none;
-                -webkit-appearance:none;
-                background-color: $color-white;
-                @include pLeft(20);
-                option{
-                    font-size: 24px;
-                    background-color: $color-white;
+            li{
+                font-size: 0;
+                @include f16();
+                text-align: right;
+                span:first-child{
+                    margin-right: 20px;
                 }
-                // @include ctBorder();
-                text-shadow: none;
-            }
-            &:first-child{
-                @include mTop(8);
-            }
-            &:not(:first-child){
-                @include pTop(15);
-            }
-            &:nth-child(4) span:nth-child(2) {
-                display: inline-block;
-                text-align: left;
-                width: 166px;
-                // @include rwd(medium){
-                //     width: 120px;
+                input{
+                    width: 166px;
+                    height: 32px;
+                    @include br4();
+                    // @include rwd(medium){
+                    //     width: 120px;
+                    // }
+                // @include rwd(mobile){
+                //     width: 180px;
                 // }
+                    box-sizing: border-box;
+                }
+                .ctCredit__select{
+                    position: relative;
+                    display: inline-block;
+                    select{
+                        height: 32px;
+                        overflow: auto;
+                        display: inline-block;
+                        line-height: 32px;
+                        border:1px solid $color-btn-main;
+                        border-radius: 16px;              
+                        appearance:none;
+                        -moz-appearance:none;
+                        -webkit-appearance:none;
+                        // opacity: 0;
+                        background-color: $color-white;
+                        cursor: pointer;
+                        @include pLeft(20);
+                        option{
+                            // font-size: 24px;
+                            background-color: $color-white;
+                        }
+                        // @include ctBorder();
+                        text-shadow: none;
+    
+                        &+i{
+                            position: absolute;
+                            // top: 2px;
+                            cursor: pointer;
+                            top: 0;
+                            right:0;
+                            color: $color-white;
+                            background-color: $color-btn-main;
+                            display: inline-block;
+                            width: 28px;
+                            // height: 32px;
+                            text-align: center;
+                            border-radius: 0 16px 16px 0;
+                            font-size: 26px;
+                            line-height: 32px;
+                        }
+                    }
+                }
+                
+                &:first-child{
+                    @include mTop(8);
+                }
+                &:not(:first-child){
+                    @include pTop(15);
+                }
+                &:nth-child(4) span:nth-child(2) {
+                    display: inline-block;
+                    text-align: left;
+                    width: 166px;
+                    // @include rwd(medium){
+                    //     width: 120px;
+                    // }
+                }
+                >i{
+                    width: 30px;
+                    font-size: 24px;
+                    @include pLeft(20);
+                    color:$color-main1;
+                }
+                /////年月啦
+                .ctCredit__select--month{
+                    display:inline-block;
+                    width: 80px;
+                    margin-left:1px;
+                    // @include rwd(medium){
+                    //     width: 54px;
+                    // }
+                }
+                
+                .ctCredit__select--year{
+                    width: 80px;
+                    margin-left: 2px;
+                    // @include rwd(medium){
+                    //     width: 60px;
+                    // }
+                }
+                &:nth-child(4) input{
+                    width: 80px;
+                    // margin-left: 5px;
+                }
             }
-            i{
-                width: 30px;
-                font-size: 24px;
-                @include pLeft(20);
-                color:$color-main1;
-            }
-            /////年月啦
-            .ctCredit__select--month{
-                display:inline-block;
-                width: 80px;
-                margin-left:1px;
-                // @include rwd(medium){
-                //     width: 54px;
-                // }
-            }
-            
-            .ctCredit__select--year{
-                width: 80px;
-                margin-left: 2px;
-                // @include rwd(medium){
-                //     width: 60px;
-                // }
-            }
-            &:nth-child(4) input{
-                width: 80px;
-                // margin-left: 5px;
-            }
-        }
         }
     }
 
@@ -617,35 +673,21 @@ body>.row{
     position : -webkit-sticky;
     top:100px;
     display: flex;
+    justify-content: flex-end;
+
     @include rwd(desktop){
-        // align-self: flex-start;
-        position: relative;
-        right:0;
-        top: 0;
         width: 100%;
-        // margin: 0;
         @include pTop(50);
         h2{
             display: block;
         }
     }
     @include rwd(mobile){
-        display:none;
+        justify-content: center;
         @include pTop(20);
-        // width: 100%;
-        // box-sizing: border-box;
-        // padding: 20px;
     }
     .ctDetail{
         width: 335px;
-        // right:50px;
-        @include rwd(desktop){
-            // align-self: flex-start;
-            position: absolute;
-            right:0;
-            top: 0;
-            @include mTop(50);
-        }
         .ctDetail__content{
             @include ctBorder();
             @include br4();
@@ -692,15 +734,21 @@ body>.row{
 
 //跳窗
 .ctPaid{
-    .jpCont{
-        @include pBottom(50);
-        p:not(:first-child){
-            padding: 10px 0px;
+    .jpWin{
+        .jpCont{
+            @include pBottom(50);
+            // padding: 100px;
+            p:not(:first-child){
+                padding: 10px 0px;
+            }
+            a{
+                padding: 5px;
+                color: $color-white;
+                text-decoration: underline;
+                @include f20b;
+            }
         }
-        a{
-            color: $color-white;
-            text-decoration: $color-white;
-        }
+
     }
 }
 // .ctPaid{
@@ -734,8 +782,7 @@ body>.row{
 @include rwd(desktop){
     .ctProduct,
     .ctProfile,
-    .ctPay,
-    .ctDetail{
+    .ctPay{
         width: 100%;
         margin:0px auto;
         box-sizing: border-box;
@@ -766,7 +813,12 @@ body>.row{
             box-sizing: border-box;
         }
     }
+    .ctProfile,
+    .ctPay,
+    .ctSticky{
+        display: none;
+    }
 }
-// @include o;
+@include o;
 
 

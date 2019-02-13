@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Outlander</title>
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tech.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<script src="js/vue.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/header.js"></script>
+
+</head>
+<body>
+	<script src="http://jonathannicol.com/projects/js/modernizr.custom.37797.js"></script> 
+		<!-- Grab Google CDN's jQuery. fall back to local if necessary --> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
+
+		<!-- <div id="header-nav">
+			<div id="header">
+				<nav id="header-all">
+					<div id="header-left">
+						<div id="logo">
+							<a href="index.html">
+								<img src="img/logo.png" alt="logo">
+							</a>
+						</div>
+						<div id="search">
+							<input type="text" placeholder="搜索世界">
+							<i class="material-icons">search</i>
+						</div>
+					</div>
+					<div id="burger">
+						<div id="burger-all" v-on:click="bur">
+							<span id="burger-1"></span>
+							<span id="burger-2"></span>
+							<span id="burger-3"></span>
+						</div>
+					</div>
+					<ul id="burger-text">
+						<li><a href="productsOverview.html">登山行程</a></li>
+						<li><a href="customized.html">客製行程</a></li>
+						<li><a href="journalsOverview.html">登山日誌</a></li>
+						<li><a href="tech.html">登山技巧</a></li>
+						<li v-if="web<768">機器人</li>
+						<li v-if="web>768"><a href="#"><i class="material-icons">person</i></a></li>
+						<li v-if="web<768" id="member">會員專區
+							<ul id="member-child">
+								<li><a class="member-a" href="member.html">訂單</a></li>
+								<li><a class="member-a" href="member.html">登山日誌</a></li>
+								<li><a class="member-a" href="member.html">行前裝備</a></li>
+							</ul>
+						</li>
+					</ul>
+					<div class="filter">
+						<div id="filterList">
+							<ul id="filterListLi">
+								<li class="list" id="asia-list">亞洲</li>
+								<li class="list">歐洲</li>
+								<li class="list">非洲</li>
+								<li class="list">北美洲</li>
+								<li class="list">南美洲</li>
+								<li class="list">大洋洲</li>
+							</ul>
+							<div id="filterListImg">
+								<div id="asia-img" class="in">
+									<div class="filterListImg-img">
+										<img src="img/玉山/1.jpg">
+										<h3>玉山</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/聖母峰/1.jpg">
+										<h3>聖母峰</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/富士山/1.jpg">
+										<h3>富士山</h3>
+									</div>
+								</div>
+								<div id="europe" class="in">
+									<div class="filterListImg-img">
+										<img src="img/少女峰/1.jpg">
+										<h3>少女峰</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/少女峰/2.jpg">
+										<h3>少女峰</h3>
+									</div>
+								</div>
+								<div id="africa" class="in">
+									<div class="filterListImg-img">
+										<img src="img/吉利馬札羅/1.jpg">
+										<h3>吉利馬札羅</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/吉利馬札羅/2.jpg">
+										<h3>吉利馬札羅</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/馬丘比丘/1.jpg">
+										<h3>馬丘比丘</h3>
+									</div>
+								</div>
+								<div id="na" class="in">
+									<div class="filterListImg-img">
+										<img src="img/聖克魯斯/1.JPG">
+										<h3>聖克魯斯</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/優勝美地/1.jpg">
+										<h3>優勝美地</h3>
+									</div>
+								</div>
+								<div id="sa" class="in">
+									<div class="filterListImg-img">
+										<img src="img/百內國家公園/1.jpg">
+										<h3>百內國家公園</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/百內國家公園/2.jpg">
+										<h3>百內國家公園</h3>
+									</div>
+								</div>
+								<div id="oceania" class="in">
+									<div class="filterListImg-img">
+										<img src="img/阿斯帕林/1.JPG">
+										<h3>阿斯帕林山</h3>
+									</div>
+									<div class="filterListImg-img">
+										<img src="img/阿斯帕林/2.jpg">
+										<h3>阿斯帕林山</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div> -->
+		<div id="scene_back" class="scene">
+			<img id="banner_back" class="banner" src="img/banner_back.png">
+			<img id="banner_front" class="banner" src="img/banner.png">
+				<!-- <img id="pokemon7" class="" src="img/cloud-2.png"> -->
+		</div>
+        <div id="wrapper">	
+           
+			<!-- <nav id="primary">
+				<ul>
+					<li>
+						<h1>高山草原</h1>
+						<a class="manned-flight" href="#manned-flight">View</a>
+					</li>
+					<li>
+						<h1>溫帶針葉林</h1>
+						<a class="frameless-parachute" href="#frameless-parachute">View</a>
+					</li>
+					<li>
+						<h1>亞熱帶闊葉林</h1>
+						<a class="english-channel" href="#english-channel">View</a>
+					</li>
+					<li>
+						<h1>出發爬山吧!</h1>
+						<a class="about" href="#about">View</a>
+					</li>
+				</ul>
+			</nav> -->
+			
+			<div id="content">
+				<article id="manned-flight">
+					<!-- <header>
+						<h1>高山草原</h1>
+					</header>
+					<p>海拔3,000公尺以上的高山地帶，由於表土層薄，水分保持不易，年均溫10度以下，樹木不易生長，因此遍布耐旱、耐寒的矮小植物。
+					</p> -->
+					<!-- <nav class="next-prev">
+						<hr />
+						<a class="next frameless-parachute" href="#frameless-parachute">Next</a>
+					</nav> -->
+				</article>
+				
+				<article id="frameless-parachute">
+					<!-- <header>
+						<h1>溫帶針葉林</h1>
+					</header>
+					<p>台灣海拔3,000～3,500公尺的生態帶是屬於溫帶針葉林，森林的組成與溫帶的北方針葉林（即俗稱的德國黑森林）相似，
+                        也是全世界最南端的黑森林了。這種黑森林分布僅在北半球緯度50～70°之間，
+                        在南半球，因為這個緯度的地區只有海洋，並無陸地和森林，因此被稱做北方針葉林。
+                        因為台灣有如此高海拔的山地，再加上緯度正好位於溫帶和熱帶的交界，才能有此種針葉林帶的生存。
+                    </p> -->
+					<!-- <nav class="next-prev"> -->
+						<!-- <a class="prev manned-flight" href="#manned-flight">Prev</a>
+						<hr />
+						<a class="next english-channel" href="#english-channel">Next</a> -->
+					<!-- </nav> -->
+				</article>
+				
+				<article id="english-channel">
+					<!-- <header>
+						<h1>亞熱帶闊葉林</h1>
+					</header>
+					<p>分布於海拔500公尺以下。植物以桑科（如榕樹）和樟科（如大葉楠、香楠）等為主，
+                        森林底層則有許多蕈類生長。是人類活動較頻繁的區域。由於海拔低，開發早，原始林多已開發消失，
+                        現多為次生林（如白匏仔、血桐、山黃麻等植物）與人工林（如相思樹、油桐、綠竹等植物）。
+                        常見動物有麻雀、松鼠、蝙蝠以及各種鳥類、蛇、蜥蜴、昆蟲等。
+                    </p> -->
+					<!-- <nav class="next-prev">
+						<a class="prev frameless-parachute" href="#frameless-parachute">Prev</a>
+						<hr />
+						<a class="next about" href="#about">Next</a>
+					</nav> -->
+				</article>
+				
+				<article id="about">
+					<header>
+						<h1>一起出發吧!</h1>
+					</header>
+					<a href="productsOverview.html"></a>
+					<button>馬上查看行程</button>
+							<!-- <div id="btn-main-1">馬上查看行程</div> -->
+						
+					<!-- <nav class="next-prev">
+						<a class="prev english-channel" href="#english-channel">Prev</a>
+						<hr/>
+					</nav> -->
+				</article>
+			</div>
+			
+			<!-- Parallax foreground -->
+			<div id="parallax-bg3">
+				<img id="bg3-1" class="bg3-1" src="img/333.png" alt="grass"/>
+				<img id="bg3-2" class="bg3-1" src="img/444.png" alt="niddle"/>
+				<img id="bg3-3" class="bg3-1" src="img/555.png" alt="tropical"/>
+				<!-- <img id="bg3-4" src="img/05-2.png" alt="song"/> -->
+			</div>
+			
+			<!-- Parallax  midground clouds -->
+			<div id="parallax-bg2">
+				<!-- <img id="bg2-1" src="img/cloud-1.png" alt="cloud"/> -->
+				<!-- <img id="bg2-2" src="http://jonathannicol.com/projects/parallax-scrolling/img/cloud-lg1.png" alt="cloud"/> -->
+				<!-- <img id="bg2-3" src="img/cloud-2.png" alt="cloud"/> 
+				<img id="bg2-4" src="img/cloud-4.png" alt="cloud"/> -->
+				<!-- <img id="bg2-5" src="img/c-4-w.png"" alt="cloud"/>
+			</div>
+			
+			<!-- Parallax  background clouds -->
+			<div id="parallax-bg1">
+				<!-- <img id="bg1-1" src="img/01-cloud.png"alt="cloud"/> -->
+				<!-- <img id="bg1-2" src="img/cloud-3.png" alt="cloud"/> -->
+				<!-- <img id="bg1-3" src="img/c-4-w.png" alt="cloud" width="1200px" /> -->
+				<!-- <img id="bg1-4" src="img/c-5-w.png" alt="cloud"/> -->
+			</div>
+		
+		</div>
+<!-- footer----------------->
+
+<!-- <footer id="footer">
+    <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
+</footer>
+</body> -->
+
+
+<!-- banner -->
+<script>
+var sceneFront = document.getElementsByClassName('banner');
+var bg3 = document.getElementsByClassName('bg3-1');
+window.addEventListener('scroll',()=>{
+	var originTop_G=700;
+	var originTop_N=1000;
+	var originTop_T=1800;
+	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+	sceneFront[0].style.top = 0-(scrollTop*0.2) + "px";//banner 背面
+	sceneFront[1].style.top = 0-(scrollTop*0.5) + "px";//banner 正面
+	// bg3[0].style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
+	// bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
+	// bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
+	// bg3[2].style.top =originTop_T+(0-(scrollTop*0.1))+ "px";//熱帶林
+	bg3[0].style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
+	bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
+	bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
+	// bg3[2].style.top =originTop_T+(0-(scrollTop*0.1))+ "px";//熱帶林
+
+});
+</script>
+<!-- banner -->
+
+
+</html>

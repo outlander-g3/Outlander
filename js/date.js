@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
     arrmm[11] = "十二月";
     document.querySelector("#mm-sp").innerText = arrmm[mm];
     document.querySelector("#yy-sp").innerText = yy;
-    var dayall = new Date(yy, mm, 0).getDate();//總天數
+    var dayall = new Date(yy, (mm + 1), 0).getDate();//總天數
     var bd = new Date(yy + "/" + (mm + 1) + "/1").getDay();//因為回傳月份是0-11 所以要+1  抓星期他只有1-12月
     var dayfunction = () => {
         for (var i = 1; i < 7; i++) {

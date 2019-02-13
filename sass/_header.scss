@@ -121,7 +121,7 @@
             justify-content: flex-end;
         }
         li{
-            line-height: 50px;
+            line-height: 70px;
             text-align: center;
             cursor: pointer;
             color:$color-header;
@@ -149,9 +149,11 @@
         position: relative;
         cursor: pointer;
         #member-child{
+            top: 50%;
             position: absolute;
             width: 100%;
-            top: 65%;
+            z-index: -1;
+            transition: all 0.5s;
             li a{
                 width: 100%;
                 text-align: center;
@@ -172,7 +174,6 @@
     }
     .filter{
         width: 70%;
-        background: white;
         border: 1px solid #aaa;
         height: 250px;
         position: fixed;
@@ -186,6 +187,7 @@
             #filterListLi{
                 flex: 1;
                 position: sticky;
+                background: $color-white;
                 li{
                     color: $color-text;
                     display: flex;
@@ -203,6 +205,7 @@
             overflow: auto;
             flex: 3;
             text-align: center;
+            background: #f4f4f475;
             @media (min-width:768px) {
                 .in{
                     display: flex;
@@ -220,6 +223,9 @@
                     right: 0;
                     margin: auto;
                     color:$color-white;
+                    text-shadow: $shadow;
+                    font-size: 1rem;
+                    font-weight: bold;
                 }
                 @media (min-width:768px) {
                     width: 33.333333%;

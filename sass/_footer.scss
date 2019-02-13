@@ -2,9 +2,11 @@
     width: 100%;
     background: $color-header;
     p{
-        line-height: 88px;
+        line-height: 50px;
         padding:0 10px;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
         text-align: center;
+        color:$color-white;
+
     }
 }

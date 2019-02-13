@@ -332,9 +332,6 @@ ul{
                 box-shadow: $shadow;
                 @include br4;
                 margin-bottom: 30px;
-                @media (max-width:992px) {
-                   
-                }
                 .rowWithOrder{
                     display: flex;
                     @include rwd(mobile){
@@ -863,6 +860,20 @@ ul{
     }
     .jpCont>p{
         padding-top: unset;
+    }
+    .jpCont{
+        input[type='text']{
+            width: 100%;
+            line-height: 26px;
+            display:inline-block;
+            padding: 8px 0;
+            @include f16();
+            box-sizing: border-box;
+            @include pLeft(20);
+            &::placeholder{
+                color:$color-gray1;
+            }
+        }
     }
 }
 #jpWin-delete{

@@ -154,7 +154,7 @@
                                     <figure class="snip1205">
                                         <img src="img/profilePic.jpg" alt="">
                                         <i class="fas fa-pen"></i>
-                                        <a href="javascript:;"></a>
+                                        <a href="javascript:;" class="btn-memberEdit"></a>
                                     </figure>
                                 </div>
                                 <div id="name">Marie Chen</div>
@@ -817,6 +817,44 @@
 
     <!-- 跳窗html -->
     <!-- 灰底 -->
+    <div class="jpBase editMember">
+        <!-- 跳窗 -->
+        <div class="jpWin" id="jpWin-edit">
+
+            <!-- 標題 -->
+            <div class="jpTitle">
+                修改會員資料
+            </div>
+
+            <!-- 內容 -->
+            <div class="jpCont">
+                <p>
+                    上傳新頭像
+                </p>
+                <input type="file">
+                <p>
+                    會員暱稱
+                </p>
+                <input type="text">
+
+
+                <p>
+                    會員信箱
+                </p>
+                <input type="text">
+
+
+            </div>
+
+            <!-- 按鈕 -->
+            <div class="jpBtn">
+                <div class="row">
+                    <a href="" class="btn-jump-left">取消修改</a>
+                    <a href="" class="btn-jump-right">確定修改</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="jpBase deleteOrder">
         <!-- 跳窗 -->
         <div class="jpWin" id="jpWin-delete">
@@ -936,6 +974,7 @@
                     winJump.style.display = 'none';
                 }, true)
             }
+            winJump('.btn-memberEdit', '.editMember', '#jpWin-edit');
             winJump('.btn-orderDelete', '.deleteOrder', '#jpWin-delete');
             winJump('.btn-rate', '.rate', '#jpWin-rate');
         })

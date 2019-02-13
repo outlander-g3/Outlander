@@ -1,8 +1,8 @@
 @import "mixin/_mixin.scss";
 @import "base/_var.scss";
-*{
-    outline: 1px solid blue;
-}
+// *{
+//     outline: 1px solid blue;
+// }
 html {
     @media screen and (max-width: 767px) {
       html {

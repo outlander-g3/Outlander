@@ -9,11 +9,11 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<script src="js/vue.min.js"></script>
 	<script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/header.js"></script>
+    <!-- <script src="js/header.js"></script> -->
 
 </head>
 <body>
-	<script src="http://jonathannicol.com/projects/js/modernizr.custom.37797.js"></script> 
+	<!-- <script src="http://jonathannicol.com/projects/js/modernizr.custom.37797.js"></script>  -->
 		<!-- Grab Google CDN's jQuery. fall back to local if necessary --> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
 
@@ -230,9 +230,15 @@
 			
 			<!-- Parallax foreground -->
 			<div id="parallax-bg3">
-				<img id="bg3-1" class="bg3-1" src="img/333.png" alt="grass"/>
-				<img id="bg3-2" class="bg3-1" src="img/444.png" alt="niddle"/>
-				<img id="bg3-3" class="bg3-1" src="img/555.png" alt="tropical"/>
+				<div id="bg3-1">
+					<img class="bg3-1" src="img/333.png" alt="grass"/>
+				</div>
+				<div id="bg3-2">
+					<img class="bg3-1" src="img/444.png" alt="niddle"/>
+				</div>
+				<div id="bg3-3">
+					<img  class="bg3-1" src="img/555.png" alt="tropical"/>
+				</div>
 				<!-- <img id="bg3-4" src="img/05-2.png" alt="song"/> -->
 			</div>
 			
@@ -265,7 +271,9 @@
 <!-- banner -->
 <script>
 var sceneFront = document.getElementsByClassName('banner');
-var bg3 = document.getElementsByClassName('bg3-1');
+var bg31 = document.getElementById('bg3-1');
+var bg32 = document.getElementById('bg3-2');
+var bg33 = document.getElementById('bg3-3');
 window.addEventListener('scroll',()=>{
 	var originTop_G=700;
 	var originTop_N=1000;
@@ -277,9 +285,9 @@ window.addEventListener('scroll',()=>{
 	// bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
 	// bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
 	// bg3[2].style.top =originTop_T+(0-(scrollTop*0.1))+ "px";//熱帶林
-	bg3[0].style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
-	bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
-	bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
+	bg31.style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
+	bg32.style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
+	bg33.style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
 	
 
 });

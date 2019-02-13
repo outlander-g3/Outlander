@@ -134,6 +134,9 @@ body{
 	}
 	#content article {
 		width: 450px;
+		@media screen and (max-width:767px){
+			width: 70%;
+		}
 		}
 		#manned-flight ,
 		#frameless-parachute,
@@ -194,7 +197,11 @@ body{
 	// position: relative;
 	
 	}
+	img{
+		width: 100%;
+	}
 	/* mountain */
+	
 	#bg3-1 {
 		width:55%;
 		position: absolute;
@@ -203,9 +210,9 @@ body{
 		right:0;
 		@media screen and (max-width:767px){
 			width:100%;
-			position: relative;
 			background-color: red;
-		}
+			height: 1000px;
+		};
 
 		}
 	#bg3-2 {
@@ -222,7 +229,7 @@ body{
 		right:0;
 		width: 55%;
 		}
-	#bg3-3 img{
+	img{
 		width: 100%;
 	}
 	// #bg3-4 {

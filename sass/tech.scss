@@ -2,6 +2,9 @@
 @import "base/_var.scss";
 
 // @import "base/_footer";
+*{
+	outline: red 1px solid;
+}
 ol, ul {
     list-style: none; 
 }
@@ -69,7 +72,7 @@ body{
 
 #wrapper {
 	position: relative;
-	width:1200px;
+	max-width:2500px;
 	height:3500px;
 }
 //banner////
@@ -127,12 +130,12 @@ body{
 		#manned-flight {
 			position: absolute;
             top: 900px;
-            left:200px;
+            left:100px;
 			}
 		#frameless-parachute {
 			position: absolute;
 			top: 1800px;
-			left:1200px;
+			right: 0;
 			}
 		#english-channel {
 			position: absolute;
@@ -170,40 +173,44 @@ body{
 /* foreground  */
 #parallax-bg3 {
 	z-index: 3;
-	position: fixed;
-	left: 50%; /* align left edge with center of viewport */
-	top: 0;
+	// position: fixed;
+	// left: 50%; /* align left edge with center of viewport */
+	// top: 0;
 	width: 100%;
-	max-width: 1200px;
-
-	/*margin-left: -470px;*/ /* move left by half element's width */
+	position: relative;
+	
 	}
 	/* mountain */
 	#bg3-1 {
-		width:90%;
+		width:55%;
 		position: absolute;
-		top: 700px;
+		// top: 700px;
+		top:0;
+		right:0;
 		}
 	#bg3-2 {
+		width:60%;
 		position: absolute;
-		top:1400px;
-		right:1200px;
+		// top:1400px;
+		top:0px;
+		left:-10%;
 		}
 	#bg3-3 {
 		position: absolute;
-		top: 1900px;
-		left: 0px;
-		width: 70%;
+		// top: 1900px;
+		top:0;
+		right:0;
+		width: 60%;
 		}
 	#bg3-3 img{
 		width: 100%;
 	}
-	#bg3-4 {
+	// #bg3-4 {
 		// width: 98%;
-		position: absolute;
-		top: 2300px;
-		left: -800px;
-		}
+		// position: absolute;
+		// top: 2300px;
+		// left: -800px;
+		// }
 		// #bg3-4 img{
 		// 	width: 100%;
 		// }

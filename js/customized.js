@@ -7,6 +7,8 @@ var cuProcess1= O('cuProcess1');
 var cuProcess2= O('cuProcess2');
 var cuForm__inputC = O('cuForm__input--C');
 var cuForm__inputM = O('cuForm__input--M');
+var btn_cuAddScenery767 = document.getElementsByClassName('btn_cuAddScenery--767');
+
 
 function cuSlide1(){
     //控制767以下，步驟一及步驟一左右滑動，步驟二顏色圓圈填色
@@ -443,7 +445,11 @@ function addItem(itemId,itemValue){
     O('cuAmount').innerText = cuAmount;
 }
 
+function cuPickScenery(){
+    // btn_cuAddScenery767
+    alert();
 
+}
 function cuShowGuide(){
     var cu__guideItem = document.getElementsByClassName('cu__guideItem');
     let cuGuide_picL = O('cuGuide_picL');
@@ -536,7 +542,10 @@ function init(){
             addItem(this.id,cuSceneryInfo);
 		});
     }
-  
+
+    for(var m=0 ; m<btn_cuAddScenery767.length;m++){
+        btn_cuAddScenery767.addEventListener('click',cuPickScenery);
+    }
 
 
     // 客製化第二步驟，嚮導點小圖換大圖

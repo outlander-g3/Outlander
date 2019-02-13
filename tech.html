@@ -142,7 +142,9 @@
 			<img id="banner_back" class="banner" src="img/banner_back.png">
 			<img id="banner_front" class="banner" src="img/banner.png">
 				<!-- <img id="pokemon7" class="" src="img/cloud-2.png"> -->
+				<!-- <div id="title">登山小技巧</div> -->
 		</div>
+		
         <div id="wrapper">	
            
 			<!-- <nav id="primary">
@@ -168,11 +170,11 @@
 			
 			<div id="content">
 				<article id="manned-flight">
-					<!-- <header>
+					<header>
 						<h1>高山草原</h1>
 					</header>
 					<p>海拔3,000公尺以上的高山地帶，由於表土層薄，水分保持不易，年均溫10度以下，樹木不易生長，因此遍布耐旱、耐寒的矮小植物。
-					</p> -->
+					</p>
 					<!-- <nav class="next-prev">
 						<hr />
 						<a class="next frameless-parachute" href="#frameless-parachute">Next</a>
@@ -180,14 +182,14 @@
 				</article>
 				
 				<article id="frameless-parachute">
-					<!-- <header>
+					<header>
 						<h1>溫帶針葉林</h1>
 					</header>
 					<p>台灣海拔3,000～3,500公尺的生態帶是屬於溫帶針葉林，森林的組成與溫帶的北方針葉林（即俗稱的德國黑森林）相似，
                         也是全世界最南端的黑森林了。這種黑森林分布僅在北半球緯度50～70°之間，
                         在南半球，因為這個緯度的地區只有海洋，並無陸地和森林，因此被稱做北方針葉林。
                         因為台灣有如此高海拔的山地，再加上緯度正好位於溫帶和熱帶的交界，才能有此種針葉林帶的生存。
-                    </p> -->
+                    </p>
 					<!-- <nav class="next-prev"> -->
 						<!-- <a class="prev manned-flight" href="#manned-flight">Prev</a>
 						<hr />
@@ -196,14 +198,14 @@
 				</article>
 				
 				<article id="english-channel">
-					<!-- <header>
+					<header>
 						<h1>亞熱帶闊葉林</h1>
 					</header>
 					<p>分布於海拔500公尺以下。植物以桑科（如榕樹）和樟科（如大葉楠、香楠）等為主，
                         森林底層則有許多蕈類生長。是人類活動較頻繁的區域。由於海拔低，開發早，原始林多已開發消失，
                         現多為次生林（如白匏仔、血桐、山黃麻等植物）與人工林（如相思樹、油桐、綠竹等植物）。
                         常見動物有麻雀、松鼠、蝙蝠以及各種鳥類、蛇、蜥蜴、昆蟲等。
-                    </p> -->
+                    </p>
 					<!-- <nav class="next-prev">
 						<a class="prev frameless-parachute" href="#frameless-parachute">Prev</a>
 						<hr />
@@ -211,19 +213,19 @@
 					</nav> -->
 				</article>
 				
-				<article id="about">
+				<!-- <article id="about">
 					<header>
 						<h1>一起出發吧!</h1>
 					</header>
 					<a href="productsOverview.html"></a>
-					<button>馬上查看行程</button>
+					<button>馬上查看行程</button> -->
 							<!-- <div id="btn-main-1">馬上查看行程</div> -->
 						
 					<!-- <nav class="next-prev">
 						<a class="prev english-channel" href="#english-channel">Prev</a>
 						<hr/>
 					</nav> -->
-				</article>
+				<!-- </article> -->
 			</div>
 			
 			<!-- Parallax foreground -->
@@ -267,7 +269,7 @@ var bg3 = document.getElementsByClassName('bg3-1');
 window.addEventListener('scroll',()=>{
 	var originTop_G=700;
 	var originTop_N=1000;
-	var originTop_T=1800;
+	var originTop_T=1900;
 	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 	sceneFront[0].style.top = 0-(scrollTop*0.2) + "px";//banner 背面
 	sceneFront[1].style.top = 0-(scrollTop*0.5) + "px";//banner 正面
@@ -278,7 +280,7 @@ window.addEventListener('scroll',()=>{
 	bg3[0].style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
 	bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
 	bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
-	// bg3[2].style.top =originTop_T+(0-(scrollTop*0.1))+ "px";//熱帶林
+	
 
 });
 </script>

@@ -75,6 +75,20 @@ body{
 	max-width:2500px;
 	height:3500px;
 }
+#title{
+	font-size: 24px;
+	color:$color-main3;
+	position:absolute;
+	top:500px;
+	left:45%;
+	// @media screen and (min-width:768px){
+	// 	display: none;
+	// }
+	// @media screen and (max-width:767px){
+	// 	display: inline-block;
+	// }
+
+}
 //banner////
 .scene_back{
 	position: relative;
@@ -130,17 +144,17 @@ body{
 		#manned-flight {
 			position: absolute;
             top: 900px;
-            left:100px;
+            left:10%;
 			}
 		#frameless-parachute {
 			position: absolute;
 			top: 1800px;
-			right: 0;
+			right: 10%;
 			}
 		#english-channel {
 			position: absolute;
-            top: 2400px;
-            left:200px;
+            top:2800px;
+            left:10%;
 			}
 			#content h1 {
 				margin: 0 0 25px 0;
@@ -173,11 +187,11 @@ body{
 /* foreground  */
 #parallax-bg3 {
 	z-index: 3;
-	// position: fixed;
+	position: fixed;
 	// left: 50%; /* align left edge with center of viewport */
 	// top: 0;
 	width: 100%;
-	position: relative;
+	// position: relative;
 	
 	}
 	/* mountain */
@@ -187,6 +201,12 @@ body{
 		// top: 700px;
 		top:0;
 		right:0;
+		@media screen and (max-width:767px){
+			width:100%;
+			position: relative;
+			background-color: red;
+		}
+
 		}
 	#bg3-2 {
 		width:60%;
@@ -200,7 +220,7 @@ body{
 		// top: 1900px;
 		top:0;
 		right:0;
-		width: 60%;
+		width: 55%;
 		}
 	#bg3-3 img{
 		width: 100%;
@@ -289,3 +309,20 @@ body{
 				color: #f4f4f4;
 			}
 }
+//桌機 only
+// @media screen and (min-width:992px)
+
+//iPad+桌機
+// @media screen and (min-width:768px)
+
+//iPad+手機橫+手機直
+// @media screen and (max-width:991px)
+
+//手機橫+手機直
+// @media screen and (max-width:767px)
+
+//手機直
+// @media screen and (max-width:575px)
+
+//iPad only
+// @media screen and (min-width:768px) and (max-width:991px)

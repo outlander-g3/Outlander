@@ -228,9 +228,9 @@
 			
 			<!-- Parallax foreground -->
 			<div id="parallax-bg3">
-				<img id="bg3-1" src="img/333.png" alt="grass"/>
-				<img id="bg3-2" src="img/444.png" alt="niddle"/>
-				<img id="bg3-3" src="img/555.png" alt="tropical"/>
+				<img id="bg3-1" class="bg3-1" src="img/333.png" alt="grass"/>
+				<img id="bg3-2" class="bg3-1" src="img/444.png" alt="niddle"/>
+				<img id="bg3-3" class="bg3-1" src="img/555.png" alt="tropical"/>
 				<!-- <img id="bg3-4" src="img/05-2.png" alt="song"/> -->
 			</div>
 			
@@ -238,8 +238,8 @@
 			<div id="parallax-bg2">
 				<!-- <img id="bg2-1" src="img/cloud-1.png" alt="cloud"/> -->
 				<!-- <img id="bg2-2" src="http://jonathannicol.com/projects/parallax-scrolling/img/cloud-lg1.png" alt="cloud"/> -->
-				<img id="bg2-3" src="img/cloud-2.png" alt="cloud"/> 
-				<img id="bg2-4" src="img/cloud-4.png" alt="cloud"/>
+				<!-- <img id="bg2-3" src="img/cloud-2.png" alt="cloud"/> 
+				<img id="bg2-4" src="img/cloud-4.png" alt="cloud"/> -->
 				<!-- <img id="bg2-5" src="img/c-4-w.png"" alt="cloud"/>
 			</div>
 			
@@ -263,104 +263,22 @@
 <!-- banner -->
 <script>
 var sceneFront = document.getElementsByClassName('banner');
+var bg3 = document.getElementsByClassName('bg3-1');
 window.addEventListener('scroll',()=>{
+	var originTop_G=700;
+	var originTop_N=1000;
+	var originTop_T=1500;
 	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-	sceneFront[0].style.top = 0-(scrollTop*0.2) + "px";
-	sceneFront[1].style.top = 0-(scrollTop*0.5) + "px";
+	sceneFront[0].style.top = 0-(scrollTop*0.2) + "px";//banner 背面
+	sceneFront[1].style.top = 0-(scrollTop*0.5) + "px";//banner 正面
+	bg3[0].style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
+	bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
+	// bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
+	bg3[2].style.top =originTop_T+(0-(scrollTop*0.7))+ "px";//熱帶林
+
 });
 </script>
 <!-- banner -->
 
-<script>
-	$(document).ready(function() {
 
-redrawDotNav();
-
-/* Scroll event handler */
-$(window).bind('scroll',function(e){
-parallaxScroll();
-redrawDotNav();
-});
-
-/* Next/prev and primary nav btn click handlers */
-$('a.manned-flight').click(function(){
-$('html, body').animate({
-	scrollTop:0
-}, 1000, function() {
-	parallaxScroll(); // Callback is required for iOS
-});
-return false;
-});
-$('a.frameless-parachute').click(function(){
-$('html, body').animate({
-	scrollTop:$('#frameless-parachute').offset().top
-}, 1000, function() {
-	parallaxScroll(); // Callback is required for iOS
-});
-return false;
-});
-$('a.english-channel').click(function(){
-$('html, body').animate({
-	scrollTop:$('#english-channel').offset().top
-}, 1000, function() {
-	parallaxScroll(); // Callback is required for iOS
-});
-return false;
-});
-$('a.about').click(function(){
-$('html, body').animate({
-	scrollTop:$('#about').offset().top
-}, 1000, function() {
-	parallaxScroll(); // Callback is required for iOS
-});
-return false;
-});
-
-/* Show/hide dot lav labels on hover */
-$('nav#primary a').hover(
-function () {
-	$(this).prev('h1').show();
-},
-function () {
-	$(this).prev('h1').hide();
-}
-);
-
-});
-
-/* Scroll the background layers */
-function parallaxScroll(){
-var scrolled = $(window).scrollTop();
-// $('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
-// $('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
-// $('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
-$('#parallax-bg1').css('top',(0-(scrolled*.1))+'px');
-$('#parallax-bg2').css('top',(0-(scrolled*.6))+'px');
-$('#parallax-bg3').css('top',(0-(scrolled*.9))+'px');
-
-}
-
-/* Set navigation dots to an active state as the user scrolls */
-function redrawDotNav(){
-var section1Top =  0;
-// The top of each section is offset by half the distance to the previous section.
-var section2Top =  $('#frameless-parachute').offset().top - (($('#english-channel').offset().top - $('#frameless-parachute').offset().top) / 2);
-var section3Top =  $('#english-channel').offset().top - (($('#about').offset().top - $('#english-channel').offset().top) / 2);
-var section4Top =  $('#about').offset().top - (($(document).height() - $('#about').offset().top) / 2);;
-$('nav#primary a').removeClass('active');
-if($(document).scrollTop() >= section1Top && $(document).scrollTop() < section2Top){
-$('nav#primary a.manned-flight').addClass('active');
-} else if ($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
-$('nav#primary a.frameless-parachute').addClass('active');
-} else if ($(document).scrollTop() >= section3Top && $(document).scrollTop() < section4Top){
-$('nav#primary a.english-channel').addClass('active');
-} else if ($(document).scrollTop() >= section4Top){
-$('nav#primary a.about').addClass('active');
-}
-
-}
-
-
-
-</script>
 </html>

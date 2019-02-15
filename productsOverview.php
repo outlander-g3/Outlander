@@ -1,11 +1,28 @@
 <?php
+// session_start();
+
     // include_once('connectDb.php'); //連線
-    // include_once('login.php'); //會員登入
-
-    //要去抓選擇的開團資訊（圖,名稱,日期
-
+    // include_once('session.php'); //判斷會員是否登入
+    try{
+        require_once('connectDb.php');
+        //$sql = "select *, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo
+        //join `order` c on b.pdNo = c.pdNo group by a.pdkNo";/////以上是精選行程正確寫法
+        $sql = "select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 2";
+        //以上是精選行程假寫法
+        $products = $pdo -> query($sql);
+        //$sql="select *, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by a.pdkNo order by b.pdStart
+        //";
+        ////以上是近期開團正確寫法
+        $sql="select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 6
+        ";////以上是近期開團假寫法
+        $recent = $pdo -> query($sql);
+        // $prodRows = $products -> fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+	    echo "錯誤 : ", $e -> getMessage(), "<br>";
+	    echo "行號 : ", $e -> getLine(), "<br>";
+    }
+        
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +36,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cart.css">
+    <!-- <link rel="stylesheet" href="css/robot.css"> -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.min.js"></script>
-    <script src="js/enquire.min.js"></script>
+    <!-- <script src="js/enquire.min.js"></script> -->
     <link rel="stylesheet" href="css/productsOverview.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!-- css塞這 自己js塞屁股 -->
 </head>
 
@@ -36,7 +50,6 @@
     <?php
         include_once('header.php');
     ?>
-
 <!-- ===========================各分頁內容開始======================= -->
 <div class="po-wrap">
         <div class="po-banner">
@@ -44,7 +57,7 @@
                 <canvas id='canv'></canvas>
                 <img src="img/banner_0206.png" alt="train">
                 <div class="po-banner-des">
-                    <h2>不知道想去哪裡嗎?</h2>
+                    <h2>不知道想去哪裡嗎?<?php ?></h2>
                     <h6>點選<a href="#" class="mode">湖泊</a>、<a href="#" class="mode">星空</a>、<a href="#"
                             class="snowCard">雪地</a>三種情境模式進行行程篩選</h6>
                 </div>
@@ -163,47 +176,55 @@
     <div class="cloud-wrap">
         <img src="img/cloud.png" alt="cloud">
     </div>
-
+   	
     <!-- 以下為精選行程 -->
     <div class="pro-product-wrap pro-product-wrap-topic">
         <h3>精選行程</h3>
-        <h5>你一生必去的經典登山路線</h5>
+        <h5>你一生必去的經典登山路線</h5>		
         <div class="pro-item-flex">
+            <?php	
+            while($prodRow = $products->fetch(PDO::FETCH_ASSOC)){
+            ?>
             <!-- 1個商品卡 -->
             <div class="pro-item">
                 <a href="products.html">
                     <div class="pro-item-pic">
                         <img src="img/ebc.jpg" alt="EBC">
                     </div>
-                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
+                    <h4> <?php echo $prodRow["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
                         <p>評價：</p>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-
+                        <?php
+                        //for($i=0;$i<$prodRow["avgRate"];$i++){
+                         //echo '<span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>';
+                        //}
+                        ?>  
                     </div>
-                    <p>天數：15天</p>
+                    <p>天數：<?php echo $prodRow["day"];?></p>
                     <div class="pro-item-view-float">
                         <p>難易度：</p>
                         <div class="hike-float">
                             <span class="hike">
+                                <?php 
+                                    for($i=0; $i<$prodRow["level"]; $i++){
+                                ?>
                                 <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
+                                <?php } ?>
                             </span>
                         </div>
-                        <h4>NTD76500</h4>
+                        <h4>NTD<?php echo $prodRow["pdkPrice"];?></h4>
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
                 </a>
             </div>
+            <?php
+            }
+            ?>
             <!-- 1個商品卡 -->
             <!-- 2個商品卡 -->
             <!-- 1個商品卡 -->
-            <div class="pro-item">
+            <!-- <div class="pro-item">
                 <a href="products.html">
                     <div class="pro-item-pic">
                         <img src="img/ebc.jpg" alt="EBC">
@@ -231,7 +252,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </a>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -240,43 +261,59 @@
     <div class="mt-wrap">
     </div>
     <div class="pro-product-wrap">
-        <h3>熱門行程</h3>
-        <h5>年度最受歡迎登山路線</h5>
+        <h3>近期開團</h3>
         <div class="pro-item-flex pro-item-flex-three">
             <!-- 1個商品卡 -->
+            <?php	
+            while($prodRowRe = $recent->fetch(PDO::FETCH_ASSOC)){
+            ?>
             <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <img src="img/ebc.jpg" alt="EBC">
                     </div>
-                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
+                    <h4><?php echo $prodRowRe["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
                         <p>評價：</p>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                            <?php
+                                for($i=0;$i<$prodRowRe["rate"];$i++){
+                                ?>
+                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
+                            <?php
+                            }?>
+                            <?php 
+                               // for($i=0;$i<$prodRowRe["rate"];$i++){
+                                    //echo '<span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>';
+                                //}直接用echo的寫法
+                            ?>
 
                     </div>
-                    <p>天數：15天</p>
+                    <p>天數：<?php echo $prodRowRe["day"];?></p>
                     <div class="pro-item-view-float">
                         <p>難易度：</p>
                         <div class="hike-float">
+                            <?php
+                            for($i=0;$i<$prodRowRe["level"];$i++){
+                            ?>
                             <span class="hike">
                                 <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
                             </span>
+                            <?php
+                            }
+                            ?>
                         </div>
-                        <h4>NTD76500</h4>
+                        <h4>NTD<?php echo $prodRowRe["pdkPrice"];?></h4>
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
                 </a>
             </div>
+            <?php
+            }
+            ?>
             <!-- 1個商品卡 -->
             <!-- 2個商品卡 -->
-            <div class="pro-item pro-item-three">
+            <!-- <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <img src="img/ebc.jpg" alt="EBC">
@@ -305,10 +342,10 @@
                     </div>
                     <div class="clearfix"></div>
                 </a>
-            </div>
+            </div> -->
             <!-- 2個商品卡 -->
             <!-- 3個商品卡 -->
-            <div class="pro-item pro-item-three">
+            <!-- <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <img src="img/ebc.jpg" alt="EBC">
@@ -337,12 +374,12 @@
                     </div>
                     <div class="clearfix"></div>
                 </a>
-            </div>
+            </div> -->
             <!-- 3個商品卡 -->
-        </div>
-        <div class="pro-item-flex pro-item-flex-three">
+        <!-- </div>
+        <div class="pro-item-flex pro-item-flex-three"> -->
             <!-- 1個商品卡 -->
-            <div class="pro-item pro-item-three">
+            <!-- <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <img src="img/ebc.jpg" alt="EBC">
@@ -371,10 +408,10 @@
                     </div>
                     <div class="clearfix"></div>
                 </a>
-            </div>
+            </div> -->
             <!-- 1個商品卡 -->
             <!-- 2個商品卡 -->
-            <div class="pro-item pro-item-three">
+            <!-- <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <img src="img/ebc.jpg" alt="EBC">
@@ -403,10 +440,10 @@
                     </div>
                     <div class="clearfix"></div>
                 </a>
-            </div>
+            </div> -->
             <!-- 2個商品卡 -->
             <!-- 3個商品卡 -->
-            <div class="pro-item pro-item-three">
+            <!-- <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <img src="img/ebc.jpg" alt="EBC">
@@ -435,14 +472,10 @@
                     </div>
                     <div class="clearfix"></div>
                 </a>
-            </div>
+            </div> -->
             <!-- 3個商品卡 -->
         </div>
     </div>
-
-    <?
-        echo $_SESSION['memName'];
-    ?>
 
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->
@@ -451,11 +484,10 @@
     // include_once('robot.php');
     include_once('memLogin.php');
 ?>
-</body>
-</html>
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>
 <!-- <script src="js/robot.js"></script> -->
+</body>
 
 <script>
     // app = document.getElementById('app');
@@ -693,3 +725,5 @@ $('.snowCard').on("click",function(){
     }, false);
 
 </script> -->
+</html>
+<!-- <script src="js/robot.js"></script> -->

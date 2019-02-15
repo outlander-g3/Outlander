@@ -5,6 +5,9 @@
 @import "_header.scss";
 @import "_footer.scss";
 
+// *{
+//     outline: 1px solid red;
+// }
 
 body *{
     font-family: "Microsoft JhengHei","微軟正黑體";
@@ -129,7 +132,7 @@ a{
 
 //會員登入
 .jpBase.memLogin{
-    display:block;
+    // display:block;
     .jpWin{
         .jpCont{
             p{

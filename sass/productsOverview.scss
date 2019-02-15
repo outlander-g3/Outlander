@@ -590,6 +590,7 @@ display: none;
 .pro-item-flex{
     display: flex;
     justify-content: center;
+    max-width: 1200px;
     @media screen and (max-width:767px){
         flex-wrap: wrap;
     }
@@ -599,14 +600,15 @@ display: none;
 }
 .pro-item-flex-three{
    display: flex;
+   flex-wrap: wrap;
     a{
         display: block;
     }
 }
 //一個商品卡 //
 .pro-item{      
-    width: 50%;
-    margin: 0.7%;
+    width: 45%;
+    margin: 1%;
     border:1.5px solid #265057;
     border-radius: 4px;
     padding: 0.3%;

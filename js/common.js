@@ -41,7 +41,8 @@ window.addEventListener('load', function () {
                 url: 'session.php',
                 success: function (data) {
                     if (data == 'login') {
-                        // location.href = 'member.html';
+                        // 等著塞會員中心php
+                        // location.href = 'member.php';
                         alert('已登入');
                     }
                     else if (data == 'logout') {
@@ -52,9 +53,43 @@ window.addEventListener('load', function () {
             });
 
         }
+        else if (e.target.classList.contains('logout')) {
+            logout();
+        }
     }, false);
+
+
+    //刷新是否吃到session
+    $.ajax({
+        type: 'post',
+        url: 'session.php',
+        success: function (data) {
+            if (data == 'login') {
+                // 等著塞會員中心php
+                // location.href = 'member.php';
+                alert('已登入');
+                $('#Sign').css('display', 'block');
+                $('#Sign-m').css('display', 'block');
+            }
+        }
+    });
+
 });
 
+
+function logout() {
+    $.ajax({
+        type: 'post',
+        url: 'logout.php',
+        success: function (data) {
+            if (data == 'logout') {
+                alert('成功登出');
+                $('#Sign').css('display', 'none');
+                $('#Sign-m').css('display', 'none');
+            }
+        }
+    });
+}
 
 //是否點到win以外
 $('.memLogin').bind('click', function (e) {
@@ -130,6 +165,8 @@ function login(e) {
             }
             else {
                 $('.memLogin').css('display', 'none');
+                $('#Sign').css('display', 'block');
+                $('#Sign-m').css('display', 'block');
             }
         }
     });
@@ -245,8 +282,11 @@ function register() {
                         success: function () {
                             alert('成功註冊');
                             $('.memLogin').css('display', 'none');
-                            location.href = 'sessionTest.php';
+                            $('#Sign').css('display', 'block');
+                            $('#Sign-m').css('display', 'block');
                             resetLogin();
+                            //等著跳去會員中心
+                            // location.href = 'member.php';
                         }
                     });
                 }

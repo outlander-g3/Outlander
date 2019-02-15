@@ -1,15 +1,26 @@
 window.addEventListener("load", () => {
     var web = window.innerWidth;
+    window.addEventListener("resize", () => {
+        web = window.innerWidth;
+    })
     // 漢堡設定
+    var cl = false;
     var burger = new Vue({
         el: "#burger-all",
         methods: {
             bur() {
-                if (web < 768) {
+                if (web < 768 && !cl) {
                     document.querySelector("#burger-text").style.left = "0%";
-                    document.querySelector("#burger-1").style.transform="rotate(45deg)";
-                    document.querySelector("#burger-2").style.opacity="0";
-                    document.querySelector("#burger-3").style.transform="rotate(-45deg)";
+                    document.querySelector("#burger-1").style.cssText = "transform:rotate(45deg);transform-origin:left center;top:3px";
+                    document.querySelector("#burger-2").style.opacity = "0";
+                    document.querySelector("#burger-3").style.cssText = "transform:rotate(-45deg);transform-origin:left center";
+                    cl = true;
+                } else if (web < 768 && cl) {
+                    document.querySelector("#burger-text").style.left = "100%";
+                    document.querySelector("#burger-1").style.cssText = "transform:rotate(0deg);transform-origin:left center;top:6px";
+                    document.querySelector("#burger-2").style.opacity = "1";
+                    document.querySelector("#burger-3").style.cssText = "transform:rotate(0deg);transform-origin:left center";
+                    cl = false;
                 }
             }
         }
@@ -19,40 +30,32 @@ window.addEventListener("load", () => {
         data: {
             web: web
         },
-        methods: {
-            out() {
-                if (web < 768) {
-                    document.querySelector("#burger-text").style.left = "100%";
-                    document.querySelector("#burger-1").style.transform="rotate(0deg)";
-                    document.querySelector("#burger-2").style.opacity="1";
-                    document.querySelector("#burger-3").style.transform="rotate(0deg)";
-                }
-            }
-        }
     })
-    // 會員專區的子選單
-    if (window.innerWidth < 768) {
-        var member = document.querySelector("#member");
-        var memberclick = false;
-        member.addEventListener("click", () => {
-            if (!memberclick) {
-                for (var i = 0; i <= 3; i++) {
-                    var membera = document.getElementsByClassName("member-a")[i];
-                    membera.classList.add("member-b");
-                    memberclick = true;
-                }
-            } else {
-                for (var i = 0; i <= 3; i++) {
-                    var membera = document.getElementsByClassName("member-a")[i];
-                    membera.classList.remove("member-b");
-                    memberclick = false;
-                }
+    // 會員專區的子選單  2/14刪除
+    // if (window.innerWidth < 768) {
+    //     var member = document.querySelector("#member");
+    //     var memberclick = false;
+    //     member.addEventListener("click", () => {
+    //         if (!memberclick) {
+    //                 document.querySelector("#member-child").style.top="70%";
+    //             for (var i = 0; i <= 2; i++) {
+    //                 var membera = document.getElementsByClassName("member-a")[i];
+    //                 membera.classList.add("member-b");
+    //                 memberclick = true;
+    //             }
+    //         } else {
+    //             document.querySelector("#member-child").style.top="50%";
+    //             for (var i = 0; i <= 2; i++) {
+    //                 var membera = document.getElementsByClassName("member-a")[i];
+    //                 membera.classList.remove("member-b");
+    //                 memberclick = false;
+    //             }
 
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
 
-//出現篩選
+    //出現篩選
     var filter = document.querySelector(".filter");
     var search = document.querySelector("#search");
     var on = false;
@@ -60,6 +63,7 @@ window.addEventListener("load", () => {
     search.addEventListener("click", () => {
         if (!on) {
             filter.style.cssText = "top: 60px;left: 15%;display:block";
+            document.querySelector("#filterListImg").style.background = "#f4f4f4";
             on = true;
         }
         else if (on) {
@@ -76,22 +80,22 @@ window.addEventListener("load", () => {
 
 
 
-//點擊切換圖片
-    $("#filterListLi li").click((e)=>{
-        $("#filterListLi li").css("color","#484848");
-        e.target.style.color="#088B9A";
+    //點擊切換圖片
+    $("#filterListLi li").click((e) => {
+        $("#filterListLi li").css("color", "#484848");
+        e.target.style.color = "#088B9A";
         var list = document.getElementsByClassName("list");
-        for(let i = 0 ; i<list.length;i++){
-            if(e.target == list[i]){
+        for (let i = 0; i < list.length; i++) {
+            if (e.target == list[i]) {
                 var index = i;
             }
         }
-            $(".in").hide();
-            if(web>768){
-                $(".in").eq(index).css("display","flex");
-            }else{
-                $(".in").eq(index).css("display","block");
-            }
+        $(".in").hide();
+        if (web > 768) {
+            $(".in").eq(index).css("display", "flex");
+        } else {
+            $(".in").eq(index).css("display", "block");
+        }
     })
 
 

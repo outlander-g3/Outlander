@@ -6,6 +6,7 @@
 
 *{
     // outline: 1px solid red;
+
     select:focus, button{
         outline: none;
     }
@@ -31,7 +32,7 @@ body{
     background-repeat: no-repeat; 
     background-size:cover;
     background-color: #efedee;
-    padding-top: 80px;
+    padding: 80px 0 70px 0;
     @include rwd(mobile){
         height: 150px;
     }
@@ -53,7 +54,7 @@ body{
         img{
             display: block;
             margin: auto; 
-            padding-top: 20px; 
+            padding-top: 30px; 
             width: 70%;        
         }
     }
@@ -97,44 +98,44 @@ body{
                 }
             }
             #img-fuji, #text-fuji{   
-                top: 40%;
+                top: 37%;
                 left: 75%;    
             }
             
             #img-himalayas, #text-himalayas{
-                top: 47%;
+                top: 42%;
                 left: 63%;
             }
             #img-paine, #text-paine{
-                top: 87%;
+                top: 80%;
                 left: 29%;
             }
             #img-jade, #text-jade{
-                top: 48%;
+                top: 45%;
                 left: 72%;
             }
             #img-alps, #text-alps{
-                top: 34%;
+                top: 30%;
                 left: 49%;
             }
             #img-machu, #text-machu{
-                top:64%;
+                top:60%;
                 left: 27%;
             }
-            #img-cruz, #text-cruz{
-                top: 73%;
+            #img-huascaran, #text-huascaran{
+                top: 67%;
                 left: 29%;
             }
             #img-kilimanjaro, #text-kilimanjaro{
-                top: 62%;
-                left: 54%;
+                top: 53%;
+                left: 51%;
             }
             #img-aspalin, #text-aspalin{
-                top: 87%;
+                top: 80%;
                 left: 80%;
             }
             #img-yosemite, #text-yosemite{
-                top: 40%;
+                top: 37%;
                 left: 19%;
             }   
         }
@@ -213,7 +214,7 @@ body{
     max-width: 1200px;
     box-sizing: border-box;
     margin:auto;
-    padding: 50px 20px 50px 20px;
+    padding: 60px 20px 50px 20px;
     @include rwd(mobile){
         padding: 0px;
     }
@@ -287,6 +288,11 @@ body{
 			    top: 0.6em; 
             }
         }
+    .jo__write{
+        i{
+            font-size: 20px;
+        }
+    }
 }
 #jo__allcards__bg{
     .jo__allcards{

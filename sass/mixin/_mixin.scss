@@ -82,6 +82,7 @@
     overflow: visible;
     -webkit-appearance: none;
     outline: none;
+    border:none;
     box-shadow: $shadow;
     &:hover{
         filter: brightness(120%);
@@ -116,7 +117,9 @@
 //給input:text的設定
 @mixin inputText(){
     input[type='text'],
-    input[type='date']{
+    input[type='date'],
+    input[type='password'],
+    input[type='email']{
         border:1px solid $color-ph;
         background-color: $color-white;
         @include pLeft(10);
@@ -136,8 +139,6 @@
 
     label{
         display: inline-block;
-        padding: 5px 0;
-        
         i:not(:last-child){
             @if $bg==0{
                 color:$color-main1;
@@ -146,7 +147,7 @@
                 color:$color-white;
             }
             display:inline-block;
-            font-size: $size+pt;
+            font-size: $size+px;
             // margin: auto;
             @include mRight(5);
             vertical-align: middle;

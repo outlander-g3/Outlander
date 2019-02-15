@@ -1,0 +1,146 @@
+@mixin o {
+    *{
+        outline: 1px solid red;
+    }
+}
+
+$color-border:rgb(149, 152, 154);
+$ctBorder:1px solid $color-border;
+@mixin ctBorder{
+    border:$ctBorder;
+    @include rwd(mobile){
+        border-color:rgba(149, 152, 154,0.7);
+    }
+}
+
+$mobile: 767px;
+$medium: 991px;
+$desktop: 1200px;
+@mixin rwd($breakpoint) {
+    @if $breakpoint==mobile   {
+        @media only screen and (max-width: $mobile) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint==medium {
+        @media all and (max-width: $medium){
+            @content;
+        }
+    }
+
+    @else if $breakpoint==desktop {
+        @media all and (max-width: $desktop){
+            @content;
+        }
+    }
+}
+//給訂購人和旅客資訊用
+@mixin ctBox {
+    
+    // padding: 30px 20px;
+    @include ctBorder();
+    li{
+        // @include pLeft(20);
+        @include f16();
+        text-align: right;
+        @include pTop(5);
+        span{
+            margin-right: 20px;
+        }
+        input{
+            width: 166px;
+            height: 32px;
+            @include br4();
+            // @include pTop(5);
+            // @include rwd(medium){
+            //     width: 120px;
+            // }
+            // @include rwd(mobile){
+            //     width: 180px;
+            // }
+        }
+        // &:not(:first-child){
+        //     @include pTop(5);
+        // }
+    }
+}
+//給tab的BR
+@mixin ctBR__tab{
+    &:first-child{
+        @include ctBorder();
+        border-bottom: none;
+        border-radius: 4px 0 0 0;
+    }
+    &:first-child~a{
+        border-top:1px solid $color-border;
+        border-right:1px solid $color-border;
+    }
+    &:last-child{
+        border-radius: 0 4px 0 0;
+    }
+    &:first-child:last-child{
+        border-radius: 4px 4px 0 0;
+    }
+
+}
+
+@mixin rwdWrap{
+    @include rwd(mobile){
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
+
+
+@mixin step(){
+        // padding:80px 20px 20px 20px;
+        padding: 20px 0;
+        width: 330px;
+        margin: auto;
+        text-align: center;
+        // display: ;
+       @include rwd(mobile){
+           display: none;
+       }
+        .row{
+            justify-content: space-between;
+            .ctStep__item{
+                color:$color-main2;
+                .ctStep__item--circle{
+                    $size:34px;
+                    height: $size;
+                    width: $size;
+                    border-radius: 50%;
+                    border:2px solid $color-main2;
+                    line-height: $size;
+                    margin: auto;
+                    font-weight: bold;
+                }
+                .ctStep__item--text{
+                    white-space: nowrap;
+                    @include f16;
+                    @include pTop(4);
+                }  
+            }
+            .ctStep__line{
+                margin: 0 -7px;
+                width: 100%;
+                height: 2px;
+                background-color: $color-main1;
+                @include mTop(16);
+            }
+            .ctStep__line--on{
+                height: 2px;
+                background-color: $color-main2;
+            }
+            .ctStep__circle--on{
+                color:$color-white;
+                background-color: $color-main2;
+            }
+            .ctStep--on{
+                font-weight: bold;
+            }
+        }
+    
+}

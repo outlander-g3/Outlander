@@ -121,7 +121,7 @@
             justify-content: flex-end;
         }
         li{
-            line-height: 50px;
+            line-height: 70px;
             text-align: center;
             cursor: pointer;
             color:$color-header;
@@ -149,9 +149,11 @@
         position: relative;
         cursor: pointer;
         #member-child{
+            top: 50%;
             position: absolute;
             width: 100%;
-            top: 65%;
+            z-index: -1;
+            transition: all 0.5s;
             li a{
                 width: 100%;
                 text-align: center;

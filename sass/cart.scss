@@ -146,7 +146,6 @@ body>.row{
             width: 335px;
             height: 230px;
             overflow: hidden;
-            background-image: url(../img/fuji.jpg);
             background-size: cover ;
             background-position: center center;
             background-repeat: no-repeat;
@@ -268,6 +267,14 @@ body>.row{
                         height: 26px;
                         line-height: 26px;
                         text-align: left;
+                        span{
+                            span{
+                            @include f14();
+                            @include mLeft(16);
+                            color:$color-gray1;
+                            
+                        }
+                    }
                     }
                     
                 }
@@ -339,13 +346,13 @@ body>.row{
                 .date{
                     display: none;
                     position: relative;
+                    z-index: 10;
                     ul{
                         width: 333px; 
                         border:1px solid $color-btn-main;
                         position: absolute;
                         flex: 1;
                         display: flex;
-                        z-index: 10;
                         flex-direction: column;
                         justify-content: space-around;
                         left: -10px;
@@ -733,24 +740,25 @@ body>.row{
 }
 
 //跳窗
-.ctPaid{
-    .jpWin{
-        .jpCont{
-            @include pBottom(50);
-            // padding: 100px;
-            p:not(:first-child){
-                padding: 10px 0px;
-            }
-            a{
-                padding: 5px;
-                color: $color-white;
-                text-decoration: underline;
-                @include f20b;
-            }
-        }
+// .ctPaid{
+//     display:block;
+//     .jpWin{
+//         .jpCont{
+//             @include pBottom(50);
+//             // padding: 100px;
+//             p:not(:first-child){
+//                 padding: 10px 0px;
+//             }
+//             a{
+//                 padding: 5px;
+//                 color: $color-white;
+//                 text-decoration: underline;
+//                 @include f20b;
+//             }
+//         }
 
-    }
-}
+//     }
+// }
 // .ctPaid{
 //     position: fixed;
 //     top: 0;
@@ -814,6 +822,6 @@ body>.row{
         }
     }
 }
-@include o;
+// @include o;
 
 

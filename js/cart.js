@@ -184,16 +184,16 @@ window.addEventListener('load', function () {
         detailCount.innerHTML = count.innerHTML;
         let input1 = document.createElement('input');
         input1.setAttribute('type', 'hidden');
-        input1.setAttribute('name', 'psgName');
+        input1.setAttribute('name', 'psgName[]');
         let input2 = document.createElement('input');
         input2.setAttribute('type', 'hidden');
-        input2.setAttribute('name', 'psgBd');
+        input2.setAttribute('name', 'psgBd[]');
         let input3 = document.createElement('input');
         input3.setAttribute('type', 'hidden');
-        input3.setAttribute('name', 'psgId');
+        input3.setAttribute('name', 'psgId[]');
         let input4 = document.createElement('input');
         input4.setAttribute('type', 'hidden');
-        input4.setAttribute('name', 'psgTel');
+        input4.setAttribute('name', 'psgTel[]');
         div.append(i1);
         div.append(i2);
         div.append(input1);
@@ -227,10 +227,10 @@ window.addEventListener('load', function () {
             if (whoNo < 1) {
                 $('.ctPassanger__tab label:last-child a').attr('class', 'who');
             }
-            let nowName = $('.who').find("input[name='psgName']").val();
-            let nowBd = $('.who').find("input[name='psgBd']").val();
-            let nowId = $('.who').find("input[name='psgId']").val();
-            let nowTel = $('.who').find("input[name='psgTel']").val();
+            let nowName = $('.who').find("input[name='psgName[]']").val();
+            let nowBd = $('.who').find("input[name='psgBd[]']").val();
+            let nowId = $('.who').find("input[name='psgId[]']").val();
+            let nowTel = $('.who').find("input[name='psgTel[]']").val();
             //顯示該人資料
             $('#psgName').val(nowName);
             $('#psgBd').val(nowBd);
@@ -243,15 +243,16 @@ window.addEventListener('load', function () {
     var sum = document.querySelector('.ctDetail__cal--sum');
     var dis = document.querySelector('.ctDetail__cal--dis');
     function newTotal() {
-        sum.innerHTML = 10500 * count.innerHTML;
-        total.innerHTML = parseInt(sum.innerHTML) + parseInt(dis.innerHTML);
+        sum.innerHTML = parseInt($('#price').html()) * count.innerHTML;
+        console.log($('#price').html());
+        total.innerHTML = parseInt(sum.innerHTML) - parseInt(dis.innerHTML);
     }
 
     //紅利點數是否折抵
     var memPoint = document.querySelector('#memPoint');
     memPoint.addEventListener('click', function () {
         if (memPoint.checked) {
-            dis.innerHTML = '-30';
+            dis.innerHTML = $('#point').text();
         }
         else {
             dis.innerHTML = 0;
@@ -320,7 +321,21 @@ window.addEventListener('load', function () {
             alert('請詳閱並同意訂購條款');
         }
         else {
-            $('.ctPaid').css('display', 'block');
+            // $('.ctPaid').css('display', 'block');
+            //執行寫入資料庫
+            // $.ajax({
+            //     type: 'post',
+            //     url: 'paid.php',
+            //     data: 'memMail=' + memMail + '&memName=' + memName + '&memTel=' + memTel + '',
+            //     success: function (data) {
+
+            //     },
+            //     error: function (X, t, e) {
+            //         alert(e);
+            //     }
+            // });
+            $('#ctForm').submit();
+
         }
     });
 
@@ -338,10 +353,10 @@ window.addEventListener('load', function () {
         //只有一個人的話，input值塞給第一個人的value
         if (count.innerHTML == 1) {
             // console.log($('#psgName').val());
-            $("input[name='psgName']").val($('#psgName').val());
-            $("input[name='psgBd']").val($('#psgBd').val());
-            $("input[name='psgId']").val($('#psgId').val());
-            $("input[name='psgTel']").val($('#psgTel').val());
+            $("input[name='psgName[]']").val($('#psgName').val());
+            $("input[name='psgBd[]']").val($('#psgBd').val());
+            $("input[name='psgId[]']").val($('#psgId').val());
+            $("input[name='psgTel[]']").val($('#psgTel').val());
             // return;
         }
         //如果有兩個人以上,tab到誰,先顯示別人的value，有輸入的話塞給那個人的value
@@ -352,14 +367,14 @@ window.addEventListener('load', function () {
             // 把現在框框值寫回去
             // console.log($(this));
             // $('.who').find("input[name='psgName']").attr('value', inputName);
-            $('.who').find("input[name='psgName']").val(inputName);
+            $('.who').find("input[name='psgName[]']").val(inputName);
             // return inputNow;
             let inputBd = $('#psgBd').val();
-            $('.who').find("input[name='psgBd']").val(inputBd);
+            $('.who').find("input[name='psgBd[]']").val(inputBd);
             let inputId = $('#psgId').val();
-            $('.who').find("input[name='psgId']").val(inputId);
+            $('.who').find("input[name='psgId[]']").val(inputId);
             let inputTel = $('#psgTel').val();
-            $('.who').find("input[name='psgTel']").val(inputTel);
+            $('.who').find("input[name='psgTel[]']").val(inputTel);
 
         }
     }
@@ -371,10 +386,10 @@ window.addEventListener('load', function () {
         // 該人目前資料
         $('.who').attr('class', '');
         $(this).attr('class', 'who');
-        let nowName = $(this).closest('a').find("input[name='psgName']").val();
-        let nowBd = $(this).closest('a').find("input[name='psgBd']").val();
-        let nowId = $(this).closest('a').find("input[name='psgId']").val();
-        let nowTel = $(this).closest('a').find("input[name='psgTel']").val();
+        let nowName = $(this).closest('a').find("input[name='psgName[]']").val();
+        let nowBd = $(this).closest('a').find("input[name='psgBd[]']").val();
+        let nowId = $(this).closest('a').find("input[name='psgId[]']").val();
+        let nowTel = $(this).closest('a').find("input[name='psgTel[]']").val();
         //顯示該人資料
         $('#psgName').val(nowName);
         $('#psgBd').val(nowBd);

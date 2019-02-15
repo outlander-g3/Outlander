@@ -5,6 +5,16 @@
     //要去抓選擇的開團資訊（圖,名稱,日期
 
     //抓
+    $_SESSION['pdkName']='瓦斯卡蘭國家公園健行四天三夜';
+    $_SESSION['day']=10;
+    $_SESSION['pdkImg']='img/fuji.jpg';
+    $_SESSION['pdStart']='1991/04/27';
+    $_SESSION['pdEnd']='1992/11/04';
+    $_SESSION['pdkPrice']=999999;
+    $point=300;
+    $memName='Elison';
+    $memMail='1@';
+    $memTel='222';
 ?>
 
 
@@ -61,7 +71,7 @@
 
     <div class="row">
         <div class="wrap">
-            <form action="paid.php">
+            <form action="paid.php" id="ctForm">
                 <!-- 第一步驟選日期 -->
                 <div class="ctProduct" id="ctProduct">
                     <!-- <h2>步驟1 決定日期</h2> -->
@@ -85,15 +95,19 @@
                     </div>
                     <div class="row">
                         <div class="ctProduct__img">
+                            <?php echo 
+                                "<script> $('.ctProduct__img').css('background-image','url(".$_SESSION['pdkImg'].")')</script>";
+                            
+                            ?>
                             <!-- <img src='img/fuji.jpg' alt=''> -->
                         </div>
                         <div class="ctProduct__text">
-                            <h3 class="ctProduct__text--title">日本 - 槍岳、表銀座縱走</h3>
+                            <h3 class="ctProduct__text--title"><?php echo $_SESSION['pdkName']?></h3>
                             <div class="ctProduct__text--content">
-                                <p>出發日：2019/01/05 (六)</p>
-                                <p>回程日：2019/01/07 (一)</p>
-                                <p>天數 : 3日</p>
-                                <p>費用 : 10500/人</p>
+                                <p>出發日：<?php echo $_SESSION['pdStart']?></p>
+                                <p>回程日：<?php echo $_SESSION['pdEnd']?></p>
+                                <p>天數 : <?php echo $_SESSION['day'];?>日</p>
+                                <p>費用 : <span id="price"><?php echo $_SESSION['pdkPrice']?></span>/人</p>
                             </div>
                             <!-- <a href="javascript:;" class="ctProduct__btn--date btn-sub-s">修改日期</a> -->
                         </div>
@@ -150,25 +164,25 @@
                                     <ul>
 
                                         <li class="ctContact__title">
-                                            <span>訂購人資料</span>
+                                            <span>訂購人資料<span>( 將同步到會員資料 )</span></span>
                                         </li>
 
                                         <li>
                                             <label for="buyName">
                                                 <span>姓名</span>
-                                                <input type="text" name="buyName" id="buyName" value="">
+                                                <input type="text" name="buyName" id="buyName" value="<?php echo $memName;?>">
                                             </label>
                                         </li>
                                         <li>
                                             <label for="buyMail">
                                                 <span>電子信箱</span>
-                                                <input type="text" name="" id="buyMail" value="">
+                                                <input type="text" name="buyMail" id="buyMail" value="<?php echo $memMail;?>">
                                             </label>
                                         </li>
                                         <li>
                                             <label for="buyTel">
                                                 <span>聯絡電話</span>
-                                                <input type="text" name="" id="buyTel" value="">
+                                                <input type="text" name="buyTel" id="buyTel" value="<?php echo $memTel;?>">
                                             </label>
                                         </li>
                                     </ul>
@@ -182,10 +196,10 @@
                                         <div class="row">
                                             <i class="material-icons">person</i>
                                             <i>1</i>
-                                            <input type="hidden" name="psgName"  value="">
-                                            <input type="hidden" name="psgBd"  value="">
-                                            <input type="hidden" name="psgId"  value="">
-                                            <input type="hidden" name="psgTel"  value="">
+                                            <input type="hidden" name="psgName[]"  value="">
+                                            <input type="hidden" name="psgBd[]"  value="">
+                                            <input type="hidden" name="psgId[]"  value="">
+                                            <input type="hidden" name="psgTel[]"  value="">
                                         </div>
                                     </a>
                                 </label>
@@ -312,7 +326,7 @@
                                     <i class="material-icons">check_box_outline_blank</i>
                                     <i>使用紅利點數折抵</i>
                                 </label>
-                                <p>您持有的紅利點數為：300點 </p>
+                                <p>您持有的紅利點數為：<span id="point"><?php echo $point;?></span>點 </p>
                                 <p>(每10點可折抵1元)</p>
                                 <input type="checkbox" id="ctRule">
                                 <label for="ctRule">
@@ -399,16 +413,17 @@
                 <h2>訂單詳情</h2>
                 <div class="ctDetail__content">
                     <div class="ctDetail__text">
-                        <p>日本 - 槍岳、表銀座縱走</p>
-                        <p>出發日：2019/01/05 (六)</p>
-                        <p>回程日：2019/01/07 (一)</p>
-                        <p>費用 : 10500/人</p>
+                        <p><?php echo $_SESSION['pdkName']?></p>
+                        <p>出發日：<?php echo $_SESSION['pdStart']?></p>
+                        <p>回程日：<?php echo $_SESSION['pdEnd']?></p>
+                        <p>天數 : <?php echo $_SESSION['day'];?>日</p>
+                        <p>費用 : <?php echo $_SESSION['pdkPrice']?>/人</p>
                         <p>旅客人數 : <span id="detailCount">1</span>人</p>
                     </div>
                     <div class="ctDetail__cal">
                         <p>
                             <span>總金額 NTD</span>
-                            <span class="ctDetail__cal--sum ctDetail__cal--num">10500</span>
+                            <span class="ctDetail__cal--sum ctDetail__cal--num"><?php echo $_SESSION['pdkPrice']?></span>
                         </p>
                         <p>
                             <span>紅利折抵 NTD</span>
@@ -418,7 +433,7 @@
                     <div class="ctDetail__total">
                         <p>
                             <span>應付金額 NTD</span>
-                            <span class="ctDetail__total--num">10200</span>
+                            <span class="ctDetail__total--num"><?php echo $_SESSION['pdkPrice']?></span>
                         </p>
                     </div>
                 </div>
@@ -432,19 +447,18 @@
         </div>
     </div>
 
-    <div class="jpBase ctPaid">
+    <!-- <div class="jpBase ctPaid">
         <div class="jpWin">
             <div class="jpTitle">
                 <h2>訂購完成</h2>
             </div>
             <div class="jpCont">
                 <p>感謝您此次的購買！！</p>
-                <p>前往『<a href="">會員專區</a>』查看訂單</p>
-                <!-- <p>前往『<a href="">裝備清單</a>』製作專屬清單</p> -->
-                <p>回到『<a href="index.html">山行者首頁</a>』繼續逛逛</p>
+                <p>前往『<a href="member.php">會員專區</a>』查看訂單</p>
+                <p>回到『<a href="index.php">山行者首頁</a>』繼續逛逛</p>
             </div>
         </div>
-    </div>
+    </div> -->
 
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->

@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>山行者 - PHP模板</title>
+    <title>山行者 - 結帳頁面</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -431,9 +431,6 @@
             <div class="clearfix"></div>
         </div>
     </div>
-    <footer id="footer">
-        <p>COPYRIGHT © 2018 Outlander All rights reserved.</p>
-    </footer>
 
     <div class="jpBase ctPaid">
         <div class="jpWin">
@@ -462,4 +459,5 @@
 
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>
+<script src="js/cart.js"></script>
 <!-- <script src="js/robot.js"></script> -->

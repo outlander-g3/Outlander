@@ -118,7 +118,8 @@
 @mixin inputText(){
     input[type='text'],
     input[type='date'],
-    input[type='password']{
+    input[type='password'],
+    input[type='email']{
         border:1px solid $color-ph;
         background-color: $color-white;
         @include pLeft(10);

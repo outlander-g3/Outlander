@@ -23,12 +23,12 @@
             <div class="jpTitle">
                 會員登入
             </div>
-            <!-- <form action='login.php' method="post" id="memForm">           -->
+            <form>          
                 <div class="jpCont">
                     <div class="jpCont--mail">
                         <label for="memMail">
                             <i class="material-icons">person</i>
-                            <input type="text" placeholder="請輸入信箱" id="memMail">
+                            <input type="email" placeholder="請輸入信箱" id="memMail">
                         </label>
                     </div>
                     <div class="jpCont--psw">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="jpBtn"><a class="btn-jump-right" id="login" href="javascript:;">登入</a>
                 </div>
-            <!-- </form> -->
+            </form>
             <div class="memLogin--bottom" id="">
                 <div class="row">
                     <a href="#" id="memForget">忘記密碼</a>

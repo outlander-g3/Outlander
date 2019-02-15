@@ -1,49 +1,50 @@
 window.addEventListener('load', function () {
-
     // 初始寬度
     var winWidth = document.body.clientWidth;
     var currentWin = winWidth;
-    //改變寬度
-    window.addEventListener('resize', ctResize, false);
-    // if (winWidth < 768) {
-    //     $('.ctProfile').css('display', 'none');
-    //     $('.ctPay').css('display', 'none');
-    // }
-    function ctResize() {
-        // console.log(winWidth);
-        winWidth = document.body.clientWidth;
+
+    var ctProduct = $('.ctProduct');
+    var ctProfile = $('.ctProfile');
+    var ctPay = $('.ctPay');
+    var ctSticky = $('.ctSticky');
+    var ctDetail = $('.ctDetail');
+
+    function winW() {
+        winWidth = document.body.offsetWidth;
+        console.log("1 : ", winWidth);
         //看有沒有被按全螢幕
         if (winWidth > (window.screen.width - 20)) {
-            $('.ctProduct').css('display', 'block');
-            $('.ctProfile').css('display', 'block');
-            $('.ctPay').css('display', 'block');
-            $('.ctSticky').css('display', 'flex');
-            $('.ctSticky').css('position', 'sticky');
+            console.log("2 : ", winWidth);
+            ctProduct.removeClass('no-active');
+            ctProfile.removeClass('no-active');
+            ctPay.removeClass('no-active');
+            ctSticky.removeClass('no-active');
             $('.date').css({
                 'position': 'absolute',
                 'left': '0',
                 'top': '0',
             });
         }
-        //本來就>768 拉往小768 要藏
-        //本來<768 拉往小768 不動
-        //本來就>768 拉往大768 不動
-        //本來<768 拉往大768 全開
-        if (winWidth < 768) {
-            $('.ctProfile').addClass('no-active');
-            $('.ctPay').addClass('no-active');
-            $('.ctSticky').addClass('no-active');
+        if (winWidth + 20 < 768) {
+            console.log("3 : ", winWidth);
+            ctProduct.removeClass('no-active');
+            ctProfile.addClass('no-active');
+            ctPay.addClass('no-active');
+            ctSticky.addClass('no-active');
+            ctDetail.addClass('no-active');
             $('.date').css({
                 'position': 'fixed',
                 'left': '20px',
                 'top': '30%',
             });
         }
-        else if (winWidth > 768) {
-            $('.ctProduct').removeClass('no-active');
-            $('.ctProfile').removeClass('no-active');
-            $('.ctPay').removeClass('no-active');
-            $('.ctSticky').removeClass('no-active');
+        else if (winWidth + 20 > 768) {
+            console.log("4 : ", winWidth);
+            ctProduct.removeClass('no-active');
+            ctProfile.removeClass('no-active');
+            ctPay.removeClass('no-active');
+            ctSticky.removeClass('no-active');
+            ctDetail.removeClass('no-active');
 
             $('.date').css({
                 'position': 'absolute',
@@ -52,7 +53,11 @@ window.addEventListener('load', function () {
             });
         }
     }
-    //如果從原本的小size但拉不到768的時候會全部吃不到
+    //一開始先進來判斷螢幕大小
+    winW();
+    window.addEventListener("resize", winW);
+
+
     function ctScrollTop() {
         window.scrollTo({
             top: 0,
@@ -78,9 +83,10 @@ window.addEventListener('load', function () {
     }
     $("#ctProductNextBtn").click(nextToFile);
     function nextToFile() {
-        $('.ctProfile').css('display', 'block');
-        $('.ctProduct').css('display', 'none');
+        ctProfile.removeClass("no-active");
+        ctProduct.addClass('no-active');
         ctNextStep(0);
+        console.log('第一步的btn');
     }
 
     $("#ctProfileNextBtn").click(nextToPay);
@@ -121,9 +127,10 @@ window.addEventListener('load', function () {
             alert('尚有' + msg + '欄位未填寫');
         }
         else {
-            $('.ctProfile').css('display', 'none');
-            $('.ctPay').css('display', 'block');
-            $('.ctSticky').css('display', 'flex');
+            ctProfile.addClass('no-active');
+            ctPay.removeClass('no-active');
+            ctSticky.removeClass('no-active');
+            ctDetail.removeClass('no-active');
             ctNextStep(1);
         }
     }
@@ -131,20 +138,21 @@ window.addEventListener('load', function () {
 
     $("#ctProfilePreBtn").click(preToProduct);
     function preToProduct() {
-        $('.ctProduct').css('display', 'block');
-        $('.ctProfile').css('display', 'none');
+        ctProduct.removeClass('no-active');
+        ctProfile.addClass('no-active');
         ctPreStep(1);
     }
 
     $("#ctPayPreBtn").click(preToFile);
     function preToFile() {
-        $('.ctProfile').css('display', 'block');
-        $('.ctPay').css('display', 'none');
-        $('.ctSticky').css('display', 'none');
+        ctProfile.removeClass('no-active');
+        ctPay.addClass('no-active');
+        ctSticky.addClass('no-active');
+        ctDetail.addClass('no-active');
         ctPreStep(2);
     }
 
-    window.addEventListener('fullscreen', ctResize, false);
+    // window.addEventListener('fullscreen', ctResize, false);
 
 
     //旅客人數

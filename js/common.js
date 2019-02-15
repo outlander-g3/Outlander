@@ -35,6 +35,7 @@ window.addEventListener('load', function () {
     window.addEventListener("click", (e) => {
         if (e.target.classList.contains('memIcon')) {
 
+            console.log('有點到');
             //先執行session.php echo回來判斷session存不存在
             $.ajax({
                 type: 'post',
@@ -44,6 +45,7 @@ window.addEventListener('load', function () {
                         // 等著塞會員中心php
                         // location.href = 'member.php';
                         alert('已登入');
+                        console.log('已登入');
                     }
                     else if (data == 'logout') {
                         winLogin.style.display = 'block';

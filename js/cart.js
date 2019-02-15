@@ -410,7 +410,7 @@ window.addEventListener('load', function () {
         $('.date').css('display', 'block');
     });
 
-
+    z
     //信用卡的到期
 
     $('.ctCredit__select i').click(function () {
@@ -418,9 +418,6 @@ window.addEventListener('load', function () {
         // $('#month option').css('display', 'block');
         // alert($('#month option').length);
     });
-
-    $('.jpBase').unbind('click');
-
 
 });
 window.addEventListener("load", () => {

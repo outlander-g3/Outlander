@@ -692,6 +692,7 @@ i{
         border: 2px solid $color-btn-main;
         background-color: $color-btn-main;
         margin: 5px auto;
+        display: block;
     }
     @include pad-width{
         display: none;

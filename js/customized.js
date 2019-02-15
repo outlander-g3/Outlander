@@ -92,7 +92,7 @@ var cuProcess1= O('cuProcess1');
 var cuProcess2= O('cuProcess2');
 var cuForm__inputC = O('cuForm__input--C');
 var cuForm__inputM = O('cuForm__input--M');
-
+// var
 
 function cuSlide1(){
     //控制767以下，步驟一及步驟一左右滑動，步驟二顏色圓圈填色
@@ -109,46 +109,38 @@ function cuSlide1(){
         });
 }
 function cuSlide1_768(){
-    enquire.register("screen and (min-width: 768px)", {     
-        match: function() {
-                let cuCustom=O('cuCustom');
-                cuCustom.scrollIntoView({behavior: "smooth"});
-            },
-        });
+    if (window.innerWidth > 768){
+        let cuCustom=O('cuCustom');
+            cuCustom.scrollIntoView({behavior: "smooth"});
+    }
 }
+
 function cuSlide2(){
-    //控制767以下，步驟一及步驟一左右滑動，步驟二顏色圓圈填色
-    enquire.register("screen and (max-width: 767px)", {     
-        match: function() {
-                let cuProcess2= O('cuProcess2');
-                setTimeout(function () {
-                    cuProcess2.style.transitionDuration = "0.5s";
-                    cuProcess2.style.backgroundColor = '#088B9A';
-                    cuProcess2.style.color = '#fff';
-                },900);
+    if (window.innerWidth < 768){
+        let cuProcess2= O('cuProcess2');
+        setTimeout(function () {
+            cuProcess2.style.transitionDuration = "0.5s";
+            cuProcess2.style.backgroundColor = '#088B9A';
+            cuProcess2.style.color = '#fff';
+        },900);
 
-                cuForm__inputC.style.transform = "translateX(-1200px)";
-                cuForm__inputM.style.transform = "translateX(-1200px)";
-                O('cu__step1').style.transform = "translateX(-1200px)";
-                O('cu__step2').style.transform = " translateY(-643px) translateX(0px)";
-                O('cu__step2').style.transitionDuration = "0.9s";
-            },
-        });
+        cuForm__inputC.style.transform = "translateX(-1200px)";
+        cuForm__inputM.style.transform = "translateX(-1200px)";
+        O('cu__step1').style.transform = "translateX(-1200px)";
+        O('cu__step2').style.transform = " translateY(-643px) translateX(0px)";
+        O('cu__step2').style.transitionDuration = "0.9s";
 
-    //控制767以上，步驟二顏色圓圈填色
-    enquire.register("screen and (min-width: 768px)", {     
-        match: function() {
-                let cuProcessFill2= O('cuProcessFill2');
-                let cuCustom2=O('cuCustom2');
-                cuCustom2.scrollIntoView({behavior: "smooth"});
+    }else if(window.innerWidth >= 768){
+        let cuProcessFill2= O('cuProcessFill2');
+        let cuCustom2=O('cuCustom2');
+        cuCustom2.scrollIntoView({behavior: "smooth"});
 
-                setTimeout(function () {
-                    cuProcessFill2.style.transitionDuration = "1s";
-                    cuProcessFill2.style.backgroundColor = '#088B9A';
-                    cuProcessFill2.style.color = '#fff';
-                },900);
-            },
-        });
+        setTimeout(function () {
+            cuProcessFill2.style.transitionDuration = "1s";
+            cuProcessFill2.style.backgroundColor = '#088B9A';
+            cuProcessFill2.style.color = '#fff';
+        },900);
+    }
 }
 
 /* btn選擇日期及嚮導 --> 畫面切換到 */
@@ -307,8 +299,7 @@ function addItem(itemId,itemValue){
    
     //新增風景最大容器
     var cuCustom__dropSceneryNew = document.createElement('div');
-    //加A是為了與上片的cu_ID做區別
-    // cuCustom__dropSceneryNew.id=cu_IDNum+"A";
+    
     cuCustom__dropSceneryNew.classList.add("cuCustom__dropSceneryNew");
     cuCustom__dropSceneryNew.setAttribute("draggable","true");
     cuCustom__dropSceneryNew.style.backgroundImage = ' url(./../img/'+itemValue.split('|')[1]+')';
@@ -339,7 +330,8 @@ function addItem(itemId,itemValue){
     var btn_cuIconClear = document.createElement('button');
     btn_cuIconClear.classList.add('btn_cuIcon--clear');
     btn_cuIconClear.classList.add('cuBtn__styleClear');
-    btn_cuIconClear.id = itemId;
+    btn_cuIconClear.id = `cu${itemId}`;
+    btn_cuIconClear.value = `${itemId}`;
     var cu_mIconClear = document.createElement('i');
     cu_mIconClear.classList.add('material-icons');
     cu_mIconClear.innerText = 'clear'; 
@@ -366,6 +358,7 @@ function addItem(itemId,itemValue){
 
 
 
+  
 
 
 
@@ -466,41 +459,20 @@ function addItem(itemId,itemValue){
 	}
 
 
-    var cuCustom__sceneryZoneOF = O('cuCustom__sceneryZone--OF');
-    cuCustom__sceneryZoneOF.removeChild(cu_ID);
-
+  
+    cu_ID.style.display ='none';
     /* 在我的風景列表 btn_刪除風景 */ 
-    var btn_cuDelete= cuCustom__dropSceneryNew.appendChild(btn_cuIconClear);
-    btn_cuDelete.addEventListener('click',deleteItem);
-    btn_cuDelete.addEventListener('click',changeItemCount);
-    function deleteItem(){
-        var itemId = this.getAttribute('id');
-        // 刪除該筆資料之前:
-        // 1.先將總金額(total)扣除
-        var itemValue = storage.getItem(itemId);
-        cuAmount -= parseInt(itemValue.split('|')[2]);
+    let btn_cuDelete= cuCustom__dropSceneryNew.appendChild(btn_cuIconClear);
+    let btn_cuDeleteID = O(btn_cuDelete.id);
+    btn_cuDeleteID.addEventListener('click',deleteItem);
+    btn_cuDeleteID.addEventListener('click',changeItemCount);
 
-        document.getElementById('cuAmount').innerText = cuAmount;
-
-        // 2.清除storage的資料
-        storage.removeItem(itemId);
-        storage['addItemList'] = storage['addItemList'].replace(itemId+', ','');
-        let btnCuAddScenery7672 =  document.querySelector('#'+itemValue.split('|')[3]);
-        console.log(btnCuAddScenery7672);
-        // for(let n=0;n<btnCuAddScenery767.length;n++){
-        //     btnCuAddScenery767[n].childNodes[1].innerText = 'check_box_outline_blank';
-        // }
-        // storage.setItem('addItemList',storage.getItem('addItemList').replace(itemId+', ',''));
-
-        // 3.再將該筆div刪除
-        cuCustom__dropMask.removeChild(cuCustom__dropSceneryNew);
-        cuCustom__sceneryZoneOF.insertBefore(cu_ID,cuCustom__sceneryZoneOF.childNodes[0]);
-    }
 
     function changeItemCount(){
         var itemString = storage.getItem('addItemList');
-        // var itemStringa = storage.removeItem('addItemList');     
+        // console.log(itemString);
         var items = itemString.substr(0,itemString.length-2).split(', ');
+        // console.log(items);
  
         if(items == ""){
             items.length -= 1;
@@ -517,26 +489,69 @@ function addItem(itemId,itemValue){
     
     var items = itemString.substr(0,itemString.length-2).split(', ');
     
-	cuAmount = 0;
+	pdkPrice = 0;
 	for(var key in items){		//use items[key]
 		var itemInfo = storage.getItem(items[key]);
 		var itemPrice = parseInt(itemInfo.split('|')[2]);        
-		cuAmount += itemPrice;
+		pdkPrice += itemPrice;
 	}
 
 	O('cuQuan').innerText = items.length;
-    O('cuAmount').innerText = cuAmount;
+    O('pdkPrice').innerText = pdkPrice;
 }
 
+function deleteItem(){
+    // 刪除該筆資料之前:
+    // 1.先將總金額(total)扣除
+    let itemId = this.value;
+    let itemValue = storage.getItem(itemId);
+    
+    pdkPrice -= parseInt(itemValue.split('|')[2]);
+    document.getElementById('pdkPrice').innerText = pdkPrice;
+
+    // 2.清除storage的資料
+    storage.removeItem(itemId);
+    storage['addItemList'] = storage['addItemList'].replace(itemId+', ','');
+    
+
+    // 3.再將該筆div刪除
+    let cuCustom__dropMask = document.getElementsByClassName('cuCustom__dropMask')[0];
+    let cuCustom__dropSceneryNew = document.getElementsByClassName('cuCustom__dropSceneryNew')[0];
+    let cuCustom__sceneryZoneOF = O('cuCustom__sceneryZone--OF');
+    let cu_IDNum = itemValue.split('|')[3];
+    let cu_ID =O(cu_IDNum);
+    cuCustom__dropMask.removeChild(cuCustom__dropSceneryNew);
+
+     // 4.在山岳風景列表加回景點
+    cu_ID.style.display ='block';
+
+    //5.將景點的checkbox恢復空格
+    let iconCheckBox =  document.querySelector('#'+itemValue.split('|')[3]+'> button i');
+    iconCheckBox.innerText = 'check_box_outline_blank';
+}
+
+// function changeItemCount(){
+//     var itemString = storage.getItem('addItemList');
+//     // var itemStringa = storage.removeItem('addItemList');     
+//     var items = itemString.substr(0,itemString.length-2).split(', ');
+
+//     if(items == ""){
+//         items.length -= 1;
+//         O('cuQuan').innerText = items.length;
+//     }
+//     O('cuQuan').innerText = items.length;
+// }
 // 767以下點選景點
 function cuPickScenery(e){
     let inputDetail = document.querySelector('#'+e.target.parentNode.parentNode.id+' input').value;
-    if(e.target.innerText == 'check_box_outline_blank'){
-        e.target.innerText = 'check_box';
-        storage['addItemList'] += e.target.parentNode.parentNode.id + ', ';
-		storage[e.target.parentNode.parentNode.id] = inputDetail;
-    } else if(e.target.innerText == 'check_box'){
-        e.target.innerText = 'check_box_outline_blank';
+    let iconCheckBox = e.currentTarget.childNodes[1];
+    console.log(e.currentTarget.childNodes[1]);
+    if(iconCheckBox.innerText == 'check_box_outline_blank'){
+        iconCheckBox.innerText = 'check_box';
+        // storage['addItemList'] += e.target.parentNode.parentNode.id + ', ';
+		// storage[e.target.parentNode.parentNode.id] = inputDetail;
+    } else if(iconCheckBox.innerText == 'check_box'){
+        iconCheckBox.innerText = 'check_box_outline_blank';
         storage.removeItem(e.target.parentNode.parentNode.id);
         storage['addItemList'] = storage['addItemList'].replace(e.target.parentNode.parentNode.id+', ','');
     }
@@ -546,8 +561,7 @@ function cuPickScenery(e){
             cuCustomSceneryZoneBg.style.display = 'none';
         }
         // var cuSceneryInfo = document.querySelector('#'+this.id+' input').value;
-        addItem(e.target.parentNode.parentNode.id,inputDetail);
-        // console.log(storage['addItemList']);
+        addItem(inputDetail.split('|')[3],inputDetail);
     });
 }
 /* 按鈕--控制風景【確認加入】同時關閉風景列表*/ 
@@ -645,9 +659,10 @@ function init(){
 	}
 
     //幫每個Add Cart建事件聆聽功能
-	var list = document.querySelectorAll('.btn_cuAddScenery');  //list是陣列
-	for(var i=0; i<list.length; i++){
-        list[i].addEventListener('click', function(){
+    let btnCuAddScenery = document.querySelectorAll('.btn_cuAddScenery');  //list是陣列
+    let btnCuAddSceneryL = btnCuAddScenery.length;
+	for(var i=0; i<btnCuAddSceneryL; i++){
+        btnCuAddScenery[i].addEventListener('click', function(){
             var cuSceneryInfo = document.querySelector('#'+this.id+' input').value;
             addItem(this.id,cuSceneryInfo);
 		});

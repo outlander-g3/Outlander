@@ -302,7 +302,7 @@ function addItem(itemId,itemValue){
     
     cuCustom__dropSceneryNew.classList.add("cuCustom__dropSceneryNew");
     cuCustom__dropSceneryNew.setAttribute("draggable","true");
-    cuCustom__dropSceneryNew.style.backgroundImage = ' url(./../img/'+itemValue.split('|')[1]+')';
+    cuCustom__dropSceneryNew.style.backgroundImage = ' url(img/'+itemValue.split('|')[1]+')';
 	var cuCustom__sceneryContent= document.createElement('div');
     cuCustom__sceneryContent.classList.add("cuCustom__dropScenery&#x20;div:first-child");
     
@@ -509,10 +509,10 @@ function deleteItem(){
     pdkPrice -= parseInt(itemValue.split('|')[2]);
     document.getElementById('pdkPrice').innerText = pdkPrice;
 
+    console.log(itemValue);
     // 2.清除storage的資料
     storage.removeItem(itemId);
     storage['addItemList'] = storage['addItemList'].replace(itemId+', ','');
-    
 
     // 3.再將該筆div刪除
     let cuCustom__dropMask = document.getElementsByClassName('cuCustom__dropMask')[0];
@@ -545,25 +545,71 @@ function deleteItem(){
 function cuPickScenery(e){
     let inputDetail = document.querySelector('#'+e.target.parentNode.parentNode.id+' input').value;
     let iconCheckBox = e.currentTarget.childNodes[1];
-    console.log(e.currentTarget.childNodes[1]);
     if(iconCheckBox.innerText == 'check_box_outline_blank'){
         iconCheckBox.innerText = 'check_box';
-        // storage['addItemList'] += e.target.parentNode.parentNode.id + ', ';
-		// storage[e.target.parentNode.parentNode.id] = inputDetail;
+        storage['addItemList'] += e.target.parentNode.parentNode.id + ', ';
+		storage[e.target.parentNode.parentNode.id] = inputDetail;
     } else if(iconCheckBox.innerText == 'check_box'){
         iconCheckBox.innerText = 'check_box_outline_blank';
         storage.removeItem(e.target.parentNode.parentNode.id);
         storage['addItemList'] = storage['addItemList'].replace(e.target.parentNode.parentNode.id+', ','');
     }
-    var btn_cuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
-    btn_cuAddSceneryConfirm.addEventListener("click",function(){
-        if(cuCustomSceneryZoneBg.style.display == 'block'){
-            cuCustomSceneryZoneBg.style.display = 'none';
-        }
-        // var cuSceneryInfo = document.querySelector('#'+this.id+' input').value;
-        addItem(inputDetail.split('|')[3],inputDetail);
-    });
+
+
+    // var btn_cuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
+    // btn_cuAddSceneryConfirm.addEventListener("click",function(){
+    //     if(cuCustomSceneryZoneBg.style.display == 'block'){
+    //         cuCustomSceneryZoneBg.style.display = 'none';
+    //     }
+    //     // var cuSceneryInfo = document.querySelector('#'+this.id+' input').value;
+    //     //先判斷此處是否已有物件，如果有就先刪除
+    //     let cuCustom__dropMask =document.querySelector('.cuCustom__dropMask');
+    //     // console.log(cuCustom__dropMask.childNodes);
+	// // if(cuCustom__dropMask.hasChildNodes()){
+    // //     for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
+    // //         cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
+    // //     }
+    // //     // while(cuCustom__dropMask.childNodes.length >= 1){
+    // //     //     for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
+    // //     //         cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
+    // //     //     }
+    // //     //             let aaa = cuCustom__dropMask.childNodes.length;
+    // //     //     }
+    // //     }
+    //     console.log(inputDetail.split('|')[3]);
+    //     console.log(inputDetail);
+    //     addItem(inputDetail.split('|')[3],inputDetail);
+    // });
 }
+
+
+function cuConfirm(){
+    if(cuCustomSceneryZoneBg.style.display == 'block'){
+        cuCustomSceneryZoneBg.style.display = 'none';
+    }
+    //先判斷此處是否已有物件，如果有就先刪除
+    let cuCustom__dropMask =document.querySelector('.cuCustom__dropMask');
+    if(cuCustom__dropMask.hasChildNodes()){
+        for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
+            cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
+        }
+        // while(cuCustom__dropMask.childNodes.length >= 1){
+        //     for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
+        //         cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
+        //     }
+        //             let aaa = cuCustom__dropMask.childNodes.length;
+        //     }
+        }
+    let items= storage['addItemList'].split(', ');
+    console.log(items);
+    
+    let itemsL = items.length;
+    for(let i=0 ; i<itemsL-1;i++){
+        itemID = items[i];
+        let itemValue = storage.getItem(itemID);
+        addItem(items[i],itemValue);
+    }
+};
 /* 按鈕--控制風景【確認加入】同時關閉風景列表*/ 
 // function cuAddSceneryC(){
 //     if(cuCustomSceneryZoneBg.style.display == 'block'){
@@ -674,6 +720,8 @@ function init(){
         btnCuAddScenery767[m].addEventListener('click',cuPickScenery);
     }
 
+    let btnCuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
+    btnCuAddSceneryConfirm.addEventListener('click',cuConfirm);
 
     // 客製化第二步驟，嚮導點小圖換大圖
     var cu__guideItem = document.getElementsByClassName('cu__guideItem');

@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 
     // include_once('connectDb.php'); //連線
     // include_once('session.php'); //判斷會員是否登入
@@ -191,7 +191,7 @@
             <div class="pro-item">
                 <a href="products.html">
                     <div class="pro-item-pic">
-                        <img src="img/ebc.jpg" alt="EBC">
+                        <img src="img/mt/<?php echo $prodRow["pdkNo"]?>/1.jpg" alt="EBC">
                     </div>
                     <h4> <?php echo $prodRow["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
@@ -272,7 +272,7 @@
             <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
-                        <img src="img/ebc.jpg" alt="EBC">
+                        <img src="img/mt/<?php echo $prodRowRe['pdkNo'];?>/1.jpg" alt="EBC">
                     </div>
                     <h4><?php echo $prodRowRe["pdkName"];?></h4>
                     <div class="pro-item-view-flex">

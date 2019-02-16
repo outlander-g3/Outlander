@@ -441,30 +441,7 @@ i{
     }
 }
 
-.cuScenery__Item1{
-    background: url("../img/cu__sceneryItem1.jpg") ;
 
-}
-.cuScenery__Item2{
-    background: url("../img/cu__sceneryItem2.jpg") ;
-
-}
-.cuScenery__Item3{
-    background: url("../img/cu__sceneryItem3.jpg") ;
-
-}
-.cuScenery__Item4{
-    background: url("../img/cu__sceneryItem4.jpg") ;
-
-}
-.cuScenery__Item5{
-    background: url("../img/cu__sceneryItem5.jpg") ;
-
-}
-.cuScenery__Item6{
-    background: url("../img/cu__sceneryItem6.jpg") ;
-
-}
 .cuCustom__sceneryItem{
     @include br4;
     background-size: cover;
@@ -474,6 +451,7 @@ i{
 
     &::before{
         content: '';
+        @include br4;
         width: 100%;
         height: 100%;
         display: inline-block;

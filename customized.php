@@ -1,5 +1,5 @@
 <?php
-    // include_once('connectDb.php'); //連線
+    include_once('connectDb.php'); //連線
     // include_once('session.php'); //判斷會員是否登入
 ?>
 
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>山行者 - PHP模板</title>
+    <title>Outlander - customized</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -21,6 +21,7 @@
     <script src="js/vue.min.js"></script>
     <!-- <script src="js/enquire.min.js"></script> -->
     <!-- css塞這 自己js塞屁股 -->
+    <link rel="stylesheet" href="css/customized.css">
     
     
 </head>
@@ -97,6 +98,7 @@
                             <span class="cuForm__input" id="cuForm__input--M">
                                 <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
                                 <label for="mount-choose">請選擇山岳</label>
+                                <!-- <?php echo "asd"?> -->
                             </span>
                         </form>
                             
@@ -106,6 +108,7 @@
                             <div id="cuCustom__sceneryZone--bg">
                                 <div class="cuCustom__sceneryZone">
                                     <div id="cuCustom__sceneryZone--OF" id="scroll">
+                                        
                                         <div class="cuCustom__sceneryItem cuScenery__Item1" id="cu_A1001">
                                             <div class="cuCustom__sceneryContent">
                                                 <p>安娜普那基地</p>
@@ -127,114 +130,6 @@
                                                 </button>
                                             </div>
                                         </div>
-                                                  
-                                        <div class="cuCustom__sceneryItem cuScenery__Item2" id="cu_A1002">
-                                            <div class="cuCustom__sceneryContent">
-                                                <p>安娜普那基地</p>
-                                                <i class="material-icons">restaurant</i>
-                                                <i class="fas fa-campground"></i>
-                                            </div>
-                                            <button class="btn_cuAddScenery--767 cuBtn__styleClear">
-                                                <i class="material-icons">check_box_outline_blank</i>
-                                            </button>
-                                            <span class="cuCustom__price1">$2,000</span>
-                                            <div class="cuCustom__showOption">
-                                                <button id="cu_A2002" class="btn_cuAddScenery">
-                                                    <input type="hidden" value="安娜普那基地|cu__sceneryItem2.jpg|2000|cu_A1002|尼泊爾著名健行步道之一。安娜普娜(Annapurna)基地營高4,130M。有魚尾峰千變萬化的景觀及山上村落悠閒的田園生活、驢隊漫步其間叮叮噹噹聲不絕於耳，無怪乎全世界喜愛高山健行的登山客把這路線當作必行之地。">
-                                                        <i class="material-icons">add</i>
-                                                </button>
-                                                <button  class="btn_cuWatchScenery">
-                                                    <i class="material-icons" >search</i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="cuCustom__sceneryItem cuScenery__Item3" id="cu_A1003">
-                                            <div class="cuCustom__sceneryContent">
-                                                <p>安娜普那基地</p>
-                                                <i class="material-icons">restaurant</i>
-                                                <i class="fas fa-campground"></i>
-                                            </div>
-                                            <button class="btn_cuAddScenery--767 cuBtn__styleClear">
-                                                <i class="material-icons">check_box_outline_blank</i>
-                                            </button>
-                                            <span class="cuCustom__price1">$2,000</span>
-                                            <div class="cuCustom__showOption">
-                                                    <button id="cu_A2003" class="btn_cuAddScenery">
-                                                            <input type="hidden" value="安娜普那基地|cu__sceneryItem3.jpg|2000|cu_A1003|尼泊爾著名健行步道之一。安娜普娜(Annapurna)基地營高4,130M。有魚尾峰千變萬化的景觀及山上村落悠閒的田園生活、驢隊漫步其間叮叮噹噹聲不絕於耳，無怪乎全世界喜愛高山健行的登山客把這路線當作必行之地。">
-                                                            <i class="material-icons">add</i>
-                                                    </button>
-                                                <button class="btn_cuWatchScenery">
-                                                    <i class="material-icons" >search</i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="cuCustom__sceneryItem cuScenery__Item4" id="cu_A1004">
-                                            <div class="cuCustom__sceneryContent">
-                                                <p>安娜普那基地</p>
-                                                <i class="material-icons">restaurant</i>
-                                                <i class="fas fa-campground"></i>
-                                            </div>
-                                            <button class="btn_cuAddScenery--767 cuBtn__styleClear">
-                                                <i class="material-icons">check_box_outline_blank</i>
-                                            </button>
-                                            <span class="cuCustom__price1">$2,000</span>
-                                            <div class="cuCustom__showOption">
-                                                <button id="cu_A2004" class="btn_cuAddScenery">
-                                                        <input type="hidden" value="安娜普那基地|cu__sceneryItem4.jpg|2000|cu_A1004|尼泊爾著名健行步道之一。安娜普娜(Annapurna)基地營高4,130M。有魚尾峰千變萬化的景觀及山上村落悠閒的田園生活、驢隊漫步其間叮叮噹噹聲不絕於耳，無怪乎全世界喜愛高山健行的登山客把這路線當作必行之地。">
-                                                        <i class="material-icons">add</i>
-                                                </button>
-                                                <button class="btn_cuWatchScenery">
-                                                    <i class="material-icons" >search</i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="cuCustom__sceneryItem cuScenery__Item5" id="cu_A1005">
-                                            <div class="cuCustom__sceneryContent">
-                                                <p>安娜普那基地</p>
-                                                <i class="material-icons">restaurant</i>
-                                                <i class="fas fa-campground"></i>
-                                            </div>
-                                            <button class="btn_cuAddScenery--767 cuBtn__styleClear">
-                                                <i class="material-icons">check_box_outline_blank</i>
-                                            </button>
-                                            <span class="cuCustom__price1">$2,000</span>
-                                            <div class="cuCustom__showOption">
-                                                <button id="cu_A2005"class="btn_cuAddScenery">
-                                                        <input type="hidden" value="安娜普那基地|cu__sceneryItem5.jpg|2000|cu_A1005|尼泊爾著名健行步道之一。安娜普娜(Annapurna)基地營高4,130M。有魚尾峰千變萬化的景觀及山上村落悠閒的田園生活、驢隊漫步其間叮叮噹噹聲不絕於耳，無怪乎全世界喜愛高山健行的登山客把這路線當作必行之地。">
-                                                        <i class="material-icons">add</i>
-                                                </button>
-                                                <button class="btn_cuWatchScenery">
-                                                    <i class="material-icons" >search</i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                       
-                                        <!-- <div class="cuCustom__sceneryItem cuScenery__Item6" id="cu_A1006">
-                                            <div class="cuCustom__sceneryContent">
-                                                <p>安娜普那基地</p>
-                                                <i class="material-icons">restaurant</i>
-                                                <i class="fas fa-campground"></i>
-                                            </div>
-                                            <button class="btn_cuAddScenery--767 cuBtn__styleClear">
-                                                <i class="material-icons">check_box_outline_blank</i>
-                                            </button>
-                                            <span class="cuCustom__price1">$2,000</span>
-                                            <div class="cuCustom__showOption">
-                                                <button class="btn_cuAddScenery">
-                                                        <i class="material-icons">add</i>
-                                                </button>
-                                                <button id="cu_A2006" class="btn_cuWatchScenery">
-                                                        <input type="hidden" value="安娜普那基地|cu__sceneryItem6.jpg|2000|cu_A1006|尼泊爾著名健行步道之一。安娜普娜(Annapurna)基地營高4,130M。有魚尾峰千變萬化的景觀及山上村落悠閒的田園生活、驢隊漫步其間叮叮噹噹聲不絕於耳，無怪乎全世界喜愛高山健行的登山客把這路線當作必行之地。">
-
-                                                    <i class="material-icons" >search</i>
-                                                </button>
-                                            </div>
-                                        </div> -->
-
-                                       
                                     </div>
                                     <div id="btn_cuAddScenery--confirm">確認加入</div>
                                 </div>
@@ -330,7 +225,7 @@
                                 <p class="cuGuide__subtitle">可選擇之嚮導</p>
                                 <div class="cu__guideListBg cu__guideList--pick">
                                     <div class="cu__guideList--mask">
-                                        <div class="cu__guideItem cu__guideItem1">
+                                        <!-- <div class="cu__guideItem cu__guideItem1">
                                             <img src="img/cu_guideItem1.png" alt="嚮導照片">
                                             <input type="hidden" value="Vivan|擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。">
                                         </div>                 
@@ -341,7 +236,7 @@
                                         <div class="cu__guideItem cu__guideItem1">
                                             <img src="img/cu_guideItem3.png" alt="嚮導照片">
                                             <input type="hidden" value="Moore|負責提供路況或天候等的資訊負責提供路況或天候等的資訊。">
-                                        </div>                 
+                                        </div>                  -->
                                     </div>
                                 </div>
                             </div>
@@ -381,3 +276,5 @@
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>
 <!-- <script src="js/robot.js"></script> -->
+<script src="js/customized.js"></script>
+<script src="js/date.js"></script>

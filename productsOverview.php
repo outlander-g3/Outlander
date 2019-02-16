@@ -6,15 +6,17 @@
     try{
         require_once('connectDb.php');
         //$sql = "select *, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo
-        //join `order` c on b.pdNo = c.pdNo group by a.pdkNo";/////以上是精選行程正確寫法
-        $sql = "select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 2";
+        //join `order` c on b.pdNo = c.pdNo group by a.pdkNo";/////以上是精選行程第一次寫法
+        //$sql = "select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 2";
         //以上是精選行程假寫法
+        $sql= "select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo limit 2
+        ";
         $products = $pdo -> query($sql);
-        //$sql="select *, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by a.pdkNo order by b.pdStart
-        //";
+        $sql="select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by a.pdkNo order by b.pdStart limit 6
+        ";
         ////以上是近期開團正確寫法
-        $sql="select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 6
-        ";////以上是近期開團假寫法
+        //$sql="select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 6
+        //";////以上是近期開團假寫法
         $recent = $pdo -> query($sql);
         // $prodRows = $products -> fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -195,9 +197,9 @@
                     <div class="pro-item-view-flex">
                         <p>評價：</p>
                         <?php
-                        //for($i=0;$i<$prodRow["avgRate"];$i++){
-                         //echo '<span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>';
-                        //}
+                        for($i=0;$i<$prodRow["avgRate"];$i++){
+                         echo '<span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>';
+                        }
                         ?>  
                     </div>
                     <p>天數：<?php echo $prodRow["day"];?></p>
@@ -276,7 +278,7 @@
                     <div class="pro-item-view-flex">
                         <p>評價：</p>
                             <?php
-                                for($i=0;$i<$prodRowRe["rate"];$i++){
+                                for($i=0;$i<$prodRowRe["avgRate"];$i++){
                                 ?>
                             <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
                             <?php

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>ed</title>
+	<!-- Quill v1.0.0 -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+		integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<script src="//cdn.quilljs.com/1.0.0/quill.js"></script>
+	<script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
+	<link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+	<link href="//cdn.quilljs.com/1.0.0/quill.bubble.css" rel="stylesheet">
+	<script src="js/vue.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="css/edit.css">
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<form>
+			<section id="edit">
+				<h3>編輯日誌</h3>
+				<label id="img-file" form="header-img">
+					<img src="" alt="user" id="user-img">
+					<input type="file" id="header-img" name="header-img">
+					<div id="file-icon">
+						<i class="material-icons">insert_photo</i>
+					</div>
+				</label>
+				<ul id="day">
+					<li><span>日誌標題:</span><input type="text" id="name" name="textheader"></li>
+
+
+					<li>
+						<span>登山地點:</span>
+						<div id="day-input">
+							<span class="joForm__input">
+								<input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
+								<label for="mount-choose">請選擇地點</label>
+
+								<input type="radio" name="mountType" value="Fuji" id="mount-fuji">
+								<label for="mount-fuji">富士山</label>
+
+								<input type="radio" name="mountType" value="Himalayas" id="mount-himalayas">
+								<label for="mount-himalayas">珠穆朗瑪峰</label>
+
+								<input type="radio" name="mountType" value="Paine" id="mount-paine">
+								<label for="mount-paine">百內國家公園</label>
+
+								<input type="radio" name="mountType" value="Jade" id="mount-jade">
+								<label for="mount-jade">玉山</label>
+
+								<input type="radio" name="mountType" value="Alps" id="mount-alps">
+								<label for="mount-alps">阿爾卑斯山-少女峰</label>
+
+								<input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">
+								<label for="mount-machu">馬丘比丘</label>
+
+								<input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">
+								<label for="mount-cruz">聖克魯斯</label>
+
+								<input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">
+								<label for="mount-kilimanjaro">吉力馬札羅山</label>
+
+								<input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
+								<label for="mount-yosemite">優勝美地國家公園</label>
+
+								<input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">
+								<label for="mount-aspalin">阿斯帕林國家公園</label>
+
+								<input type="radio" name="mountType" value="Others" id="mount-others">
+								<label for="mount-others">其他</label>
+							</span>
+						</div>
+					</li>
+
+					<li> <span>出發日期:</span>
+						<input id="date" type="text" value="">
+						<div class="day-input-2">
+							<span class="msEquipment__input" id="date-text">
+								<label id="date-label-1">請選擇日期</label>
+								<table class="calendar">
+									<tbody>
+										<tr>
+											<td class="mm" colspan="2"><span id="mm-sp">月份</span> <i id="left-1"
+													class="material-icons">keyboard_arrow_left</i></td>
+											<td class="yy" colspan="2"><span id="yy-sp">年份</span><i id="right-1"
+													class="material-icons">keyboard_arrow_right</i></td>
+										</tr>
+										<tr>
+											<th>Sun</th>
+											<th>Mon</th>
+											<th>Tue</th>
+											<th>Wed</th>
+											<th>Thu</th>
+											<th>Fri</th>
+											<th>Sat</th>
+										</tr>
+									</tbody>
+									<tbody id="calendar-tb">
+
+
+									</tbody>
+								</table>
+
+							</span>
+						</div>
+					</li>
+					<li id="li-4"> <span>結束日期:</span><input id="date_1" type="text" value="">
+						<div class="day-input-2">
+							<span class="msEquipment__input" id="date-text-2">
+								<label id="date-label-2">請選擇日期</label>
+								<table class="calendar">
+									<tbody>
+										<tr>
+											<td class="mm" colspan="2"><span id="mm-sp-1"> 月份</span> <i id="left-2"
+													class="material-icons">keyboard_arrow_left</i></td>
+											<td class="yy" colspan="2"><span id="yy-sp-1">年份</span><i id="right-2"
+													class="material-icons">keyboard_arrow_right</i></td>
+										</tr>
+										<tr>
+											<th>Sun</th>
+											<th>Mon</th>
+											<th>Tue</th>
+											<th>Wed</th>
+											<th>Thu</th>
+											<th>Fri</th>
+											<th>Sat</th>
+										</tr>
+									</tbody>
+									<tbody id="calendar-tb-1">
+									</tbody>
+
+								</table>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<div id="editor"></div>
+			<div id="btn-all">
+				<textarea name="text" id="text" cols="30" rows="10"></textarea>
+				<span id="btn-out">取消</span>
+				<button id="btn-set">存為草稿</button>
+				<button id="btn-new">發佈</button>
+			</div>
+		</form>
+
+
+
+
+
+	<!-- 跳窗 -->
+
+	<div class="jump-window" id="jump-window">
+		<div class="ma-j">
+			<div class="ju-w">
+				<div class="h3-bg"></div>
+				<h3>取消編輯中的日誌</h3>
+				<p>確定要取消編輯中的日誌？</p>
+				<div class="game-jw-btn">
+					<button id="jw-game1-clear1">取消</button>
+					<button id="jw-game1-go1">確定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var quill = new Quill("#editor", {
+			theme: "snow", // 模板
+			modules: {
+				toolbar: [
+					// 工具列列表[註1]
+					[{ 'color': [] }],
+					[{ 'background': [] }], // 顏色          
+					['bold'],
+					['italic'],
+					['underline'], // 粗體、斜體、底線和刪節線
+					[{ 'list': 'ordered' }],
+					[{ 'list': 'bullet' }], // 清單
+					['image'],
+					[{ 'header': [1, 2, 3, 4, 5, 6, false] }],// 標題
+					// [{ 'font': [] }], // 字體
+					// [{ 'align': [] }], // 文字方向
+					// [ 'clean' ] // 清除文字格是
+				]
+			}
+		});
+	</script>
+	<script>
+
+		// 下拉
+
+		$('.joForm__input').click(function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$(this).toggleClass('expanded');
+			$('#date-text').removeClass('expanded');
+			$('#date-text-2').removeClass('expanded');
+			$('#' + $(e.target).attr('for')).prop('checked', true);
+		});
+		$(document).click(function () {
+			$('.joForm__input').removeClass('expanded');
+		});
+
+
+
+
+
+
+
+
+		//按鈕
+
+		document.querySelector("#btn-set").addEventListener("click", () => {
+			console.log(document.querySelector(".ql-editor").innerHTML);
+			document.querySelector("#text").value = document.querySelector(".ql-editor").innerHTML;
+		})
+		document.querySelector("#btn-new").addEventListener("click", () => {
+			console.log(document.querySelector(".ql-editor").innerHTML);
+			document.querySelector("#text").value = document.querySelector(".ql-editor").innerHTML;
+		})
+
+		window.addEventListener("load", () => {
+			$('#date-text').click(function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				$(this).toggleClass('expanded');
+				$('#date-text-2').removeClass('expanded');
+				$('.joForm__input').removeClass('expanded');
+				$('#' + $(e.target).attr('for')).prop('checked', true);
+			});
+			$(document).click(function () {
+				$('#date-text').removeClass('expanded');
+			});
+			$(".calendar").click((e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				$(this).toggleClass('expanded');
+				$('#' + $(e.target).attr('for')).prop('checked', true);
+				// console.log(e.target);
+			})
+
+
+
+			var yy = new Date().getFullYear(); //年
+			var mm = new Date().getMonth(); //月份
+			var dd = new Date().getDate();//今天日期
+			var arrmm = new Array();
+			arrmm[0] = "一月";
+			arrmm[1] = "二月";
+			arrmm[2] = "三月";
+			arrmm[3] = "四月";
+			arrmm[4] = "五月";
+			arrmm[5] = "六月";
+			arrmm[6] = "七月";
+			arrmm[7] = "八月";
+			arrmm[8] = "九月";
+			arrmm[9] = "十月";
+			arrmm[10] = "十一月";
+			arrmm[11] = "十二月";
+			document.querySelector("#mm-sp").innerText = arrmm[mm];
+			document.querySelector("#yy-sp").innerText = yy;
+			var dayall = new Date(yy, mm, 0).getDate();//總天數
+			var bd = new Date(yy + "/" + (mm + 1) + "/1").getDay();//因為回傳月份是0-11 所以要+1  抓星期他只有1-12月
+			var dayfunction = () => {
+				for (var i = 1; i < 7; i++) {
+					var text = "";
+					if (i == 1) {
+						if (i - bd < 1) {
+							for (var p = 0; p < bd; p++) {
+								text += "<td class='tdclass'></td>";
+							}
+						}
+						for (var o = 1; o <= 7 - bd; o++) {
+							text += "<td class='tdclass'>" + o + "</td>";
+						}
+					}
+					else if (i == 2) {
+						for (var o = 8 - bd; o <= 14 - bd; o++) {
+							text += "<td class='tdclass'>" + o + "</td>";
+						}
+					}
+					else if (i == 3) {
+						for (var o = 15 - bd; o <= 21 - bd; o++) {
+							text += "<td class='tdclass'>" + o + "</td>";
+						}
+					}
+					else if (i == 4) {
+						for (var o = 22 - bd; o <= 28 - bd; o++) {
+							text += "<td class='tdclass'>" + o + "</td>";
+						}
+					}
+					else if (i == 5) {
+						if (bd > 4 && dayall > 28) {
+							for (var o = 29 - bd; o <= 35 - bd; o++) {
+								text += "<td class='tdclass'>" + o + "</td>";
+							}
+							var tr = document.createElement("tr");
+							document.querySelector("#calendar-tb").appendChild(tr).innerHTML = text;
+							text = "";
+							for (var o = 36 - bd; o <= dayall; o++) {
+								text += "<td class='tdclass'>" + o + "</td>";
+							}
+						} else {
+							for (var o = 29 - bd; o <= dayall; o++) {
+								text += "<td class='tdclass'>" + o + "</td>";
+							}
+
+						}
+
+					}
+
+					var tr = document.createElement("tr");
+					document.querySelector("#calendar-tb").appendChild(tr).innerHTML = text;
+				}
+			}
+			dayfunction();
+			document.querySelector("#left-1").addEventListener("click", (e) => {
+				var num = arrmm.indexOf(document.querySelector("#mm-sp").innerText);
+				dayall = new Date(yy, num, 0).getDate();//總天數
+				// console.log(num,dayall);
+				document.querySelector("#calendar-tb").innerHTML = "";
+				if (num - 1 < 0) {
+					num = 12;
+					yy--;
+				}
+				bd = new Date(yy + "/" + num + "/1").getDay();
+				dayfunction(bd, dayall);
+				// console.log(arrmm.indexOf( document.querySelector("#mm-sp").innerText));
+				document.querySelector("#mm-sp").innerText = arrmm[num - 1];
+				document.querySelector("#yy-sp").innerText = yy;
+				load();
+			})
+			document.querySelector("#right-1").addEventListener("click", (e) => {
+				var num = arrmm.indexOf(document.querySelector("#mm-sp").innerText);
+				if (num == 0) {
+					dayall = new Date(yy, 2, 0).getDate()
+					bd = new Date(yy + "/" + 2 + "/1").getDay();
+				} else if (num == 11) {
+					dayall = new Date(yy, num + 1, 0).getDate();//總天數
+					bd = new Date(yy + "/" + (num + 1) + "/1").getDay();
+				} else if (num == 10) {
+					dayall = new Date(yy, num, 0).getDate();//總天數
+					bd = new Date(yy + "/" + (num) + "/1").getDay();
+				}
+				else {
+					dayall = new Date(yy, num + 2, 0).getDate();//總天數
+					bd = new Date(yy + "/" + (num + 2) + "/1").getDay();
+				}
+				document.querySelector("#calendar-tb").innerHTML = "";
+				if (num + 1 > 11) {
+					num = -1;
+					yy++;
+				}
+				dayfunction(bd, dayall);
+				document.querySelector("#mm-sp").innerText = arrmm[num + 1];
+				document.querySelector("#yy-sp").innerText = yy;
+				load();
+			})
+
+			var len;
+			function load() {
+				len = document.getElementsByClassName("tdclass");
+				var ss;
+				for (var k = 0; k <= len.length - 1; k++) {
+					ss = document.getElementsByClassName("tdclass")[k];
+					ss.addEventListener("click", tdclass);
+				}
+			}
+
+			function tdclass(e) {
+				var value = document.querySelector("#mm-sp").innerText;
+				var mmtext = Number(arrmm.indexOf(value));//月
+				mmtext += 1;
+				var datevalue = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
+
+				document.querySelector("#date-label-1").innerHTML = datevalue;
+				$('#date-text').removeClass('expanded');
+				document.querySelector("#date").value = datevalue;
+				// console.log(document.querySelector("#date").value);//確認送表單的value正確
+			}
+			load();
+		})
+
+
+
+
+		//第2個月曆
+
+
+
+		window.addEventListener("load", () => {
+			$('#date-text-2').click(function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				$(this).toggleClass('expanded');
+				$('.joForm__input').removeClass('expanded');
+				$('#date-text').removeClass('expanded');
+				$('#' + $(e.target).attr('for')).prop('checked', true);
+			});
+			$(document).click(function () {
+				$('#date-text-2').removeClass('expanded');
+			});
+			$(".calendar").click((e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				$(this).toggleClass('expanded');
+				$('#' + $(e.target).attr('for')).prop('checked', true);
+				// console.log(e.target);
+			})
+
+
+
+			var yy = new Date().getFullYear(); //年
+			var mm = new Date().getMonth(); //月份
+			var dd = new Date().getDate();//今天日期
+			var arrmm = new Array();
+			arrmm[0] = "一月";
+			arrmm[1] = "二月";
+			arrmm[2] = "三月";
+			arrmm[3] = "四月";
+			arrmm[4] = "五月";
+			arrmm[5] = "六月";
+			arrmm[6] = "七月";
+			arrmm[7] = "八月";
+			arrmm[8] = "九月";
+			arrmm[9] = "十月";
+			arrmm[10] = "十一月";
+			arrmm[11] = "十二月";
+			document.querySelector("#mm-sp-1").innerText = arrmm[mm];
+			document.querySelector("#yy-sp-1").innerText = yy;
+			var dayall = new Date(yy, mm, 0).getDate();//總天數
+			var bd = new Date(yy + "/" + (mm + 1) + "/1").getDay();//因為回傳月份是0-11 所以要+1  抓星期他只有1-12月
+			var dayfunction = () => {
+				for (var i = 1; i < 7; i++) {
+					var text = "";
+					if (i == 1) {
+						if (i - bd < 1) {
+							for (var p = 0; p < bd; p++) {
+								text += "<td class='tdclass-1'></td>";
+							}
+						}
+						for (var o = 1; o <= 7 - bd; o++) {
+							text += "<td class='tdclass-1'>" + o + "</td>";
+						}
+					}
+					else if (i == 2) {
+						for (var o = 8 - bd; o <= 14 - bd; o++) {
+							text += "<td class='tdclass-1'>" + o + "</td>";
+						}
+					}
+					else if (i == 3) {
+						for (var o = 15 - bd; o <= 21 - bd; o++) {
+							text += "<td class='tdclass-1'>" + o + "</td>";
+						}
+					}
+					else if (i == 4) {
+						for (var o = 22 - bd; o <= 28 - bd; o++) {
+							text += "<td class='tdclass-1'>" + o + "</td>";
+						}
+					}
+					else if (i == 5) {
+						if (bd > 4 && dayall > 28) {
+							for (var o = 29 - bd; o <= 35 - bd; o++) {
+								text += "<td class='tdclass-1'>" + o + "</td>";
+							}
+							var tr = document.createElement("tr");
+							document.querySelector("#calendar-tb-1").appendChild(tr).innerHTML = text;
+							text = "";
+							for (var o = 36 - bd; o <= dayall; o++) {
+								text += "<td class='tdclass-1'>" + o + "</td>";
+							}
+						} else {
+							for (var o = 29 - bd; o <= dayall; o++) {
+								text += "<td class='tdclass-1'>" + o + "</td>";
+							}
+
+						}
+
+					}
+
+					var tr = document.createElement("tr");
+					document.querySelector("#calendar-tb-1").appendChild(tr).innerHTML = text;
+				}
+			}
+			dayfunction();
+			document.querySelector("#left-2").addEventListener("click", (e) => {
+				var num = arrmm.indexOf(document.querySelector("#mm-sp-1").innerText);
+				dayall = new Date(yy, num, 0).getDate();//總天數
+				// console.log(num,dayall);
+				document.querySelector("#calendar-tb-1").innerHTML = "";
+				if (num - 1 < 0) {
+					num = 12;
+					yy--;
+				}
+				bd = new Date(yy + "/" + num + "/1").getDay();
+				dayfunction(bd, dayall);
+				// console.log(arrmm.indexOf( document.querySelector("#mm-sp").innerText));
+				document.querySelector("#mm-sp-1").innerText = arrmm[num - 1];
+				document.querySelector("#yy-sp-1").innerText = yy;
+				load();
+			})
+			document.querySelector("#right-2").addEventListener("click", (e) => {
+				var num = arrmm.indexOf(document.querySelector("#mm-sp-1").innerText);
+				if (num == 0) {
+					dayall = new Date(yy, 2, 0).getDate()
+					bd = new Date(yy + "/" + 2 + "/1").getDay();
+				} else if (num == 11) {
+					dayall = new Date(yy, num + 1, 0).getDate();//總天數
+					bd = new Date(yy + "/" + (num + 1) + "/1").getDay();
+				} else if (num == 10) {
+					dayall = new Date(yy, num, 0).getDate();//總天數
+					bd = new Date(yy + "/" + (num) + "/1").getDay();
+				}
+				else {
+					dayall = new Date(yy, num + 2, 0).getDate();//總天數
+					bd = new Date(yy + "/" + (num + 2) + "/1").getDay();
+				}
+				document.querySelector("#calendar-tb-1").innerHTML = "";
+				if (num + 1 > 11) {
+					num = -1;
+					yy++;
+				}
+				dayfunction(bd, dayall);
+				document.querySelector("#mm-sp-1").innerText = arrmm[num + 1];
+				document.querySelector("#yy-sp-1").innerText = yy;
+				load();
+			})
+
+			var len;
+			function load() {
+				len = document.getElementsByClassName("tdclass-1");
+				var ss;
+				for (var k = 0; k <= len.length - 1; k++) {
+					ss = document.getElementsByClassName("tdclass-1")[k];
+					ss.addEventListener("click", tdclass);
+				}
+			}
+
+			function tdclass(e) {
+				var value = document.querySelector("#mm-sp-1").innerText;
+				var mmtext = Number(arrmm.indexOf(value));//月
+				mmtext += 1;
+				var datevalue = document.querySelector("#yy-sp-1").innerText + "-" + mmtext + "-" + e.target.innerText;
+
+				document.querySelector("#date-label-2").innerHTML = datevalue;
+				$('#date-text-2').removeClass('expanded');
+				document.querySelector("#date_1").value = datevalue;
+				// console.log(document.querySelector("#date").value);//確認送表單的value正確
+			}
+			load();
+		})
+
+
+
+
+
+
+	</script>
+
+
+	<!-- 按鈕 -->
+	<script>
+		document.querySelector("#btn-out").addEventListener("click", () => {
+			document.querySelector("#jump-window").style.display = "block";
+		})
+		document.querySelector("#jw-game1-clear1").addEventListener("click", () => {
+			document.querySelector("#jump-window").style.display = "none";
+		})
+
+
+
+
+	</script>
+</body>
+
+</html>

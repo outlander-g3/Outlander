@@ -963,3 +963,93 @@ ul{
 // ul::-webkit-scrollbar {
 //     display: none;
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 日誌清單開始
+#tab-b{
+    padding-top: 20px;
+}
+#h3-btn{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    h3{
+        align-self: center;
+        padding: unset;
+    }
+    #log-add{
+        @include btn();
+        @include btn-l ();
+        background: $color-btn-sub;
+    }
+}
+#log{
+    width: 100%;
+    #log-table{
+        width: 100%;
+        tr{
+            border-bottom: 1px solid $color-gray1;
+            &:nth-child(1){
+                border: unset;
+            }
+            &:nth-child(1){
+                background: $color-main1;
+                width: 100%;
+            }
+            &:not(:nth-child(1)){
+                line-height: 50px;
+            }
+            th{
+               padding: 10px; 
+               font-size: 1.1rem;
+               line-height: 28px;
+               text-align: center;
+               color: $color-white;
+               &:nth-child(1){
+                   padding-left: 20px;
+                   text-align: left;
+               }
+            }
+            td{
+                text-align: center;
+                &:nth-child(1){
+                    padding-left: 20px;
+                    text-align: left;
+                }
+                &:nth-child(4){
+                  display: flex;
+                  justify-content: space-around;  
+                }
+                i{
+                    align-self: center;
+                    color: $color-text;
+                    cursor: pointer;
+                }
+                img{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    button{
+        @include btn();
+        @include btn-l ();
+        background: $color-btn-main;
+        margin: 20px auto;
+        display: block;
+    }
+}

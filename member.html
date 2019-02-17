@@ -598,9 +598,37 @@
                         </div>
                     </section>
                     <section id="tab-b">
+                        <div id="h3-btn">
+                            <h3>我的日誌</h3>
+                            <a href="editJo.html"><button id="log-add"><i class="fas fa-pen"></i>我要寫日誌</button></a>
+                        </div>
 
-                        <h3>我的日誌</h3>
 
+                        <div id="log">
+                            <table id="log-table">
+                                <tr>
+                                    <th>日誌標題</th>
+                                    <th>最後編輯時間</th>
+                                    <th>發布狀態</th>
+                                    <th>處理</th>
+                                </tr>
+                                <tr>
+                                    <td>日本 - 槍岳、表銀座縱走縱走縱走縱走縱走縱走縱走</td>
+                                    <td>2019/1/26</td>
+                                    <td>已發布</td>
+                                    <td><i class="fas fa-pen"></i><img src="img/baseline-delete-24px.svg" alt="垃圾桶">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>日本 - 槍岳、表銀座縱走縱走縱走縱走縱走縱走縱走</td>
+                                    <td>2019/1/26</td>
+                                    <td>已發布</td>
+                                    <td> <a href="edit.html"><i class="fas fa-pen"></i></a> <img
+                                            src="img/baseline-delete-24px.svg" alt="垃圾桶"></td>
+                                </tr>
+                            </table>
+                            <button id="log-more">查看更多</button>
+                        </div>
 
 
                         <h3>收藏日誌</h3>
@@ -620,7 +648,7 @@
                                     <label for="mount-fuji">富士山</label>
 
                                     <input type="radio" name="mountType" value="Himalayas" id="mount-himalayas">
-                                    <label for="mount-himalayas">珠穆朗瑪峰</label>
+                                    <label for="mount-himalayas">聖母峰</label>
 
                                     <input type="radio" name="mountType" value="Paine" id="mount-paine">
                                     <label for="mount-paine">百內國家公園</label>
@@ -629,22 +657,22 @@
                                     <label for="mount-jade">玉山</label>
 
                                     <input type="radio" name="mountType" value="Alps" id="mount-alps">
-                                    <label for="mount-alps">阿爾卑斯山-少女峰</label>
+                                    <label for="mount-alps">少女峰</label>
 
                                     <input type="radio" name="mountType" value="MachuPicchu" id="mount-machu">
                                     <label for="mount-machu">馬丘比丘</label>
 
-                                    <input type="radio" name="mountType" value="SantaCruz" id="mount-cruz">
-                                    <label for="mount-cruz">聖克魯斯</label>
+                                    <input type="radio" name="mountType" value="Huascaran" id="mount-huascaran">
+                                    <label for="mount-huascaran">瓦斯卡蘭山</label>
 
                                     <input type="radio" name="mountType" value="Kilimanjaro" id="mount-kilimanjaro">
-                                    <label for="mount-kilimanjaro">吉力馬札羅山</label>
+                                    <label for="mount-kilimanjaro">吉力馬札羅</label>
 
                                     <input type="radio" name="mountType" value="Yosemite" id="mount-yosemite">
                                     <label for="mount-yosemite">優勝美地國家公園</label>
 
                                     <input type="radio" name="mountType" value="Aspalin" id="mount-aspalin">
-                                    <label for="mount-aspalin">阿斯帕林國家公園</label>
+                                    <label for="mount-aspalin">阿斯帕林</label>
 
                                     <input type="radio" name="mountType" value="Others" id="mount-others">
                                     <label for="mount-others">其他</label>
@@ -728,12 +756,12 @@
                             </div>
                             <div class="eqList">
                                 <div class="eqCont">
-                                    <h3>寢具類</h3>
+                                    <h3>衣物類</h3>
                                     <ul>
                                         <li>
-                                            <label for="sleep1">
-                                                <span>帳篷</span>
-                                                <input type="checkbox" id="sleep1">
+                                            <label for="cloth1">
+                                                <span>防風衣</span>
+                                                <input type="checkbox" id="cloth1">
                                                 <i class="material-icons">check_box</i>
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
@@ -741,9 +769,9 @@
                                             <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
-                                            <label for="sleep2">
-                                                <span>三人頂級全透氣帳</span>
-                                                <input type="checkbox" id="sleep2">
+                                            <label for="cloth2">
+                                                <span>保暖衣</span>
+                                                <input type="checkbox" id="cloth2">
                                                 <i class="material-icons">check_box</i>
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
@@ -751,9 +779,9 @@
                                             <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
-                                            <label for="sleep3">
-                                                <span>輕量四人帳</span>
-                                                <input type="checkbox" id="sleep3">
+                                            <label for="cloth3">
+                                                <span>保暖手套</span>
+                                                <input type="checkbox" id="cloth3">
                                                 <i class="material-icons">check_box</i>
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
@@ -761,9 +789,9 @@
                                             <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
-                                            <label for="sleep4">
-                                                <span>睡袋</span>
-                                                <input type="checkbox" id="sleep4">
+                                            <label for="cloth4">
+                                                <span>遮陽帽</span>
+                                                <input type="checkbox" id="cloth4">
                                                 <i class="material-icons">check_box</i>
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
@@ -772,9 +800,9 @@
                                         </li>
 
                                         <li>
-                                            <label for="sleep5">
-                                                <span>地布</span>
-                                                <input type="checkbox" id="sleep5">
+                                            <label for="cloth5">
+                                                <span>雨衣</span>
+                                                <input type="checkbox" id="cloth5">
                                                 <i class="material-icons">check_box</i>
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>
@@ -782,9 +810,305 @@
                                             <i class="material-icons delete">delete</i>
                                         </li>
                                         <li>
-                                            <label for="sleep6">
-                                                <span>二人高山帳</span>
-                                                <input type="checkbox" id="sleep6">
+                                            <label for="cloth6">
+                                                <span>保暖帽</span>
+                                                <input type="checkbox" id="cloth6">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                    </ul>
+                                    <div class="eqPlus">
+                                        <label for="add1">
+                                            <input type="text" id="add1">
+                                            <i class="material-icons">add</i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eqList">
+                                <div class="eqCont">
+                                    <h3>配件類</h3>
+                                    <ul>
+                                        <li>
+                                            <label for="gear1">
+                                                <span>登山杖</span>
+                                                <input type="checkbox" id="gear1">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="gear2">
+                                                <span>登山鞋</span>
+                                                <input type="checkbox" id="gear2">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="gear3">
+                                                <span>扣繩</span>
+                                                <input type="checkbox" id="gear3">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="gear4">
+                                                <span>頭燈</span>
+                                                <input type="checkbox" id="gear4">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+
+                                        <li>
+                                            <label for="gear5">
+                                                <span>指北針</span>
+                                                <input type="checkbox" id="gear5">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="gear6">
+                                                <span>冰爪</span>
+                                                <input type="checkbox" id="gear6">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                    </ul>
+                                    <div class="eqPlus">
+                                        <label for="add1">
+                                            <input type="text" id="add1">
+                                            <i class="material-icons">add</i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eqList">
+                                <div class="eqCont">
+                                    <h3>炊具類</h3>
+                                    <ul>
+                                        <li>
+                                            <label for="cooking1">
+                                                <span>爐子</span>
+                                                <input type="checkbox" id="cooking1">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="cooking2">
+                                                <span>爐子燃料</span>
+                                                <input type="checkbox" id="cooking2">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="cooking3">
+                                                <span>保溫壺</span>
+                                                <input type="checkbox" id="cooking3">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="cooking4">
+                                                <span>套鍋組</span>
+                                                <input type="checkbox" id="cooking4">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+
+                                        <li>
+                                            <label for="cooking5">
+                                                <span>擋風板</span>
+                                                <input type="checkbox" id="cooking5">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="cooking6">
+                                                <span>打火機</span>
+                                                <input type="checkbox" id="cooking6">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                    </ul>
+                                    <div class="eqPlus">
+                                        <label for="add1">
+                                            <input type="text" id="add1">
+                                            <i class="material-icons">add</i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eqList">
+                                <div class="eqCont">
+                                    <h3>食品類</h3>
+                                    <ul>
+                                        <li>
+                                            <label for="food1">
+                                                <span>乾燥食品</span>
+                                                <input type="checkbox" id="food1">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="food2">
+                                                <span>高熱量口糧</span>
+                                                <input type="checkbox" id="food2">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="food3">
+                                                <span>綜合維他命</span>
+                                                <input type="checkbox" id="food3">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="food4">
+                                                <span>濾水器</span>
+                                                <input type="checkbox" id="food4">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+
+                                        <li>
+                                            <label for="food5">
+                                                <span>調味品</span>
+                                                <input type="checkbox" id="food5">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="food6">
+                                                <span>行動乾糧</span>
+                                                <input type="checkbox" id="food6">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                    </ul>
+                                    <div class="eqPlus">
+                                        <label for="add1">
+                                            <input type="text" id="add1">
+                                            <i class="material-icons">add</i>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eqList">
+                                <div class="eqCont">
+                                    <h3>醫療類</h3>
+                                    <ul>
+                                        <li>
+                                            <label for="med1">
+                                                <span>急救求生用品</span>
+                                                <input type="checkbox" id="med1">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="med2">
+                                                <span>個人藥品</span>
+                                                <input type="checkbox" id="med2">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="med3">
+                                                <span>防蚊液</span>
+                                                <input type="checkbox" id="med3">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="med4">
+                                                <span>高山藥</span>
+                                                <input type="checkbox" id="med4">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+
+                                        <li>
+                                            <label for="med5">
+                                                <span>防曬油</span>
+                                                <input type="checkbox" id="med5">
+                                                <i class="material-icons">check_box</i>
+                                                <i class="material-icons">check_box_outline_blank</i>
+                                                <div class="clearfix"></div>
+                                            </label>
+                                            <i class="material-icons delete">delete</i>
+                                        </li>
+                                        <li>
+                                            <label for="med6">
+                                                <span>止瀉藥</span>
+                                                <input type="checkbox" id="med6">
                                                 <i class="material-icons">check_box</i>
                                                 <i class="material-icons">check_box_outline_blank</i>
                                                 <div class="clearfix"></div>

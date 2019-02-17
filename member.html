@@ -600,7 +600,7 @@
                     <section id="tab-b">
                         <div id="h3-btn">
                             <h3>我的日誌</h3>
-                            <a href="editJo.html"><button id="log-add"><i class="fas fa-pen"></i>我要寫日誌</button></a>
+                            <button id="log-add"><i class="fas fa-pen"></i>我要寫日誌</button>
                         </div>
 
 
@@ -609,26 +609,45 @@
                                 <tr>
                                     <th>日誌標題</th>
                                     <th>最後編輯時間</th>
-                                    <th>發布狀態</th>
+                                    <th class="log-m">發布狀態</th>
                                     <th>處理</th>
                                 </tr>
                                 <tr>
-                                    <td>日本 - 槍岳、表銀座縱走縱走縱走縱走縱走縱走縱走</td>
+                                    <td class="log-header">日本 - 槍岳、縱走縱走縱走縱走</td>
                                     <td>2019/1/26</td>
-                                    <td>已發布</td>
-                                    <td><i class="fas fa-pen"></i><img src="img/baseline-delete-24px.svg" alt="垃圾桶">
-                                    </td>
+                                    <td class="log-m">已發布</td>
+                                    <td class="log-img"><i class="fas fa-pen"></i><img
+                                            src="img/baseline-delete-24px.svg" alt="垃圾桶"></td>
                                 </tr>
                                 <tr>
-                                    <td>日本 - 槍岳、表銀座縱走縱走縱走縱走縱走縱走縱走</td>
+                                    <td class="log-header">日本 - 槍岳、表銀座縱縱走縱走表銀座縱縱走縱走表銀座縱縱走縱走表銀座縱縱走縱走</td>
                                     <td>2019/1/26</td>
-                                    <td>已發布</td>
-                                    <td> <a href="edit.html"><i class="fas fa-pen"></i></a> <img
+                                    <td class="log-m">已發布</td>
+                                    <td class="log-img"><a href="edit.html"><i class="fas fa-pen"></i></a> <img
                                             src="img/baseline-delete-24px.svg" alt="垃圾桶"></td>
                                 </tr>
                             </table>
                             <button id="log-more">查看更多</button>
                         </div>
+                        <script>
+                            //偵測文字長度的程式 把需要偵測的標籤加上 class = "log-header";
+
+                            var web = window.innerWidth;
+                            var loghd = document.getElementsByClassName("log-header");
+                            for (var i = 0; i < loghd.length; i++) {
+                                var loghdte = document.getElementsByClassName("log-header")[i].innerHTML;
+                                if (web < 767) {
+                                    if (loghdte.length > 8) {//手機版長度
+                                        document.getElementsByClassName("log-header")[i].innerHTML = loghdte.substr(0, 8) + "...";
+                                    }
+                                } else {
+                                    if (loghdte.length > 25) {//桌機版
+                                        document.getElementsByClassName("log-header")[i].innerHTML = loghdte.substr(0, 25) + "...";
+                                    }
+                                }
+                            }
+
+                        </script>
 
 
                         <h3>收藏日誌</h3>

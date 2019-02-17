@@ -1043,6 +1043,16 @@ ul{
                     cursor: pointer;
                 }
             }
+            .log-m{
+                @media (max-width:768px) {
+                    display: none;
+                }
+            }
+            .log-img{
+                display: flex;
+                justify-content: space-evenly;
+                align-content: center;
+            }
         }
     }
     button{

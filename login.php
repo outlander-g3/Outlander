@@ -44,12 +44,12 @@ try {
                 $_SESSION['memPoint']=$row['memPoint'];
             }
     
-        //檢查從哪跳轉過來登入
-        if(isset($_SESSION['where'])===true){
-            $to=$_SESSION['where'];
-            //避免大家都跳回來 所以要清除掉，不然會有一個where陣列ｗｗｗ哪知道登入後要跳回去哪裡
-            unset($_SESSION['where']);
-            header('Location:'.$to);
+            //檢查從哪跳轉過來登入
+            // if(isset($_SESSION['where'])===true){
+            //     $to=$_SESSION['where'];
+            //     //避免大家都跳回來 所以要清除掉，不然會有一個where陣列ｗｗｗ哪知道登入後要跳回去哪裡
+            //     unset($_SESSION['where']);
+            //     header('Location:'.$to);
         }
     }
     // if($member->rowCount()==0){
@@ -70,10 +70,10 @@ try {
     //     //避免大家都跳回來 所以要清除掉，不然會有一個where陣列ｗｗｗ哪知道登入後要跳回去哪裡
     //     unset($_SESSION['where']);
     //     header('Location:'.$to);
-    // }
-}
+    }
 
-} catch (PDOException $e) {
+
+ catch (PDOException $e) {
     echo "失敗",$e->getMessage(),"<br>";
     echo "行號",$e->getLine();
 }

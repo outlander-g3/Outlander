@@ -28,13 +28,13 @@
                     <div class="jpCont--mail">
                         <label for="memMail">
                             <i class="material-icons">person</i>
-                            <input type="email" placeholder="請輸入信箱" id="memMail">
+                            <input type="email" placeholder="請輸入信箱" id="memMail"   maxlength="50">
                         </label>
                     </div>
                     <div class="jpCont--psw">
                         <label for="memPsw">
                             <i class="material-icons">lock</i>
-                            <input type="password" placeholder="請輸入密碼" id="memPsw">
+                            <input type="password" placeholder="請輸入密碼" id="memPsw"  maxlength="20" >
                         </label>
                     </div>
                 </div>

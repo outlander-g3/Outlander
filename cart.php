@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // include_once('connectDb.php'); //連線
     // include_once('login.php'); //會員登入
 
@@ -8,13 +9,15 @@
     $_SESSION['pdkName']='瓦斯卡蘭國家公園健行四天三夜';
     $_SESSION['day']=10;
     $_SESSION['pdkImg']='img/fuji.jpg';
-    $_SESSION['pdStart']='1991/04/27';
-    $_SESSION['pdEnd']='1992/11/04';
+    $_SESSION['pdStart']='2019/01/01';
+    $_SESSION['pdEnd']='2020/01/01';
     $_SESSION['pdkPrice']=999999;
-    $point=300;
-    $memName='Elison';
-    $memMail='1@';
-    $memTel='222';
+    $_SESSION['where']=$_SERVER['PHP_SELF'];
+    $_SESSION['pdkNo']=1;
+    $_SESSION['pdNo']=2;
+
+    $_SESSION['where']='/customized.php';
+    $_SESSION['gdNo1']=1;
 ?>
 
 
@@ -170,19 +173,19 @@
                                         <li>
                                             <label for="buyName">
                                                 <span>姓名</span>
-                                                <input type="text" name="buyName" id="buyName" value="<?php echo $memName;?>">
+                                                <input maxlength="15" type="text" name="buyName" id="buyName" value="<?php echo $_SESSION['memName'];?>">
                                             </label>
                                         </li>
                                         <li>
                                             <label for="buyMail">
                                                 <span>電子信箱</span>
-                                                <input type="text" name="buyMail" id="buyMail" value="<?php echo $memMail;?>">
+                                                <input  maxlength="50" type="text" name="buyMail" id="buyMail" value="<?php echo $_SESSION['memMail'];?>">
                                             </label>
                                         </li>
                                         <li>
                                             <label for="buyTel">
                                                 <span>聯絡電話</span>
-                                                <input type="text" name="buyTel" id="buyTel" value="<?php echo $memTel;?>">
+                                                <input  maxlength="15" type="text" name="buyTel" id="buyTel" value="<?php echo $_SESSION['memTel'];?>">
                                             </label>
                                         </li>
                                     </ul>
@@ -214,7 +217,7 @@
                                         <li>
                                             <label for="psgName">
                                                 <span>旅客姓名</span>
-                                                <input type="text" id="psgName" value="">
+                                                <input type="text" id="psgName" value=""  maxlength="15" >
                                             </label>
                                         </li>
 
@@ -268,13 +271,13 @@
                                         <li>
                                             <label for="psgId">
                                                 <span>身分證字號</span>
-                                                <input type="text" id="psgId" value="">
+                                                <input type="text" id="psgId" value=""  maxlength="10" >
                                             </label>
                                         </li>
                                         <li>
                                             <label for="psgTel">
                                                 <span>聯絡電話</span>
-                                                <input type="text" id="psgTel" value="">
+                                                <input type="text" id="psgTel" value="" maxlength="15" >
                                             </label>
                                         </li>
                                     </ul>
@@ -326,8 +329,10 @@
                                     <i class="material-icons">check_box_outline_blank</i>
                                     <i>使用紅利點數折抵</i>
                                 </label>
-                                <p>您持有的紅利點數為：<span id="point"><?php echo $point;?></span>點 </p>
+                                <p>您持有的紅利點數為：<span id="point"><?php echo $_SESSION['memPoint'];?></span>點 </p>
+                                <input type="hidden" name='usePoint' value="0">
                                 <p>(每10點可折抵1元)</p>
+                                
                                 <input type="checkbox" id="ctRule">
                                 <label for="ctRule">
                                     <i class="material-icons">check_box</i>
@@ -343,47 +348,47 @@
                                     <li>
                                         <label for="">
                                             <span>持卡人姓名</span>
-                                            <span><input type="text" name=""></span>
+                                            <span><input type="text" name="" maxlength="15" ></span>
                                         </label>
                                     </li>
                                     <li>
                                         <label for="">
                                             <span>信用卡卡號</span>
-                                            <span><input type="text" name=""></span>
+                                            <span><input type="text" name="" maxlength="16" ></span>
                                         </label>
                                     </li>
                                     <li>
                                         <span>到期月/年</span>
                                         <span>
                                             <label for="month" class="ctCredit__select">
-                                                <select name="" id="month" class="ctCredit__select--month">
-                                                    <option value="">月</option>
-                                                    <option value="">01</option>
-                                                    <option value="">02</option>
-                                                    <option value="">03</option>
-                                                    <option value="">04</option>
-                                                    <option value="">05</option>
-                                                    <option value="">06</option>
-                                                    <option value="">07</option>
-                                                    <option value="">08</option>
-                                                    <option value="">09</option>
-                                                    <option value="">10</option>
-                                                    <option value="">11</option>
-                                                    <option value="">12</option>
+                                                <select name="month" id="month" class="ctCredit__select--month" value="0">
+                                                    <option value="0">月</option>
+                                                    <option value="1">01</option>
+                                                    <option value="2">02</option>
+                                                    <option value="3">03</option>
+                                                    <option value="4">04</option>
+                                                    <option value="5">05</option>
+                                                    <option value="6">06</option>
+                                                    <option value="7">07</option>
+                                                    <option value="8">08</option>
+                                                    <option value="9">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
                                                 </select>
                                                 <i class="material-icons">keyboard_arrow_down</i>
                                             </label>
                                             <label for="year" class="ctCredit__select">
-                                                <select name="" id="year" class="ctCredit__select--year">
-                                                    <option value="">年</option>
-                                                    <option value="">2019</option>
-                                                    <option value="">2020</option>
-                                                    <option value="">2021</option>
-                                                    <option value="">2022</option>
-                                                    <option value="">2023</option>
-                                                    <option value="">2024</option>
-                                                    <option value="">2025</option>
-                                                    <option value="">2026</option>
+                                                <select name="year" id="year" class="ctCredit__select--year" value="0">
+                                                    <option value="0">年</option>
+                                                    <option value="2019">2019</option>
+                                                    <option value="2020">2020</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="2023">2023</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2026">2026</option>
                                                 </select>
                                                 <i class="material-icons">keyboard_arrow_down</i>
                                             </label>
@@ -392,7 +397,7 @@
                                     <li>
                                         <label for="safe">
                                             <span>安全碼</span>
-                                            <span><input type="text" name="" id="safe"></span>
+                                            <span><input type="text" name="" id="safe" maxlength="3" ></span>
                                         </label>
                                     </li>
                                     <li>

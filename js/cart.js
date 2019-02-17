@@ -250,15 +250,19 @@ window.addEventListener('load', function () {
 
     //紅利點數是否折抵
     var memPoint = document.querySelector('#memPoint');
+    var usePoint = document.querySelector("input[name='usePoint']");
     memPoint.addEventListener('click', function () {
         if (memPoint.checked) {
-            dis.innerHTML = $('#point').text();
+            dis.innerHTML = parseInt($('#point').text()) / 10;
+            usePoint.value = 1;
         }
         else {
             dis.innerHTML = 0;
+            usePoint.value = 0;
         }
         //呼叫改變金額函數
         newTotal();
+        console.log(usePoint.value);
     }, false);
 
 
@@ -294,6 +298,14 @@ window.addEventListener('load', function () {
                 return;
             }
         });
+
+
+        let m = document.querySelector('select[name="month"]');
+        let y = document.querySelector('select[name="year"]');
+        if (m.value == 0 || y.value == 0) {
+            cdNull = true;
+        }
+
         if (memNull == true && psgNull == true) {
             msg = "購買人、旅客";
             hasNull = true;
@@ -410,7 +422,6 @@ window.addEventListener('load', function () {
         $('.date').css('display', 'block');
     });
 
-    z
     //信用卡的到期
 
     $('.ctCredit__select i').click(function () {

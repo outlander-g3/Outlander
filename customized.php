@@ -1,10 +1,7 @@
 <?php
     // include_once('connectDb.php'); //連線
-    // include_once('login.php'); //會員登入
-
-    //要去抓選擇的開團資訊（圖,名稱,日期
-
-    //抓
+    // include_once('session.php'); //判斷會員是否登入
+    // $_SESSION['where']=$_SERVER['PHP_SELF'];
 ?>
 
 
@@ -20,13 +17,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cart.css">
+    <!-- <link rel="stylesheet" href="css/robot.css"> -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.min.js"></script>
-    <script src="js/enquire.min.js"></script>
-    
+    <!-- <script src="js/enquire.min.js"></script> -->
     <!-- css塞這 自己js塞屁股 -->
-    
+    <style>
+    #a{
+        display:block;
+        padding:100px;
+    }
+    </style>
     
 </head>
 
@@ -39,11 +40,7 @@
 
 <!-- ===========================各分頁內容開始======================= -->
 
-
-    <?
-        echo $_SESSION['memName'];
-    ?>
-
+<a href="cart.php" class="btn-main-s" id="a">ＧＯＧＯＧＯ</a>
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->
 <?php

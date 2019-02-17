@@ -98,7 +98,26 @@
                             <span class="cuForm__input" id="cuForm__input--M">
                                 <input type="radio" name="mountType" value="choose" checked="checked" id="mount-choose">
                                 <label for="mount-choose">請選擇山岳</label>
-                                <!-- <?php echo "asd"?> -->
+                                <input type="radio" name="mountType" value="1" id="mt1">
+                                <label for="mt1">玉山</label>
+                                <input type="radio" name="mountType" value="聖母峰" id="2">
+                                <label for="2">聖母峰</label>
+                                <input type="radio" name="mountType" value="富士山" id="3">
+                                <label for="3">富士山</label>
+                                <input type="radio" name="mountType" value="阿斯帕林山" id="4">
+                                <label for="4">阿斯帕林山</label>
+                                <input type="radio" name="mountType" value="百內國家公園" id="5">
+                                <label for="5">百內國家公園</label>
+                                <input type="radio" name="mountType" value="吉力馬札羅山" id="6">
+                                <label for="6">吉力馬札羅山</label>
+                                <input type="radio" name="mountType" value="馬丘比丘" id="7">
+                                <label for="7">馬丘比丘</label>
+                                <input type="radio" name="mountType" value="少女峰" id="8">
+                                <label for="8">少女峰</label>
+                                <input type="radio" name="mountType" value="瓦斯卡蘭國家公園" id="9">
+                                <label for="9">瓦斯卡蘭國家公園</label>
+                                <input type="radio" name="mountType" value="優勝美地國家公園" id="0">
+                                <label for="10">優勝美地國家公園</label>
                             </span>
                         </form>
                             

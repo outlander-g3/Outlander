@@ -88,6 +88,7 @@ function logout() {
                 alert('成功登出');
                 $('#Sign').css('display', 'none');
                 $('#Sign-m').css('display', 'none');
+                //看要不要跳回首頁
             }
         }
     });

@@ -9,7 +9,7 @@
     $_SESSION['pdkName']='瓦斯卡蘭國家公園健行四天三夜';
     $_SESSION['day']=10;
     $_SESSION['pdkImg']='img/fuji.jpg';
-    $_SESSION['pdStart']='2019/01/01';
+    $_SESSION['pdStart']='2019/03/08';
     $_SESSION['pdEnd']='2020/01/01';
     $_SESSION['pdkPrice']=999999;
     $_SESSION['where']=$_SERVER['PHP_SELF'];

@@ -270,13 +270,13 @@ window.addEventListener('load', function () {
     var ctRule = document.querySelector('#ctRule');
     var btnPay = '.btn-pay';
     $(btnPay).click(function (e) {
-
-        let hasNull = false;
-        let memNull = false;
-        let psgNull = false;
-        let cdNull = false;
-        let msg = '';
-        let mem = $('.ctContact input[type="text"]');
+        console.log('in');
+        var hasNull = false;
+        var memNull = false;
+        var psgNull = false;
+        var cdNull = false;
+        var msg = '';
+        var mem = $('.ctContact input[type="text"]');
         mem.each(function () {
             if ($(this).val() == "") {
                 memNull = true;
@@ -300,54 +300,60 @@ window.addEventListener('load', function () {
         });
 
 
+        console.log(hasNull);
+        console.log(memNull);
+        console.log(psgNull);
+        console.log(cdNull);
+        if (memNull == true && psgNull == true) {
+            msg = "購買人、旅客";
+            hasNull = true;
+            console.log(1);
+        }
+        else if (memNull == true && psgNull != true) {
+            msg = "購買人";
+            hasNull = true;
+            console.log(2);
+        }
+        else if (psgNull == true && memNull != true) {
+            msg = '旅客';
+            hasNull = true;
+            console.log(3);
+        }
+        else {
+            console.log('有走喔');
+        }
+
+
         let m = document.querySelector('select[name="month"]');
         let y = document.querySelector('select[name="year"]');
         if (m.value == 0 || y.value == 0) {
             cdNull = true;
+            console.log('年月');
         }
-
-        if (memNull == true && psgNull == true) {
-            msg = "購買人、旅客";
-            hasNull = true;
-        }
-        else if (memNull == true) {
-            msg = "購買人";
-            hasNull = true;
-        }
-        else if (psgNull == true) {
-            msg = '旅客';
-            hasNull = true;
-        }
-        if (cdNull) {
+        if (cdNull == true) {
             if (msg == '') {
                 msg = '信用卡';
-                hasNull = true;
-                return;
             }
-            msg += "、信用卡";
+            else {
+                msg += "、信用卡";
+            }
+            hasNull = true;
+            console.log('信用卡');
         }
+        console.log(msg);
+        // console.log(hasNull);
+        // console.log(memNull);
+        // console.log(psgNull);
+        // console.log(cdNull);
         if (hasNull == true) {
             alert('尚有' + msg + '欄位未填寫');
+
         }
-        if (!ctRule.checked) {
+        else if (!ctRule.checked) {
             alert('請詳閱並同意訂購條款');
         }
         else {
-            // $('.ctPaid').css('display', 'block');
-            //執行寫入資料庫
-            // $.ajax({
-            //     type: 'post',
-            //     url: 'paid.php',
-            //     data: 'memMail=' + memMail + '&memName=' + memName + '&memTel=' + memTel + '',
-            //     success: function (data) {
-
-            //     },
-            //     error: function (X, t, e) {
-            //         alert(e);
-            //     }
-            // });
             $('#ctForm').submit();
-
         }
     });
 

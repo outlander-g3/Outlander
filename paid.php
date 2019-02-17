@@ -79,6 +79,18 @@ try {
     }
     echo '寫完旅客';
     
+    //寫入訂單裝備清單
+    //找到pdkNo去撈裝備有哪些
+    $sql="select * from productchecklist where pdkNo={$_SESSION['pdkNo']}";
+    $check=$pdo->query($sql);
+    while($rows=$check->fetchObject()){
+        $sql="insert into orderchecklist(eqmNo,ordNo) values(".$rows->eqmNo.",{$ordNo})";
+        $pdo->exec($sql);
+    }
+    echo '寫入訂單裝備';
+
+    
+    
     //提交
     $pdo->commit();
     //然後unset一系列跟訂購有關的session

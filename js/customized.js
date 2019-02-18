@@ -86,6 +86,7 @@ $('#cuForm__input--M').click(function aaa(e2) {
                     var cuSceneryInfo = $('#'+this.id+' input').val();
                     addItem(this.id,cuSceneryInfo);
                 });
+                $('.btn_cuWatchScenery').click(cuWatchScenery);
                 // cuCustom__showOption[i].addEventListener("mouseover",showOption);
                 // cuCustom__showOption[i].addEventListener("mouseout",closeOption);
 
@@ -212,8 +213,12 @@ function cuWatchScenery(e){
     cuDetail_input.type = 'hidden';
     cuDetail_input.value = cuCustom__detailALL;
 
-    let img = document.createElement('img');
-    img.src = '../img/'+cuCustom__detailALL.split('|')[1]+'';
+    // let img = document.createElement('img');
+    let img = document.createElement('div');
+    // img.src = '../img/'+cuCustom__detailALL.split('|')[1]+'';
+    //無法新增div
+    img.style.backgroundImage = document.querySelector('#'+cuCustom__detailALL.split('|')[3]).style.backgroundImage;
+    console.log((document.querySelector('#'+cuCustom__detailALL.split('|')[3]).style.backgroundImage));
     img.classList.add('cuDetail__img');
 
     let cuCustom__detailContent = document.createElement('div');

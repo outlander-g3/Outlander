@@ -84,6 +84,20 @@ i{
         margin: auto;
     }
 }
+.jpCont{
+    p{
+        font-weight: bold;
+    }
+}
+#jnReportForm{
+    div{
+        @include pLeft(25);
+    }
+}
+#btn__jnSubmit{
+    display: block;
+    margin: 10px auto 20px;
+}
 #jnContent{
     @include pBottom(50);
     p{
@@ -102,6 +116,9 @@ i{
 #jnContent__plr20{
     @include small-pad-width(){
         padding: 0 20px 35px 20px;
+    }
+    @include pad-width(){
+        padding-bottom: 35px;
     }
 }
 #jnContent__imgCtrl{
@@ -128,6 +145,7 @@ i{
         line-height: 1.6;
     }
     @include pad-width(){
+        width: 30%;
         padding: 20px 20px 50px 30px;
     }
 }
@@ -136,7 +154,9 @@ i{
 .jnContent__infoW{
     #jnContent__myphoto{
         @include pBottom(10);
-        width: initial;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
     }
     span{
         font-size: 14px;

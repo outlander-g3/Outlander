@@ -29,14 +29,35 @@ function jnInsertT(){
                 var btnJnSeeProd = O('btn__jnSeeProd');
                 var jnContentInfoPos = O('jnContent__info--pos');
                 var clearfix = document.getElementsByClassName('clearfix')[0];
+
                 jnContentInfoPos.insertBefore(btnJnSeeProd,clearfix);
 
             },
         });
 }
 
-function init(){
+function jnReport(){
+    let jpBase = document.querySelector('.jpBase');
+    jpBase.style.display = 'block';
 
+    let jnOther = O('jnOther');
+    // jnOther.checked = true;    
+    let jnOtherCont =O('jnOtherCont');
+    // jnOtherCont.autofocus = true;
+    if(document.getElementById('jnOther').checked == true){
+        console.log(jnOther);
+        let jnOtherCont =O('jnOtherCont');
+        jnOtherCont.autofocus = true;
+    }
+}
+
+
+function init(){
+    document.title = O('jnContent__title').innerText;
+    
+    //註冊檢舉日誌按鈕
+    let btn__jnReport = O('btn__jnReport').addEventListener('click',jnReport);
+    
 }
 
 window.addEventListener('load',init);

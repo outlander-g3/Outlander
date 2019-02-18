@@ -276,6 +276,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
 //////////////日曆///////
 .datecont{
+    width:30%;
     @media screen and (max-width:767px){
         width: 100%;
     }
@@ -288,18 +289,19 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     // flex-directio n: column;
     // justify-content: space-around;
     li{
+        width: 100%;
         line-height: 50px;
         font-size: 1rem;
         position: relative;
         @media screen and (max-width:767px){
             width: 100%;
         }
-
         #date-text{
             box-sizing: border-box;
             position: absolute;
             display: inline-block;
-            width: 320px;//之後把這邊改%數
+            // width: 320px;//之後把這邊改%
+            width:100%;
             min-height: 46px;
             max-height: 42px;
             line-height: 42px;
@@ -427,29 +429,53 @@ display: none;
         width: 100%;
     }
 }
-#date .joForm__input{
-    width:320px;
-    flex:1;
-    @media screen and (max-width:767px){
-        width: 100%;
+// #date .joForm__input{
+    // width:320px;
+    // width:30%;
+    // flex:1;
+    // @media screen and (max-width:767px){
+        // width: 100%;
+    // }
+// }
+.drop-flex {
+    #cont{
+        width: 20%;
+        @media screen and (max-width:767px){
+            width: 100%;
+        }
+    }
+    #level{
+        width: 20%;
+        @media screen and (max-width:767px){
+            width: 100%;
+        }
+    }
+    #budget{
+        width: 30%;
+        @media screen and (max-width:767px){
+            width: 100%;
+        }
     }
 }
 #budget .joForm__input{
-    width:320px;
+    // width:320px;
+    width: 100%;
     flex:1;
     @media screen and (max-width:767px){
         width: 100%;
     }
 } 
 #cont .joForm__input{
-    width:250px;
+    // width:250px;
+    width:100%;
     flex:1;
     @media screen and (max-width:767px){
         width: 100%;
     }
 }
 #level .joForm__input{
-    width:250px;
+    // width:250px;
+    width: 100%;
     flex:1;
     @media screen and (max-width:767px){
         width: 100%;
@@ -459,7 +485,7 @@ display: none;
 .joForm__input {
     position: relative;
     display: inline-block;
-    width: 186px;
+    width: 100%;
     text-indent: 10px;
     min-height: 42px;
     max-height: 42px;

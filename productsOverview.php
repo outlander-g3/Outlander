@@ -9,8 +9,7 @@ session_start();
         //join `order` c on b.pdNo = c.pdNo group by a.pdkNo";/////以上是精選行程第一次寫法
         //$sql = "select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 2";
         //以上是精選行程假寫法
-        $sql= "select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo limit 2
-        ";
+        $sql= "select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo order by avgRate limit 2";
         $products = $pdo -> query($sql);
         $sql="select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by a.pdkNo order by b.pdStart limit 6
         ";

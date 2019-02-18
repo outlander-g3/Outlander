@@ -429,6 +429,8 @@ i{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 97%;
+    margin: auto;
     @include small-pad-width() {
         height: 357px;
     }
@@ -468,7 +470,7 @@ i{
         height: 140px;
     }
     @include pad-width() {
-        width: 180px;
+        width: 45%;
         height: 180px;
     }
     div:first-child{
@@ -940,7 +942,7 @@ i{
     @include mTop(20);
 }
 
-
+// 這邊是顯示日曆的SCSS
 ul{
     position: relative;
     flex: 1;
@@ -1025,7 +1027,7 @@ display: none;
     margin-left: 150px;    
 }
 }
-// 這邊是顯示日曆的SCSS
+
 #date-text label,#date-text-2 label{
     border-top: unset;
 }
@@ -1064,4 +1066,17 @@ display: none;
             margin: 5px;
         }
     }
+}
+
+//跳窗
+.jnbtn__center{
+    text-align: center;
+    padding: 20px 0;
+    button{
+        margin: 0 5px;
+    }
+}
+#btnjpc__close,#btnjpm__close{
+    background-color: $color-btn-main;
+    border: 2px solid $color-btn-main;
 }

@@ -1,8 +1,11 @@
 $('#cuForm__input--M label:not(:first-of-type)').css('display','none');
 $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
-$('#cuForm__input--C').click( bbb = function (e) {
+$('#cuForm__input--C').click(function (e) {
     e.preventDefault();
     e.stopPropagation();
+    if($('.cuCustom__dropMask').children().length > 0){
+        $('#jpjn__C').css('display','block');
+    }
     $(this).toggleClass('expanded');
     $('#' + $(e.target).attr('for')).prop('checked', true);
     switch(e.target.innerText){
@@ -41,11 +44,8 @@ $('#cuForm__input--C').click( bbb = function (e) {
         break;
 
         // default:
-        // $('#mount-choose').next().css('display','block');
-        
-        // ;
-    
-        
+        // $('#mount-choose').next().css('display','block');        
+        // ;  
     }  
 });
 
@@ -54,15 +54,15 @@ $(document).click(function () {
     }
 );
 
-
 $('#cuForm__input--M').click(function aaa(e2) {
     e2.preventDefault();
     e2.stopPropagation();
+    if($('.cuCustom__dropMask').children().length > 0){
+        $('#jpjn__M').css('display','block');
+    }
     $(this).toggleClass('expanded');
-    // $('#mount-choose').attr('for',checked);
     $('#mount-choose').prop('checked', true)
     $('#' + $(e2.target).attr('for')).prop('checked', true); 
-    // console.log($('#' + $(e2.target).attr('for')).prop('checked', true));
     if($('#' + $(e2.target).attr('for')) != $('#mount-choose')){
         $('#mount-choose').css('display','none');
         // $('#cuForm__input--M label:first-child').remove();
@@ -98,9 +98,7 @@ $(document).click(function () {
     $('#cuForm__input--M').removeClass('expanded');
 });
 
-function getScnList(){
 
-}
 /*用 O(id) 來取得getElementById 減少攏長*/ 
 function O(id){
     return (typeof id == 'object'? i : document.getElementById(id));
@@ -110,7 +108,8 @@ var cuProcess1= O('cuProcess1');
 var cuProcess2= O('cuProcess2');
 var cuForm__inputC = O('cuForm__input--C');
 var cuForm__inputM = O('cuForm__input--M');
-// var
+var cuCustom__dropMask = document.querySelector('.cuCustom__dropMask');
+
 
 function cuSlide1(){
     //控制767以下，步驟一及步驟一左右滑動，步驟二顏色圓圈填色
@@ -126,6 +125,7 @@ function cuSlide1(){
             },
         });
 }
+
 function cuSlide1_768(){
     if (window.innerWidth > 768){
         let cuCustom=O('cuCustom');
@@ -162,7 +162,6 @@ function cuSlide2(){
 }
 
 /* btn選擇日期及嚮導 --> 畫面切換到 */
-
 function showPickTG(){
     cuProcess2.style.transitionDuration = "0.5s";
     cuProcess2.style.backgroundColor = '#088B9A';
@@ -485,13 +484,11 @@ function addItem(itemId,itemValue){
     // var itemStringa = storage.removeItem('addItemList');
     
     var items = itemString.substr(0,itemString.length-1).split(',');
-    console.log(itemString.substr(0,itemString.length-1));
-    console.log(items);
+
     
 	pdkPrice = 0;
     for(var key in items){		//use items[key]
         var itemInfo = storage.getItem(items[key]);
-        console.log(key);
 		var itemPrice = parseInt(itemInfo.split('|')[2]);        
 		pdkPrice += itemPrice;
 	}
@@ -648,20 +645,45 @@ function cuShowGuide(){
 
 }
 
+function cuBooking(){
+    //跳窗
+    let jpjnBooking = O('jpjn__booking');
+    //漏選的提示內容
+    let jpContLost = O('jpCont__lost');
+    // 嚮導欄
+    let cuGuideListMask = document.querySelector('.cu__guideList--mask');
+    console.log(cuGuideListMask);
+    if(cuCustom__dropMask.children.length == 0 && cuCustom__dropMask.children.length != 0){
+        //沒有選景點
+        jpjnBooking.style.display = "block";
+        jpContLost.innerText = "「風景景點」";
+    }else if(cuGuideListMask.children.length == 0 && cuCustom__dropMask.children.length != 0){
+        //沒選嚮導
+        jpjnBooking.style.display = "block";
+        jpContLost.innerText = "「行程嚮導」";
+    }else if(cuCustom__dropMask.children.length == 0 && cuGuideListMask.children.length == 0){
+        //沒選景點＆嚮導
+        jpjnBooking.style.display = "block";
+        jpContLost.innerText = "風景景點及行程嚮導";
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//清除風景景點全部資料
+function cuClearItem(){
+    let aaa=cuCustom__dropMask.children.length;
+    for(let i =0;i<aaa+1;i++){
+        console.log(i);
+        console.log(cuCustom__dropMask.children[0]);
+        console.log(cuCustom__dropMask.children[1]);
+        cuCustom__dropMask.removeChild(cuCustom__dropMask.children[0])
+    }
+}
+//跳窗（重新整理警示）
+if(cuCustom__dropMask.hasChildNodes() == true){
+    window.onbeforeunload = function(){
+        return 'Are you sure you want to leave?';
+    };
+}
 
 
 
@@ -740,6 +762,16 @@ function init(){
     for(var l=0;l<cu__guideItem.length;l++){
         cu__guideItem[l].addEventListener('click',cuShowGuide);
     }
+
+    //btn訂購行程
+    let btnCuBooking = O('btn_cuBooking');
+    btnCuBooking.addEventListener('click',cuBooking);
+
+    //
+    let btnjpcConfirm = O('btnjpc__confirm');
+    let btnjpmConfirm = O('btnjpm__confirm');
+    btnjpcConfirm.addEventListener('click',cuClearItem);
+    btnjpmConfirm.addEventListener('click',cuClearItem);
 }
 
 window.addEventListener('load',init);

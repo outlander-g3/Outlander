@@ -276,10 +276,56 @@
                     <!-- btn選擇日期及嚮導 -->
                     <input type="button" id="btn_cuBack" class="cuBtn" value="上一頁">
                     <!-- btn選擇日期及嚮導 -->
-                    <input type="submit" id="btn_cuBooking" class="cuBtn" value="訂購行程">
+                    <button type="submit" id="btn_cuBooking" class="cuBtn">訂購行程</button>
+                    <!-- <input type="submit" id="btn_cuBooking" class="cuBtn" value="訂購行程"> -->
                 </div>
             </section>
         </div> 
+
+        <!-- 跳窗（更改洲別警示） -->
+        <div class="jpBase" id="jpjn__C">
+            <div class="jpWin">
+                <div class="jpTitle"></div>
+                <div class="jpCont">重選洲別，將會遺失已安排的景點</div>
+                <div class="jnbtn__center">
+                    <button class="jpbtn btn-sub-s" id="btnjpc__confirm">確認</button>
+                    <button class="jpbtn btn-sub-s" id="btnjpc__close">取消</button>
+                </div>
+            </div>
+        </div>
+        <!-- 跳窗（更改山岳警示） -->
+        <div class="jpBase" id="jpjn__M">
+            <div class="jpWin">
+                <div class="jpTitle"></div>
+                <div class="jpCont">重選山岳，將會遺失已安排的景點</div>
+                <div class="jnbtn__center">
+                    <button class="jpbtn btn-sub-s" id="btnjpm__confirm">確認</button>
+                    <button class="jpbtn btn-sub-s" id="btnjpm__close">取消</button>
+                </div>
+            </div>
+        </div>
+        <!-- 跳窗（重新整理警示） -->
+        <div class="jpBase" id="jpjn__reload">
+            <div class="jpWin">
+                <div class="jpTitle"></div>
+                <div class="jpCont">重選整理網頁，將會遺失已安排的景點</div>
+                <div class="jnbtn__center">
+                    <button class="jpbtn btn-sub-s" id="btnjpr__confirm">確認</button>
+                    <button class="jpbtn btn-sub-s" id="btnjpr__close">取消</button>
+                </div>
+            </div>
+        </div>
+        <!-- 跳窗（檢查訂購時資料是否完整） -->
+        <div class="jpBase" id="jpjn__booking">
+            <div class="jpWin">
+                <div class="jpTitle"></div>
+                <div class="jpCont">請選擇<span id="jpCont__lost"></span></div>
+                <div class="jnbtn__center">
+                    <button class="jpbtn btn-sub-s" id="btnjpb__confirm">確認</button>
+                </div>
+            </div>
+        </div>
+ 
 
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->
@@ -290,7 +336,6 @@
 ?>
 </body>
 </html>
-
 
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>

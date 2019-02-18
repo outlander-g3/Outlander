@@ -9,7 +9,7 @@ try {
     // $pdkNo =0;
     $scns->bindValue(':pdkNo',$pdkNo);
     $scns->execute();
-    $scnRows = $scns -> fetch();
+    // $scnRows = $scns -> fetch();
     // if($scnRows['pdkNo']==1){
     //     echo $scnRows['pdkNo'];
     //     echo $scnRows['scnNo'];
@@ -31,23 +31,21 @@ try {
                     echo '<i class="material-icons">',$aaa[$i],'</i>';
                 }
             };
-
         echo '</div>
-        <button class="btn_cuAddScenery--767 cuBtn__styleClear">
-            <i class="material-icons">check_box_outline_blank</i>
-        </button>
-        <span class="cuCustom__price1">$',$scnRows['scnPrice'],'</span>
-        <div class="cuCustom__showOption">
-            <button id="scu',$scnRows['scnNo'],'" class="btn_cuAddScenery">
-                <input type="hidden" value="',$scnRows['scnTitle'],"|",$scnRows['scnImg'],"|",$scnRows['scnPrice'],"|cu",$scnRows['scnNo'],"|",$scnRows['scnCont'],'">
-                    <i class="material-icons">add</i>
-    
-            </button>
-            <button class="btn_cuWatchScenery">
-                <i class="material-icons" >search</i>
-            </button>
-        </div>
-    </div>';
+                <button class="btn_cuAddScenery--767 cuBtn__styleClear">
+                    <i class="material-icons">check_box_outline_blank</i>
+                </button>
+                <span class="cuCustom__price1">$',$scnRows['scnPrice'],'</span>
+                <div class="cuCustom__showOption">
+                    <button id="scu',$scnRows['scnNo'],'" class="btn_cuAddScenery">
+                        <input type="hidden" value="',$scnRows['scnTitle'],"|",$scnRows['scnImg'],"|",$scnRows['scnPrice'],"|cu",$scnRows['scnNo'],"|",$scnRows['scnCont'],'">
+                        <i class="material-icons">add</i>
+                    </button>
+                    <button class="btn_cuWatchScenery">
+                        <i class="material-icons" >search</i>
+                    </button>
+                </div>
+            </div>';
     // echo $scnRows['iconList'];
 
     }

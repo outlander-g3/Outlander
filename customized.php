@@ -100,24 +100,24 @@
                                 <label for="mount-choose">請選擇山岳</label>
                                 <input type="radio" name="mountType" value="1" id="mt1">
                                 <label for="mt1">玉山</label>
-                                <input type="radio" name="mountType" value="聖母峰" id="2">
-                                <label for="2">聖母峰</label>
-                                <input type="radio" name="mountType" value="富士山" id="3">
-                                <label for="3">富士山</label>
-                                <input type="radio" name="mountType" value="阿斯帕林山" id="4">
-                                <label for="4">阿斯帕林山</label>
-                                <input type="radio" name="mountType" value="百內國家公園" id="5">
-                                <label for="5">百內國家公園</label>
-                                <input type="radio" name="mountType" value="吉力馬札羅山" id="6">
-                                <label for="6">吉力馬札羅山</label>
-                                <input type="radio" name="mountType" value="馬丘比丘" id="7">
-                                <label for="7">馬丘比丘</label>
-                                <input type="radio" name="mountType" value="少女峰" id="8">
-                                <label for="8">少女峰</label>
-                                <input type="radio" name="mountType" value="瓦斯卡蘭國家公園" id="9">
-                                <label for="9">瓦斯卡蘭國家公園</label>
-                                <input type="radio" name="mountType" value="優勝美地國家公園" id="0">
-                                <label for="10">優勝美地國家公園</label>
+                                <input type="radio" name="mountType" value="聖母峰" id="mt2">
+                                <label for="mt2">聖母峰</label>
+                                <input type="radio" name="mountType" value="富士山" id="mt3">
+                                <label for="mt3">富士山</label>
+                                <input type="radio" name="mountType" value="阿斯帕林山" id="mt4">
+                                <label for="mt4">阿斯帕林山</label>
+                                <input type="radio" name="mountType" value="百內國家公園" id="mt5">
+                                <label for="mt5">百內國家公園</label>
+                                <input type="radio" name="mountType" value="吉力馬札羅山" id="mt6">
+                                <label for="mt6">吉力馬札羅山</label>
+                                <input type="radio" name="mountType" value="馬丘比丘" id="mt7">
+                                <label for="mt7">馬丘比丘</label>
+                                <input type="radio" name="mountType" value="少女峰" id="mt8">
+                                <label for="mt8">少女峰</label>
+                                <input type="radio" name="mountType" value="瓦斯卡蘭國家公園" id="mt9">
+                                <label for="mt9">瓦斯卡蘭國家公園</label>
+                                <input type="radio" name="mountType" value="優勝美地國家公園" id="mt10">
+                                <label for="mt10">優勝美地國家公園</label>
                             </span>
                         </form>
                             
@@ -196,32 +196,32 @@
                                 </div>
                             </div>
                             <ul>
-                                    <li><input id="date" type="text" value="">
-                                        <span id="date-text">
-                                            <label id="date-label">請選擇日期</label>
-                                            <table class="calendar">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="mm" colspan="2"><span id="mm-sp">月份</span> <i id="left-1" class="material-icons">keyboard_arrow_left</i></td>
-                                                        <td class="yy" colspan="2"><span id="yy-sp">年份</span><i id="right-1" class="material-icons">keyboard_arrow_right</i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Sun</th>
-                                                        <th>Mon</th>
-                                                        <th>Tue</th>
-                                                        <th>Wed</th>
-                                                        <th>Thu</th>
-                                                        <th>Fri</th>
-                                                        <th>Sat</th>
-                                                    </tr>
-                                                </tbody>
-                                                <tbody id="calendar-tb">
-                            
-                            
-                                                </tbody>
-                                            </table>
-                            
-                                        </span></li>
+                                <li><input id="date" type="text" value="">
+                                    <span id="date-text">
+                                        <label id="date-label">請選擇日期</label>
+                                        <table class="calendar">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="mm" colspan="2"><span id="mm-sp">月份</span> <i id="left-1" class="material-icons">keyboard_arrow_left</i></td>
+                                                    <td class="yy" colspan="2"><span id="yy-sp">年份</span><i id="right-1" class="material-icons">keyboard_arrow_right</i></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Sun</th>
+                                                    <th>Mon</th>
+                                                    <th>Tue</th>
+                                                    <th>Wed</th>
+                                                    <th>Thu</th>
+                                                    <th>Fri</th>
+                                                    <th>Sat</th>
+                                                </tr>
+                                            </tbody>
+                                            <tbody id="calendar-tb">
+                        
+                        
+                                            </tbody>
+                                        </table>
+                        
+                                    </span></li>
                                 </ul>
                             <!-- <form class="cuSelect">
                                 <span class="cuForm__input cuForm__input--D">
@@ -296,4 +296,4 @@
 <script src="js/header.js"></script>
 <!-- <script src="js/robot.js"></script> -->
 <script src="js/customized.js"></script>
-<script src="js/date.js"></script>
+<!-- <script src="js/date.js"></script> -->

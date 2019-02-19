@@ -9,8 +9,10 @@ try{
   $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   $pdo = new PDO( $dsn, $user, $password, $options);  
 
-  //$sql = " select * from productkind where continent=:continent";//從行程總覽抓
-  $sql = "select * from product a join productkind b on a.pdkNo = b.pdkNo where continent=:continent limit 9";//從開團資訊抓
+  $sql = " select * from productkind where continent=:continent";//從行程總覽抓
+  // $sql = "select * from product a join productkind b on a.pdkNo = b.pdkNo where continent=:continent limit 9";//從開團資訊抓
+  // $sql = "select distinct pdkName from product a join productkind b on a.pdkNo = b.pdkNo where continent=:continent";//唯一性
+
   $member = $pdo->prepare( $sql );
   // $member = $pdo->query( $sql );
   $member->bindValue(":continent", $memId);

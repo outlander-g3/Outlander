@@ -190,19 +190,32 @@ function getMember(e){
 //     sos:'',
 //   }
 // console.log(e.target);
+// var myIdElement = document.getElementById("myId");
+// var beforeStyle = window.getComputedStyle(myIdElement, ":before");
+// console.log(beforeStyle); // [CSSStyleDeclaration Object]
+// console.log(beforeStyle.width); // 100px
+// console.log(beforeStyle.getPropertyValue("width")); // 100px
+// console.log(beforeStyle.content); // "hello world!"
+
 var bb= e.target.previousSibling.previousSibling;
   var xhr = new XMLHttpRequest();
-  xhr.onload=function (bb){
-    // document.getElementById("showPanel").innerHTML = '';
-       if( xhr.status == 200 ){
+  xhr.addEventListener('load',(e)=>{
+      console.log(document.getElementsByClassName('pro-item-pic').length);
+    if( xhr.status == 200 ){
         document.getElementById('mtmtmt').style.display="none";
-        // document.getElementById('mtmtmtS').innerHTML="";
+      console.log(document.getElementsByClassName('pro-item-pic').length);
+      console.log(document.getElementsByClassName('pro-item-pic'));
         document.getElementById('textChange').innerText="篩選結果";                       
         document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
+      console.log(document.getElementsByClassName('pro-item-pic').length);
+        for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
+        document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');
+      }
        }else{
           alert( xhr.status );
        }
-  }
+    
+  }); 
   var url = "getSelected.php?continent="+bb.value;
   console.log(url)
   xhr.open("Get", url, true);

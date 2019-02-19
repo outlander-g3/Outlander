@@ -123,23 +123,23 @@ session_start();
                     <input type="radio" name="contType" value="choose" checked="checked" id="cont-choose">
                     <label for="cont-choose">請選擇洲別</label>
 
-                    <input type="radio" name="contType" value="Asia" id="cont-asia">
+                    <input type="radio" name="contType" value="1" id="cont-asia">
                     <label for="cont-asia">亞洲</label>
 
-                    <input type="radio" name="contType" value="Europe" id="cont-europe">
+                    <input type="radio" name="contType" value="2" id="cont-europe">
                     <label for="cont-europe">歐洲</label>
 
-                    <input type="radio" name="contType" value="North" id="cont-north">
-                    <label for="cont-north">北美洲</label>
+                    <input type="radio" name="contType" value="3" id="cont-north">
+                    <label for="cont-north">非洲</label>
 
-                    <input type="radio" name="contType" value="South" id="cont-south">
-                    <label for="cont-south">南美洲</label>
+                    <input type="radio" name="contType" value="4" id="cont-south">
+                    <label for="cont-south">大洋洲</label>
 
-                    <input type="radio" name="contType" value="Oceania" id="cont-oceania">
-                    <label for="cont-cont-oceania">大洋洲</label>
+                    <input type="radio" name="contType" value="5" id="cont-oceania">
+                    <label for="cont-cont-oceania">北美洲</label>
 
-                    <input type="radio" name="contType" value="Africa" id="cont-africa">
-                    <label for="cont-africa">非洲</label>
+                    <input type="radio" name="contType" value="6" id="cont-africa">
+                    <label for="cont-africa">南美洲</label>
                 </span>
             </form>
             <!-- 難易度 -->
@@ -173,13 +173,49 @@ session_start();
             </form>
         </div>
     </div>
+<!-- 點按篩選BAR -->
+<script>
+clickWho = document.querySelectorAll('input[name="contType"]+label');
+
+for(i=0;i<clickWho.length;i++){
+  clickWho[i].addEventListener('click',getMember);
+//   console.log(clickWho[i]);
+}
+// var aa=document.getElementById('ShowPanel');//為何抓不到panel?
+// console.log(aa); 抓不到panel?
+function getMember(e){
+//   filter = {
+//     co:this.value,
+//     le:'',
+//     sos:'',
+//   }
+// console.log(e.target);
+var bb= e.target.previousSibling.previousSibling;
+  var xhr = new XMLHttpRequest();
+  xhr.onload=function (bb){
+    // document.getElementById("showPanel").innerHTML = '';
+       if( xhr.status == 200 ){
+        document.getElementById('mtmtmt').style.display="none";
+        // document.getElementById('mtmtmtS').innerHTML="";
+        document.getElementById('textChange').innerText="篩選結果";                       
+        document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
+       }else{
+          alert( xhr.status );
+       }
+  }
+  var url = "getSelected.php?continent="+bb.value;
+  console.log(url)
+  xhr.open("Get", url, true);
+  xhr.send( null );
+}
+</script>
     <!-- 雲背景 -->
     <div class="cloud-wrap">
         <img src="img/cloud.png" alt="cloud">
     </div>
    	
     <!-- 以下為精選行程 -->
-    <div class="pro-product-wrap pro-product-wrap-topic">
+    <div class="pro-product-wrap pro-product-wrap-topic" id="mtmtmt">
         <h3>精選行程</h3>
         <h5>你一生必去的經典登山路線</h5>		
         <div class="pro-item-flex">
@@ -187,7 +223,7 @@ session_start();
             while($prodRow = $products->fetch(PDO::FETCH_ASSOC)){
             ?>
             <!-- 1個商品卡 -->
-            <div class="pro-item">
+            <div class="pro-item" >
                 <a href="products.html">
                     <div class="pro-item-pic">
                         <img src="img/mt/<?php echo $prodRow["pdkNo"]?>/1.jpg" alt="EBC">
@@ -257,13 +293,13 @@ session_start();
 
         </div>
     </div>
+</div>
     <!-- 以下為熱門行程----------------------------------------------------------------------->
 
-    <div class="mt-wrap">
-    </div>
+    <!-- <div id="ShowPanel"></div>   -->
     <div class="pro-product-wrap">
-        <h3>近期開團</h3>
-        <div class="pro-item-flex pro-item-flex-three">
+        <h3 id="textChange">近期開團</h3>
+        <div class="pro-item-flex pro-item-flex-three" id="mtmtmtS">
             <!-- 1個商品卡 -->
             <?php	
             while($prodRowRe = $recent->fetch(PDO::FETCH_ASSOC)){
@@ -281,13 +317,8 @@ session_start();
                                 ?>
                             <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
                             <?php
-                            }?>
-                            <?php 
-                               // for($i=0;$i<$prodRowRe["rate"];$i++){
-                                    //echo '<span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>';
-                                //}直接用echo的寫法
+                            }
                             ?>
-
                     </div>
                     <p>天數：<?php echo $prodRowRe["day"];?></p>
                     <div class="pro-item-view-float">
@@ -477,7 +508,6 @@ session_start();
             <!-- 3個商品卡 -->
         </div>
     </div>
-
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->
 <?php

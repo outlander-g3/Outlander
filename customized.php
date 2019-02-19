@@ -128,7 +128,7 @@
                                 <div class="cuCustom__sceneryZone">
                                     <div id="cuCustom__sceneryZone--OF" id="scroll">
                                         
-                                        <div class="cuCustom__sceneryItem cuScenery__Item1" id="cu_A1001">
+                                        <!-- <div class="cuCustom__sceneryItem cuScenery__Item1" id="cu_A1001">
                                             <div class="cuCustom__sceneryContent">
                                                 <p>安娜普那基地</p>
                                                 <i class="material-icons">restaurant</i>
@@ -148,7 +148,7 @@
                                                     <i class="material-icons" >search</i>
                                                 </button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div id="btn_cuAddScenery--confirm">確認加入</div>
                                 </div>
@@ -164,7 +164,9 @@
                         <div class="cuCustom__count">
                             <span class="cuCustom__line"></span>
                             <span class="cuCustom__count1">景點個數：<span id="cuQuan">0</span></span>
-                            <span class="cuCustom__count2">總金額：<span id="pdkPrice">0</span>元</span>
+                            <form action="cuPrice" method="get">
+                                <span class="cuCustom__count2">總金額：<span id="pdkPrice">0</span>元</span>
+                            </form>
 
                         </div>
                         <!-- btn_查看風景列表 -->
@@ -223,6 +225,12 @@
                         
                                     </span></li>
                                 </ul>
+                                <form action="getSun.php" method="get">
+                                    <input type="hidden" name="pdStart" value="" id="pdStart">
+                                    <input type="hidden" name="pdEnd" value="" id="pdEnd">
+                                    <input type="hidden" name="cuStart" value="" id="cuStart">
+                                    <input type="hidden" name="cuEnd" value="" id="cuEnd">
+                                </form>
                             <!-- <form class="cuSelect">
                                 <span class="cuForm__input cuForm__input--D">
                                     <input type="radio" name="startType" value="choose" checked="checked" id="start-choose">

@@ -1,5 +1,8 @@
 <?php
 error_reporting(0);
+session_start();
+$pdStart=$_GET['pdStart'];
+$pdEnd=$_GET['pdEnd'];
 $pdkNo=$_GET['pdkNo'];
 try {
 
@@ -9,13 +12,6 @@ try {
     // $pdkNo =0;
     $scns->bindValue(':pdkNo',$pdkNo);
     $scns->execute();
-    // $scnRows = $scns -> fetch();
-    // if($scnRows['pdkNo']==1){
-    //     echo $scnRows['pdkNo'];
-    //     echo $scnRows['scnNo'];
-    //     echo $scnRows['scnOrd'];
-
-    // }
   
 	while($scnRows = $scns->fetch(PDO::FETCH_ASSOC)){
 		// echo $scnRows['scnImg'],"|";
@@ -46,10 +42,17 @@ try {
                     </button>
                 </div>
             </div>';
-    // echo $scnRows['iconList'];
+   
 
     }
 
+    //撈嚮導
+    $cuStart=$_GET['cuStart'];
+    $cuEnd=$_GET['cuEnd'];
+    $sql="select a.pdkNo,a.scnOrd, b.scnTitle , b.scnImg , b.scnPrice , b.scnNo , b.scnCont , b.iconList from scenerylist a,scenery b where pdkNo=:pdkNo AND a.scnNo = b.scnNo";
+    $scns=$pdo->prepare($sql);
+    $scns->bindValue(':cuStart',$cuStart);
+    $scns->bindValue(':cuEnd',$cuEnd);
 
 
 } catch (PDOException $e) {

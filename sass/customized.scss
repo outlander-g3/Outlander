@@ -512,7 +512,7 @@ i{
     }
     @include pad-width() {
         margin: 10px auto;
-        height: 424px;
+        height: 466px;
     }
 }
 .cuDropScenery__item1{
@@ -602,6 +602,9 @@ i{
             width: 94%;   
             margin: 20px 0 20px 10px;
         }
+    }
+    form{
+        display: inline-block;
     }
 }
 .cuCustom__count1{

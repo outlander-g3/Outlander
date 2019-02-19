@@ -496,10 +496,9 @@ function addItem(itemId,itemValue){
         var itemInfo = storage.getItem(items[key]);
 		var itemPrice = parseInt(itemInfo.split('|')[2]);        
 		pdkPrice += itemPrice;
-	}
-
+    }
 	O('cuQuan').innerText = items.length;
-    O('pdkPrice').innerText = pdkPrice;
+    O('pdkPrice').innerText = pdkPrice.toString().substring(0,pdkPrice.toString().length-3)+","+pdkPrice.toString().substring(pdkPrice.toString().length-3,pdkPrice.toString().length);
 
     function changeItemCount(){
         var itemString = storage.getItem('addItemList');
@@ -797,7 +796,6 @@ window.addEventListener("load", () => {
         e.stopPropagation();
         $(this).toggleClass('expanded');
         $('#' + $(e.target).attr('for')).prop('checked', true);
-        // console.log(e.target);
     })
 
 
@@ -959,11 +957,16 @@ var datevalue1;
             var value = document.querySelector("#mm-sp").innerText;
             var mmtext = Number(arrmm.indexOf(value));//月
             mmtext += 1;
+            
             var datevalue = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
-    
             document.querySelector("#date-label").innerHTML =datevalue1+" ~ "+datevalue;
             $('#date-text').removeClass('expanded');
             document.querySelector("#date").value =datevalue1+datevalue;
+            // console.log(document.querySelector("#cuDate"));
+            document.querySelector("#pdStart").value =datevalue1.replace(/-/g,"/");
+            document.querySelector("#pdEnd").value =datevalue.replace(/-/g,"/");
+            document.querySelector("#cuStart").value =datevalue1;
+            document.querySelector("#cuEnd").value =datevalue;
             click=false;
         }
     }

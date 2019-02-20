@@ -16,10 +16,17 @@ try{
     $sql .= ' and continent='.$continent;
   }
   if($budgetType != 'choose'){
-    $sql .= ' and budgetType='.$budgetType;
+    if ($budgetType == 1){
+      $sql .= ' and pdkPrice between 0 and 10000';
+    }elseif($budgetType == 2){
+      $sql .= ' and pdkPrice between 10000 and 50000';
+    }else{
+      $sql .= ' and pdkPrice between 50000 and 200000';
+    }
+    // $sql .= ' and pdkPrice='.$budgetType;
   }
   if($levelType != 'choose'){
-    $sql .= ' and levelType='.$levelType;
+    $sql .= ' and level='.$levelType;
   }
   $sql .= ' group by a.pdkNo';
   // $member = $pdo->query();
@@ -32,7 +39,7 @@ try{
 
   if( $member->rowCount() == 0 ){ //找不到
     //傳回空的JSON字串
-    echo "<center>篩選中</center>";
+    echo "查無此筆資料";
   }else{ //找得到
     //取回一筆資料
       while($memRow = $member->fetch(PDO::FETCH_ASSOC)){

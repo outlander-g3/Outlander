@@ -164,32 +164,22 @@ session_start();
                 <span class="joForm__input">
                     <input type="radio" name="budgetType" value="choose" checked="checked" id="bud-choose">
                     <label for="bud-choose">請選擇預算</label>
-                    <input type="radio" name="budgetType" value="cont-1" id="cont-1">
+                    <input type="radio" name="budgetType" value="1" id="cont-1">
                     <label for="cont-1">1萬以內</label>
-                    <input type="radio" name="budgetType" value="cont-2" id="cont-2">
-                    <label for="cont-2">1萬~3萬</label>
-                    <input type="radio" name="budgetType" value="cont-3" id="cont-3">
-                    <label for="cont-3">3萬~10萬</label>
+                    <input type="radio" name="budgetType" value="2" id="cont-2">
+                    <label for="cont-2">1萬~5萬</label>
+                    <input type="radio" name="budgetType" value="3" id="cont-3">
+                    <label for="cont-3">5萬~20萬</label>
                 </span>
             </form>
         </div>
     </div>
+
 <!-- 點按篩選BAR -->
 <script>
 clickCont = document.querySelectorAll('input[name="contType"]+label');
 clickLevel = document.querySelectorAll('input[name="levelType"]+label');
 clickBudget = document.querySelectorAll('input[name="budgetType"]+label');
-// cont = document.querySelectorAll('input[name="contType"] + label');
-// clickLevel = document.querySelectorAll('input[name="levelType"]+label');
-// console.log(clickLevel);
-// for(var i=0; i<cont.length; i++){
-//     console.log(123);
-//     cont[i].addEventListener('click', getMember);
-// }
-// for(i=0;i<clickLevel.length;i++){
-    // clickLevel[i].addEventListener('click',getMember);
-    // console.log(clickLevel[i]);
-// }
 
 for(let i=0;i<clickCont.length;i++){
   clickCont[i].addEventListener('click',getMember);
@@ -200,8 +190,6 @@ for(let i=0;i<clickLevel.length;i++){
 for(let i=0;i<clickBudget.length;i++){
   clickBudget[i].addEventListener('click',getMember);
 }
-// var aa=document.getElementById('ShowPanel');//為何抓不到panel?
-// console.log(aa); 抓不到panel?
 function getMember(e){
     contTypeObj = document.querySelector('input[name="contType"]:checked+label').previousElementSibling;
     console.log("....", contTypeObj.value);
@@ -218,35 +206,19 @@ function getMember(e){
     if(e.target.previousElementSibling.name == 'budgetType'){
         budgetTypeObj = e.target.previousElementSibling;
     }
-    // filter = {
-    //     continent:bb.value,
-    //     level:bb.value,
-    // }
-    // console.log(123);
-//   console.log(filter.continent);
-// console.log(bb.value);
-    
-
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load',(e)=>{
-    //   console.log(document.getElementsByClassName('pro-item-pic').length);
     if( xhr.status == 200 ){
         document.getElementById('mtmtmt').style.display="none";
-    //   console.log(document.getElementsByClassName('pro-item-pic').length);
-    //   console.log(document.getElementsByClassName('pro-item-pic'));
         document.getElementById('textChange').innerText="篩選結果";                       
         document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
-    //   console.log(document.getElementsByClassName('pro-item-pic').length);
         for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
-        document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');
-        //拿掉熱門標籤
+        document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');//拿掉熱門標籤
       }
        }else{
           alert( xhr.status );
        }
-    
   }); 
-
   var url = "getSelected.php?continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
   console.log(url)
   xhr.open("Get", url, true);

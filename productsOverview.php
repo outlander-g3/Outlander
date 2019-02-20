@@ -89,6 +89,7 @@ session_start();
     <div class="po-wrap-filter">
         <div class="drop-flex">
             <!-- 月曆 -->
+            
             <ul class="datecont">
                 <li><input id="date" type="text" value="">
                     <span id="date-text">
@@ -116,6 +117,10 @@ session_start();
                         </table>
                     </span></li>
             </ul>
+            <form action="getSelectedDate.php" method="get"  >
+                <input type="hidden" name="dateInfo" id="dateInfo">
+                <input type="submit" value="">
+            </form>
             <!-- 月曆 -->
             <!-- 洲別 -->
             <form class="" id="cont">
@@ -175,28 +180,30 @@ session_start();
         </div>
     </div>
 
-<!-- 點按篩選BAR -->
+<!-- 點按篩選BAR取值並篩選-->
 <script>
 clickCont = document.querySelectorAll('input[name="contType"]+label');
 clickLevel = document.querySelectorAll('input[name="levelType"]+label');
 clickBudget = document.querySelectorAll('input[name="budgetType"]+label');
 
 for(let i=0;i<clickCont.length;i++){
-  clickCont[i].addEventListener('click',getMember);
+  clickCont[i].addEventListener('click',getFilter);
 }
 for(let i=0;i<clickLevel.length;i++){
-  clickLevel[i].addEventListener('click',getMember);
+  clickLevel[i].addEventListener('click',getFilter);
 }
 for(let i=0;i<clickBudget.length;i++){
-  clickBudget[i].addEventListener('click',getMember);
+  clickBudget[i].addEventListener('click',getFilter);
 }
-function getMember(e){
+function getFilter(e){
     contTypeObj = document.querySelector('input[name="contType"]:checked+label').previousElementSibling;
-    console.log("....", contTypeObj.value);
+    // console.log("....", contTypeObj.value);
     levelTypeObj = document.querySelector('input[name="levelType"]:checked+label').previousElementSibling;
-    console.log("------", levelTypeObj.value);
+    // console.log("------", levelTypeObj.value);
     budgetTypeObj = document.querySelector('input[name="budgetType"]:checked+label').previousElementSibling;
-    console.log("=====", budgetTypeObj.value);
+    // console.log("=====", budgetTypeObj.value);
+    // console.log("fff",e.target);
+
     if(e.target.previousElementSibling.name == 'contType'){
         contTypeObj = e.target.previousElementSibling;
     }
@@ -220,7 +227,7 @@ function getMember(e){
        }
   }); 
   var url = "getSelected.php?continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
-  console.log(url)
+//   console.log(url)
   xhr.open("Get", url, true);
   xhr.send( null );
 }
@@ -242,7 +249,7 @@ function getMember(e){
             <div class="pro-item" >
                 <a href="products.html">
                     <div class="pro-item-pic">
-                        <img src="img/mt/<?php echo $prodRow["pdkNo"]?>/1.jpg" alt="EBC">
+                        <!-- <img src="img/mt/<?php// echo $prodRow["pdkNo"]?>/1.jpg" alt="EBC"> -->
                     </div>
                     <h4> <?php echo $prodRow["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
@@ -312,7 +319,6 @@ function getMember(e){
 </div>
     <!-- 以下為熱門行程----------------------------------------------------------------------->
 
-    <!-- <div id="ShowPanel"></div>   -->
     <div class="pro-product-wrap">
         <h3 id="textChange">近期開團</h3>
         <div class="pro-item-flex pro-item-flex-three" id="mtmtmtS">
@@ -323,7 +329,7 @@ function getMember(e){
             <div class="pro-item pro-item-three">
                 <a href="products.html">
                     <div class="pro-item-pic pro-item-pic-hot">
-                        <img src="img/mt/<?php echo $prodRowRe['pdkNo'];?>/1.jpg" alt="EBC">
+                        <!-- <img src="img/mt/<?php //echo $prodRowRe['pdkNo'];?>/1.jpg" alt="EBC"> -->
                     </div>
                     <h4><?php echo $prodRowRe["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
@@ -534,247 +540,15 @@ function getMember(e){
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>
 <!-- <script src="js/robot.js"></script> -->
-</body>
 
-<script>
-    // app = document.getElementById('app');
-    // ooxx = document.getElementsByClassName('ooxx');
-    
-    // console.log(ooxx);
-    
-    // window.addEventListener('click',(e)=>{
-    //     if(e.target.id == 'ooxx'){
-    //         alert("p");
-    //     }
-    // })
-
-
-        // card[1].addEventListener('click',(e)=>{
-        //     alert('sds');
-        // });
-
-$('div .card-wrap').on('click',function(){
-    alert("!");
-});
-
-$('.snowCard').on("click",function(){
-    alert ("p");
-    var c = document.getElementById('canv'), 
-        $ = c.getContext("2d");
-    var w = c.width = window.innerWidth, 
-        h = c.height = window.innerHeight;
-
-    Snowy();
-    function Snowy() {
-      var snow, arr = [];
-      var num = 60, tsc = 1, sp = 0.4;
-      var sc = 1.3, t = 0, mv = 20, min = 1;
-        for (var i = 0; i < num; ++i) {
-          snow = new Flake();
-          snow.y = Math.random() * (h + 50);
-          snow.x = Math.random() * w;
-          snow.t = Math.random() * (Math.PI * 2);
-          snow.sz = (100 / (10 + (Math.random() * 100))) * sc;
-          snow.sp = (Math.pow(snow.sz * .8, 2) * .15) * sp;
-          snow.sp = snow.sp < min ? min : snow.sp;
-          arr.push(snow);
-        }
-      go();
-      function go(){
-        window.requestAnimationFrame(go);
-          $.clearRect(0, 0, w, h);
-          $.fillStyle = 'hsla(242, 95%, 3%, 0)';
-          $.fillRect(0, 0, w, h);
-          $.fill();
-            for (var i = 0; i < arr.length; ++i) {
-              f = arr[i];
-              f.t += .05;
-              f.t = f.t >= Math.PI * 2 ? 0 : f.t;
-              f.y += f.sp;
-              f.x += Math.sin(f.t * tsc) * (f.sz * .3);
-              if (f.y > h + 50) f.y = -10 - Math.random() * mv;
-              if (f.x > w + mv) f.x = - mv;
-              if (f.x < - mv) f.x = w + mv;
-              f.draw();}
-     }
-     function Flake() {
-       this.draw = function() {
-          this.g = $.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.sz);
-          this.g.addColorStop(0, 'hsla(255,255%,255%,1)');
-          this.g.addColorStop(1, 'hsla(255,255%,255%,0)');
-          $.moveTo(this.x, this.y);
-          $.fillStyle = this.g;
-          $.beginPath();
-          $.arc(this.x, this.y, this.sz, 0, Math.PI * 2, true);
-          $.fill();}
-      }
-    }
-    /*________________________________________*/
-    window.addEventListener('resize', function(){
-      c.width = w = window.innerWidth;
-      c.height = h = window.innerHeight;
-    }, false);
-});
-
-
-</script>
+<!-- 選擇日期 -->
 <script src="js/proview_date.js"></script>
-<!-- 卡片 -->
-<script>
-    Vue.config.devtools = true;
-
-    Vue.component('card', {
-        template: `
-        <div class="card-wrap"
-          @mousemove="handleMouseMove"
-          @mouseenter="handleMouseEnter"
-          @mouseleave="handleMouseLeave"
-          ref="card">
-          <div class="card"
-            :style="cardStyle">
-            <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
-            <div class="card-info">
-              <slot name="header"></slot>
-              <slot name="content"></slot>
-            </div>
-          </div>
-        </div>`,
-        mounted() {
-            this.width = this.$refs.card.offsetWidth;
-            this.height = this.$refs.card.offsetHeight;
-        },
-        props: ['dataImage'],
-        data: () => ({
-            width: 0,
-            height: 0,
-            mouseX: 0,
-            mouseY: 0,
-            mouseLeaveDelay: null
-        }),
-        computed: {
-            mousePX() {
-                return this.mouseX / this.width;
-            },
-            mousePY() {
-                return this.mouseY / this.height;
-            },
-            cardStyle() {
-                const rX = this.mousePX * 30;
-                const rY = this.mousePY * -30;
-                return {
-                    transform: `rotateY(${rX}deg) rotateX(${rY}deg)`
-                };
-            },
-            cardBgTransform() {
-                const tX = this.mousePX * -40;
-                const tY = this.mousePY * -40;
-                return {
-                    transform: `translateX(${tX}px) translateY(${tY}px)`
-                }
-            },
-            cardBgImage() {
-                return {
-                    backgroundImage: `url(${this.dataImage})`
-                }
-            }
-        },
-        methods: {
-            handleMouseMove(e) {
-                this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width / 2;
-                this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height / 2;
-            },
-            handleMouseEnter() {
-                clearTimeout(this.mouseLeaveDelay);
-            },
-            handleMouseLeave() {
-                this.mouseLeaveDelay = setTimeout(() => {
-                    this.mouseX = 0;
-                    this.mouseY = 0;
-                }, 1000);
-            }
-        }
-    });
-
-    const app = new Vue({
-        el: '#app'
-    });
-
-</script>
-
+<!-- 風景卡片 -->
+<script src="js/viewcard.js"></script>
 <!-- 下拉式選單 -->
-<script>
-    $('.joForm__input').click(function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        $(this).toggleClass('expanded');
-        $("." + $('#' + $(e.target).attr('for')).attr('class')).attr('checked', false);
-        $('#' + $(e.target).attr('for')).attr('checked', true);
-        // getMember();
-        // console.log(e.target);
-    });
-    $(document).click(function () {
-        $('.joForm__input').removeClass('expanded');
-    });
-        clickCont = document.querySelector('input[name="contType"]:checked');
-</script>
+<script src="js/product_dropdown.js"></script>
 <!-- 雪景 -->
-<!-- <script>
-        var c = document.getElementById('canv'), 
-        $ = c.getContext("2d");
-    var w = c.width = window.innerWidth, 
-        h = c.height = window.innerHeight;
-    
-    Snowy();
-    function Snowy() {
-      var snow, arr = [];
-      var num = 60, tsc = 1, sp = 0.4;
-      var sc = 1.3, t = 0, mv = 20, min = 1;
-        for (var i = 0; i < num; ++i) {
-          snow = new Flake();
-          snow.y = Math.random() * (h + 50);
-          snow.x = Math.random() * w;
-          snow.t = Math.random() * (Math.PI * 2);
-          snow.sz = (100 / (10 + (Math.random() * 100))) * sc;
-          snow.sp = (Math.pow(snow.sz * .8, 2) * .15) * sp;
-          snow.sp = snow.sp < min ? min : snow.sp;
-          arr.push(snow);
-        }
-      go();
-      function go(){
-        window.requestAnimationFrame(go);
-          $.clearRect(0, 0, w, h);
-          $.fillStyle = 'hsla(242, 95%, 3%, 0)';
-          $.fillRect(0, 0, w, h);
-          $.fill();
-            for (var i = 0; i < arr.length; ++i) {
-              f = arr[i];
-              f.t += .05;
-              f.t = f.t >= Math.PI * 2 ? 0 : f.t;
-              f.y += f.sp;
-              f.x += Math.sin(f.t * tsc) * (f.sz * .3);
-              if (f.y > h + 50) f.y = -10 - Math.random() * mv;
-              if (f.x > w + mv) f.x = - mv;
-              if (f.x < - mv) f.x = w + mv;
-              f.draw();}
-     }
-     function Flake() {
-       this.draw = function() {
-          this.g = $.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.sz);
-          this.g.addColorStop(0, 'hsla(255,255%,255%,1)');
-          this.g.addColorStop(1, 'hsla(255,255%,255%,0)');
-          $.moveTo(this.x, this.y);
-          $.fillStyle = this.g;
-          $.beginPath();
-          $.arc(this.x, this.y, this.sz, 0, Math.PI * 2, true);
-          $.fill();}
-      }
-    }
-    /*________________________________________*/
-    window.addEventListener('resize', function(){
-      c.width = w = window.innerWidth;
-      c.height = h = window.innerHeight;
-    }, false);
+<script src="js/snow.js"></script>
 
-</script> -->
+</body>
 </html>
-<!-- <script src="js/robot.js"></script> -->

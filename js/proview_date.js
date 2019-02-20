@@ -155,10 +155,16 @@ window.addEventListener("load", () => {
             var mmtext = Number(arrmm.indexOf(value));//月
             mmtext += 1;
             var datevalue = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
-    
             document.querySelector("#date-label").innerHTML = datevalue;
             $('#date-text').removeClass('expanded');
             document.querySelector("#date").value = datevalue;
+            //抓出點選的日期
+            dateInfo = document.getElementById('dateInfo');
+            // console.log(dateInfo);
+            dateInfo.value = datevalue;
+            console.log(dateInfo.value);
+        
     }
     load();
 })
+

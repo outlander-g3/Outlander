@@ -1,21 +1,33 @@
 <?php
-$memId= $_REQUEST["continent"];
-// echo $memId->co;
-// echo $memId;
+$continent= $_REQUEST["continent"];
+$budgetType= $_REQUEST["budgetType"];
+$levelType= $_REQUEST["levelType"];
 try{
   $dsn = "mysql:host=localhost;port=3306;dbname=cd105g3;charset=utf8";
   $user = "root";
   $password = "root";
   $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
   $pdo = new PDO( $dsn, $user, $password, $options);  
-
-  $sql = " select * from productkind where continent=:continent";//從行程總覽抓
+  $sql = 'select a.*, avg(rate) avgRate 
+  from productkind a join product b on a.pdkNo=b.pdkNo
+  join `order` c on b.pdNo=c.pdNo
+  where continent is not null';
+  if($continent != 'choose'){
+    $sql .= ' and continent='.$continent;
+  }
+  if($budgetType != 'choose'){
+    $sql .= ' and budgetType='.$budgetType;
+  }
+  if($levelType != 'choose'){
+    $sql .= ' and levelType='.$levelType;
+  }
+  $sql .= ' group by a.pdkNo';
+  // $member = $pdo->query();
+  // $sql = "select * from productkind where continent=:continent";//從行程總覽抓
   // $sql = "select * from product a join productkind b on a.pdkNo = b.pdkNo where continent=:continent limit 9";//從開團資訊抓
   // $sql = "select distinct pdkName from product a join productkind b on a.pdkNo = b.pdkNo where continent=:continent";//唯一性
 
   $member = $pdo->prepare( $sql );
-  // $member = $pdo->query( $sql );
-  $member->bindValue(":continent", $memId);
   $member->execute();
 
   if( $member->rowCount() == 0 ){ //找不到
@@ -34,7 +46,7 @@ try{
                 <h4>{$memRow["pdkName"]}</h4>
                 <div class='pro-item-view-flex'>
                     <p>評價：</p>
-                        <span class='tree_f'><img src='img/tree_f.png' alt='tree'></span>
+                    <img src='img/tree_j.png' alt='rate'>
                 </div>
                 <p>天數：{$memRow["day"]}</p>
                 <div class='pro-item-view-float'>

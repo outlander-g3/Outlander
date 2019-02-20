@@ -120,25 +120,25 @@ session_start();
             <!-- 洲別 -->
             <form class="" id="cont">
                 <span class="joForm__input">
-                    <input type="radio" name="contType" value="choose" checked="checked" id="cont-choose">
+                    <input type="radio" name="contType" class="contType" value="choose" checked id="cont-choose">
                     <label for="cont-choose">請選擇洲別</label>
 
-                    <input type="radio" name="contType" value="1" id="cont-asia">
+                    <input type="radio" name="contType" class="contType" value="1" id="cont-asia">
                     <label for="cont-asia">亞洲</label>
 
-                    <input type="radio" name="contType" value="2" id="cont-europe">
+                    <input type="radio" name="contType" class="contType" value="2" id="cont-europe">
                     <label for="cont-europe">歐洲</label>
 
-                    <input type="radio" name="contType" value="3" id="cont-north">
+                    <input type="radio" name="contType" class="contType" value="3" id="cont-north">
                     <label for="cont-north">非洲</label>
 
-                    <input type="radio" name="contType" value="4" id="cont-south">
+                    <input type="radio" name="contType" class="contType" value="4" id="cont-south">
                     <label for="cont-south">大洋洲</label>
 
-                    <input type="radio" name="contType" value="5" id="cont-oceania">
+                    <input type="radio" name="contType" class="contType" value="5" id="cont-oceania">
                     <label for="cont-cont-oceania">北美洲</label>
 
-                    <input type="radio" name="contType" value="6" id="cont-africa">
+                    <input type="radio" name="contType" class="contType" value="6" id="cont-africa">
                     <label for="cont-africa">南美洲</label>
                 </span>
             </form>
@@ -148,13 +148,14 @@ session_start();
                     <input type="radio" name="levelType" value="choose" checked="checked" id="level-choose">
                     <label for="level-choose">請選擇難易度</label>
 
-                    <input type="radio" name="levelType" value="hard" id="hard">
-                    <label for="hard"><img src="img/tree_f.png" alt=""></label>
+                    <input type="radio" name="levelType" value="1" id="hard">
+                    <label for="hard">難</label>
+                    <!-- <label for="hard"><img src="img/tree_f.png" alt=""></label> -->
 
-                    <input type="radio" name="levelType" value="very-hard" id="very-hard">
+                    <input type="radio" name="levelType" value="2" id="very-hard">
                     <label for="very-hard">很難</label>
 
-                    <input type="radio" name="levelType" value="hard-hard" id="hard-hard">
+                    <input type="radio" name="levelType" value="3" id="hard-hard">
                     <label for="hard-hard">非常難</label>
                 </span>
             </form>
@@ -163,11 +164,11 @@ session_start();
                 <span class="joForm__input">
                     <input type="radio" name="budgetType" value="choose" checked="checked" id="bud-choose">
                     <label for="bud-choose">請選擇預算</label>
-                    <input type="radio" name="budgetType" value="cont-1" checked="checked" id="cont-1">
+                    <input type="radio" name="budgetType" value="cont-1" id="cont-1">
                     <label for="cont-1">1萬以內</label>
-                    <input type="radio" name="budgetType" value="cont-2" checked="checked" id="cont-2">
+                    <input type="radio" name="budgetType" value="cont-2" id="cont-2">
                     <label for="cont-2">1萬~3萬</label>
-                    <input type="radio" name="budgetType" value="cont-3" checked="checked" id="cont-3">
+                    <input type="radio" name="budgetType" value="cont-3" id="cont-3">
                     <label for="cont-3">3萬~10萬</label>
                 </span>
             </form>
@@ -175,48 +176,78 @@ session_start();
     </div>
 <!-- 點按篩選BAR -->
 <script>
-clickWho = document.querySelectorAll('input[name="contType"]+label');
+clickCont = document.querySelectorAll('input[name="contType"]+label');
+clickLevel = document.querySelectorAll('input[name="levelType"]+label');
+clickBudget = document.querySelectorAll('input[name="budgetType"]+label');
+// cont = document.querySelectorAll('input[name="contType"] + label');
+// clickLevel = document.querySelectorAll('input[name="levelType"]+label');
+// console.log(clickLevel);
+// for(var i=0; i<cont.length; i++){
+//     console.log(123);
+//     cont[i].addEventListener('click', getMember);
+// }
+// for(i=0;i<clickLevel.length;i++){
+    // clickLevel[i].addEventListener('click',getMember);
+    // console.log(clickLevel[i]);
+// }
 
-for(i=0;i<clickWho.length;i++){
-  clickWho[i].addEventListener('click',getMember);
-//   console.log(clickWho[i]);
+for(let i=0;i<clickCont.length;i++){
+  clickCont[i].addEventListener('click',getMember);
+}
+for(let i=0;i<clickLevel.length;i++){
+  clickLevel[i].addEventListener('click',getMember);
+}
+for(let i=0;i<clickBudget.length;i++){
+  clickBudget[i].addEventListener('click',getMember);
 }
 // var aa=document.getElementById('ShowPanel');//為何抓不到panel?
 // console.log(aa); 抓不到panel?
 function getMember(e){
-//   filter = {
-//     co:this.value,
-//     le:'',
-//     sos:'',
-//   }
-// console.log(e.target);
-// var myIdElement = document.getElementById("myId");
-// var beforeStyle = window.getComputedStyle(myIdElement, ":before");
-// console.log(beforeStyle); // [CSSStyleDeclaration Object]
-// console.log(beforeStyle.width); // 100px
-// console.log(beforeStyle.getPropertyValue("width")); // 100px
-// console.log(beforeStyle.content); // "hello world!"
+    contTypeObj = document.querySelector('input[name="contType"]:checked+label').previousElementSibling;
+    console.log("....", contTypeObj.value);
+    levelTypeObj = document.querySelector('input[name="levelType"]:checked+label').previousElementSibling;
+    console.log("------", levelTypeObj.value);
+    budgetTypeObj = document.querySelector('input[name="budgetType"]:checked+label').previousElementSibling;
+    console.log("=====", budgetTypeObj.value);
+    if(e.target.previousElementSibling.name == 'contType'){
+        contTypeObj = e.target.previousElementSibling;
+    }
+    if(e.target.previousElementSibling.name == 'levelType'){
+        levelTypeObj = e.target.previousElementSibling;
+    }
+    if(e.target.previousElementSibling.name == 'budgetType'){
+        budgetTypeObj = e.target.previousElementSibling;
+    }
+    // filter = {
+    //     continent:bb.value,
+    //     level:bb.value,
+    // }
+    // console.log(123);
+//   console.log(filter.continent);
+// console.log(bb.value);
+    
 
-var bb= e.target.previousSibling.previousSibling;
   var xhr = new XMLHttpRequest();
   xhr.addEventListener('load',(e)=>{
-      console.log(document.getElementsByClassName('pro-item-pic').length);
+    //   console.log(document.getElementsByClassName('pro-item-pic').length);
     if( xhr.status == 200 ){
         document.getElementById('mtmtmt').style.display="none";
-      console.log(document.getElementsByClassName('pro-item-pic').length);
-      console.log(document.getElementsByClassName('pro-item-pic'));
+    //   console.log(document.getElementsByClassName('pro-item-pic').length);
+    //   console.log(document.getElementsByClassName('pro-item-pic'));
         document.getElementById('textChange').innerText="篩選結果";                       
         document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
-      console.log(document.getElementsByClassName('pro-item-pic').length);
+    //   console.log(document.getElementsByClassName('pro-item-pic').length);
         for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
         document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');
+        //拿掉熱門標籤
       }
        }else{
           alert( xhr.status );
        }
     
   }); 
-  var url = "getSelected.php?continent="+bb.value;
+
+  var url = "getSelected.php?continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
   console.log(url)
   xhr.open("Get", url, true);
   xhr.send( null );
@@ -704,11 +735,15 @@ $('.snowCard').on("click",function(){
         e.preventDefault();
         e.stopPropagation();
         $(this).toggleClass('expanded');
-        $('#' + $(e.target).attr('for')).prop('checked', true);
+        $("." + $('#' + $(e.target).attr('for')).attr('class')).attr('checked', false);
+        $('#' + $(e.target).attr('for')).attr('checked', true);
+        // getMember();
+        // console.log(e.target);
     });
     $(document).click(function () {
         $('.joForm__input').removeClass('expanded');
     });
+        clickCont = document.querySelector('input[name="contType"]:checked');
 </script>
 <!-- 雪景 -->
 <!-- <script>

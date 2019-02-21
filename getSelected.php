@@ -4,11 +4,11 @@ $budgetType= $_REQUEST["budgetType"];
 $levelType= $_REQUEST["levelType"];
 
 $dateInfo = $_REQUEST["dateInfo"];
-// echo"原本:",$dateInfo,"<br>";
+echo"帶來:",$dateInfo,"<br>";
 $strtime = strtotime($dateInfo);
 
-$newDate=date('Y-m-d',$strtime );
-
+$newDate=date('Y-m-d',$strtime);
+echo "轉字串:",$newDate,"<br>";
 try{
   $dsn = "mysql:host=localhost;port=3306;dbname=cd105g3;charset=utf8";
   $user = "root";
@@ -35,25 +35,25 @@ try{
   if($levelType != 'choose'){
     $sql .= ' and level='.$levelType;
   }
-  if($$dateInfo != ""){
-    $sql .= ' and pdStart > :pdStart';
+  if($dateInfo != "請選擇日期"){
+    $sql .= ' and pdStart>'.$newDate;
   }
   $sql .= ' group by a.pdkNo';
-  // $member = $pdo->query();
-  // $sql = "select * from productkind where continent=:continent";//從行程總覽抓
-  // $sql = "select * from product a join productkind b on a.pdkNo = b.pdkNo where continent=:continent limit 9";//從開團資訊抓
-  // $sql = "select distinct pdkName from product a join productkind b on a.pdkNo = b.pdkNo where continent=:continent";//唯一性
 
+
+  // $dateSearch = $pdo->prepare( $sql );
+  // $dateSearch->bindParam(":pdStart",$newDate);
+  
   $selected = $pdo->prepare( $sql );
- 
   $selected->execute();
-
+  
   if( $selected->rowCount() == 0 ){ //找不到
     //傳回空的JSON字串
     echo "查無此筆資料";
   }else{ //找得到
     //取回一筆資料
       while($selectedRow = $selected->fetch(PDO::FETCH_ASSOC)){
+        echo "撈日期:",$newDate,"<br>";
     //送出html結構字串
     $html =
     "<div class='pro-item pro-item-three'>

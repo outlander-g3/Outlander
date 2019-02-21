@@ -151,17 +151,17 @@ session_start();
             <!-- 難易度 -->
             <form class="" id="level">
                 <span class="joForm__input">
-                    <input type="radio" name="levelType" value="choose" checked="checked" id="level-choose">
+                    <input type="radio" name="levelType" value="choose" checked id="level-choose" class="aa">
                     <label for="level-choose">請選擇難易度</label>
 
-                    <input type="radio" name="levelType" value="1" id="hard">
+                    <input type="radio" name="levelType" value="1" id="hard" class="aa">
                     <label for="hard">難</label>
                     <!-- <label for="hard"><img src="img/tree_f.png" alt=""></label> -->
 
-                    <input type="radio" name="levelType" value="2" id="very-hard">
+                    <input type="radio" name="levelType" value="2" id="very-hard" class="aa">
                     <label for="very-hard">很難</label>
 
-                    <input type="radio" name="levelType" value="3" id="hard-hard">
+                    <input type="radio" name="levelType" value="3" id="hard-hard" class="aa">
                     <label for="hard-hard">非常難</label>
                 </span>
             </form>
@@ -183,6 +183,7 @@ session_start();
 
 <!-- 點按篩選BAR取值並篩選-->
 <script>
+/////日期
 window.addEventListener("load", () => {
 
 $('#date-text').click(function (e) {
@@ -201,8 +202,6 @@ $(".calendar").click((e) => {
     $('#' + $(e.target).attr('for')).prop('checked', true);
     // console.log(e.target);
 })
-
-
 
 var yy = new Date().getFullYear(); //年
 var mm = new Date().getMonth(); //月份
@@ -338,43 +337,55 @@ function tdclass(e) {
         var value = document.querySelector("#mm-sp").innerText;
         var mmtext = Number(arrmm.indexOf(value));//月
         mmtext += 1;
-        var datevalue = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
+        datevalue = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
         document.querySelector("#date-label").innerHTML = datevalue;
         $('#date-text').removeClass('expanded');
         document.querySelector("#date").value = datevalue;
         
 
-        /////////抓出點選的日期用ajax撈資料
+        //////////////抓出點選的日期用ajax撈資料
         dateInfo = document.getElementById('dateInfo');
         dateInfo.value=datevalue;
         console.log("111",dateInfo.value);
         if(datevalue!="請選擇日期"){
-             getDate();
+            getDate();
         }
         function getDate(){
-            var xhr = new XMLHttpRequest();
-            xhr.addEventListener('load',(e)=>{
-            if( xhr.status == 200 ){
-            document.getElementById('mtmtmt').style.display="none";
-            document.getElementById('textChange').innerText="篩選結果";                       
-            document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
-            for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
-            document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');//拿掉熱門標籤
-        }
-    }else{
-        alert( xhr.status );
-   }
-}); 
-var url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
-console.log(url)
-xhr.open("Get", url, true);
-xhr.send( null );
-        
+                var xhr = new XMLHttpRequest();
+                xhr.addEventListener('load',(e)=>{
+                if( xhr.status == 200 ){
+                document.getElementById('mtmtmt').style.display="none";
+                document.getElementById('textChange').innerText="篩選結果";                       
+                document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
+                for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
+                document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');//拿掉熱門標籤
+            }
+        }else{
+            alert( xhr.status );
+       }
+  });
+    contTypeObj = document.querySelector('input[name="contType"]:checked+label').previousElementSibling;
+    // console.log("....", contTypeObj.value);
+    levelTypeObj = document.querySelector('input[name="levelType"]:checked+label').previousElementSibling;
+    // console.log("------", levelTypeObj.value);
+    budgetTypeObj = document.querySelector('input[name="budgetType"]:checked+label').previousElementSibling;
+    // console.log("=====", budgetTypeObj.value); 
+//   var url = "getSelected.php?dateInfo="+dateInfo.value;
+  var url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
+  console.log("點日期:",url);
+  xhr.open("Get", url, true);
+  xhr.send( null );
+            
 }
-       
-}
+
+
+
+
+
+    }
 load();
 })
+
 
 
 //抓洲、難易度、預算
@@ -392,6 +403,7 @@ for(let i=0;i<clickBudget.length;i++){
   clickBudget[i].addEventListener('click',getFilter);
 }
 function getFilter(e){
+    console.log("dateInfo.value:",dateInfo.value);
     contTypeObj = document.querySelector('input[name="contType"]:checked+label').previousElementSibling;
     // console.log("....", contTypeObj.value);
     levelTypeObj = document.querySelector('input[name="levelType"]:checked+label').previousElementSibling;
@@ -422,14 +434,11 @@ function getFilter(e){
           alert( xhr.status );
        }
   }); 
-  var url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
-  console.log("其他:",url);
+  url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
+  console.log("點了其他:",url);
   xhr.open("Get", url, true);
   xhr.send( null );
 }
-
-
-
 
 
 </script>
@@ -757,7 +766,7 @@ function getFilter(e){
 <!-- 風景卡片 -->
 <script src="js/viewcard.js"></script>
 <!-- 下拉式選單 -->
-<script src="js/product_dropdown.js"></script>
+<script src="js/productsOverview_dropdown.js"></script>
 <!-- 雪景 -->
 <script src="js/snow.js"></script>
 

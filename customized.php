@@ -1,4 +1,5 @@
 <?php
+    // session_start();
     include_once('connectDb.php'); //連線
     // include_once('session.php'); //判斷會員是否登入
 ?>
@@ -119,6 +120,7 @@
                                 <input type="radio" name="mountType" value="優勝美地國家公園" id="mt10">
                                 <label for="mt10">優勝美地國家公園</label>
                             </span>
+                            <input type="hidden" value="" id="cuForm__MCom">
                         </form>
                             
                         <div id="cuCustom__zone">
@@ -164,7 +166,7 @@
                         <div class="cuCustom__count">
                             <span class="cuCustom__line"></span>
                             <span class="cuCustom__count1">景點個數：<span id="cuQuan">0</span></span>
-                            <form action="cuPrice" method="get">
+                            <form action="" method="post">
                                 <span class="cuCustom__count2">總金額：<span id="pdkPrice">0</span>元</span>
                             </form>
 
@@ -225,7 +227,7 @@
                         
                                     </span></li>
                                 </ul>
-                                <form action="getSun.php" method="get">
+                                <form action="getScn.php" method="get">
                                     <input type="hidden" name="pdStart" value="" id="pdStart">
                                     <input type="hidden" name="pdEnd" value="" id="pdEnd">
                                     <input type="hidden" name="cuStart" value="" id="cuStart">
@@ -252,6 +254,9 @@
                                 <p class="cuGuide__subtitle">可選擇之嚮導</p>
                                 <div class="cu__guideListBg cu__guideList--pick">
                                     <div class="cu__guideList--mask">
+                                        <div class="cuGuide__mask--ctrl">
+                                        
+                                        </div>
                                         <!-- <div class="cu__guideItem cu__guideItem1">
                                             <img src="img/cu_guideItem1.png" alt="嚮導照片">
                                             <input type="hidden" value="Vivan|擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。">
@@ -271,9 +276,9 @@
                             <div class="cuGuide__crtl cuGuide__crtl2">
                                 <p class="cuGuide__subtitle cuGuide__subtitle2">已選擇之嚮導</p>
                                 <div class="cu__guideListBg cu__guideList--picked">                                    
-                                    <img src="img/cu_guideItem1.png" alt="嚮導照片" id="cuGuide_picL">
-                                    <h4 id="cuGuide_name">Vivian</h4>
-                                    <p id="cuGuide_expertise">擅長高山百岳健行、中級山探勘、高海拔遠征、攀岩極冰攀略有涉獵。</p>                         
+                                    <img src="" alt="" id="cuGuide_picL">
+                                    <h4 id="cuGuide_name"></h4>
+                                    <p id="cuGuide_expertise"></p>                         
                                 </div>
                             </div>
                         </div>                  
@@ -284,8 +289,12 @@
                     <!-- btn選擇日期及嚮導 -->
                     <input type="button" id="btn_cuBack" class="cuBtn" value="上一頁">
                     <!-- btn選擇日期及嚮導 -->
-                    <button type="submit" id="btn_cuBooking" class="cuBtn">訂購行程</button>
-                    <!-- <input type="submit" id="btn_cuBooking" class="cuBtn" value="訂購行程"> -->
+                    <form action="cuBooking.php" method="post">
+                        <input type="hidden" name="pdkName" id="cuPdkName" value="">
+                        <input type="hidden" name="pdkPrice" id="cuPdkPrice" value="">
+                        <input type="hidden" name="gdNo1" id="cuGdNo" value="">
+                        <button type="submit" id="btn_cuBooking" class="cuBtn">訂購行程</button>
+                    </form>
                 </div>
             </section>
         </div> 
@@ -349,4 +358,5 @@
 <script src="js/header.js"></script>
 <!-- <script src="js/robot.js"></script> -->
 <script src="js/customized.js"></script>
+
 <!-- <script src="js/date.js"></script> -->

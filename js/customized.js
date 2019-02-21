@@ -1,6 +1,15 @@
+var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+var firstDate = new Date(2008,01,12);
+var secondDate = new Date(2008,01,22);
+
+var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+// alert(diffDays);
 $('#cuForm__input--M label:not(:first-of-type)').css('display','none');
 $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
 $('#cuForm__input--C').click(function (e) {
+    // alert(diffDays);
+    $('#cuForm__input--M label:not(:first-of-type)').css('display','none');
+    $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
     e.preventDefault();
     e.stopPropagation();
     if($('.cuCustom__dropMask').children().length > 0){
@@ -47,6 +56,7 @@ $('#cuForm__input--C').click(function (e) {
         // $('#mount-choose').next().css('display','block');        
         // ;  
     }  
+   
 });
 
 $(document).click(function () {
@@ -54,12 +64,14 @@ $(document).click(function () {
     }
 );
 
-$('#cuForm__input--M').click(function aaa(e2) {
+$('#cuForm__input--M').click(function (e2) {
     e2.preventDefault();
     e2.stopPropagation();
+
     if($('.cuCustom__dropMask').children().length > 0){
         $('#jpjn__M').css('display','block');
     }
+
     $(this).toggleClass('expanded');
     $('#mount-choose').prop('checked', true)
     $('#' + $(e2.target).attr('for')).prop('checked', true); 
@@ -67,6 +79,14 @@ $('#cuForm__input--M').click(function aaa(e2) {
         $('#mount-choose').css('display','none');
         // $('#cuForm__input--M label:first-child').remove();
     }
+    if($(e2.target).text() != "請選擇山岳" && $('#cuForm__MCom').val($(e2.target).text()) != $(e2.target).text()){
+        var aaa= $('#cuForm__MCom').val($(e2.target).text());
+        console.log(aaa);
+        $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
+    }
+    // $('#cuForm__input--M')
+    //將山名放進前台input:hidden
+    $('#cuPdkName').val($(e2.target).text());
 
     //撈資料
     let pdkNo = $(e2.target).attr('for').substr(2,1);
@@ -76,7 +96,6 @@ $('#cuForm__input--M').click(function aaa(e2) {
             url: 'getScn.php',
             data: 'pdkNo=' + pdkNo,
             success: function (data) {
-              console.log(data);
                 $('#cuCustom__sceneryZone--OF').append(data);
                 // $('.cuCustom__sceneryItem input').val(data);
                 // $('.cuCustom__sceneryItem').css("background-image","url(../img/mt/3/scn/3.jpg)");
@@ -89,7 +108,6 @@ $('#cuForm__input--M').click(function aaa(e2) {
                 $('.btn_cuWatchScenery').click(cuWatchScenery);
                 // cuCustom__showOption[i].addEventListener("mouseover",showOption);
                 // cuCustom__showOption[i].addEventListener("mouseout",closeOption);
-
             }
         });
     }
@@ -218,7 +236,6 @@ function cuWatchScenery(e){
     // img.src = '../img/'+cuCustom__detailALL.split('|')[1]+'';
     //無法新增div
     img.style.backgroundImage = document.querySelector('#'+cuCustom__detailALL.split('|')[3]).style.backgroundImage;
-    console.log((document.querySelector('#'+cuCustom__detailALL.split('|')[3]).style.backgroundImage));
     img.classList.add('cuDetail__img');
 
     let cuCustom__detailContent = document.createElement('div');
@@ -258,6 +275,7 @@ function cuWatchScenery(e){
     cuCustom__detailContent.appendChild(btn_cuAddOne);
     detail.appendChild(detailTitle);
     detail.appendChild(detailContent);
+    
 
     // var btn_cuAddOne = O('btn_cuAddOne');
     btn_cuAddOne.addEventListener('click',function(){
@@ -266,9 +284,21 @@ function cuWatchScenery(e){
         var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
         cuCustomDetailBg.style.display = 'none';
     });
+
+
+    // let  cuCustomDetailBg = document.querySelector('.cuCustom__detailBg');
+
+  
     
 }
 
+function cuCloseScenery(e){
+    console.log(e.target);
+    let  cuCustomDetailBg = document.querySelector('.cuCustom__detailBg');
+    if(e.target == cuCustomDetailBg ){
+        cuCustomDetailBg.style.display = 'none';
+    }
+}
 
 
 
@@ -499,7 +529,7 @@ function addItem(itemId,itemValue){
     }
 	O('cuQuan').innerText = items.length;
     O('pdkPrice').innerText = pdkPrice.toString().substring(0,pdkPrice.toString().length-3)+","+pdkPrice.toString().substring(pdkPrice.toString().length-3,pdkPrice.toString().length);
-
+    O('cuPdkPrice').value = O('pdkPrice').innerText;
     function changeItemCount(){
         var itemString = storage.getItem('addItemList');
         // console.log(itemString);
@@ -639,7 +669,8 @@ function cuShowGuide(){
     cuGuide_picL.src = this.childNodes[1].src;
     this.style.border = '1px solid rgba(244, 244, 244, 1)';
     O('cuGuide_name').innerText = this.childNodes[3].value.split('|')[0];
-    O('cuGuide_expertise').innerText  = this.childNodes[3].value.split('|')[1];   
+    O('cuGuide_expertise').innerText  = this.childNodes[3].value.split('|')[1]; 
+    O('cuGdNo').value = this.childNodes[3].value.split('|')[2]; 
     for(var m=0;m<cu__guideItem.length;m++){
         if(cu__guideItem[m] != this){
             cu__guideItem[m].style.border = '1px solid rgba(244, 244, 244, .3)';
@@ -648,24 +679,33 @@ function cuShowGuide(){
     }
 
 }
-
+//跳窗（重新整理警示）
+if(cuCustom__dropMask.hasChildNodes() == true){
+    window.onbeforeunload = function(){
+        return 'Are you sure you want to leave?';
+    };
+    sessionStorage.clear();
+}
+//跳窗
 function cuBooking(){
+    alert();
+    window.onbeforeunload = null; 
     //跳窗
     let jpjnBooking = O('jpjn__booking');
     //漏選的提示內容
     let jpContLost = O('jpCont__lost');
     // 嚮導欄
-    let cuGuideListMask = document.querySelector('.cu__guideList--mask');
-    console.log(cuGuideListMask);
+    let cuGuideMaskC = document.querySelector('.cuGuide__mask--ctrl');
+
     if(cuCustom__dropMask.children.length == 0 && cuCustom__dropMask.children.length != 0){
         //沒有選景點
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "「風景景點」";
-    }else if(cuGuideListMask.children.length == 0 && cuCustom__dropMask.children.length != 0){
+    }else if(cuGuideMaskC.children.length == 0 && cuCustom__dropMask.children.length != 0){
         //沒選嚮導
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "「行程嚮導」";
-    }else if(cuCustom__dropMask.children.length == 0 && cuGuideListMask.children.length == 0){
+    }else if(cuCustom__dropMask.children.length == 0 && cuGuideMaskC.children.length == 0){
         //沒選景點＆嚮導
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "風景景點及行程嚮導";
@@ -674,19 +714,25 @@ function cuBooking(){
 
 //清除風景景點全部資料
 function cuClearItem(){
-    let aaa=cuCustom__dropMask.children.length;
-    for(let i =0;i<aaa+1;i++){
-        console.log(i);
-        console.log(cuCustom__dropMask.children[0]);
-        console.log(cuCustom__dropMask.children[1]);
+    cuJpcClose();
+    sessionStorage.clear();
+    console.log(cuCustom__dropMask.children[0]);
+    let cuCustomDropMask=cuCustom__dropMask.children.length;
+    for(let i =0;i<cuCustomDropMask+1;i++){
         cuCustom__dropMask.removeChild(cuCustom__dropMask.children[0])
     }
+    
+
 }
-//跳窗（重新整理警示）
-if(cuCustom__dropMask.hasChildNodes() == true){
-    window.onbeforeunload = function(){
-        return 'Are you sure you want to leave?';
-    };
+
+//btn取消 並關掉視窗
+function cuJpcClose(){
+    let jpjnC = O('jpjn__C');
+    jpjnC.style.display = 'none';
+    let jpjnM = O('jpjn__M');
+    jpjnM.style.display = 'none';
+    let jpjnB = O('jpjn__booking');
+    jpjnB.style.display = 'none';
 }
 
 
@@ -721,6 +767,8 @@ function init(){
         btn_cuWatchScenery[j].addEventListener('click',cuWatchScenery);
     }
 
+    let  cuCustomDetailBg = document.querySelector('.cuCustom__detailBg');
+    cuCustomDetailBg.addEventListener('click', cuCloseScenery);
 
 
     var cuCustom__showOption = document.getElementsByClassName("cuCustom__sceneryItem");
@@ -762,23 +810,33 @@ function init(){
     btnCuAddSceneryConfirm.addEventListener('click',cuConfirm);
 
     // 客製化第二步驟，嚮導點小圖換大圖
-    var cu__guideItem = document.getElementsByClassName('cu__guideItem');
-    for(var l=0;l<cu__guideItem.length;l++){
-        cu__guideItem[l].addEventListener('click',cuShowGuide);
-    }
+    // var cu__guideItem = document.getElementsByClassName('cu__guideItem');
+    // for(var l=0;l<cu__guideItem.length;l++){
+    //     cu__guideItem[l].addEventListener('click',cuShowGuide);
+    // }
 
     //btn訂購行程
     let btnCuBooking = O('btn_cuBooking');
     btnCuBooking.addEventListener('click',cuBooking);
+
 
     //
     let btnjpcConfirm = O('btnjpc__confirm');
     let btnjpmConfirm = O('btnjpm__confirm');
     btnjpcConfirm.addEventListener('click',cuClearItem);
     btnjpmConfirm.addEventListener('click',cuClearItem);
-}
 
-window.addEventListener('load',init);
+    //btn取消 並關掉視窗
+    let btnjpcClose = O('btnjpc__close');
+    btnjpcClose.addEventListener('click',cuJpcClose);
+    let btnjpMclose = O('btnjpm__close');
+    btnjpMclose.addEventListener('click',cuJpcClose);
+    let btnjpRclose = O('btnjpr__close');
+    btnjpRclose.addEventListener('click',cuJpcClose);
+    let btnjpBconfirm = O('btnjpb__confirm');
+    btnjpBconfirm.addEventListener('click',cuJpcClose);
+    
+}
 
 window.addEventListener("load", () => {
 
@@ -926,9 +984,9 @@ window.addEventListener("load", () => {
             arr[k]=ss;
         }
     }
-var click = 0;
-var cl=false;
-var datevalue1;
+    var click = 0;
+    var cl=false;
+    var datevalue1;
     function tdclass(e) {
         if(!click){
             for(var i = 0 ; i<=len.length-1 ; i++){
@@ -967,8 +1025,38 @@ var datevalue1;
             document.querySelector("#pdEnd").value =datevalue.replace(/-/g,"/");
             document.querySelector("#cuStart").value =datevalue1;
             document.querySelector("#cuEnd").value =datevalue;
+
+            var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+            var firstDate = new Date(datevalue1);
+            var secondDate = new Date(datevalue);
+            
+            console.log(firstDate);
+            console.log(secondDate);
+            var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)+1));
+            console.log(diffDays);
+            //AJax撈嚮導資料
+            if(document.querySelector("#date-label").innerText != "請選擇日期"){
+                var xhr = new XMLHttpRequest();
+                xhr.onload=function (){
+                    if( xhr.status == 200 ){
+                        let cuGuideListMask = document.querySelector('.cuGuide__mask--ctrl');
+                        cuGuideListMask.innerHTML = xhr.responseText;
+                        var cu__guideItem = document.getElementsByClassName('cu__guideItem');
+                        for(var l=0;l<cu__guideItem.length;l++){
+                            cu__guideItem[l].addEventListener('click',cuShowGuide);
+                        }
+                    }else{
+                        alert( xhr.status );
+                    }
+                }
+                var url = "getGuide.php?cuStart=" + O('cuStart').value+"&cuEnd="+O('cuEnd').value;
+                xhr.open("Get", url, true);
+                xhr.send( null );
+            }
             click=false;
         }
     }
     load();
 })
+
+window.addEventListener('load',init);

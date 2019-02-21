@@ -1,13 +1,14 @@
 <?php
-error_reporting(0);
-session_start();
-$pdStart=$_GET['pdStart'];
-$pdEnd=$_GET['pdEnd'];
-$pdkNo=$_GET['pdkNo'];
+    error_reporting(0);
+    session_start();
+    $pdStart=$_GET['pdStart'];
+    $pdEnd=$_GET['pdEnd'];
+    $pdkNo=$_GET['pdkNo'];
+
 try {
 
     require_once("connectDb.php");
-    $sql="select a.pdkNo,a.scnOrd, b.scnTitle , b.scnImg , b.scnPrice , b.scnNo , b.scnCont , b.iconList from scenerylist a,scenery b where pdkNo=:pdkNo AND a.scnNo = b.scnNo";
+    $sql="select a.pdkNo,a.scnOrd, b.scnTitle , b.scnImg , b.scnPrice , b.scnNo , b.scnCont , b.iconList from scenerylist a,scenery b where pdkNo=:pdkNo AND a.scnNo = b.scnNo  ";
     $scns=$pdo->prepare($sql);
     // $pdkNo =0;
     $scns->bindValue(':pdkNo',$pdkNo);
@@ -42,18 +43,8 @@ try {
                     </button>
                 </div>
             </div>';
-   
-
+            $_SESSION['pdkNo']=$scnRows['pdkNo'];
     }
-
-    //撈嚮導
-    $cuStart=$_GET['cuStart'];
-    $cuEnd=$_GET['cuEnd'];
-    $sql="select a.pdkNo,a.scnOrd, b.scnTitle , b.scnImg , b.scnPrice , b.scnNo , b.scnCont , b.iconList from scenerylist a,scenery b where pdkNo=:pdkNo AND a.scnNo = b.scnNo";
-    $scns=$pdo->prepare($sql);
-    $scns->bindValue(':cuStart',$cuStart);
-    $scns->bindValue(':cuEnd',$cuEnd);
-
 
 } catch (PDOException $e) {
     echo "失敗",$e->getMessage(),"<br>";

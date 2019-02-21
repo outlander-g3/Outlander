@@ -181,7 +181,7 @@ window.addEventListener("load", () => {
             alert( xhr.status );
        }
   }); 
-  var url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
+  var url = "getSelectedDate.php?dateInfo="+dateInfo.value;
   console.log(url)
   xhr.open("Get", url, true);
   xhr.send( null );
@@ -189,14 +189,6 @@ window.addEventListener("load", () => {
 }
                 
            
-
-
-            
-
-
-
-
-
     }
     load();
 })

@@ -2,6 +2,7 @@
 $continent= $_REQUEST["continent"];
 $budgetType= $_REQUEST["budgetType"];
 $levelType= $_REQUEST["levelType"];
+
 try{
   $dsn = "mysql:host=localhost;port=3306;dbname=cd105g3;charset=utf8";
   $user = "root";

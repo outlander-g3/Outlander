@@ -158,11 +158,30 @@ window.addEventListener("load", () => {
             document.querySelector("#date-label").innerHTML = datevalue;
             $('#date-text').removeClass('expanded');
             document.querySelector("#date").value = datevalue;
+            
             //抓出點選的日期
             dateInfo = document.getElementById('dateInfo');
-            // console.log(dateInfo);
-            dateInfo.value = datevalue;
-            console.log(dateInfo.value);
+            dateInfo.addEventListener('click',getDate);
+            function getDate(){
+                // console.log(123);
+                dateInfo.value = datevalue;
+                // console.log(dateInfo.value);
+                var xhr = new XMLHttpRequest();
+                xhr.addEventListener('load',(e)=>{
+                if( xhr.status == 200 ){                      
+                document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
+                // console.log("iiii",dateInfo.value);
+            }else{
+
+            alert( xhr.status );
+        }
+  }); 
+  var url = "getSelectedDate.php?dateInfo="+dateInfo.value;
+//   console.log(url)
+  xhr.open("Get", url, true);
+  xhr.send( null );
+            }
+
         
     }
     load();

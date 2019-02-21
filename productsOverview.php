@@ -119,7 +119,7 @@ session_start();
             </ul>
             <form action="getSelectedDate.php" method="get"  >
                 <input type="hidden" name="dateInfo" id="dateInfo">
-                <input type="submit" value="">
+                <!-- <input type="submit" value="nj/4"> -->
             </form>
             <!-- 月曆 -->
             <!-- 洲別 -->
@@ -182,6 +182,7 @@ session_start();
 
 <!-- 點按篩選BAR取值並篩選-->
 <script>
+
 clickCont = document.querySelectorAll('input[name="contType"]+label');
 clickLevel = document.querySelectorAll('input[name="levelType"]+label');
 clickBudget = document.querySelectorAll('input[name="budgetType"]+label');
@@ -247,7 +248,7 @@ function getFilter(e){
             ?>
             <!-- 1個商品卡 -->
             <div class="pro-item" >
-                <a href="products.html">
+                <a href="product.php?<?php echo $prodRow['pdkNo'];?>">
                     <div class="pro-item-pic">
                         <!-- <img src="img/mt/<?php// echo $prodRow["pdkNo"]?>/1.jpg" alt="EBC"> -->
                     </div>
@@ -327,7 +328,7 @@ function getFilter(e){
             while($prodRowRe = $recent->fetch(PDO::FETCH_ASSOC)){
             ?>
             <div class="pro-item pro-item-three">
-                <a href="products.html">
+                <a href="product.php?<?php echo $prodRow['pdkNo'];?>">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <!-- <img src="img/mt/<?php //echo $prodRowRe['pdkNo'];?>/1.jpg" alt="EBC"> -->
                     </div>

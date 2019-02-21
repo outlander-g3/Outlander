@@ -254,6 +254,7 @@ function register() {
     $('.jpCont--mail span').remove();
     $('.jpCont--psw:last-child span').remove();
     //檢查是否為空 或非mail
+    // if (memMail == '' || /^[^\s]+@[^\s]+\.[^\s]+$/.test(memMail) == false) {
     if (memMail == '' || memMail.search('@') == -1) {
         let error = `<span>*請輸入電子信箱</span>`;
         $('.jpCont--mail').append(error);

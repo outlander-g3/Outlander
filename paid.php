@@ -5,6 +5,7 @@ session_start();
 $memMail=$_SESSION['memMail'];
 $memName=$_SESSION['memName'];
 $memTel=$_SESSION['memTel'];
+$ordPrice=$_REQUEST['ordPrice'];
 try {
     require_once("connectDb.php");
     //啟動交易
@@ -32,7 +33,7 @@ try {
     $order->bindValue(':pdNo',$_SESSION['pdNo']);
     $order->bindValue(':ordDate',date("Y-m-d"));
     $order->bindValue(':people',(string)count($_REQUEST['psgName']));
-    $order->bindValue(':ordPrice',$_SESSION['pdkPrice']);
+    $order->bindValue(':ordPrice',$ordPrice);
     $order->bindValue(':ordStart',$ordStart);
     $order->bindValue(':ordEnd',$ordEnd);
     $order->bindValue(':ordStatus','0'); //下架

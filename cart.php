@@ -11,7 +11,7 @@
     $_SESSION['pdkImg']='img/fuji.jpg';
     $_SESSION['pdStart']='2019/03/08';
     $_SESSION['pdEnd']='2020/01/01';
-    $_SESSION['pdkPrice']=999999;
+    $_SESSION['pdkPrice']='999,999';
     $_SESSION['where']=$_SERVER['PHP_SELF'];
     $_SESSION['pdkNo']=1;
     $_SESSION['pdNo']=2;
@@ -352,9 +352,14 @@
                                         </label>
                                     </li>
                                     <li>
-                                        <label for="">
+                                        <label for="credit">
                                             <span>信用卡卡號</span>
-                                            <span><input type="text" name="" maxlength="16" ></span>
+                                            <span id="credit">
+                                                <input type="text" name="credit" maxlength="4" class="credit">
+                                                <input type="password" name="credit" maxlength="4" class="credit">
+                                                <input type="password" name="credit" maxlength="4" class="credit">
+                                                <input type="text" name="credit" maxlength="4" class="credit">
+                                            </span>
                                         </label>
                                     </li>
                                     <li>
@@ -376,7 +381,7 @@
                                                     <option value="11">11</option>
                                                     <option value="12">12</option>
                                                 </select>
-                                                <i class="material-icons">keyboard_arrow_down</i>
+                                                <!-- <i class="material-icons">keyboard_arrow_down</i> -->
                                             </label>
                                             <label for="year" class="ctCredit__select">
                                                 <select name="year" id="year" class="ctCredit__select--year" value="0">
@@ -390,7 +395,7 @@
                                                     <option value="2025">2025</option>
                                                     <option value="2026">2026</option>
                                                 </select>
-                                                <i class="material-icons">keyboard_arrow_down</i>
+                                                <!-- <i class="material-icons">keyboard_arrow_down</i> -->
                                             </label>
                                         </span>
                                     </li>
@@ -439,6 +444,7 @@
                         <p>
                             <span>應付金額 NTD</span>
                             <span class="ctDetail__total--num"><?php echo $_SESSION['pdkPrice']?></span>
+                            <input type="hidden" id="ordPrice" value="0">
                         </p>
                     </div>
                 </div>

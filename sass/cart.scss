@@ -355,7 +355,7 @@ body>.row{
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
-                        left: -10px;
+                        left: -21px;
                         background-color: $color-white;
                         @include rwd(mobile){
                             position: fixed;
@@ -570,6 +570,10 @@ body>.row{
                 //     width: 180px;
                 // }
                     box-sizing: border-box;
+                    &.credit{
+                        width: 38px;
+                        padding: 0 2px;
+                    }
                 }
                 .ctCredit__select{
                     position: relative;
@@ -579,11 +583,11 @@ body>.row{
                         overflow: auto;
                         display: inline-block;
                         line-height: 32px;
-                        border:1px solid $color-btn-main;
+                        // border:1px solid $color-btn-main;
                         border-radius: 16px;              
-                        appearance:none;
-                        -moz-appearance:none;
-                        -webkit-appearance:none;
+                        // appearance:none;
+                        // -moz-appearance:none;
+                        // -webkit-appearance:none;
                         // opacity: 0;
                         background-color: $color-white;
                         cursor: pointer;
@@ -595,22 +599,22 @@ body>.row{
                         // @include ctBorder();
                         text-shadow: none;
     
-                        &+i{
-                            position: absolute;
-                            // top: 2px;
-                            cursor: pointer;
-                            top: 0;
-                            right:0;
-                            color: $color-white;
-                            background-color: $color-btn-main;
-                            display: inline-block;
-                            width: 28px;
-                            // height: 32px;
-                            text-align: center;
-                            border-radius: 0 16px 16px 0;
-                            font-size: 26px;
-                            line-height: 32px;
-                        }
+                        // &+i{
+                        //     position: absolute;
+                        //     // top: 2px;
+                        //     cursor: pointer;
+                        //     top: 0;
+                        //     right:0;
+                        //     color: $color-white;
+                        //     background-color: $color-btn-main;
+                        //     display: inline-block;
+                        //     width: 28px;
+                        //     // height: 32px;
+                        //     text-align: center;
+                        //     border-radius: 0 16px 16px 0;
+                        //     font-size: 26px;
+                        //     line-height: 32px;
+                        // }
                     }
                 }
                 

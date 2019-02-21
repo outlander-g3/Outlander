@@ -47,18 +47,22 @@ $desktop: 1200px;
         @include pTop(5);
         span{
             margin-right: 20px;
+            @include rwd(mobile){
+                @include mRight(6);
+            }
         }
         input{
             width: 166px;
             height: 32px;
             @include br4();
-            // @include pTop(5);
+            @include mTop(5);
             // @include rwd(medium){
             //     width: 120px;
             // }
             // @include rwd(mobile){
             //     width: 180px;
             // }
+            box-sizing: border-box;
         }
         // &:not(:first-child){
         //     @include pTop(5);

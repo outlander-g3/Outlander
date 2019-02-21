@@ -159,30 +159,44 @@ window.addEventListener("load", () => {
             $('#date-text').removeClass('expanded');
             document.querySelector("#date").value = datevalue;
             
-            //抓出點選的日期
+
+            /////////抓出點選的日期用ajax撈資料
             dateInfo = document.getElementById('dateInfo');
-            dateInfo.addEventListener('click',getDate);
+            dateInfo.value=datevalue;
+            console.log("111",dateInfo.value);
+            if(datevalue!="請選擇日期"){
+                 getDate();
+            }
             function getDate(){
-                // console.log(123);
-                dateInfo.value = datevalue;
-                // console.log(dateInfo.value);
                 var xhr = new XMLHttpRequest();
                 xhr.addEventListener('load',(e)=>{
-                if( xhr.status == 200 ){                      
+                if( xhr.status == 200 ){
+                document.getElementById('mtmtmt').style.display="none";
+                document.getElementById('textChange').innerText="篩選結果";                       
                 document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
-                // console.log("iiii",dateInfo.value);
-            }else{
-
+                for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
+                document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');//拿掉熱門標籤
+            }
+        }else{
             alert( xhr.status );
-        }
+       }
   }); 
-  var url = "getSelectedDate.php?dateInfo="+dateInfo.value;
-//   console.log(url)
+  var url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
+  console.log(url)
   xhr.open("Get", url, true);
   xhr.send( null );
-            }
+            
+}
+                
+           
 
-        
+
+            
+
+
+
+
+
     }
     load();
 })

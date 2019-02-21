@@ -90,7 +90,7 @@ session_start();
         <div class="drop-flex">
             <!-- 月曆 -->
             
-            <ul class="datecont">
+            <ul class="datecont" id="fullDate">
                 <li><input id="date" type="text" value="">
                     <span id="date-text">
                         <label id="date-label">請選擇日期</label>
@@ -182,7 +182,6 @@ session_start();
 
 <!-- 點按篩選BAR取值並篩選-->
 <script>
-
 clickCont = document.querySelectorAll('input[name="contType"]+label');
 clickLevel = document.querySelectorAll('input[name="levelType"]+label');
 clickBudget = document.querySelectorAll('input[name="budgetType"]+label');
@@ -255,11 +254,17 @@ function getFilter(e){
                     <h4> <?php echo $prodRow["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
                         <p>評價：</p>
+                        <?php 
+                        for($i=0; $i<floor($prodRow['avgRate']); $i++){ 
+                        ?>
+                        <img src="img/tree_j.png" alt="rate">
+                        <?php 
+                        } 
+                        if($prodRow['avgRate']*10%10 != 0){
+                        ?>
+                        <img src="img/tree_f_h.png" class="tree_half" alt="rate">
                         <?php
-                        for($i=0;$i<$prodRow["avgRate"];$i++){
-                         echo '<span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>';
-                        }
-                        ?>  
+                        }?>    
                     </div>
                     <p>天數：<?php echo $prodRow["day"];?></p>
                     <div class="pro-item-view-float">
@@ -335,13 +340,17 @@ function getFilter(e){
                     <h4><?php echo $prodRowRe["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
                         <p>評價：</p>
-                            <?php
-                                for($i=0;$i<$prodRowRe["avgRate"];$i++){
-                                ?>
-                            <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                            <?php
-                            }
-                            ?>
+                        <?php 
+                        for($i=0; $i<floor($prodRowRe['avgRate']); $i++){ 
+                        ?>
+                        <img src="img/tree_j.png" alt="rate">
+                        <?php 
+                        } 
+                        if($prodRowRe['avgRate']*10%10 != 0){
+                        ?>
+                        <img src="img/tree_f_h.png" class="tree_half" alt="rate">
+                        <?php
+                        }?>  
                     </div>
                     <p>天數：<?php echo $prodRowRe["day"];?></p>
                     <div class="pro-item-view-float">

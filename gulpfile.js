@@ -20,7 +20,7 @@ gulp.task('default', ['sass'], function () {
         // server: {
         //     //根目錄
         //     baseDir: "./",
-        //     index: "productsOverview.php"
+            index: "productsOverview.php",
         // }
         //推公版時請註打開打開打開這行不然會害到大家!!!!!!!!!
 

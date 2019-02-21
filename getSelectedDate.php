@@ -1,15 +1,24 @@
 <?php
 session_start();
+
 $dateInfo = $_REQUEST["dateInfo"];
-echo"日期:",$dateInfo;
+echo"原本:",$dateInfo,"<br>";
+$strtime = strtotime($dateInfo);
+
+$newDate=date('Y-m-d',$strtime );
+echo"日期str:",$newDate,"<br>";
+
+
 try{
     $dsn = "mysql:host=localhost;port=3306;dbname=cd105g3;charset=utf8";
     $user = "root";
     $password = "root";
     $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
     $pdo = new PDO( $dsn, $user, $password, $options);  
-    $sql = 'select * from product where pdStart >"2019-1-1"';
+    // $sql ="select b.pdStart, a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where b.pdStart > curdate() group by a.pdkNo order by b.pdStart";
+    $sql ="select b.pdStart, a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where b.pdStart > :pdStart group by a.pdkNo order by b.pdStart";
     $dateSearch = $pdo->prepare( $sql );
+    $dateSearch->bindParam(":pdStart",$newDate);
     $dateSearch->execute();
   
     if( $dateSearch->rowCount() == 0 ){ //找不到
@@ -18,6 +27,7 @@ try{
     }else{ //找得到
     //   取回一筆資料
         while($dateSearchRow = $dateSearch->fetch(PDO::FETCH_ASSOC)){
+          echo "資料庫取回:",$dateSearchRow["pdStart"],"<br>";
     //   送出html結構字串
       $html =
       "<div class='pro-item pro-item-three'>

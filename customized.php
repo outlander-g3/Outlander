@@ -129,7 +129,7 @@
                             <div id="cuCustom__sceneryZone--bg">
                                 <div class="cuCustom__sceneryZone">
                                     <div id="cuCustom__sceneryZone--OF" id="scroll">
-                                        
+                                        <input type="hidden" name="" id="cuReplace">
                                         <!-- <div class="cuCustom__sceneryItem cuScenery__Item1" id="cu_A1001">
                                             <div class="cuCustom__sceneryContent">
                                                 <p>安娜普那基地</p>
@@ -289,11 +289,13 @@
                     <!-- btn選擇日期及嚮導 -->
                     <input type="button" id="btn_cuBack" class="cuBtn" value="上一頁">
                     <!-- btn選擇日期及嚮導 -->
-                    <form action="cuBooking.php" method="post">
+                    <form action="cuBooking.php" method="post" id="cuBookingPhp">
                         <input type="hidden" name="pdkName" id="cuPdkName" value="">
                         <input type="hidden" name="pdkPrice" id="cuPdkPrice" value="">
                         <input type="hidden" name="gdNo1" id="cuGdNo" value="">
-                        <button type="submit" id="btn_cuBooking" class="cuBtn">訂購行程</button>
+                        <input type="hidden" name="day" id="cuDay" value="">
+                        <button type="button" id="btn_cuBooking" class="cuBtn">訂購行程</button>
+
                     </form>
                 </div>
             </section>

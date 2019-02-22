@@ -1,6 +1,6 @@
 var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
 var firstDate = new Date(2008,01,12);
-var secondDate = new Date(2008,01,22);
+var secondDate = new Date(2008,01,29);
 
 var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
 // alert(diffDays);
@@ -88,49 +88,81 @@ $('#cuForm__input--M').click(function (e2) {
     }
 
     $(this).toggleClass('expanded');
-    $('#mount-choose').prop('checked', true)
+    $('#mount-choose').prop('checked', true);
     $('#' + $(e2.target).attr('for')).prop('checked', true); 
     if($('#' + $(e2.target).attr('for')) != $('#mount-choose')){
         $('#mount-choose').css('display','none');
         // $('#cuForm__input--M label:first-child').remove();
     }
-    // if($(e2.target).text() != "請選擇山岳" && $('#cuForm__MCom').val($(e2.target).text()) != $(e2.target).text()){
-    //     var aaa= $('#cuForm__MCom').val($(e2.target).text());
-    //     console.log(aaa);
-    //     $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
-    // }
+
+
     // $('#cuForm__input--M')
     //將山名放進前台input:hidden
     $('#cuPdkName').val($(e2.target).text());
 
     //撈資料
     // console.log(pdkNo);
-    let pdkNo = $(e2.target).attr('for').substr(2,1);
-    if($(e2.target).text() != '' &&  $(e2.target).text() != '請選擇山岳'){
-        $.ajax({
-            type: 'get',
-            url: 'getScn.php',
-            data: 'pdkNo=' + pdkNo,
-            success: function (data) {
-                $('#cuCustom__sceneryZone--OF').append(data);
-                $('.cuCustom__sceneryItem').mouseover(showOption);
-                $('.cuCustom__sceneryItem').mouseout(closeOption);
-                $('.btn_cuAddScenery').click(function(){
-                    var cuSceneryInfo = $('#'+this.id+' input').val();
-                    addItem(this.id,cuSceneryInfo);
-                });                
-                $('.btn_cuWatchScenery').click(cuWatchScenery);
-                $('.btn_cuAddScenery--767').click(cuPickScenery);
-            }
-        });
-    }
+    // let pdkNo = $(e2.target).attr('for').substr(2,1);
+    // if($(e2.target).text() != '' &&  $(e2.target).text() != '請選擇山岳'){
+    //     $.ajax({
+    //         type: 'get',
+    //         url: 'getScn.php',
+    //         data: 'pdkNo=' + pdkNo,
+    //         success: function (data) {
+    //             $('#cuCustom__sceneryZone--OF').append(data);
+    //             $('.cuCustom__sceneryItem').mouseover(showOption);
+    //             $('.cuCustom__sceneryItem').mouseout(closeOption);
+    //             $('.btn_cuAddScenery').click(function(){
+    //                 var cuSceneryInfo = $('#'+this.id+' input').val();
+    //                 addItem(this.id,cuSceneryInfo);
+    //             });                
+    //             $('.btn_cuWatchScenery').click(cuWatchScenery);
+    //             $('.btn_cuAddScenery--767').click(cuPickScenery);
+    //         }
+    //     });
+    // }
 });
 
 $(document).click(function () {
     $('#cuForm__input--M').removeClass('expanded');
 });
+// $(document).ready(function()
+//     {
+//         setInterval(cuGetScn, 50000);
+//     }); 
+$('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
+    if($(e3.target).text() != "請選擇山岳" && $('#cuForm__MCom').val() != $(e3.target).text()){
+        var aaa= $('#cuForm__MCom').val($(e3.target).text());
+        // console.log(aaa);
+        $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
+        let pdkNo = $(e3.target).attr('for').substr(2,1);
+        if($(e3.target).text() != '' &&  $(e3.target).text() != '請選擇山岳'){
+            test();
+            $.ajax({
+                type: 'get',
+                url: 'getScn.php',
+                data: 'pdkNo=' + pdkNo,
+                success: function (data) {
+                    // $('#cuCustom__sceneryZone--OF').append(data);
+                    console.log(data);
+                    console.log($('#cuCustom__sceneryZone--OF').children());
+                    $('#cuCustom__sceneryZone--OF').children().replaceWith(data+'<input type="hidden" name="" id="cuReplace">');
+                    $('.cuCustom__sceneryItem').mouseover(showOption);
+                    $('.cuCustom__sceneryItem').mouseout(closeOption);
+                    $('.btn_cuAddScenery').click(function(){
+                        var cuSceneryInfo = $('#'+this.id+' input').val();
+                        addItem(this.id,cuSceneryInfo);
+                    });                
+                    $('.btn_cuWatchScenery').click(cuWatchScenery);
+                    $('.btn_cuAddScenery--767').click(cuPickScenery);
+                }
+            });
+        }
+    }
+})
+function test(){
 
-
+}
 /*用 O(id) 來取得getElementById 減少攏長*/ 
 function O(id){
     return (typeof id == 'object'? i : document.getElementById(id));
@@ -700,29 +732,33 @@ if(cuCustom__dropMask.hasChildNodes() == true){
 }
 //跳窗
 function cuBooking(){
-    alert();
-    
     //跳窗
     let jpjnBooking = O('jpjn__booking');
     //漏選的提示內容
     let jpContLost = O('jpCont__lost');
     // 嚮導欄
-    let cuGuideMaskC = document.querySelector('.cuGuide__mask--ctrl');
+    let cuGuideP = document.querySelector('.cu__guideList--picked h4');
 
     if(cuCustom__dropMask.children.length == 0 && cuCustom__dropMask.children.length != 0){
         //沒有選景點
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "「風景景點」";
-    }else if(cuGuideMaskC.children.length == 0 && cuCustom__dropMask.children.length != 0){
+        return;
+    }else if(cuGuideP.innerText == "" && cuCustom__dropMask.children.length != 0){
         //沒選嚮導
+        // alert(cuGuideP.innerText);
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "「行程嚮導」";
-    }else if(cuCustom__dropMask.children.length == 0 && cuGuideMaskC.children.length == 0){
+        return;
+    }else if(cuCustom__dropMask.children.length == 0 && cuGuideP.innerText == ""){
         //沒選景點＆嚮導
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "風景景點及行程嚮導";
+        return;
     }
-    // window.onbeforeunload = null; 
+    window.onbeforeunload = null; 
+    let cuBookingPhp =O('cuBookingPhp');
+    cuBookingPhp.submit();
 }
 
 //【跳窗】btn確認  清除全部資料
@@ -766,6 +802,7 @@ function cuJpcClose(){
     jpjnM.style.display = 'none';
     let jpjnB = O('jpjn__booking');
     jpjnB.style.display = 'none';
+
 }
 
 
@@ -1053,20 +1090,21 @@ window.addEventListener("load", () => {
             document.querySelector("#date-label").innerHTML =datevalue1+" ~ "+datevalue;
             $('#date-text').removeClass('expanded');
             document.querySelector("#date").value =datevalue1+datevalue;
-            // console.log(document.querySelector("#cuDate"));
+
+            //回傳時間
             document.querySelector("#pdStart").value =datevalue1.replace(/-/g,"/");
             document.querySelector("#pdEnd").value =datevalue.replace(/-/g,"/");
             document.querySelector("#cuStart").value =datevalue1;
             document.querySelector("#cuEnd").value =datevalue;
 
-            var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-            var firstDate = new Date(datevalue1);
-            var secondDate = new Date(datevalue);
-            
-            console.log(firstDate);
-            console.log(secondDate);
-            var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)+1));
-            console.log(diffDays);
+            //將天數丟進php session
+            const oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+            let firstDate = new Date(datevalue1);
+            let secondDate = new Date(datevalue);
+            let diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)-1));
+            O('cuDay').value = diffDays;
+
+
             //AJax撈嚮導資料
             if(document.querySelector("#date-label").innerText != "請選擇日期"){
                 var xhr = new XMLHttpRequest();

@@ -447,7 +447,6 @@ i{
 .cuCustom__sceneryItem{
     @include br4;
     background-size: cover;
-    margin: 10px;
     position: relative;
     color: $color-white;
 
@@ -468,11 +467,18 @@ i{
     @include small-pad-width() {
         width: 43%;
         height: 140px;
+        margin: 10px;
     }
     @include pad-width() {
-        width: 45%;
+        width: 55%;
         height: 180px;
+        margin: 10px auto;
     }
+    @include pc-width(){
+        width: 45%;
+        margin: 10px;
+    }
+   
     div:first-child{
         position: absolute;
         left: 10px;
@@ -828,6 +834,9 @@ i{
         width: 77.25%;
         display: flex;
         justify-content: center;
+    }  
+    @include pad-width(){
+        width: 77.25%;
     }  
 }
 .cu__guideListBg{

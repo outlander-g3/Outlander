@@ -38,7 +38,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>山行者</title>
+    <title>山行者 - 行程總覽</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -123,7 +123,7 @@
                         </table>
                     </span></li>
             </ul>
-            <form action="getSelectedDate.php" method="get"  >
+            <form method="get">
                 <input type="hidden" name="dateInfo" id="dateInfo">
                 <!-- <input type="submit" value="nj/4"> -->
             </form>
@@ -376,7 +376,7 @@ function tdclass(e) {
     budgetTypeObj = document.querySelector('input[name="budgetType"]:checked+label').previousElementSibling;
     // console.log("=====", budgetTypeObj.value); 
 //   var url = "getSelected.php?dateInfo="+dateInfo.value;
-  var url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
+  var url = "productsOverview_getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
   console.log("點日期:",url);
   xhr.open("Get", url, true);
   xhr.send( null );
@@ -439,7 +439,7 @@ function getFilter(e){
           alert( xhr.status );
        }
   }); 
-  url = "getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
+  url = "productsOverview_getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
   console.log("點了其他:",url);
   xhr.open("Get", url, true);
   xhr.send( null );
@@ -777,11 +777,11 @@ function getFilter(e){
 <!-- 選擇日期 -->
 <!-- <script src="js/proview_date.js"></script> -->
 <!-- 風景卡片 -->
-<script src="js/viewcard.js"></script>
+<script src="js/productsOverview_viewcard.js"></script>
 <!-- 下拉式選單 -->
 <script src="js/productsOverview_dropdown.js"></script>
 <!-- 雪景 -->
-<!-- <script src="js/snow.js"></script> -->
+<!-- <script src="js/productsOverview_snow.js"></script> -->
 
 </body>
 </html>

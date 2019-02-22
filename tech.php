@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>山行者 - PHP模板</title>
+    <title>山行者 - 登山小技巧</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -174,49 +174,11 @@
     include_once('memLogin.php');
 ?>
 </body>
-<script>
-var sceneFront = document.getElementsByClassName('banner');
-var bg31 = document.getElementById('bg3-1');
-var bg32 = document.getElementById('bg3-2');
-var bg33 = document.getElementById('bg3-3');
-window.addEventListener('scroll',()=>{
-	var originTop_G=700;
-	var originTop_N=1000;
-	var originTop_T=1900;
-	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-	sceneFront[0].style.top = 0-(scrollTop*0.2) + "px";//banner 背面
-	sceneFront[1].style.top = 0-(scrollTop*0.5) + "px";//banner 正面
-	// bg3[0].style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
-	// bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
-	// bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
-	// bg3[2].style.top =originTop_T+(0-(scrollTop*0.1))+ "px";//熱帶林
-	bg31.style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
-	bg32.style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
-	bg33.style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
-	
 
-});
-window.addEventListener('load',()=>{
-	var originTop_G=700;
-	var originTop_N=1000;
-	var originTop_T=1900;
-	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-	// sceneFront[0].style.top = 0-(scrollTop*0.2) + "px";//banner 背面
-	// sceneFront[1].style.top = 0-(scrollTop*0.5) + "px";//banner 正面
-	// // bg3[0].style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
-	// // bg3[1].style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
-	// // bg3[2].style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
-	// // bg3[2].style.top =originTop_T+(0-(scrollTop*0.1))+ "px";//熱帶林
-	bg31.style.top = originTop_G+( 0-(scrollTop*0.8)) + "px";//羊
-	bg32.style.top = originTop_N+(0-(scrollTop*0.5)) + "px";//針葉林
-	bg33.style.top = originTop_T+(0-(scrollTop*0.7)) + "px";//熱帶林
-	
-
-});
-</script>
 </html>
 
 
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>
+<script src="js/tech_scroll.js"></script>
 <!-- <script src="js/robot.js"></script> -->

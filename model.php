@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
     // include_once('connectDb.php'); //連線
     // include_once('session.php'); //判斷會員是否登入
 ?>

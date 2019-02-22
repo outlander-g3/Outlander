@@ -1,5 +1,4 @@
-
-    <div id="header-nav">
+ <div id="header-nav">
         <div id="header">
             <nav id="header-all">
                 <div id="header-left">
@@ -9,8 +8,11 @@
                         </a>
                     </div>
                     <div id="search">
-                        <input type="text" placeholder="搜索世界">
-                        <i class="material-icons">search</i>
+                        <form action="text.php">    
+                            <input id="searchinput" type="text" name="searchinput" placeholder="搜索世界" value="">
+                            <input id="searSub" type="submit" name="searSub" value="">
+                        </form>
+                        <i class="material-icons" id="material">search</i>
                     </div>
                 </div>
                 <div id="burger">
@@ -21,15 +23,15 @@
                     </div>
                 </div>
                 <ul id="burger-text">
-                    <li><a href="productsOverview.php">登山行程</a></li>
-                    <li><a href="customized.php">客製行程</a></li>
-                    <li><a href="journalsOverview.php">登山日誌</a></li>
-                    <li><a href="tech.php">登山技巧</a></li>
-                    <li v-if="web<768">機器人</li>
-                    <li v-if="web>768" id="memIcon"><a href="javascript:;"><i class="material-icons memIcon">person</i></a></li>
-                    <li v-if="web>768" id="Sign"><i class="fas fa-sign-out-alt logout"id="user-out"></i></li>
-                    <li v-if="web<768" id="member"><a href="javascript:;" class="memIcon">會員專區</a></li>
-                    <li v-if="web<768" id="Sign-m" class="logout">
+                    <li id="hd_productsOverview"><a href="productsOverview.php">登山行程</a></li>
+                    <li id="hd_customized"><a href="customized.php">客製行程</a></li>
+                    <li id="hd_journalsOverview"><a href="journalsOverview.php">登山日誌</a></li>
+                    <li id="hd_tech"><a href="tech.php">登山技巧</a></li>
+                    <li id="hd-robot">機器人</li>
+                    <li id="hd-memIcon"><a href="javascript:;"><i class="material-icons memIcon">person</i></a></li>
+                    <li id="hd-Sign"><i class="fas fa-sign-out-alt logout"id="user-out"></i></li>
+                    <li id="hd-member"><a href="javascript:;" class="memIcon">會員專區</a></li>
+                    <li id="Sign-m" class="logout">
                         <i class="fas fa-sign-out-alt user-out"></i>
                         <span id="user-out-m">登出</span>
                     </li>
@@ -47,69 +49,53 @@
                         <div id="filterListImg">
                             <div id="asia-img" class="in">
                                 <div class="filterListImg-img">
-                                    <img src="img/玉山/1.jpg">
+                                    <img class="imgmt" src="img/mt/1/1.jpg" alt="1" >
                                     <h3>玉山</h3>
                                 </div>
                                 <div class="filterListImg-img">
-                                    <img src="img/聖母峰/1.jpg">
+                                    <img class="imgmt" src="img/mt/2/1.jpg" alt="2">
                                     <h3>聖母峰</h3>
                                 </div>
                                 <div class="filterListImg-img">
-                                    <img src="img/富士山/1.jpg">
+                                    <img class="imgmt" src="img/mt/3/1.jpg" alt="3">
                                     <h3>富士山</h3>
                                 </div>
                             </div>
                             <div id="europe" class="in">
                                 <div class="filterListImg-img">
-                                    <img src="img/少女峰/1.jpg">
-                                    <h3>少女峰</h3>
-                                </div>
-                                <div class="filterListImg-img">
-                                    <img src="img/少女峰/2.jpg">
+                                    <img class="imgmt" src="img/mt/8/1.jpg" alt="8">
                                     <h3>少女峰</h3>
                                 </div>
                             </div>
                             <div id="africa" class="in">
                                 <div class="filterListImg-img">
-                                    <img src="img/吉利馬札羅/1.jpg">
-                                    <h3>吉利馬札羅</h3>
-                                </div>
-                                <div class="filterListImg-img">
-                                    <img src="img/吉利馬札羅/2.jpg">
-                                    <h3>吉利馬札羅</h3>
-                                </div>
-                                <div class="filterListImg-img">
-                                    <img src="img/馬丘比丘/1.jpg">
-                                    <h3>馬丘比丘</h3>
+                                    <img class="imgmt" src="img/mt/6/1.jpg" alt="6">
+                                    <h3>吉力馬札羅</h3>
                                 </div>
                             </div>
                             <div id="na" class="in">
                                 <div class="filterListImg-img">
-                                    <img src="img/聖克魯斯/1.JPG">
-                                    <h3>聖克魯斯</h3>
-                                </div>
-                                <div class="filterListImg-img">
-                                    <img src="img/優勝美地/1.jpg">
+                                    <img class="imgmt" src="img/mt/10/1.jpg" alt="10">
                                     <h3>優勝美地</h3>
                                 </div>
                             </div>
                             <div id="sa" class="in">
                                 <div class="filterListImg-img">
-                                    <img src="img/百內國家公園/1.jpg">
+                                    <img class="imgmt" src="img/mt/5/1.jpg" alt="5">
                                     <h3>百內國家公園</h3>
                                 </div>
                                 <div class="filterListImg-img">
-                                    <img src="img/百內國家公園/2.jpg">
-                                    <h3>百內國家公園</h3>
+                                    <img class="imgmt" src="img/mt/7/1.jpg" alt="7">
+                                    <h3>馬丘比丘</h3>
+                                </div>
+                                <div class="filterListImg-img">
+                                    <img class="imgmt" src="img/mt/9/1.jpg" alt="9">
+                                    <h3>瓦斯卡蘭</h3>
                                 </div>
                             </div>
                             <div id="oceania" class="in">
                                 <div class="filterListImg-img">
-                                    <img src="img/阿斯帕林/1.JPG">
-                                    <h3>阿斯帕林山</h3>
-                                </div>
-                                <div class="filterListImg-img">
-                                    <img src="img/阿斯帕林/2.jpg">
+                                    <img class="imgmt" src="img/mt/4/1.JPG" alt="4">
                                     <h3>阿斯帕林山</h3>
                                 </div>
                             </div>
@@ -119,3 +105,4 @@
             </nav>
         </div>
     </div>
+    

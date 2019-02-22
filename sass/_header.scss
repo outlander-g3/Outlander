@@ -13,6 +13,74 @@
     position: fixed;
     z-index: 997;
 }
+#searSub{
+    display: none;
+}
+#hd-robot{
+    display: block;
+}
+#hd-memIcon{
+    display: none;
+}
+#hd-Sign{
+    display: none;
+}
+#hd-member{
+    display: block;
+}
+#Sign-m{
+    display: none;
+}
+@media (min-width:768px){
+    #hd-robot{
+        display: none;
+    }
+    #hd-memIcon{
+        display: block;
+    }
+    #hd-member{
+        display: none;
+    }
+}
+
+// @media (min-width:768px){
+//     #hd-productsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd-customized::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd-journalsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd-tech::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+// }
 #header{
     margin: auto;
     width: 100%;
@@ -142,6 +210,9 @@
             left: 0;
             right: 0;
             display: none;
+            @media (min-width:768px) {
+                position: unset;
+            }
             i{
                 font-size: 1.5rem;
                 color: $color-header;

@@ -35,6 +35,7 @@ window.addEventListener('load', function () {
     window.addEventListener("click", (e) => {
         if (e.target.classList.contains('memIcon')) {
 
+            console.log('有點到');
             //先執行session.php echo回來判斷session存不存在
             $.ajax({
                 type: 'post',
@@ -42,12 +43,12 @@ window.addEventListener('load', function () {
                 success: function (data) {
                     if (data == 'login') {
                         // 等著塞會員中心php
-                        // location.href = 'member.php';
-                        alert('已登入');
+                        location.href = 'member.php';
+                        // alert('已登入');
                     }
                     else if (data == 'logout') {
                         winLogin.style.display = 'block';
-                        alert('未登入');
+                        // alert('未登入');
                     }
                 }
             });
@@ -59,15 +60,12 @@ window.addEventListener('load', function () {
     }, false);
 
 
-    //刷新是否吃到session
+    //刷新是否吃到session，有的話登出就要展示出來
     $.ajax({
         type: 'post',
         url: 'session.php',
         success: function (data) {
             if (data == 'login') {
-                // 等著塞會員中心php
-                // location.href = 'member.php';
-                alert('已登入');
                 $('#Sign').css('display', 'block');
                 $('#Sign-m').css('display', 'block');
             }
@@ -80,12 +78,19 @@ window.addEventListener('load', function () {
 function logout() {
     $.ajax({
         type: 'post',
-        url: 'logout.php',
+        url: 'login.php',
+        data: 'logout=1',
         success: function (data) {
             if (data == 'logout') {
                 alert('成功登出');
                 $('#Sign').css('display', 'none');
                 $('#Sign-m').css('display', 'none');
+                //看要不要跳回首頁（購物車要,會員要
+                let str = location.href;
+                if (str.search('cart') || str.search('member')) {
+                    location.href = 'index.php';
+                }
+
             }
         }
     });
@@ -111,13 +116,13 @@ function resetLogin() {
                             <div class="jpCont--mail">
                                 <label for="memMail">
                                     <i class="material-icons">person</i>
-                                    <input type="email" placeholder="請輸入信箱" id="memMail">
+                                    <input type="email" placeholder="請輸入信箱" id="memMail" maxlength="50" >
                                 </label>
                             </div>
                             <div class="jpCont--psw">
                                 <label for="memPsw">
                                     <i class="material-icons">lock</i>
-                                    <input type="password" placeholder="請輸入密碼" id="memPsw">
+                                    <input type="password" placeholder="請輸入密碼" id="memPsw" maxlength="20" >
                                 </label>
                             </div>
                         </div>
@@ -150,7 +155,6 @@ function login(e) {
         url: 'login.php',
         data: 'memMail=' + memMail + '&memPsw=' + memPsw,
         success: function (data) {
-            alert(data);
             console.log('memMail=' + memMail + '&memPsw=' + memPsw);
             if (data == 'none') {
                 let error = `<span>*請輸入已註冊的信箱</span>`;
@@ -182,7 +186,7 @@ function forgetPsw(e) {
             <div class="jpCont--mail">
             <label for="memMail">
             <i class="material-icons">person</i>
-            <input type="text" placeholder="請輸入信箱" id="memMail">
+            <input type="text" placeholder="請輸入信箱" id="memMail" maxlength="50" >
             </label>
             </div>`
     );
@@ -195,15 +199,11 @@ function forgetPsw(e) {
     $('#sendMail').click(function (e) {
         $('.jpCont--mail span').remove();
         let memMail = $('#memMail').val();
-        console.log(memMail);
-        // alert('有喔');
         $.ajax({
             type: 'post',
-            url: 'checkExist.php',
-            data: 'memMail=' + memMail,
+            url: 'login.php',
+            data: 'memMail=' + memMail + '&checkId=1',
             success: function (data) {
-
-                console.log('memMail=' + memMail);
                 if (data == 'none') {
                     let error = `<span>*請輸入已註冊的信箱</span>`;
                     $('.jpCont--mail').append(error);
@@ -232,7 +232,7 @@ function regist(e) {
         <div class="jpCont--psw">
             <label for="memPsw--check">
                 <i class="material-icons">lock</i>
-                <input type="password" placeholder="請再次輸入密碼" id="memPsw--check">
+                <input type="password" placeholder="請再次輸入密碼" id="memPsw--check" maxlength="20" >
             </label>
         </div>`);
     $('.jpBtn .btn-jump-right').remove();
@@ -251,6 +251,7 @@ function register() {
     $('.jpCont--mail span').remove();
     $('.jpCont--psw:last-child span').remove();
     //檢查是否為空 或非mail
+    // if (memMail == '' || /^[^\s]+@[^\s]+\.[^\s]+$/.test(memMail) == false) {
     if (memMail == '' || memMail.search('@') == -1) {
         let error = `<span>*請輸入電子信箱</span>`;
         $('.jpCont--mail').append(error);
@@ -266,8 +267,8 @@ function register() {
     else {
         $.ajax({
             type: 'post',
-            url: 'checkExist.php',
-            data: 'memMail=' + memMail,
+            url: 'login.php',
+            data: 'memMail=' + memMail + 'checkId=1',
             success: function (data) {
                 console.log(data);
                 if (data == 'exist') {
@@ -277,16 +278,14 @@ function register() {
                 else {
                     $.ajax({
                         type: 'post',
-                        url: 'regist.php',
-                        data: 'memMail=' + memMail + '&memPsw=' + memPsw,
+                        url: 'login.php',
+                        data: 'memMail=' + memMail + '&memPsw=' + memPsw + '&regist=1',
                         success: function () {
                             alert('成功註冊');
                             $('.memLogin').css('display', 'none');
                             $('#Sign').css('display', 'block');
                             $('#Sign-m').css('display', 'block');
                             resetLogin();
-                            //等著跳去會員中心
-                            // location.href = 'member.php';
                         }
                     });
                 }

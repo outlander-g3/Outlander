@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
-    
+
+
     $('#date-text').click(function (e) {
         e.preventDefault();
         e.stopPropagation();

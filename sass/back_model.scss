@@ -1,0 +1,260 @@
+@import "base/_reset.scss";
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+@import "mixin/_backmixin.scss";
+
+*{
+  font-family: "Microsoft JhengHei";
+  // outline: 1px solid #f00;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+button{
+  cursor: pointer;
+}
+.row{
+  display: flex;
+}
+//呼叫格線
+@include grid(24);
+
+//四個字的主按鈕
+.btn-main-s{
+  background-color:$color-main2;
+  @include btn();
+  @include btn-s();
+  border: none;
+}
+//六個字的主按鈕
+.btn-main-l{
+  background-color:$color-main2;
+  @include btn();
+  @include btn-l();
+}
+//四個字次按鈕
+.btn-sub-s{
+  background-color:$color-btn-main;
+  @include btn();
+  @include btn-s();
+}
+//六個字主按鈕
+.btn-sub-l{
+  background-color:$color-btn-main;
+  @include btn();
+  @include btn-l();
+}
+
+//陰影
+.shadow-text{
+  text-shadow: $shadow;
+} 
+.shadow-box{
+  box-shadow: $shadow;
+}
+
+body{
+  background-color: $color-main3;
+}
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+img{
+  width: 100%;
+  vertical-align: middle;
+}
+.logo{
+  padding: 20px;
+  .logoImg{
+    padding-right: 10px;
+  }
+  h1,h2{
+    @include f16;
+    color: $color-main2;
+    line-height: 22px;
+  }
+}
+
+.admin{
+  padding: 0px 20px;
+  #adminImg{
+    margin-right: 20px;
+    img{
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
+  p{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 50px;
+    color: #fff;
+  }
+}
+
+#menu{
+  padding: 50px 0px;
+  li{
+    padding: 5px 20px;
+    a{
+      color: #fff;
+      font-weight: bold;
+      line-height: 26px;
+    }
+    i{
+      font-size: 24px;
+      vertical-align: middle;
+      transition: .5s;
+    }
+  }
+  .submenu{
+    padding: 5px 20px;
+    background-color: rgba(255,255,255,.2);
+    display: none;
+  }
+}
+#signOut{
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 26px;
+  background: none;
+  border: none;
+  @include pLeft(20);
+}
+.main{
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #F4F7FA;
+  padding: 48px 20px;
+}
+#breadcrumb{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  font-size: .875rem;
+  color: $color-text;
+  i{
+    font-size: .875rem;
+    vertical-align: top;
+  }
+  a{
+    color: $color-text;
+  }
+  #currentLoc{
+    color: $color-main2;
+    font-weight: bold;
+  }
+}
+.tablearea{
+  @include pTop(20);
+  color: $color-text;
+  line-height: 24px;
+  position: relative;
+  .tab{
+    font-size: 0px;
+    .tablinks{
+      font-size: 16px;
+      color: $color-text;
+      text-align: center;
+      padding: 10px 28px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px 4px 0 0;
+      &.active{
+        background-color: $color-main1;
+        color: #fff;
+        border: 1px solid $color-main1;
+      }
+    }
+  }
+  #addItem{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  table{
+    width: 100%;
+    tr{
+      th{
+        background-color: $color-white;
+        font-weight: bold;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      td{
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+      }
+      a,button{
+        display: inline-block;
+        padding: 0 10px;
+        border: none;
+        background: none;
+      }
+      .edit,
+      .edit i{
+        color: $color-text;
+      }
+      .delete,
+      .delete i{
+        color: $color-attention;
+      }
+    }
+  }
+  .tabcontent{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+}
+.editArea{
+  width: 910px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  color: $color-text;
+  line-height: 36px;
+  background-color: $color-white;
+  label{
+    display: block;
+    text-align: right;
+    @include mRight(10);
+  }
+  input,
+  select,
+  textarea{
+    display: inline-block;
+    padding: 4px;
+    margin: 2px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+}
+.confirmArea{
+  padding: 20px 10px;
+  .btn{
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    color: #fff;
+    border: none;
+    &.btnCancel{
+      background-color: $color-attention;
+    }
+    &.btnSubmit{
+      background-color: $color-main2;
+    }
+    & + .btn{
+      margin-left: 15px;
+    }
+  }
+
+}

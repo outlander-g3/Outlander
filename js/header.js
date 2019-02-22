@@ -3,9 +3,26 @@ window.addEventListener("load", () => {
     window.addEventListener("resize", () => {
         web = window.innerWidth;
     })
+
+    //搜尋用js
+    $(".imgmt").click((e)=>{
+            // console.log(e.target.nextSibling.nextSibling.innerText);
+            document.querySelector("#searchinput").value=e.target.nextSibling.nextSibling.innerText;
+            document.querySelector("#searSub").value = $(e.target).attr("alt");
+            // console.log( document.querySelector("#searSub").value);
+            
+    })
+    $("#material").click(()=>{
+        if(document.querySelector("#searchinput").value==""){
+            alert("請輸入關鍵字");
+        }else{
+            open("text.php?searSub="+document.querySelector("#searSub").value+"&searchinput="+document.querySelector("#searchinput").value);
+        }
+    })
+    
     // 漢堡設定
     var cl = false;
-    var burger = new Vue({
+    var burger = new Vue({  
         el: "#burger-all",
         methods: {
             bur() {

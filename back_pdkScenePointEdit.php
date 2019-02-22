@@ -23,7 +23,7 @@ session_start();
   <script src="js/jquery-3.3.1.min.js"></script>
 
   <!-- 可自行更動區塊 -->
-  <title>山行者後台 - PHP模板</title>
+  <title>山行者後台 - 編輯行程景點</title>
   <!-- 可自行更動區塊 -->
 
 <!-- ===========================自己的css開始======================= -->
@@ -45,7 +45,7 @@ session_start();
             <i class="material-icons">keyboard_arrow_right</i>
             <a href="back_pdk.php">行程種類</a>
             <i class="material-icons">keyboard_arrow_right</i>
-            <span id="currentLoc">編輯景點</span>
+            <span id="currentLoc">編輯行程景點</span>
           </div>
           <form>
             <div class="editArea">

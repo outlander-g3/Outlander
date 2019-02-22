@@ -2,6 +2,15 @@
 session_start();
 
 //===========================自己的php開始=======================
+try{
+    require_once('connectDb.php');
+    $sql= "select * from productkind where pdkName <> '其他' ";
+    $pdk = $pdo -> query($sql);
+} catch (PDOException $e) {
+    echo "錯誤 : ", $e -> getMessage(), "<br>";
+    echo "行號 : ", $e -> getLine(), "<br>";
+}
+    
 
 
 
@@ -23,7 +32,7 @@ session_start();
   <script src="js/jquery-3.3.1.min.js"></script>
 
   <!-- 可自行更動區塊 -->
-  <title>山行者後台 - PHP模板</title>
+  <title>山行者後台 - 行程種類</title>
   <!-- 可自行更動區塊 -->
 
 <!-- ===========================自己的css開始======================= -->
@@ -51,7 +60,7 @@ session_start();
               <button class="tablinks" value="viewList">行程景點清單</button>
               <button class="tablinks" value="itineraryView">景點</button>
             </div>
-            <a href="back_pdk.php" id="addItem" class="btn-main-s">新增項目</a>
+            <a href="javascript:;" id="addItem" class="btn-main-s">新增項目</a>
             <div id="itineraryType" class="tabcontent active">
               <table>
                 <tr>
@@ -61,36 +70,35 @@ session_start();
                   <th class="col-5">行程種類狀態</th>
                   <th class="col-5">處理</th>
                 </tr>
+        <?php	
+            while($pdkRow = $pdk->fetch(PDO::FETCH_ASSOC)){
+            ?>
                 <tr>
-                  <td class="col-3">10001</td>
-                  <td class="col-8">優勝美地-美國西部國家公園健行</td>
-                  <td class="col-3">1.官方</td>
-                  <td class="col-5">2.已上架</td>
+                  <td class="col-3"><?php echo $pdkRow['pdkNo']; ?></td> 
+                  <td class="col-8"><?php echo $pdkRow['pdkName']; ?></td>
+                  <td class="col-3"><?php  if($pdkRow['pdkType']==1){
+                      echo "1.官方";
+                  }else{
+                      echo "2.客製";
+                  }
+                  ;?>
+                  </td>
                   <td class="col-5">
-                    <a href="back_pdkEdit.php"><i class="edit material-icons">edit</i></a>
+                  <?php  if($pdkRow['pdkStatus']==1){
+                      echo "已上架";
+                  }else{
+                      echo "未上架";
+                  }
+                  ;?>
+                  </td>
+                  <td class="col-5">
+                    <a href="back_pdkEdit.php?pdkNo=<?php echo $pdkRow["pdkNo"]?>"><i class="edit material-icons">edit</i></a>
                     <a href="#"><i class="delete material-icons">delete</i></a>
                   </td>
                 </tr>
-                <tr>
-                  <td class="col-3">10001</td>
-                  <td class="col-8">優勝美地-美國西部國家公園健行</td>
-                  <td class="col-3">1.官方</td>
-                  <td class="col-5">2.已上架</td>
-                  <td class="col-5">
-                    <a href="back_pdkEdit.php"><i class="edit material-icons">edit</i></a>
-                    <a href="#"><i class="delete material-icons">delete</i></a>
-                  </td>
-                </tr>
-                <tr>
-                    <td class="col-3">10001</td>
-                    <td class="col-8">優勝美地-美國西部國家公園健行</td>
-                    <td class="col-3">1.官方</td>
-                    <td class="col-5">2.已上架</td>
-                    <td class="col-5">
-                      <a href="back_pdkEdit.php"><i class="edit material-icons">edit</i></a>
-                      <a href="#"><i class="delete material-icons">delete</i></a>
-                    </td>
-                  </tr>
+            <?php 
+            }
+            ?>
               </table>
             </div>
             
@@ -110,7 +118,7 @@ session_start();
                   <td class="col-5">優勝美地瀑布</td>
                   <td class="col-3">2</td>
                   <td class="col-5">
-                    <a href=back_pdk_sceneEdit.php><i class="edit material-icons">edit</i></a>
+                    <a href=back_pdkSceneEdit.php><i class="edit material-icons">edit</i></a>
                     <a href="#"><i class="delete material-icons">delete</i></a>
                   </td>
                 </tr>
@@ -133,7 +141,7 @@ session_start();
                       <td class="col-8">2</td>
                       <td class="col-3">玉山</td>
                       <td class="col-5">
-                        <a href="back_pdk_ScenePointEdit.php"><i class="edit material-icons">edit</i></a>
+                        <a href="back_pdkScenePointEdit.php"><i class="edit material-icons">edit</i></a>
                         <a href="#"><i class="delete material-icons">delete</i></a>
                       </td>
                     </tr>

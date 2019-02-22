@@ -13,6 +13,12 @@ session_start();
         $products = $pdo -> query($sql);
         $sql="select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by a.pdkNo order by b.pdStart limit 6
         ";
+
+        
+        // if isset()
+        // $sql = ""
+        // $mt = 1;
+        
         ////以上是近期開團正確寫法
         //$sql="select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 6
         //";////以上是近期開團假寫法
@@ -388,7 +394,7 @@ load();
 
 
 
-//抓洲、難易度、預算
+//抓洲、難易度、預算篩選資料
 clickCont = document.querySelectorAll('input[name="contType"]+label');
 clickLevel = document.querySelectorAll('input[name="levelType"]+label');
 clickBudget = document.querySelectorAll('input[name="budgetType"]+label');

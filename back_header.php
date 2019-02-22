@@ -25,7 +25,7 @@
         <ul id="menu">
           <li id="menu__itinerary"><a href="javascript:;">行程管理 <i class="material-icons">keyboard_arrow_down</i></a></li>
             <ul class="submenu" id="submenu__itinerary">
-              <li><a href="back_productkind.php">行程種類管理</a></li>
+              <li><a href="back_pdk.php">行程種類管理</a></li>
               <li><a href="back_product.php">行程開團資訊管理</a></li>
               <li><a href="back_order.php">訂單管理</a></li>
               <li><a href="back_equip.php">裝備管理</a></li>

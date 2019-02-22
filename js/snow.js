@@ -1,9 +1,3 @@
-$('div .card-wrap').on('click',function(){
-    alert("!");
-});
-
-$('.snowCard').on("click",function(){
-    alert ("p");
     var c = document.getElementById('canv'), 
         $ = c.getContext("2d");
     var w = c.width = window.innerWidth, 
@@ -59,6 +53,6 @@ $('.snowCard').on("click",function(){
       c.width = w = window.innerWidth;
       c.height = h = window.innerHeight;
     }, false);
-});
+
 
 

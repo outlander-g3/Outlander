@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
     // include_once('connectDb.php'); //連線
     // include_once('session.php'); //判斷會員是否登入
@@ -18,7 +18,6 @@ session_start();
         // if isset()
         // $sql = ""
         // $mt = 1;
-        
         ////以上是近期開團正確寫法
         //$sql="select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 6
         //";////以上是近期開團假寫法
@@ -65,21 +64,21 @@ session_start();
                 <canvas id='canv'></canvas>
                 <img src="img/banner_0206.png" alt="train">
                 <div class="po-banner-des">
-                    <h2>不知道想去哪裡嗎?<?php ?></h2>
+                    <!-- <h2>不知道想去哪裡嗎?<?php ?></h2>
                     <h6>點選<a href="#" class="mode">湖泊</a>、<a href="#" class="mode">星空</a>、<a href="#"
-                            class="snowCard">雪地</a>三種情境模式進行行程篩選</h6>
+                            class="snowCard">雪地</a>三種情境模式進行行程篩選</h6> -->
                 </div>
             </div>
         </div>
-        <div class="po-btn-sub-s--flex">
+        <!-- <div class="po-btn-sub-s--flex">
             <div class="btn-sub-s shadow-box shadow-text">星空</div>
             <div class="btn-sub-s shadow-box shadow-text" class="snowCard">雪地</div>
             <div class="btn-sub-s shadow-box shadow-text">湖泊</div>
-        </div>
+        </div> -->
     </div>
 
     <!-- 以下為三張情境圖片 -->
-    <div class="po-wrap-mode">
+    <!-- <div class="po-wrap-mode">
         <div id="app" class="container">
             <card data-image="img/night.jpg" id="mode-pic">
                 <h2 slot="header">星空</h2>
@@ -91,7 +90,7 @@ session_start();
                 <h2 slot="header">湖泊</h2>
             </card>
         </div>
-    </div>
+    </div> -->
     <!------------------以下為篩選bar ------------------------>
     <div class="po-wrap-filter">
         <div class="drop-flex">
@@ -465,7 +464,7 @@ function getFilter(e){
             <div class="pro-item" >
                 <a href="product.php?<?php echo $prodRow['pdkNo'];?>">
                     <div class="pro-item-pic">
-                        <!-- <img src="img/mt/<?php// echo $prodRow["pdkNo"]?>/1.jpg" alt="EBC"> -->
+                        <img src="img/mt/<?php echo $prodRow["pdkNo"]?>/1.jpg" alt="EBC">
                     </div>
                     <h4> <?php echo $prodRow["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
@@ -473,12 +472,16 @@ function getFilter(e){
                         <?php 
                         for($i=0; $i<floor($prodRow['avgRate']); $i++){ 
                         ?>
-                        <img src="img/tree_j.png" alt="rate">
+                        <span class="tree_f">
+                            <img src="img/tree_j.png" alt="rate">
+                        </span>
                         <?php 
                         } 
                         if($prodRow['avgRate']*10%10 != 0){
                         ?>
-                        <img src="img/tree_f_h.png" class="tree_half" alt="rate">
+                        <span class="tree_f">
+                            <img src="img/tree_f_h.png" alt="rate">
+                        </span>
                         <?php
                         }?>    
                     </div>
@@ -551,7 +554,7 @@ function getFilter(e){
             <div class="pro-item pro-item-three">
                 <a href="product.php?<?php echo $prodRow['pdkNo'];?>">
                     <div class="pro-item-pic pro-item-pic-hot">
-                        <!-- <img src="img/mt/<?php //echo $prodRowRe['pdkNo'];?>/1.jpg" alt="EBC"> -->
+                        <img src="img/mt/<?php echo $prodRowRe['pdkNo'];?>/1.jpg" alt="EBC">
                     </div>
                     <h4><?php echo $prodRowRe["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
@@ -559,12 +562,16 @@ function getFilter(e){
                         <?php 
                         for($i=0; $i<floor($prodRowRe['avgRate']); $i++){ 
                         ?>
-                        <img src="img/tree_j.png" alt="rate">
+                        <span class="tree_f">
+                            <img src="img/tree_j.png" alt="rate">
+                        </span>
                         <?php 
                         } 
                         if($prodRowRe['avgRate']*10%10 != 0){
                         ?>
-                        <img src="img/tree_f_h.png" class="tree_half" alt="rate">
+                        <span class="tree_f">
+                            <img src="img/tree_f_h.png" alt="rate">
+                        </span>
                         <?php
                         }?>  
                     </div>
@@ -774,7 +781,7 @@ function getFilter(e){
 <!-- 下拉式選單 -->
 <script src="js/productsOverview_dropdown.js"></script>
 <!-- 雪景 -->
-<script src="js/snow.js"></script>
+<!-- <script src="js/snow.js"></script> -->
 
 </body>
 </html>

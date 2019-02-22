@@ -227,7 +227,7 @@
                         
                                     </span></li>
                                 </ul>
-                                <form action="getScn.php" method="get">
+                                <form action="cu_getScn.php" method="get">
                                     <input type="hidden" name="pdStart" value="" id="pdStart">
                                     <input type="hidden" name="pdEnd" value="" id="pdEnd">
                                     <input type="hidden" name="cuStart" value="" id="cuStart">
@@ -289,7 +289,7 @@
                     <!-- btn選擇日期及嚮導 -->
                     <input type="button" id="btn_cuBack" class="cuBtn" value="上一頁">
                     <!-- btn選擇日期及嚮導 -->
-                    <form action="cuBooking.php" method="post" id="cuBookingPhp">
+                    <form action="cu_Booking.php" method="post" id="cuBookingPhp">
                         <input type="hidden" name="pdkName" id="cuPdkName" value="">
                         <input type="hidden" name="pdkPrice" id="cuPdkPrice" value="">
                         <input type="hidden" name="gdNo1" id="cuGdNo" value="">

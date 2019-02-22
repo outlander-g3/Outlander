@@ -106,7 +106,7 @@ $('#cuForm__input--M').click(function (e2) {
     // if($(e2.target).text() != '' &&  $(e2.target).text() != '請選擇山岳'){
     //     $.ajax({
     //         type: 'get',
-    //         url: 'getScn.php',
+    //         url: 'cu_getScn.php',
     //         data: 'pdkNo=' + pdkNo,
     //         success: function (data) {
     //             $('#cuCustom__sceneryZone--OF').append(data);
@@ -134,19 +134,20 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
     if($(e3.target).text() != "請選擇山岳" && $('#cuForm__MCom').val() != $(e3.target).text()){
         var aaa= $('#cuForm__MCom').val($(e3.target).text());
         // console.log(aaa);
-        $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
+        // $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
         let pdkNo = $(e3.target).attr('for').substr(2,1);
         if($(e3.target).text() != '' &&  $(e3.target).text() != '請選擇山岳'){
             test();
             $.ajax({
                 type: 'get',
-                url: 'getScn.php',
+                url: 'cu_getScn.php',
                 data: 'pdkNo=' + pdkNo,
                 success: function (data) {
                     // $('#cuCustom__sceneryZone--OF').append(data);
                     console.log(data);
                     console.log($('#cuCustom__sceneryZone--OF').children());
-                    $('#cuCustom__sceneryZone--OF').children().replaceWith(data+'<input type="hidden" name="" id="cuReplace">');
+                    // $('#cuCustom__sceneryZone--OF').children().replace('<input type="hidden" name="" id="cuReplace">',data+'<input type="hidden" name="" id="cuReplace">');
+                    $('#cuCustom__sceneryZone--OF').html(data);
                     $('.cuCustom__sceneryItem').mouseover(showOption);
                     $('.cuCustom__sceneryItem').mouseout(closeOption);
                     $('.btn_cuAddScenery').click(function(){
@@ -1120,7 +1121,7 @@ window.addEventListener("load", () => {
                         alert( xhr.status );
                     }
                 }
-                var url = "getGuide.php?cuStart=" + O('cuStart').value+"&cuEnd="+O('cuEnd').value;
+                var url = "cu_getGuide.php?cuStart=" + O('cuStart').value+"&cuEnd="+O('cuEnd').value;
                 xhr.open("Get", url, true);
                 xhr.send( null );
             }

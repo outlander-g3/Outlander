@@ -8,14 +8,14 @@ $('#cuForm__input--M label:not(:first-of-type)').css('display','none');
 $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
 $('#cuForm__input--C').click(function (e) {
     // alert(diffDays);
-    $('#cuForm__input--M label:not(:first-of-type)').css('display','none');
-    $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
+    
     e.preventDefault();
     e.stopPropagation();
     if($('.cuCustom__dropMask').children().length > 0){
         $('#jpjn__C').css('display','block');
     }
     $(this).toggleClass('expanded');
+    $('#contient-choose').prop('checked', true)
     $('#' + $(e.target).attr('for')).prop('checked', true);
     switch(e.target.innerText){
         case "亞洲" :
@@ -26,29 +26,44 @@ $('#cuForm__input--C').click(function (e) {
         
         break;
         case "歐洲" :
-        // $('#mount-choose').next().css('display','block');
+        $('#cuForm__input--M label:not(:first-of-type)').css('display','none'); 
+        $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
+        $('#mount-choose').next().css('display','block');
+        $('#mount-choose').prop('checked', true)
         $('#mt8').next().css('display','block');
         
         break;
         case "非洲" :
-        // $('#mount-choose').next().css('display','block');
+        $('#cuForm__input--M label:not(:first-of-type)').css('display','none'); 
+        $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
+        $('#mount-choose').next().css('display','block');
+        $('#mount-choose').prop('checked', true)
         $('#mt6').next().css('display','block');
         
         break;
         case "北美洲" :
-        // $('#mount-choose').next().css('display','block');
+        $('#cuForm__input--M label:not(:first-of-type)').css('display','none'); 
+        $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
+        $('#mount-choose').next().css('display','block');
+        $('#mount-choose').prop('checked', true)
         $('#mt10').next().css('display','block');
         
         break;
         case "南美洲" :
-        // $('#mount-choose').next().css('display','block');
+        $('#cuForm__input--M label:not(:first-of-type)').css('display','none'); 
+        $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
+        $('#mount-choose').next().css('display','block');
+        $('#mount-choose').prop('checked', true)
         $('#mt5').next().css('display','block');
         $('#mt7').next().css('display','block');
         $('#mt9').next().css('display','block');
         
         break;
         case "大洋洲" :
-        // $('#mount-choose').next().css('display','block');
+        $('#cuForm__input--M label:not(:first-of-type)').css('display','none'); 
+        $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
+        $('#mount-choose').next().css('display','block');
+        $('#mount-choose').prop('checked', true)
         $('#mt4').next().css('display','block');
         break;
 
@@ -79,16 +94,17 @@ $('#cuForm__input--M').click(function (e2) {
         $('#mount-choose').css('display','none');
         // $('#cuForm__input--M label:first-child').remove();
     }
-    if($(e2.target).text() != "請選擇山岳" && $('#cuForm__MCom').val($(e2.target).text()) != $(e2.target).text()){
-        var aaa= $('#cuForm__MCom').val($(e2.target).text());
-        console.log(aaa);
-        $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
-    }
+    // if($(e2.target).text() != "請選擇山岳" && $('#cuForm__MCom').val($(e2.target).text()) != $(e2.target).text()){
+    //     var aaa= $('#cuForm__MCom').val($(e2.target).text());
+    //     console.log(aaa);
+    //     $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
+    // }
     // $('#cuForm__input--M')
     //將山名放進前台input:hidden
     $('#cuPdkName').val($(e2.target).text());
 
     //撈資料
+    // console.log(pdkNo);
     let pdkNo = $(e2.target).attr('for').substr(2,1);
     if($(e2.target).text() != '' &&  $(e2.target).text() != '請選擇山岳'){
         $.ajax({
@@ -97,17 +113,14 @@ $('#cuForm__input--M').click(function (e2) {
             data: 'pdkNo=' + pdkNo,
             success: function (data) {
                 $('#cuCustom__sceneryZone--OF').append(data);
-                // $('.cuCustom__sceneryItem input').val(data);
-                // $('.cuCustom__sceneryItem').css("background-image","url(../img/mt/3/scn/3.jpg)");
                 $('.cuCustom__sceneryItem').mouseover(showOption);
                 $('.cuCustom__sceneryItem').mouseout(closeOption);
                 $('.btn_cuAddScenery').click(function(){
                     var cuSceneryInfo = $('#'+this.id+' input').val();
                     addItem(this.id,cuSceneryInfo);
-                });
+                });                
                 $('.btn_cuWatchScenery').click(cuWatchScenery);
-                // cuCustom__showOption[i].addEventListener("mouseover",showOption);
-                // cuCustom__showOption[i].addEventListener("mouseout",closeOption);
+                $('.btn_cuAddScenery--767').click(cuPickScenery);
             }
         });
     }
@@ -293,7 +306,6 @@ function cuWatchScenery(e){
 }
 
 function cuCloseScenery(e){
-    console.log(e.target);
     let  cuCustomDetailBg = document.querySelector('.cuCustom__detailBg');
     if(e.target == cuCustomDetailBg ){
         cuCustomDetailBg.style.display = 'none';
@@ -366,7 +378,7 @@ function addItem(itemId,itemValue){
 
 
 	var price = document.createElement('span');
-    price.innerText = itemValue.split('|')[2];
+    price.innerText = `$${itemValue.split('|')[2].toString().substring(0,itemValue.split('|')[2].toString().length-3)+","+itemValue.split('|')[2].toString().substring(itemValue.split('|')[2].toString().length-3,itemValue.split('|')[2].toString().length)}`;
     price.classList.add('cuCustom__price');
     
   
@@ -689,7 +701,7 @@ if(cuCustom__dropMask.hasChildNodes() == true){
 //跳窗
 function cuBooking(){
     alert();
-    window.onbeforeunload = null; 
+    
     //跳窗
     let jpjnBooking = O('jpjn__booking');
     //漏選的提示內容
@@ -710,22 +722,43 @@ function cuBooking(){
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "風景景點及行程嚮導";
     }
+    // window.onbeforeunload = null; 
 }
 
-//清除風景景點全部資料
+//【跳窗】btn確認  清除全部資料
 function cuClearItem(){
     cuJpcClose();
+
+    let mountChoose = O('mount-choose');
+    mountChoose.checked = true;
+   
+    //清除網頁的session
     sessionStorage.clear();
-    console.log(cuCustom__dropMask.children[0]);
-    let cuCustomDropMask=cuCustom__dropMask.children.length;
-    for(let i =0;i<cuCustomDropMask+1;i++){
-        cuCustom__dropMask.removeChild(cuCustom__dropMask.children[0])
+    
+    //讓價格跟數量歸零
+    let cuQuan = O('cuQuan');
+    cuQuan.innerText = '0';
+    let pdkPrice = O('pdkPrice');
+    pdkPrice.innerText = '0';
+    
+    //清除山岳風景列表裡的景點
+    let cuCustomSceneryZoneOF = O('cuCustom__sceneryZone--OF');
+    for(let j =0;j<cuCustomSceneryZoneOF.childNodes.length;j++){
+        cuCustomSceneryZoneOF.removeChild(cuCustomSceneryZoneOF.childNodes[j])
     }
+
+    //清除我的風景路線規劃裡的景點
+    let cuCustomDropMask = document.querySelector('.cuCustom__dropMask');
+    cuCustomDropMaskL = cuCustomDropMask.childNodes.length;
+    for(let i =0;i<cuCustomDropMaskL+1;i++){
+        cuCustomDropMask.removeChild(cuCustomDropMask.childNodes[0])
+    }
+  
     
 
 }
 
-//btn取消 並關掉視窗
+//【跳窗】btn取消 並關掉視窗
 function cuJpcClose(){
     let jpjnC = O('jpjn__C');
     jpjnC.style.display = 'none';
@@ -801,10 +834,10 @@ function init(){
     // }
 
     // 767以下點選景點
-    var btnCuAddScenery767 = document.getElementsByClassName('btn_cuAddScenery--767');
-    for(var m=0 ; m<btnCuAddScenery767.length;m++){
-        btnCuAddScenery767[m].addEventListener('click',cuPickScenery);
-    }
+    // var btnCuAddScenery767 = document.getElementsByClassName('btn_cuAddScenery--767');
+    // for(var m=0 ; m<btnCuAddScenery767.length;m++){
+    //     btnCuAddScenery767[m].addEventListener('click',cuPickScenery);
+    // }
 
     let btnCuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
     btnCuAddSceneryConfirm.addEventListener('click',cuConfirm);

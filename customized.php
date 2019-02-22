@@ -41,7 +41,7 @@
         <div class="cuProcess">
             <div class="cuProcess__first">
                 <div class="cuProcess__circle cuProcess__circle--done" id="cuProcess1">1</div>
-                <p>選擇行程</p>
+                <p>選擇風景</p>
             </div>
             <div class="cuProcess__line"></div>
             <div class="cuProcess__second">
@@ -120,8 +120,8 @@
                                 <input type="radio" name="mountType" value="優勝美地國家公園" id="mt10">
                                 <label for="mt10">優勝美地國家公園</label>
                             </span>
-                            <input type="hidden" value="" id="cuForm__MCom">
                         </form>
+                        <input type="hidden" value="" id="cuForm__MCom">
                             
                         <div id="cuCustom__zone">
                             <!-- 風景列表 -->
@@ -159,7 +159,7 @@
                     </div>
                     <!-- 調整風景順序 -->
                     <div class="cuCustom__dropZone">
-                        <span class="cuCustom__dropTell" >拖曳可以更改風景順序</span>
+                        <!-- <span class="cuCustom__dropTell" >拖曳可以更改風景順序</span> -->
                         <div class="cuCustom__dropMask">
                            
                         </div>
@@ -191,7 +191,7 @@
                         <div class="cuProcess cuProcess2">
                                 <div class="cuProcess__first">
                                     <div class="cuProcess__circle cuProcess__circle--done" id="cuProcess1_768">1</div>
-                                    <p>選擇行程</p>
+                                    <p>選擇風景</p>
                                 </div>
                                 <div class="cuProcess__line"></div>
                                 <div class="cuProcess__second">
@@ -302,7 +302,7 @@
         <!-- 跳窗（更改洲別警示） -->
         <div class="jpBase" id="jpjn__C">
             <div class="jpWin">
-                <div class="jpTitle"></div>
+                <div class="jpTitle">遺失提醒</div>
                 <div class="jpCont">重選洲別，將會遺失已安排的景點</div>
                 <div class="jnbtn__center">
                     <button class="jpbtn btn-sub-s" id="btnjpc__confirm">確認</button>
@@ -313,7 +313,7 @@
         <!-- 跳窗（更改山岳警示） -->
         <div class="jpBase" id="jpjn__M">
             <div class="jpWin">
-                <div class="jpTitle"></div>
+                <div class="jpTitle">遺失提醒</div>
                 <div class="jpCont">重選山岳，將會遺失已安排的景點</div>
                 <div class="jnbtn__center">
                     <button class="jpbtn btn-sub-s" id="btnjpm__confirm">確認</button>
@@ -335,7 +335,7 @@
         <!-- 跳窗（檢查訂購時資料是否完整） -->
         <div class="jpBase" id="jpjn__booking">
             <div class="jpWin">
-                <div class="jpTitle"></div>
+                <div class="jpTitle">遺漏提醒</div>
                 <div class="jpCont">請選擇<span id="jpCont__lost"></span></div>
                 <div class="jnbtn__center">
                     <button class="jpbtn btn-sub-s" id="btnjpb__confirm">確認</button>

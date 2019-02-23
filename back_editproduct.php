@@ -73,6 +73,7 @@ try{
             <?php if(isset($pdNo)){?>
             <input type="hidden" name="pdNo" value="<?php echo $pdNo; ?>">
             <?php } ?>
+            <!-- 有編號傳送到新增php -->
             <div class="editArea">
               <div class="row">
                 <div class="col-4">

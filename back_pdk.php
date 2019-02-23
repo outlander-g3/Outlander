@@ -164,7 +164,28 @@ try{
 </html>
 <script src="js/back_model.js"></script>
 <!-- ===========================自己的js開始======================= -->
+<script>
+  //only fu
+function clickDiffPage(e){
+  e.preventDefault;
+  let tablinkSelected = document.querySelector('.tablinks.active');
+  if(tablinkSelected.value == 'itineraryType'){
+    location.href = 'back_pdkEdit.php';
+  }else if(tablinkSelected.value == 'viewList'){
+    location.href = 'back_pdkScenePointEdit.php';
+  }else if(tablinkSelected.value == 'itineraryView'){
+    location.href = 'back_pdkSceneEdit.php';
+  }
+  console.log(tablinkSelected.value);
+}
 
+window.addEventListener("load", ()=>{
+  //only FU
+  addItem = document.getElementById("addItem");
+  addItem.addEventListener('click', clickDiffPage);
+})
+
+</script>
 
 
 

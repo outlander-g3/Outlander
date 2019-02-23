@@ -410,15 +410,16 @@ for(let i=0;i<clickBudget.length;i++){
 function getFilter(e){
     console.log("dateInfo.value:",dateInfo.value);
     contTypeObj = document.querySelector('input[name="contType"]:checked+label').previousElementSibling;
-    // console.log("....", contTypeObj.value);
+    
     levelTypeObj = document.querySelector('input[name="levelType"]:checked+label').previousElementSibling;
-    // console.log("------", levelTypeObj.value);
+    console.log("------", levelTypeObj.value);
     budgetTypeObj = document.querySelector('input[name="budgetType"]:checked+label').previousElementSibling;
-    // console.log("=====", budgetTypeObj.value);
-    // console.log("fff",e.target);
+    console.log("=====", budgetTypeObj.value);
+    console.log("fff",e.target);
 
     if(e.target.previousElementSibling.name == 'contType'){
         contTypeObj = e.target.previousElementSibling;
+        console.log("....", contTypeObj.value);
     }
     if(e.target.previousElementSibling.name == 'levelType'){
         levelTypeObj = e.target.previousElementSibling;

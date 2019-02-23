@@ -153,9 +153,9 @@ try{
                   <label for="pdkno">行程價格</label>
                 </div>
                 <div class="col-20">
-                  <input type="text" name="pdkPrice" required placeholder="請輸入價格" value="<?php if (isset($pdkNo)){
+                  <input type="text" name="pdkPrice"placeholder="請輸入價格" value="<?php if (isset($pdkNo)){
                     echo $pdkcheckedRow['pdkPrice'];
-                  }; ?>元">
+                    };?>元" required>
                 </div>
               </div>
               <!-- 圖片 -->
@@ -164,7 +164,7 @@ try{
                   <label for="">行程圖片列表</label>
                 </div>
                 <div class="col-20">
-                  <input type="file" name="pdkImg" placeholder="請選擇檔案" multiple required>
+                  <input type="file" name="pdkImg" placeholder="請選擇檔案" multiple>
                 </div>
               </div>
               <!-- 行程座標 -->
@@ -347,7 +347,7 @@ try{
                     if (isset($pdkNo)==false){
                       echo 'seclected';
                     }
-                    ?>>請選擇狀態
+                    ?>>請選擇類型
                     </option>
                     <option value="1" 
                     <?php
@@ -369,6 +369,17 @@ try{
                   </select>
                 </div>
               </div>
+              <!-- 行程簡介 -->
+              <div class="row">
+                <div class="col-4">
+                  <label for="pdkno">行程簡介</label>
+                </div>
+                <div class="col-20">
+                  <textarea name="pdkCont" cols="100" rows="10" value="" placeholder="請輸入內容"><?php if (isset($pdkNo)){
+                    echo $pdkcheckedRow['pdkCont'];
+                  }; ?></textarea>
+                </div>
+              </div>
               <!-- 費用資訊包含 -->
               <div class="row">
                 <div class="col-4">
@@ -378,8 +389,7 @@ try{
                   <textarea name="priceInfoIn" id="" cols="100" rows="10" placeholder="ex:嚮導，500萬責任險...請以逗號區別項目" 
                   value=""><?php if (isset($pdkNo)){
                     echo $pdkcheckedRow['priceInfoIn'];
-                  }?>
-                  </textarea>
+                  }?></textarea>
                 </div>
               </div>
               <!-- 費用資訊不包含 -->
@@ -390,8 +400,7 @@ try{
                 <div class="col-20">
                   <textarea name="priceInfoEx" id="" cols="100" rows="10" placeholder="ex:小費，護照費用...請以逗號區別項目" required><?php if (isset($pdkNo)){
                     echo $pdkcheckedRow['priceInfoEx'];
-                  }?>
-                  </textarea>
+                  }?></textarea>
                 </div>
               </div>
               <!-- 行程標籤 -->

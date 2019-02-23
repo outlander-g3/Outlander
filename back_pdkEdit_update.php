@@ -12,24 +12,26 @@ $mt = $_REQUEST['mt'];
 $pdkType = $_REQUEST['pdkType'];
 $priceInfoIn = $_REQUEST['priceInfoIn'];
 $priceInfoEx  = $_REQUEST['priceInfoEx'];
+$pdkCont = $_REQUEST['pdkCont'];
 
 //===========================自己的php開始=======================
 try{
   require_once('connectDb.php');
   if(isset($_REQUEST['pdkNo'])){
       $pdkNo = $_REQUEST['pdkNo'];
-      $sql = 'update productkind set pdkName=:pdkName,  
+      $sql = 'update productkind set pdkName=:pdkName, pdkCont=:pdkCont,  
       lat=:lat, lon=:lon, pdkStatus=:pdkStatus, level=:level, pdkPrice=:pdkPrice, 
       continent=:continent, day=:day, mt=:mt, pdkType=:pdkType, priceInfoIn=:priceInfoIn, priceInfoEx=:priceInfoEx
       where pdkNo=:pdkNo';
       $pdk = $pdo->prepare($sql);
       $pdk->bindValue(":pdkNo", $pdkNo);
   }else{
-      $sql = 'insert into productkind (pdkName,lat,lon,pdkStatus,level,pdkPrice,continent,day,mt,pdkType,priceInfoIn,priceInfoEx)
-      values(:pdkName, :lat, :lon, :pdkStatus, :level, :pdkPrice, :continent, :day, :mt, :pdkType, :priceInfoIn, :priceInfoEx)';
+      $sql = 'insert into productkind (pdkName,pdkCont,lat,lon,pdkStatus,level,pdkPrice,continent,day,mt,pdkType,priceInfoIn,priceInfoEx)
+      values( :pdkName,:pdkCont, :lat, :lon, :pdkStatus, :level, :pdkPrice, :continent, :day, :mt, :pdkType, :priceInfoIn, :priceInfoEx)';
       $pdk = $pdo->prepare($sql);
   }
    $pdk->bindValue(":pdkName",$pdkName);
+   $pdk->bindValue(":pdkCont",$pdkCont);
    $pdk->bindValue(":lat",$lat);
    $pdk->bindValue(":lon",$lon);
    $pdk->bindValue(":pdkStatus",$pdkStatus);
@@ -41,7 +43,6 @@ try{
    $pdk->bindValue(":pdkType",$pdkType);
    $pdk->bindValue(":priceInfoIn",$priceInfoIn);
    $pdk->bindValue(":priceInfoEx",$priceInfoEx);
-
     $pdk->execute();
 
 }catch (PDOException $e) {

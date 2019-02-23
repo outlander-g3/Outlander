@@ -729,10 +729,38 @@ if(cuCustom__dropMask.hasChildNodes() == true){
     window.onbeforeunload = function(){
         return 'Are you sure you want to leave?';
     };
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.status == 200 ){
+        }else{
+            alert( xhr.status );
+        }
+    }
+    var url = "cu_deletSession.php";
+    xhr.open("Get", url, true);
+    xhr.send( null );
     sessionStorage.clear();
 }
 //跳窗
 function cuBooking(){
+    // var xhr = new XMLHttpRequest();
+    //     xhr.onload=function (){
+    //         alert("dddd"+xhr.status);
+    //         alert(xhr.responseText);
+    //         if( xhr.status == 200 ){
+    //             if(xhr.responseText == 'login' ){
+    //             } else if (xhr.responseText == 'logout') {
+    //                 var winLogin = document.querySelector(".memLogin");
+    //                 winLogin.style.display = 'block';
+    //                 return;
+    //             }
+    //         }else{
+    //             alert( xhr.status );
+    //         }
+    //     }
+    //     var url = "session.php";
+    //     xhr.open("Get", url, true);
+    //     xhr.send( null );
     //跳窗
     let jpjnBooking = O('jpjn__booking');
     //漏選的提示內容
@@ -756,6 +784,26 @@ function cuBooking(){
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "風景景點及行程嚮導";
         return;
+    }else{
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            alert(xhr.status);
+            if( xhr.status == 200 ){
+                if(xhr.responseText == 'login' ){
+                } else if (xhr.responseText == 'logout') {
+                    var winLogin = document.querySelector(".memLogin");
+                    winLogin.style.display = 'block';
+                    alert(xhr.responseText);
+                    return ;
+                    // return false;
+                }
+            }else{
+                alert( xhr.status );
+            }
+        }
+        var url = "session.php";
+        xhr.open("Get", url, true);
+        xhr.send( null );
     }
     window.onbeforeunload = null; 
     let cuBookingPhp =O('cuBookingPhp');

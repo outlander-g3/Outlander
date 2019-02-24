@@ -131,25 +131,25 @@
             <!-- 洲別 -->
             <form class="" id="cont">
                 <span class="joForm__input">
-                    <input type="radio" name="contType" class="contType" value="choose" checked id="cont-choose">
+                    <input type="radio" name="contType" class="contType" value="choose" checked id="cont-choose" class="cc">
                     <label for="cont-choose">請選擇洲別</label>
 
-                    <input type="radio" name="contType" class="contType" value="1" id="cont-asia">
+                    <input type="radio" name="contType" class="contType" value="1" id="cont-asia" class="cc">
                     <label for="cont-asia">亞洲</label>
 
-                    <input type="radio" name="contType" class="contType" value="2" id="cont-europe">
+                    <input type="radio" name="contType" class="contType" value="2" id="cont-europe" class="cc">
                     <label for="cont-europe">歐洲</label>
 
-                    <input type="radio" name="contType" class="contType" value="3" id="cont-north">
+                    <input type="radio" name="contType" class="contType" value="3" id="cont-north" class="cc">
                     <label for="cont-north">非洲</label>
 
-                    <input type="radio" name="contType" class="contType" value="4" id="cont-south">
+                    <input type="radio" name="contType" class="contType" value="4" id="cont-south" class="cc">
                     <label for="cont-south">大洋洲</label>
 
-                    <input type="radio" name="contType" class="contType" value="5" id="cont-oceania">
+                    <input type="radio" name="contType" class="contType" value="5" id="cont-oceania" class="cc">
                     <label for="cont-cont-oceania">北美洲</label>
 
-                    <input type="radio" name="contType" class="contType" value="6" id="cont-africa">
+                    <input type="radio" name="contType" class="contType" value="6" id="cont-africa" class="cc">
                     <label for="cont-africa">南美洲</label>
                 </span>
             </form>
@@ -173,13 +173,16 @@
             <!-- 預算 -->
             <form class="" id="budget">
                 <span class="joForm__input">
-                    <input type="radio" name="budgetType" value="choose" checked="checked" id="bud-choose">
+                    <input type="radio" name="budgetType" value="choose" checked id="bud-choose" class="bb">
                     <label for="bud-choose">請選擇預算</label>
-                    <input type="radio" name="budgetType" value="1" id="cont-1">
+
+                    <input type="radio" name="budgetType" value="1" id="cont-1" class="bb">
                     <label for="cont-1">1萬以內</label>
-                    <input type="radio" name="budgetType" value="2" id="cont-2">
+
+                    <input type="radio" name="budgetType" value="2" id="cont-2" class="bb">
                     <label for="cont-2">1萬~5萬</label>
-                    <input type="radio" name="budgetType" value="3" id="cont-3">
+
+                    <input type="radio" name="budgetType" value="3" id="cont-3" class="bb">
                     <label for="cont-3">5萬~20萬</label>
                 </span>
             </form>

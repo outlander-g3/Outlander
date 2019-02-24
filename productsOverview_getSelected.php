@@ -53,7 +53,7 @@ try{
     //送出html結構字串
     $html =
     "<div class='pro-item pro-item-three'>
-            <a href='product.php?pdkNo=<?php echo $prodRow['pdkNo'];?>'>
+            <a href='product.php?pdkNo={$selectedRow['pdkNo']}>'>
                 <div class='pro-item-pic pro-item-pic-hot'>
                     <img src='img/mt/{$selectedRow['pdkNo']}/1.jpg' alt='EBC'>
                 </div>

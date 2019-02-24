@@ -15,14 +15,13 @@ gulp.task('sass', function () {
 });
 
 
-
 gulp.task('default', ['sass'], function () {
 
     browserSync.init({
         server: {
             //根目錄
             baseDir: "./",
-            index: "tech.php",
+            index: "tech.html",
         }
     });
 
@@ -35,3 +34,9 @@ gulp.task('default', ['sass'], function () {
 
 
 gulp.task('css', ['cssUrls']);
+
+
+
+
+
+

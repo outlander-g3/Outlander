@@ -15,54 +15,12 @@ html{
     }     
 }
 body{
+	height:100vh;
     *{
 		font-family: "微軟正黑體";
-		// 高寫100vh
+		// height:100vh;
     }
 }
-* { 
-    // outline: 1px solid blue; 
-    h1 {
-        color: #21a97e;
-        font-family: "微軟正黑體";
-    }
-    h2{
-        line-height: 1.6;
-        font-size:2.2rem;
-        font-weight: normal;
-        color: #ffffff;
-        font-family: "微軟正黑體";
-    }
-    h3{
-        font-size: 2rem;
-        font-weight: normal;
-        color: #ffffff;
-        line-height: 1.6;
-        font-family: "微軟正黑體";
-
-    }
-    h4{
-        font-size: 1.8rem;
-        line-height: 1.4;
-        color:#32545c;
-        font-family: "微軟正黑體";
-    }
-    h5{
-        font-size: 1.6rem; 
-        line-height: 1.4;
-        color: #ffffff;
-        font-family: "微軟正黑體";
-    }
-    p{
-        font-size:1.4rem;
-        line-height:1.6;
-        color:#5a5a5a;
-        // color: $color-text;
-        font-family: "微軟正黑體";
-    }
-    
-}
-
 .clearfix{
     clear:both;
 }
@@ -74,7 +32,11 @@ body{
 #wrapper {
 	position: relative;
 	max-width:2500px;
-	height:3500px;
+	width: 100%;
+	height:100vh;
+	margin: auto;
+	right:0;
+	left:0;
 }
 #title{
 	font-size: 24px;
@@ -94,11 +56,19 @@ body{
 .scene_back{
 	position: relative;
 	top:0;
+	@media screen and (max-width:768px){
+		background-color:green;
+		}
 }
 .banner{
 	position: absolute;
 	width: 100%;
+	top:0;
 	transition: .5s;
+	@media screen and (max-width:768px){
+		top:700px;
+
+		}
 }
 #banner_back{
 	top:0;
@@ -118,7 +88,11 @@ body{
 // 		font-size: 18px;
 // 		font-weight: bold;
 // 		}
-
+.ffff{
+	background-color:yellow;
+	width: 100%;
+	height: 30px;
+}
 
 
 
@@ -127,6 +101,25 @@ body{
 
 /* content */
 #content {
+	h1 {
+		line-height: 1.6;
+		font-size: 2.2rem;
+		color:$color-main2;
+		font-family: "微軟正黑體";
+		 }
+	h2{
+		line-height: 1.6;
+		font-size:2rem;
+		font-weight: normal;
+		color: $color-btn-main;
+		font-family: "微軟正黑體";
+		}
+	p{
+	 font-size:1.2rem;
+	 line-height:1.6;
+	 color: $color-text;
+	 font-family: "微軟正黑體";
+	}	 
 	z-index: 4;
 	position: relative;
 	padding: 0 10px;
@@ -134,7 +127,7 @@ body{
 	line-height: 1.7;
 	}
 	#content article {
-		width: 450px;
+		width: 38%;
 		@media screen and (max-width:767px){
 			width: 70%;
 		}
@@ -148,17 +141,22 @@ body{
 		#manned-flight {
 			position: absolute;
             top: 900px;
-            left:10%;
+            left:5%;
 			}
 		#frameless-parachute {
 			position: absolute;
 			top: 1800px;
-			right: 10%;
+			right: 5%;
 			}
+		#frameless-parachute-2{
+			position: absolute;
+			top: 2800px;
+			left: 5%;
+		}	
 		#english-channel {
 			position: absolute;
-            top:2800px;
-            left:10%;
+            top:3500px;
+            right:5%;
 			}
 			#content h1 {
 				margin: 0 0 25px 0;
@@ -204,32 +202,37 @@ body{
 	/* mountain */
 	
 	#bg3-1 {
-		width:55%;
+		width:60%;
 		position: absolute;
 		// top: 700px;
 		top:0;
 		right:0;
 		@media screen and (max-width:767px){
 			width:100%;
-			background-color: red;
-			height: 1000px;
 		};
 
 		}
 	#bg3-2 {
-		width:60%;
+		width:65%;
 		position: absolute;
 		// top:1400px;
 		top:0px;
 		left:-10%;
 		}
 	#bg3-3 {
+		width: 50%;
 		position: absolute;
 		// top: 1900px;
 		top:0;
 		right:0;
 		width: 55%;
 		}
+	#bg3-4{
+		position: absolute;
+		// top:500px;
+		left:-10%;
+		width: 62%;
+	}
 	img{
 		width: 100%;
 	}
@@ -246,41 +249,42 @@ body{
 /* midground (clouds) */
 #parallax-bg2 {
 	z-index: 2;
-	position: fixed;
-	left: 50%; /* align left edge with center of viewport */
+	// position: fixed;
+	// left: 50%; 
 	top: 0;
 	width: 1200px;
-	margin-left: -600px; /* move left by half element's width */
+	// margin-left: -600px; /* move left by half element's width */
 	}
 	#bg2-1 {
 		position: absolute;
-		top: 162px;
-		left:-500px;
+		top:400px;
+		
+		// left:-500px;
 		}
 	#bg2-2 {
 		position: absolute;
-		top: 300px;
-		left: 1150px;
+		// top: 300px;
+		// left: 1150px;
 		}
 	#bg2-3 {
 		position: absolute;
-		top: 600px;
-		left:200px;
+		top: 1500px;
+		right:-200px;
 		}
 	#bg2-4 {
 		position: absolute;
-		top: 1180px;
+		top:2200px;
 		left: -300px;
 		}
 	#bg2-5 {
 		position: absolute;
-		top: 900px;
-		left: 890px;
+		top: 3600px;
+		// left: 890px;
 		}
 /* background (clouds) */
 #parallax-bg1 {
 	z-index: 1;
-	position: fixed;
+	// position: fixed;
 	left: 50%; /* align left edge with center of viewport */
 	top: 0;
 	width: 1200px;
@@ -288,35 +292,25 @@ body{
 	}
 	#bg1-1 {
 		position: absolute;
-		top: 85px;
-		left: -270px;
+		// top: 85px;
+		// left: -270px;
 		}
 	#bg1-2 {
 		position: absolute;
-		top: 440px;
-		left: 795px;
+		// top: 440px;
+		// left: 795px;
 		}
 	#bg1-3 {
 		position: absolute;
-		top: 900px;
-		left: -220px;
+		// top: 900px;
+		// left: -220px;
 		}
 	#bg1-4 {
 		position: absolute;
-		top: 1020px;
-		left: 450px;
+		// top: 1020px;
+		// left: 450px;
 		}
-#footer{
-			width: 100%;
-			background: $color-header;
-			p{
-				line-height: 88px;
-				padding:0 10px;
-				font-size: 0.6rem;
-				text-align: center;
-				color: #f4f4f4;
-			}
-}
+
 //桌機 only
 // @media screen and (min-width:992px)
 

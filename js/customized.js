@@ -132,8 +132,8 @@ $(document).click(function () {
 //     }); 
 $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
     if($(e3.target).text() != "請選擇山岳" && $('#cuForm__MCom').val() != $(e3.target).text()){
-        var aaa= $('#cuForm__MCom').val($(e3.target).text());
-        // console.log(aaa);
+        $('#cuPdkName').val("【客製行程】"+$(e3.target).text());
+        console.log($('#cuPdkName').val());   
         // $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
         let pdkNo = $(e3.target).attr('for').substr(2,1);
         if($(e3.target).text() != '' &&  $(e3.target).text() != '請選擇山岳'){
@@ -144,8 +144,8 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
                 data: 'pdkNo=' + pdkNo,
                 success: function (data) {
                     // $('#cuCustom__sceneryZone--OF').append(data);
-                    console.log(data);
-                    console.log($('#cuCustom__sceneryZone--OF').children());
+                    // console.log(data);
+                    // console.log($('#cuCustom__sceneryZone--OF').children());
                     // $('#cuCustom__sceneryZone--OF').children().replace('<input type="hidden" name="" id="cuReplace">',data+'<input type="hidden" name="" id="cuReplace">');
                     $('#cuCustom__sceneryZone--OF').html(data);
                     $('.cuCustom__sceneryItem').mouseover(showOption);
@@ -787,13 +787,13 @@ function cuBooking(){
     }else{
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
-            alert(xhr.status);
+            // alert(xhr.status);
             if( xhr.status == 200 ){
                 if(xhr.responseText == 'login' ){
                 } else if (xhr.responseText == 'logout') {
                     var winLogin = document.querySelector(".memLogin");
                     winLogin.style.display = 'block';
-                    alert(xhr.responseText);
+                    // alert(xhr.responseText);
                     return ;
                     // return false;
                 }

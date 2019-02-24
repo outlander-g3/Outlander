@@ -1,10 +1,8 @@
 <?php
-    // include_once('connectDb.php'); //連線
-    // include_once('login.php'); //會員登入
+    include_once('connectDb.php'); //連線
+    include_once('login.php'); //會員登入
 
-    //要去抓選擇的開團資訊（圖,名稱,日期
 
-    //抓
 ?>
 
 
@@ -136,23 +134,20 @@
 
     <!-- 雲 -->
     <div class="wrap-cloud">
-        <div class="cl-1" id="c_1">
-            <img src="img/cloud-1" alt="cloud">
+        <div class="cl-1" >
+            <img src="img/cloud-1.png" id="c_1" alt="cloud">
         </div>
-        <div class="cl-1" id="c_2">
-            <img src="img/cloud-2.png" alt="cloud">
+        <div class="cl-1" >
+            <img src="img/cloud-2.png" id="c_2" alt="cloud">
         </div>
-        <div class="cl-1" id="c_3" >
-            <img src="img/cloud-3.png" alt="cloud">
+        <div class="cl-1">
+            <img src="img/cloud-3.png" id="c_3" alt="cloud">
         </div>
-        <div class="cl-1" id="c_4">
-            <img src="img/cloud-4.png" alt="cloud">
+        <div class="cl-1">
+            <img src="img/cloud-4.png" id="c_4" alt="cloud">
         </div>
-
-    </div>
+    </div> 
    
-
-
 
     <?
         echo $_SESSION['memName'];
@@ -161,7 +156,7 @@
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->
 <?php
-    // include_once('footer.php');
+    include_once('footer.php');
     // include_once('robot.php');
     // include_once('memLogin.php');
 ?>
@@ -171,7 +166,7 @@
 </html>
 
 
-<!-- <script src="js/common.js"></script> -->
-<!-- <script src="js/header.js"></script> -->
+<script src="js/common.js"></script>
+<script src="js/header.js"></script>
 <!-- <script src="js/robot.js"></script>  -->
 <script src="js/scroll_test.js"></script>

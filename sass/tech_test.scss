@@ -9,12 +9,28 @@
 body{
 	background-color: $color-white;
 }
+#banner_front{
+    position: absolute!important;
+}
 .wrap-all{
-    // height: 100vh;
+    height: 100vh;
     width: 100vw;
     max-width: 2500px;
     position: relative;
     top:60px;
+    img{
+        position: static!important;
+        @media (min-width:992px) {
+            position: absolute!important;
+        }
+    }
+    div{
+        position: static!important;
+        @media (min-width:992px) {
+            position: absolute!important;
+        }
+
+    }
 }
 .banner_pic_b{
     width:100vw;
@@ -45,7 +61,7 @@ body{
     }
    
     @media screen and (min-width:992px){
-        width: 40vw;
+        width: 45vw;
     }
 
     h1 {
@@ -90,13 +106,27 @@ body{
         width: 95vw;
     }
     @media screen and (min-width:992px){
-        width: 60vw;
+        width: 55vw;
     }
     img{
         width: 100%;
     }
 }
 .wrap-cloud{
+    position: absolute;
+    z-index: -3;
+    #c_1{
+        top:500px;
+    }
+    #c-2{
+        top:800px;
+    }
+    #c-3{
+        top:1500px;
+    }
+    #c-4{
+        top:2000px;
+    }
     @media screen and (max-width:992px){
     display:none; 
     }

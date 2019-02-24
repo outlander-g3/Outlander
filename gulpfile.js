@@ -21,7 +21,7 @@ gulp.task('default', ['sass'], function () {
         server: {
             //根目錄
             baseDir: "./",
-            index: "tech.html",
+            index: "tech_test.php",
         }
     });
 

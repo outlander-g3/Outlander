@@ -33,10 +33,8 @@ body{
 	position: relative;
 	max-width:2500px;
 	width: 100%;
-	height:100vh;
+	// height:100vh;
 	margin: auto;
-	right:0;
-	left:0;
 }
 #title{
 	font-size: 24px;
@@ -101,6 +99,9 @@ body{
 
 /* content */
 #content {
+	@media screen and (max-width:767px){
+		width: 100%;
+	}
 	h1 {
 		line-height: 1.6;
 		font-size: 2.2rem;
@@ -129,7 +130,7 @@ body{
 	#content article {
 		width: 38%;
 		@media screen and (max-width:767px){
-			width: 70%;
+			width: 100%;
 		}
 		}
 		#manned-flight ,
@@ -141,22 +142,36 @@ body{
 		#manned-flight {
 			position: absolute;
             top: 900px;
-            left:5%;
+			left:5%;
+			@media screen and (max-width:767px){
+			left: 0%;
+			}
 			}
 		#frameless-parachute {
 			position: absolute;
 			top: 1800px;
 			right: 5%;
+			@media screen and (max-width:767px){
+				right: 0%;
+				left:0%;
+				background-color:red;
+				}
 			}
 		#frameless-parachute-2{
 			position: absolute;
 			top: 2800px;
 			left: 5%;
+			@media screen and (max-width:767px){
+				left: 0%;
+				}
 		}	
 		#english-channel {
 			position: absolute;
             top:3500px;
-            right:5%;
+			right:5%;
+			@media screen and (max-width:767px){
+				left: 0%;
+				}
 			}
 			#content h1 {
 				margin: 0 0 25px 0;
@@ -167,7 +182,10 @@ body{
 		#about {
 			position: absolute;
             top: 2800px;
-            left:200px;
+			left:5%;
+			@media screen and (max-width:767px){
+				left: 0%;
+				}
             a{
 				color:rgb(117, 78, 78);
 				font-size: 1.6rem;
@@ -208,7 +226,7 @@ body{
 		top:0;
 		right:0;
 		@media screen and (max-width:767px){
-			width:100%;
+			width:80%;
 		};
 
 		}

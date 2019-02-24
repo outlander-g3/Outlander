@@ -84,10 +84,6 @@
 						攜帶氧氣筒（瓶）或攜帶式加壓袋、避免劇烈的活動、保溫、不要吸菸、
 						不要喝酒及服用鎮靜劑、吃高碳水化合物、避免吃產氣食物(如豆類或碳酸飲料)，
 						都可減輕或避免高山症的發生。</p>
-					<!-- <nav class="next-prev">
-						<hr />
-						<a class="next frameless-parachute" href="#frameless-parachute">Next</a>
-					</nav> -->
 				</article>
 				
 				<article id="frameless-parachute">

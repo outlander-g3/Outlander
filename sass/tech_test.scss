@@ -1,0 +1,123 @@
+@import "mixin/_mixin.scss";
+@import "base/_var.scss";
+
+// @import "base/_footer";
+// *{
+// 	outline: red 1px solid;
+// }
+
+body{
+	background-color: $color-white;
+}
+.wrap-all{
+    // height: 100vh;
+    width: 100vw;
+    max-width: 2500px;
+    position: relative;
+    top:60px;
+}
+.banner_pic_b{
+    width:100vw;
+    img{
+        width: 100%;
+        transition: .8s;
+    }
+}
+.banner_pic_f{
+    width: 100vw;
+    img{
+        width: 100%;
+        transition: .8s;
+        position: absolute;
+        top:0;
+    }
+}
+.tech_banner_wrap{
+    width: 100vw;
+    max-width: 2500px;
+    text-align: center;
+    position: relative;
+}
+.cont{
+    @media screen and (max-width:991px){
+        width: 95vw;
+        padding: 0 2.5vw 0 2.5vw;
+    }
+   
+    @media screen and (min-width:992px){
+        width: 40vw;
+    }
+
+    h1 {
+		line-height: 1.6;
+		font-size: 2.2rem;
+		color:$color-main2;
+        font-family: "微軟正黑體";
+        @media screen and (max-width:767px){
+        font-size: 1.8rem;
+        } 
+        }
+	h2{
+		line-height: 1.6;
+		font-size:2rem;
+		font-weight: normal;
+		color: $color-btn-main;
+        font-family: "微軟正黑體";
+        @media screen and (max-width:767px){
+            font-size: 1.2rem;
+            }
+		}
+	p{
+	 font-size:1.2rem;
+	 line-height:1.6;
+	 color: $color-text;
+     font-family: "微軟正黑體";
+     @media screen and (max-width:767px){
+        font-size: 1rem;
+        }
+    }	 
+  
+}
+#cont_a{
+    padding-top:17vh; 
+    @media screen and (min-width:992px){
+        padding-top: 30vh;
+    }
+}
+
+.pic-main{
+    @media screen and (max-width:991px){
+        width: 95vw;
+    }
+    @media screen and (min-width:992px){
+        width: 60vw;
+    }
+    img{
+        width: 100%;
+    }
+}
+.wrap-cloud{
+    @media screen and (max-width:992px){
+    display:none; 
+    }
+}
+
+
+
+//桌機 only
+// @media screen and (min-width:992px)
+
+//iPad+桌機
+// @media screen and (min-width:768px)
+
+//iPad+手機橫+手機直
+// @media screen and (max-width:991px)
+
+//手機橫+手機直
+// @media screen and (max-width:767px)
+
+//手機直
+// @media screen and (max-width:575px)
+
+//iPad only
+// @media screen and (min-width:768px) and (max-width:991px)

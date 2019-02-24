@@ -10,11 +10,7 @@ $strtime = strtotime($dateInfo);
 $newDate=date('Y-m-d',$strtime);
 // echo "轉字串:",$newDate,"<br>";
 try{
-  $dsn = "mysql:host=localhost;port=3306;dbname=cd105g3;charset=utf8";
-  $user = "root";
-  $password = "root";
-  $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-  $pdo = new PDO( $dsn, $user, $password, $options);  
+  require_once('connectDb.php');
   $sql = 'select a.*, avg(rate) avgRate 
   from productkind a join product b on a.pdkNo=b.pdkNo
   join `order` c on b.pdNo=c.pdNo
@@ -57,7 +53,7 @@ try{
     //送出html結構字串
     $html =
     "<div class='pro-item pro-item-three'>
-            <a href='products.html'>
+            <a href='product.php?pdkNo=<?php echo $prodRow['pdkNo'];?>'>
                 <div class='pro-item-pic pro-item-pic-hot'>
                     <img src='img/mt/{$selectedRow['pdkNo']}/1.jpg' alt='EBC'>
                 </div>

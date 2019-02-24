@@ -13,10 +13,11 @@ body{
     position: absolute!important;
 }
 .wrap-all{
-    height: 100vh;
+    // height: 100vh;
+    height:3000px;
     width: 100vw;
     max-width: 2500px;
-    position: relative;
+    // position: relative;
     top:60px;
     img{
         position: static!important;
@@ -118,13 +119,13 @@ body{
     #c_1{
         top:500px;
     }
-    #c-2{
-        top:800px;
+    #c_2{
+        top:1000px;
     }
-    #c-3{
+    #c_3{
         top:1500px;
     }
-    #c-4{
+    #c_4{
         top:2000px;
     }
     @media screen and (max-width:992px){

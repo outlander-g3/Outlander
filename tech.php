@@ -1,6 +1,7 @@
 <?php
-    include_once('connectDb.php'); //連線
-    include_once('login.php'); //會員登入
+
+    // include_once('connectDb.php'); //連線
+    // include_once('login.php'); //會員登入
 
 
 ?>
@@ -38,7 +39,7 @@
     ?>
 
 <!-- ===========================各分頁內容開始======================= -->
-    <div class="wrap-all">
+<div class="wrap-all">
         <div id="tech_banner_wrap">
             <div class="banner_pic_b">
                 <img id="banner_back" class="banner" src="img/banner_back.png">
@@ -129,29 +130,26 @@
         <div id="pic_t" class="pic-main">
             <img id="bg3-4" src="img/666.png" alt="tropical"/>
         </div>
-        
-    </div>
+        <!-- 雲 -->
+        <div class="wrap-cloud">
+            <div class="cl-1" >
+                <img src="img/cloud-1.png" id="c_1" alt="cloud">
+            </div>
+            <div class="cl-1" >
+                <img src="img/cloud-2.png" id="c_2" alt="cloud">
+            </div> 
+            <div class="cl-1">
+                <img src="img/cloud-3.png" id="c_3" alt="cloud">
+            </div> 
+            <div class="cl-1"> 
+                <img src="img/cloud-4.png" id="c_4" alt="cloud">
+            </div>
+        </div> 
+</div>
+    
+    
 
-    <!-- 雲 -->
-    <div class="wrap-cloud">
-        <div class="cl-1" >
-            <img src="img/cloud-1.png" id="c_1" alt="cloud">
-        </div>
-        <div class="cl-1" >
-            <img src="img/cloud-2.png" id="c_2" alt="cloud">
-        </div>
-        <div class="cl-1">
-            <img src="img/cloud-3.png" id="c_3" alt="cloud">
-        </div>
-        <div class="cl-1">
-            <img src="img/cloud-4.png" id="c_4" alt="cloud">
-        </div>
-    </div> 
-   
 
-    <?
-        echo $_SESSION['memName'];
-    ?>
 
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->

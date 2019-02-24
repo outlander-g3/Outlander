@@ -24,10 +24,10 @@ window.addEventListener("load", () => {
 		var cont_d = document.getElementById('cont_d');//闊葉
 
 		//改內容css
-		cont_a.style.cssText = "position:absolute;top:40" + "vh;" + "left:5" + "%";
-		cont_b.style.cssText = "position:absolute;top:160" + "vh;" + "right:5" + "%";
-		cont_c.style.cssText = "position:absolute;top:260" + "vh;" + "left:5" + "%";
-		cont_d.style.cssText = "position:absolute;top:350" + "vh;" + "right:5" + "%";
+		cont_a.style.cssText = "position:absolute;top:50" + "%;" + "left:5" + "%";
+		cont_b.style.cssText = "position:absolute;top:150" + "%;" + "right:5" + "%";
+		cont_c.style.cssText = "position:absolute;top:230" + "%;" + "left:5" + "%";
+		cont_d.style.cssText = "position:absolute;top:320" + "%;" + "right:5" + "%";
 
 		//改四張雲css
 		// c_1.style.cssText = "position:absolute;top:80" + "vh";
@@ -39,11 +39,11 @@ window.addEventListener("load", () => {
 		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 		var originTop_G = 700;
 		var originTop_N = 1300;
-		var originTop_T = 2000;
-		var originTop_W = 2500;
+		var originTop_T = 1800;
+		var originTop_W = 2300;
 		pic_g.style.cssText = "position:absolute;top:" + parseInt(originTop_G + (0 - (scrollTop * 0.2))) + "px;" + "right:10px";//草原
 		pic_n.style.cssText = "position:absolute;top:" + parseInt(originTop_N + (0 - (scrollTop * 0.3))) + "px;" + "left:10px";//針葉林
-		pic_k.style.cssText = "position:absolute;top:" + parseInt(originTop_T + (0 - (scrollTop * 0.5))) + "px;" + "right:10px";//檜木林
+		pic_k.style.cssText = "position:absolute;top:" + parseInt(originTop_T + (0 - (scrollTop * 0.4))) + "px;" + "right:10px";//檜木林
 		pic_t.style.cssText = "position:absolute;top:" + parseInt(originTop_W + (0 - (scrollTop * 0.2))) + "px;" + "leftt:10px";//闊葉林
 
 			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;

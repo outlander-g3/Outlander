@@ -133,7 +133,7 @@ $(document).click(function () {
 $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
     if($(e3.target).text() != "請選擇山岳" && $('#cuForm__MCom').val() != $(e3.target).text()){
         $('#cuPdkName').val("【客製行程】"+$(e3.target).text());
-        console.log($('#cuPdkName').val());   
+        // console.log($('#cuPdkName').val());   
         // $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
         let pdkNo = $(e3.target).attr('for').substr(2,1);
         if($(e3.target).text() != '' &&  $(e3.target).text() != '請選擇山岳'){
@@ -1110,6 +1110,7 @@ window.addEventListener("load", () => {
         if(!click){
             for(var i = 0 ; i<=len.length-1 ; i++){
                 arr[i].style.background="#F4F4F4";
+                arr[i].style.color="#F27F22";
             }
             e.target.style.background="#F27F22";
             e.target.style.color="#F4F4F4";

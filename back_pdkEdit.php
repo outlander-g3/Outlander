@@ -155,18 +155,18 @@ try{
                 <div class="col-20">
                   <input type="text" name="pdkPrice"placeholder="請輸入價格" value="<?php if (isset($pdkNo)){
                     echo $pdkcheckedRow['pdkPrice'];
-                    };?>元" required>
+                    };?>" required>
                 </div>
               </div>
               <!-- 圖片 -->
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-4">
                   <label for="">行程圖片列表</label>
                 </div>
                 <div class="col-20">
                   <input type="file" name="pdkImg" placeholder="請選擇檔案" multiple>
                 </div>
-              </div>
+              </div> -->
               <!-- 行程座標 -->
               <div class="row">
                 <div class="col-4">

@@ -20,11 +20,11 @@ gulp.task('default', ['sass'], function () {
         // server: {
         //     //根目錄
         //     baseDir: "./",
-            index: "productsOverview.php",
+            // index: "productsOverview.php",
         // }
         //推公版時請註打開打開打開這行不然會害到大家!!!!!!!!!
 
-        // proxy:"localhost:80/outlander/productsOverview.php",
+        proxy:"localhost:80/outlander/productsOverview.php",
         //推公版時請註解掉這行不然會害到大家!!!!!!!!!
     });
 

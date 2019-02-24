@@ -4,11 +4,11 @@ $budgetType= $_REQUEST["budgetType"];
 $levelType= $_REQUEST["levelType"];
 
 $dateInfo = $_REQUEST["dateInfo"];
-echo"帶來:",$dateInfo,"<br>";
+// echo"帶來:",$dateInfo,"<br>";
 $strtime = strtotime($dateInfo);
 
 $newDate=date('Y-m-d',$strtime);
-echo "轉字串:",$newDate,"<br>";
+// echo "轉字串:",$newDate,"<br>";
 try{
   $dsn = "mysql:host=localhost;port=3306;dbname=cd105g3;charset=utf8";
   $user = "root";
@@ -53,7 +53,7 @@ try{
   }else{ //找得到
     //取回一筆資料
       while($selectedRow = $selected->fetch(PDO::FETCH_ASSOC)){
-        echo "撈日期:",$newDate,"<br>";
+        // echo "撈日期:",$newDate,"<br>";
     //送出html結構字串
     $html =
     "<div class='pro-item pro-item-three'>
@@ -65,10 +65,10 @@ try{
                 <div class='pro-item-view-flex'>
                     <p>評價：</p>";
                     for($i=0; $i<floor($selectedRow['avgRate']); $i++){ 
-                      $html .= "<img src='img/tree_j.png'>";
+                      $html .= "<span class='tree_f'><img src='img/tree_j.png' alt='rate'></span>";
                      } 
                       if($selectedRow['avgRate']*10%10 != 0){
-                        $html .= '<img src="img/tree_f_h.png" class="tree_half" alt="rate">';
+                        $html .= '<span class="tree_f_h"><img src="img/tree_f_h.png" alt="rate"></span>';
                       }         
                     $html .="
                 </div>

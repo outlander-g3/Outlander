@@ -480,7 +480,7 @@ function getFilter(e){
                         } 
                         if($prodRow['avgRate']*10%10 != 0){
                         ?>
-                        <span class="tree_f">
+                        <span class="tree_f_h">
                             <img src="img/tree_f_h.png" alt="rate">
                         </span>
                         <?php
@@ -570,7 +570,7 @@ function getFilter(e){
                         } 
                         if($prodRowRe['avgRate']*10%10 != 0){
                         ?>
-                        <span class="tree_f">
+                        <span class="tree_f_h">
                             <img src="img/tree_f_h.png" alt="rate">
                         </span>
                         <?php

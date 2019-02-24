@@ -21,25 +21,6 @@ html {
     font-family: "微軟正黑體"; 
 }
 
-    // * h2 {
-    //   line-height: 1.6;
-    //   font-size: 2.2rem;
-    //   font-weight: normal;
-    //   color: $color-white;
-    // }
-
-    // 
-
-    // *
-    // * 
-    // * h6{
-    //     color: $color-white;
-    //     line-height: 1.6;
-    //     font-size: 1.6rem;
-    //     font-weight: normal;
-    // }
-    // 
- 
   .clearfix {
     clear: both; 
 }
@@ -657,6 +638,12 @@ display: none;
             width:100%;
         }
     }  
+    .tree_f_h{
+        width: 11px;
+        img{
+            width: 100%;
+        }
+    }
 }
 .pro-item:hover{
     box-shadow:3px 3px 3px rgba(36, 111, 119, 0.3);

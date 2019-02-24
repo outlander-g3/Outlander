@@ -413,10 +413,12 @@ try{
                     <label>
                     <input type="checkbox" name="tagName" value="<?php echo $tagRow['tagNo'];?>" 
                     <?php 
-                    for($i=0; $i<count($pdkTagChecked); $i++){
-                      if($pdkTagChecked[$i] == $tagRow['tagNo']){
-                        echo "checked";
-                        break;
+                    if(isset($pdkNo)){
+                      for($i=0; $i<count($pdkTagChecked); $i++){
+                        if($pdkTagChecked[$i] == $tagRow['tagNo']){
+                          echo "checked";
+                          break;
+                        }
                       }
                     }
                     ?>>

@@ -556,7 +556,7 @@ function getFilter(e){
             while($prodRowRe = $recent->fetch(PDO::FETCH_ASSOC)){
             ?>
             <div class="pro-item pro-item-three">
-                <a href="product.php?pdkNo=<?php echo $prodRow['pdkNo'];?>">
+                <a href="product.php?pdkNo=<?php echo $prodRowRe['pdkNo'];?>">
                     <div class="pro-item-pic pro-item-pic-hot">
                         <img src="img/mt/<?php echo $prodRowRe['pdkNo'];?>/1.jpg" alt="EBC">
                     </div>

@@ -1,0 +1,348 @@
+@import "mixin/_mixin.scss";
+@import "base/_var.scss";
+
+// @import "base/_footer";
+// *{
+// 	outline: red 1px solid;
+// }
+ol, ul {
+    list-style: none; 
+}
+html{
+    font-size: 16px;
+    @media screen and (max-width:767px){
+        font-size: 12px;
+    }     
+}
+body{
+	height:100vh;
+    *{
+		font-family: "微軟正黑體";
+		// height:100vh;
+    }
+}
+.clearfix{
+    clear:both;
+}
+body{
+	background-color: $color-white;
+	height: 3500px;
+}
+
+#wrapper {
+	position: relative;
+	max-width:2500px;
+	width: 100%;
+	// height:100vh;
+	margin: auto;
+}
+#title{
+	font-size: 24px;
+	color:$color-main3;
+	position:absolute;
+	top:500px;
+	left:45%;
+	// @media screen and (min-width:768px){
+	// 	display: none;
+	// }
+	// @media screen and (max-width:767px){
+	// 	display: inline-block;
+	// }
+
+}
+//banner////
+.scene_back{
+	position: relative;
+	top:0;
+	@media screen and (max-width:768px){
+		background-color:green;
+		}
+}
+.banner{
+	position: absolute;
+	width: 100%;
+	top:0;
+	transition: .5s;
+	@media screen and (max-width:768px){
+		top:700px;
+
+		}
+}
+#banner_back{
+	top:0;
+}
+#banner_front{
+	top:0;
+}
+// #branding {
+// 	width: 100%;
+// 	background: #fff;
+// 	}
+// 	#branding h1 {
+// 		width: 940px;
+// 		padding: 10px 15px;
+// 		margin: 0 auto;
+// 		text-transform: uppercase;
+// 		font-size: 18px;
+// 		font-weight: bold;
+// 		}
+.ffff{
+	background-color:yellow;
+	width: 100%;
+	height: 30px;
+}
+
+
+
+/* Parallax
+*****************************************************************/
+
+/* content */
+#content {
+	@media screen and (max-width:767px){
+		width: 100%;
+	}
+	h1 {
+		line-height: 1.6;
+		font-size: 2.2rem;
+		color:$color-main2;
+		font-family: "微軟正黑體";
+		 }
+	h2{
+		line-height: 1.6;
+		font-size:2rem;
+		font-weight: normal;
+		color: $color-btn-main;
+		font-family: "微軟正黑體";
+		}
+	p{
+	 font-size:1.2rem;
+	 line-height:1.6;
+	 color: $color-text;
+	 font-family: "微軟正黑體";
+	}	 
+	z-index: 4;
+	position: relative;
+	padding: 0 10px;
+	margin: 0 auto;
+	line-height: 1.7;
+	}
+	#content article {
+		width: 38%;
+		@media screen and (max-width:767px){
+			width: 100%;
+		}
+		}
+		#manned-flight ,
+		#frameless-parachute,
+		#english-channel,
+		#about {
+			padding-top: 105px;
+			}
+		#manned-flight {
+			position: absolute;
+            top: 900px;
+			left:5%;
+			@media screen and (max-width:767px){
+			left: 0%;
+			}
+			}
+		#frameless-parachute {
+			position: absolute;
+			top: 1800px;
+			right: 5%;
+			@media screen and (max-width:767px){
+				right: 0%;
+				left:0%;
+				background-color:red;
+				}
+			}
+		#frameless-parachute-2{
+			position: absolute;
+			top: 2800px;
+			left: 5%;
+			@media screen and (max-width:767px){
+				left: 0%;
+				}
+		}	
+		#english-channel {
+			position: absolute;
+            top:3500px;
+			right:5%;
+			@media screen and (max-width:767px){
+				left: 0%;
+				}
+			}
+			#content h1 {
+				margin: 0 0 25px 0;
+				font-size: 60px;
+				font-weight: normal;
+				line-height: 65px;
+				}
+		#about {
+			position: absolute;
+            top: 2800px;
+			left:5%;
+			@media screen and (max-width:767px){
+				left: 0%;
+				}
+            a{
+				color:rgb(117, 78, 78);
+				font-size: 1.6rem;
+			}
+			button{
+				background-color:$color-btn-main;
+				width: 162px;
+				height:42px;
+				border-radius: 21px;
+				border:none;
+				box-shadow: $shadow;
+				color: #ffffff;
+				font-size: 1rem;
+				line-height: 1rem;
+				cursor: pointer;
+			}
+		}
+		
+/* foreground  */
+#parallax-bg3 {
+	z-index: 3;
+	position: fixed;
+	// left: 50%; /* align left edge with center of viewport */
+	// top: 0;
+	width: 100%;
+	// position: relative;
+	
+	}
+	img{
+		width: 100%;
+	}
+	/* mountain */
+	
+	#bg3-1 {
+		width:60%;
+		position: absolute;
+		// top: 700px;
+		top:0;
+		right:0;
+		@media screen and (max-width:767px){
+			width:80%;
+		};
+
+		}
+	#bg3-2 {
+		width:65%;
+		position: absolute;
+		// top:1400px;
+		top:0px;
+		left:-10%;
+		}
+	#bg3-3 {
+		width: 50%;
+		position: absolute;
+		// top: 1900px;
+		top:0;
+		right:0;
+		width: 55%;
+		}
+	#bg3-4{
+		position: absolute;
+		// top:500px;
+		left:-10%;
+		width: 62%;
+	}
+	img{
+		width: 100%;
+	}
+	// #bg3-4 {
+		// width: 98%;
+		// position: absolute;
+		// top: 2300px;
+		// left: -800px;
+		// }
+		// #bg3-4 img{
+		// 	width: 100%;
+		// }
+	
+/* midground (clouds) */
+#parallax-bg2 {
+	z-index: 2;
+	// position: fixed;
+	// left: 50%; 
+	top: 0;
+	width: 1200px;
+	// margin-left: -600px; /* move left by half element's width */
+	}
+	#bg2-1 {
+		position: absolute;
+		top:400px;
+		
+		// left:-500px;
+		}
+	#bg2-2 {
+		position: absolute;
+		// top: 300px;
+		// left: 1150px;
+		}
+	#bg2-3 {
+		position: absolute;
+		top: 1500px;
+		right:-200px;
+		}
+	#bg2-4 {
+		position: absolute;
+		top:2200px;
+		left: -300px;
+		}
+	#bg2-5 {
+		position: absolute;
+		top: 3600px;
+		// left: 890px;
+		}
+/* background (clouds) */
+#parallax-bg1 {
+	z-index: 1;
+	// position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg1-1 {
+		position: absolute;
+		// top: 85px;
+		// left: -270px;
+		}
+	#bg1-2 {
+		position: absolute;
+		// top: 440px;
+		// left: 795px;
+		}
+	#bg1-3 {
+		position: absolute;
+		// top: 900px;
+		// left: -220px;
+		}
+	#bg1-4 {
+		position: absolute;
+		// top: 1020px;
+		// left: 450px;
+		}
+
+//桌機 only
+// @media screen and (min-width:992px)
+
+//iPad+桌機
+// @media screen and (min-width:768px)
+
+//iPad+手機橫+手機直
+// @media screen and (max-width:991px)
+
+//手機橫+手機直
+// @media screen and (max-width:767px)
+
+//手機直
+// @media screen and (max-width:575px)
+
+//iPad only
+// @media screen and (min-width:768px) and (max-width:991px)

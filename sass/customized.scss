@@ -541,7 +541,7 @@ i{
     margin: 10px;
     position: relative;
     color: $color-white;
-    cursor: move;
+    // cursor: move;
     &::before{
         content: '';
         @include br4;

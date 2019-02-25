@@ -133,7 +133,6 @@ $(document).click(function () {
 $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
     if($(e3.target).text() != "請選擇山岳" && $('#cuForm__MCom').val() != $(e3.target).text()){
         $('#cuPdkName').val("【客製行程】"+$(e3.target).text());
-        // console.log($('#cuPdkName').val());   
         // $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
         let pdkNo = $(e3.target).attr('for').substr(2,1);
         if($(e3.target).text() != '' &&  $(e3.target).text() != '請選擇山岳'){
@@ -144,8 +143,7 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
                 data: 'pdkNo=' + pdkNo,
                 success: function (data) {
                     // $('#cuCustom__sceneryZone--OF').append(data);
-                    // console.log(data);
-                    // console.log($('#cuCustom__sceneryZone--OF').children());
+                 
                     // $('#cuCustom__sceneryZone--OF').children().replace('<input type="hidden" name="" id="cuReplace">',data+'<input type="hidden" name="" id="cuReplace">');
                     $('#cuCustom__sceneryZone--OF').html(data);
                     $('.cuCustom__sceneryItem').mouseover(showOption);
@@ -768,7 +766,7 @@ function cuBooking(){
     // 嚮導欄
     let cuGuideP = document.querySelector('.cu__guideList--picked h4');
 
-    if(cuCustom__dropMask.children.length == 0 && cuCustom__dropMask.children.length != 0){
+    if(cuCustom__dropMask.children.length == 0 && cuGuideP.innerText != ""){
         //沒有選景點
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "「風景景點」";
@@ -790,6 +788,8 @@ function cuBooking(){
             // alert(xhr.status);
             if( xhr.status == 200 ){
                 if(xhr.responseText == 'login' ){
+                    let cuBookingPhp =O('cuBookingPhp');
+                    cuBookingPhp.submit();
                 } else if (xhr.responseText == 'logout') {
                     var winLogin = document.querySelector(".memLogin");
                     winLogin.style.display = 'block';
@@ -806,8 +806,7 @@ function cuBooking(){
         xhr.send( null );
     }
     window.onbeforeunload = null; 
-    let cuBookingPhp =O('cuBookingPhp');
-    cuBookingPhp.submit();
+    
 }
 
 //【跳窗】btn確認  清除全部資料
@@ -1060,7 +1059,6 @@ window.addEventListener("load", () => {
         }
         bd = new Date(yy + "/" + num + "/1").getDay();
         dayfunction(bd, dayall);
-        // console.log(arrmm.indexOf( document.querySelector("#mm-sp").innerText));
         document.querySelector("#mm-sp").innerText = arrmm[num - 1];
         document.querySelector("#yy-sp").innerText = yy;
         load();
@@ -1144,8 +1142,9 @@ window.addEventListener("load", () => {
             //回傳時間
             document.querySelector("#pdStart").value =datevalue1.replace(/-/g,"/");
             document.querySelector("#pdEnd").value =datevalue.replace(/-/g,"/");
-            document.querySelector("#cuStart").value =datevalue1;
-            document.querySelector("#cuEnd").value =datevalue;
+            document.querySelector("#cuStart").value =datevalue1.replace(/-/g,"/");
+            document.querySelector("#cuEnd").value =datevalue.replace(/-/g,"/");
+      
 
             //將天數丟進php session
             const oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds

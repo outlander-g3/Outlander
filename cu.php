@@ -202,7 +202,8 @@
                             <ul>
                                 <li><input id="date" type="text" value="">
                                     <span id="date-text">
-                                        <label id="date-label">請選擇日期</label>
+                                        <label id="date-label">請選擇出發及結束日期</label>
+                                        <!-- <label id="date-label">請選擇「出發」及「結束」日期</label> -->
                                         <table class="calendar">
                                             <tbody>
                                                 <tr>
@@ -287,7 +288,7 @@
                 </div>
                 <div class="cuCtrlBtn">
                     <!-- btn選擇日期及嚮導 -->
-                    <input type="button" id="btn_cuBack" class="cuBtn" value="上一頁">
+                    <input type="button" id="btn_cuBack" class="btn-main-l" value="上一頁">
                     <!-- btn選擇日期及嚮導 -->
                     <form action="cu_Booking.php" method="post" id="cuBookingPhp">
                         <input type="hidden" name="pdkName" id="cuPdkName" value="">

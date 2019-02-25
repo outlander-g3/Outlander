@@ -143,14 +143,13 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
                 data: 'pdkNo=' + pdkNo,
                 success: function (data) {
                     // $('#cuCustom__sceneryZone--OF').append(data);
-                 
                     // $('#cuCustom__sceneryZone--OF').children().replace('<input type="hidden" name="" id="cuReplace">',data+'<input type="hidden" name="" id="cuReplace">');
                     $('#cuCustom__sceneryZone--OF').html(data);
                     $('.cuCustom__sceneryItem').mouseover(showOption);
                     $('.cuCustom__sceneryItem').mouseout(closeOption);
                     $('.btn_cuAddScenery').click(function(){
                         var cuSceneryInfo = $('#'+this.id+' input').val();
-                        addItem(this.id,cuSceneryInfo);
+                        addItemBefore(this.id,cuSceneryInfo);
                     });                
                     $('.btn_cuWatchScenery').click(cuWatchScenery);
                     $('.btn_cuAddScenery--767').click(cuPickScenery);
@@ -235,6 +234,13 @@ function showPickTG(){
     O('cu__step1').style.transform = "translateX(-1200px)";
     O('cu__step2').style.transform = " translateY(-643px) translateX(0px)";
     O('cu__step2').style.transitionDuration = "0.9s";
+    setTimeout(function(){ 
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+     }, 800);
+  
 }
 
 /* 按鈕--控制查看風景內容【icon__serach, icon__】*/
@@ -386,10 +392,16 @@ function backPickSc(){
 /*****  計算價格數量及動態新增刪除到【我的風景路線規劃】  *****/ 
 var storage = sessionStorage;
 
-
-function addItem(itemId,itemValue){	
+//767以上 讓動態新增的風景點先加到web session
+function addItemBefore(itemId,itemValue){
     storage['addItemList'] += itemId + ',';
     storage[itemId] = itemValue;
+    addItem(itemId,itemValue);
+}
+
+function addItem(itemId,itemValue){	
+    // storage['addItemList'] += itemId + ',';
+    // storage[itemId] = itemValue;
     //風景列表物件代號
     var cu_IDNum = itemValue.split('|')[3];
     var cu_ID =O(cu_IDNum);
@@ -689,9 +701,12 @@ function cuConfirm(){
     let items= storage['addItemList'].split(',');
     
     let itemsL = items.length;
+    
     for(let i=0 ; i<itemsL-1;i++){
         itemID = items[i];
+        console.log(itemID);
         let itemValue = storage.getItem(itemID);
+        console.log(itemValue);
         addItem(items[i],itemValue);
     }
 };

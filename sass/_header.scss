@@ -120,18 +120,52 @@
             position: unset;
             justify-content: flex-end;
         }
+        #memIcon{
+            padding: 0;
+            i{
+                @media (min-width:768px) {
+                    padding:  0 20px;
+                }
+            }
+        }
+        #Sign{
+            display: none;
+            padding: 0;
+            #user-out{
+                padding: 0 20px;
+            }
+        }
+        #Sign-m{
+            position: absolute;
+            bottom: 25px;
+            line-height: 0;
+            left: 0;
+            right: 0;
+            display: none;
+            i{
+                font-size: 1.5rem;
+                color: $color-header;
+            }
+            span{
+                font-size: 1rem;
+                color: $color-header;
+                padding-left: 5px;
+            }
+        }
         li{
-            line-height: 50px;
+            line-height: 80px;
             text-align: center;
             cursor: pointer;
             color:$color-header;
             @media (min-width:768px) {
                 padding: 0 20px;
-                // &:hover{
-
-                // }
+                line-height: 60px;
                 i{
                     line-height: 2.5;
+                }
+                #user-out{
+                    font-size: 19px;
+                    line-height: 60px;
                 }
             }
             a{
@@ -149,9 +183,11 @@
         position: relative;
         cursor: pointer;
         #member-child{
+            top: 50%;
             position: absolute;
             width: 100%;
-            top: 65%;
+            z-index: -1;
+            transition: all 0.5s;
             li a{
                 width: 100%;
                 text-align: center;
@@ -161,13 +197,13 @@
                 opacity: 0;
                 color:$color-header;
             }
-            li {
-                .member-b{
-                    opacity: 1;
-                    line-height: 65px;
+            // li {
+            //     .member-b{
+            //         opacity: 1;
+            //         line-height: 50px;
 
-                }
-            }
+            //     }
+            // }
         }
     }
     .filter{

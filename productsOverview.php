@@ -501,8 +501,8 @@ function getFilter(e){
                                 <?php } ?>
                             </span>
                         </div>
-                        <h4>NTD<?php echo $prodRow["pdkPrice"];?></h4>
                         <div class="clearfix"></div>
+                        <h4>NTD<?php echo $prodRow["pdkPrice"];?></h4>
                     </div>
                     <div class="clearfix"></div>
                 </a>
@@ -593,8 +593,8 @@ function getFilter(e){
                             }
                             ?>
                         </div>
-                        <h4>NTD<?php echo $prodRowRe["pdkPrice"];?></h4>
                         <div class="clearfix"></div>
+                        <h4>NTD<?php echo $prodRowRe["pdkPrice"];?></h4>
                     </div>
                     <div class="clearfix"></div>
                 </a>

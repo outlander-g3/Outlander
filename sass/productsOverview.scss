@@ -16,9 +16,8 @@ html {
   body * {
     font-family: "微軟正黑體"; 
 }
-  
-  * {
-    font-family: "微軟正黑體"; 
+*{
+    box-sizing: border-box;
 }
 
   .clearfix {
@@ -30,9 +29,9 @@ html {
     max-width: 2500px;
     margin: auto;
     text-align: center;
-    @media screen and (max-width:767px){
-        @include pTop(60);
-    }
+    // @media screen and (max-width:767px){
+    //     @include pTop(60);
+    // }
 }
 #canv{
     position:absolute;
@@ -40,12 +39,14 @@ html {
 }
 .po-banner{
     z-index: 0;
+   
 }
 #headerAll{
     max-width: 2500px;
 }
 .po-banner-pic{
     position: relative;
+    top:70px;
 }
 .po-banner-des{
     h2,h6{
@@ -232,7 +233,11 @@ html {
     width: 100%;
     max-width: 1200px;
     margin: auto;
-    @include pTop(30);
+    @include pTop(80);
+    @media screen and (max-width:767px){
+    padding-top:20%; 
+    }
+
 }
 .drop-flex{
     display: flex;
@@ -244,7 +249,7 @@ html {
 .datecont{
     width:30%;
     @media screen and (max-width:767px){
-        width: 100%;
+        width:90%;
     }
     // max-width: 320px;
     position: relative;
@@ -260,14 +265,14 @@ html {
         font-size: 1rem;
         position: relative;
         @media screen and (max-width:767px){
-            width: 100%;
+            width:90%;
         }
         #date-text{
             box-sizing: border-box;
             position: absolute;
             display: inline-block;
             // width: 320px;//之後把這邊改%
-            width:100%;
+            width:90%;
             min-height: 46px;
             max-height: 42px;
             line-height: 42px;
@@ -301,7 +306,7 @@ html {
                 background-color: $color-white;
                 border-top:0.06em solid $color-white;
                 display: block;
-                @include pLeft(10);
+                text-indent: 10px;
                 cursor: pointer;
                 font-family: "Microsoft JhengHei";
                 position: relative;
@@ -407,19 +412,19 @@ display: none;
     #cont{
         width: 20%;
         @media screen and (max-width:767px){
-            width: 100%;
+            width: 90%;
         }
     }
     #level{
         width: 20%;
         @media screen and (max-width:767px){
-            width: 100%;
+            width: 90%;
         }
     }
     #budget{
         width: 30%;
         @media screen and (max-width:767px){
-            width: 100%;
+            width: 90%;
         }
     }
 }
@@ -432,7 +437,6 @@ display: none;
     }
 } 
 #cont .joForm__input{
-    // width:250px;
     width:100%;
     flex:1;
     @media screen and (max-width:767px){
@@ -440,7 +444,6 @@ display: none;
     }
 }
 #level .joForm__input{
-    // width:250px;
     width: 100%;
     flex:1;
     @media screen and (max-width:767px){
@@ -483,7 +486,6 @@ display: none;
     border-top: .06em solid #d9d9d9;
     display: block;
     font-style: 16px bold !important;
-    padding-Left: 5px;
     font-size: 16px;
     font-weight: bold;
     font-family: Microsoft JhengHei;
@@ -562,25 +564,27 @@ display: none;
 /////////行程商品////////////
 .pro-product-wrap{
      h3 {
-          font-size: 2rem;
-          font-weight: normal;
+          font-size: 26px;
+          font-weight: bold;
           line-height: 1.6;
           color: $color-main2;
           text-align: center;
+
+          
         }
     h5 {
-        font-size: 1.6rem;
+        font-size:20px;
         line-height: 1.4;
         font-weight: normal;
         text-align: center;
         } 
     h4 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       line-height: 1.4;
-      font-weight: normal;
+      font-weight:bold;
      }
     p {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         line-height: 1.6;
     }
     width: 100%;
@@ -599,7 +603,6 @@ display: none;
 }
 .pro-item-flex{
     display: flex;
-    justify-content: center;
     max-width: 1200px;
     @media screen and (max-width:767px){
         flex-wrap: wrap;
@@ -629,7 +632,7 @@ display: none;
     }
     background-color:rgba(8,139,154,0.1);
     @media screen and (max-width:767px){
-    width: 100%;
+    width: 90%;
     margin:0 0.1% 3% 0.1%;
     }
     .tree_f{
@@ -649,10 +652,10 @@ display: none;
     box-shadow:3px 3px 3px rgba(36, 111, 119, 0.3);
 }
 .pro-item-three{ //三欄寬
-    width: 30%;
+    width: 31.33%;
     margin: 1%;
     @media screen and (max-width:767px){
-    width: 100%;
+    width: 90%;
     margin:0 0.1% 3% 0.1%;
     }
 }
@@ -662,16 +665,15 @@ display: none;
 .pro-item-pic-hot::before{
     content: "熱門";
     width:95px;
-    height:44px;
     background-color:$color-btn-sub;
     position: absolute;
     top:8px;
-    left:-22px;
-    border-radius: 8px;
+    left:-14px;
+    border-radius: 2px 8px 8px 2px;
     text-align: center;
-    line-height: 44px;
+    line-height: 40px;
     color:$color-white;
-    font-size: 22px;
+    font-size: 20px;
 }
 .pro-item-pic img{
     width: 100%;
@@ -731,19 +733,7 @@ display: none;
 .pro-item p{
     color:$color-main3;
 }
-#footer{
-    margin-top:100px;
-    width: 100%;
-    max-width: 2500px;
-    background: $color-header;
-    p{
-        line-height: 88px;
-        padding:0 10px;
-        font-size: 0.6rem;
-        text-align: center;
-        color:$color-white;
-    }
-}
+
 
 ////////山背景////////
 .mt-wrap{

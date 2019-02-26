@@ -4,7 +4,7 @@ $budgetType= $_REQUEST["budgetType"];
 $levelType= $_REQUEST["levelType"];
 
 $dateInfo = $_REQUEST["dateInfo"];
-// echo"帶來:",$dateInfo,"<br>";
+
 $strtime = strtotime($dateInfo);
 
 $newDate=date('Y-m-d',$strtime);
@@ -53,7 +53,7 @@ try{
     //送出html結構字串
     $html =
     "<div class='pro-item pro-item-three'>
-            <a href='product.php?pdkNo={$selectedRow['pdkNo']}>'>
+            <a href='product.php?pdkNo={$selectedRow['pdkNo']}'>
                 <div class='pro-item-pic pro-item-pic-hot'>
                     <img src='img/mt/{$selectedRow['pdkNo']}/1.jpg' alt='EBC'>
                 </div>

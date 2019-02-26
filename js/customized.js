@@ -202,7 +202,7 @@ function cuSlide2(){
             cuProcess2.style.transitionDuration = "0.5s";
             cuProcess2.style.backgroundColor = '#088B9A';
             cuProcess2.style.color = '#fff';
-        },900);
+        },2000);
 
         cuForm__inputC.style.transform = "translateX(-1200px)";
         cuForm__inputM.style.transform = "translateX(-1200px)";
@@ -723,8 +723,12 @@ function cuConfirm(){
 
 function cuShowGuide(){
     var cu__guideItem = document.getElementsByClassName('cu__guideItem');
-    let cuGuide_picL = O('cuGuide_picL');
+    // let cuGuide_picL = O('cuGuide_picL');
+    let cuGuide_picL = document.createElement('img');
     cuGuide_picL.src = this.childNodes[1].src;
+    let cuGuideListPicked = document.querySelector('.cu__guideList--picked');
+    // cuGuideListPicked.appendChild(cuGuide_picL);
+    cuGuideListPicked.insertBefore(cuGuide_picL, cuGuideListPicked.childNodes[0]);
     this.style.border = '1px solid rgba(244, 244, 244, 1)';
     O('cuGuide_name').innerText = this.childNodes[3].value.split('|')[0];
     O('cuGuide_expertise').innerText  = this.childNodes[3].value.split('|')[1]; 

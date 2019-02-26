@@ -278,7 +278,7 @@
                             <div class="cuGuide__crtl cuGuide__crtl2">
                                 <p class="cuGuide__subtitle cuGuide__subtitle2">已選擇之嚮導</p>
                                 <div class="cu__guideListBg cu__guideList--picked">                                    
-                                    <img src="" alt="" id="cuGuide_picL">
+                                    <!-- <img src="" alt="" id="cuGuide_picL"> -->
                                     <h4 id="cuGuide_name"></h4>
                                     <p id="cuGuide_expertise"></p>                         
                                 </div>

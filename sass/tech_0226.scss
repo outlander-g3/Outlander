@@ -3,9 +3,9 @@
 
 // @import "base/_footer";
 
-*{
-    // outline: red solid 1px;
-}
+// *{
+//     outline: red solid 1px;
+// }
 body{
     background-color: $color-white;
     // height: 100vh;
@@ -156,6 +156,21 @@ body{
     img{
         width: 100%;
     }
+}
+@media (min-width:768px){
+    #hd_tech::after{
+        display: block;
+        content: '';
+        width: 64px;
+        height: 2px;
+        position: absolute;
+        top: 72.5%;
+        background: $color-text;
+    }
+    #hd_tech{
+        font-weight: bold;
+    }
+  
 }
 // .wrap-cloud{
 //     position: absolute;

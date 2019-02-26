@@ -50,6 +50,9 @@ body{
         position: absolute;
         top:0;
         left: 0;
+        @media (max-width:768px){
+            transition: 0;
+        }
     }
 }
 .tech_banner_wrap{
@@ -106,18 +109,18 @@ body{
         width: 40vw;
     }
 
-    h1 {
+    h2 {
 		line-height: 1.6;
-		font-size: 2.2rem;
+		font-size: 1.5rem;
 		color:$color-main2;
         font-family: "微軟正黑體";
         @media screen and (max-width:767px){
         font-size: 1.8rem;
         } 
         }
-	h2{
+	h3{
 		line-height: 1.6;
-		font-size:2rem;
+		font-size:1.25rem;
 		font-weight: normal;
 		color: $color-btn-main;
         font-family: "微軟正黑體";
@@ -126,7 +129,7 @@ body{
             }
 		}
 	p{
-	 font-size:1.2rem;
+	 font-size:1rem;
 	 line-height:1.6;
 	 color: $color-text;
      font-family: "微軟正黑體";

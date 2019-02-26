@@ -2,153 +2,290 @@
 @import "base/_var.scss";
 
 // @import "base/_footer";
-// *{
-// 	outline: red 1px solid;
-// }
+*{
+	outline: red 1px solid;
+}
+ol, ul {
+    list-style: none; 
+}
+html{
+    font-size: 16px;
+    @media screen and (max-width:767px){
+        font-size: 12px;
+    }     
+}
+body{
+    *{
+        font-family: "微軟正黑體";
+    }
+}
+* { 
+    // outline: 1px solid blue; 
+    h1 {
+        color: #21a97e;
+        font-family: "微軟正黑體";
+    }
+    h2{
+        line-height: 1.6;
+        font-size:2.2rem;
+        font-weight: normal;
+        color: #ffffff;
+        font-family: "微軟正黑體";
+    }
+    h3{
+        font-size: 2rem;
+        font-weight: normal;
+        color: #ffffff;
+        line-height: 1.6;
+        font-family: "微軟正黑體";
 
+    }
+    h4{
+        font-size: 1.8rem;
+        line-height: 1.4;
+        color:#32545c;
+        font-family: "微軟正黑體";
+    }
+    h5{
+        font-size: 1.6rem; 
+        line-height: 1.4;
+        color: #ffffff;
+        font-family: "微軟正黑體";
+    }
+    p{
+        font-size:1.4rem;
+        line-height:1.6;
+        color:#5a5a5a;
+        // color: $color-text;
+        font-family: "微軟正黑體";
+    }
+    
+}
+
+.clearfix{
+    clear:both;
+}
 body{
 	background-color: $color-white;
+	height: 3500px;
+}
+
+#wrapper {
+	position: relative;
+	max-width:2500px;
+	height:3500px;
+}
+//banner////
+.scene_back{
+	position: relative;
+	top:0;
+}
+.banner{
+	position: absolute;
+	width: 100%;
+	transition: .5s;
+}
+#banner_back{
+	top:0;
 }
 #banner_front{
-    position: absolute!important;
+	top:0;
 }
-.wrap-all{
-    // height: 100vh;
-    height:3000px;
-    width: 100vw;
-    max-width: 2500px;
-    // position: relative;
-    top:60px;
-    img{
-        position: static!important;
-        @media (min-width:992px) {
-            position: absolute!important;
-        }
-    }
-    div{
-        position: static!important;
-        @media (min-width:992px) {
-            position: absolute!important;
-        }
+// #branding {
+// 	width: 100%;
+// 	background: #fff;
+// 	}
+// 	#branding h1 {
+// 		width: 940px;
+// 		padding: 10px 15px;
+// 		margin: 0 auto;
+// 		text-transform: uppercase;
+// 		font-size: 18px;
+// 		font-weight: bold;
+// 		}
 
-    }
-}
-.banner_pic_b{
-    width:100vw;
-    img{
-        width: 100%;
-        transition: .8s;
-    }
-}
-.banner_pic_f{
-    width: 100vw;
-    img{
-        width: 100%;
-        transition: .8s;
-        position: absolute;
-        top:0;
-    }
-}
-.tech_banner_wrap{
-    width: 100vw;
-    max-width: 2500px;
-    text-align: center;
-    position: relative;
-}
-.cont{
-    @media screen and (max-width:991px){
-        width: 95vw;
-        padding: 0 2.5vw 0 2.5vw;
-    }
-   
-    @media screen and (min-width:992px){
-        width: 45vw;
-    }
 
-    h1 {
-		line-height: 1.6;
-		font-size: 2.2rem;
-		color:$color-main2;
-        font-family: "微軟正黑體";
-        @media screen and (max-width:767px){
-        font-size: 1.8rem;
-        } 
-        }
-	h2{
-		line-height: 1.6;
-		font-size:2rem;
-		font-weight: normal;
-		color: $color-btn-main;
-        font-family: "微軟正黑體";
-        @media screen and (max-width:767px){
-            font-size: 1.2rem;
-            }
+
+
+/* Parallax
+*****************************************************************/
+
+/* content */
+#content {
+	z-index: 4;
+	position: relative;
+	padding: 0 10px;
+	margin: 0 auto;
+	line-height: 1.7;
+	}
+	#content article {
+		width: 450px;
 		}
-	p{
-	 font-size:1.2rem;
-	 line-height:1.6;
-	 color: $color-text;
-     font-family: "微軟正黑體";
-     @media screen and (max-width:767px){
-        font-size: 1rem;
-        }
-    }	 
-  
+		#manned-flight ,
+		#frameless-parachute,
+		#english-channel,
+		#about {
+			padding-top: 105px;
+			}
+		#manned-flight {
+			position: absolute;
+            top: 900px;
+            left:100px;
+			}
+		#frameless-parachute {
+			position: absolute;
+			top: 1800px;
+			right: 0;
+			}
+		#english-channel {
+			position: absolute;
+            top: 2400px;
+            left:200px;
+			}
+			#content h1 {
+				margin: 0 0 25px 0;
+				font-size: 60px;
+				font-weight: normal;
+				line-height: 65px;
+				}
+		#about {
+			position: absolute;
+            top: 2800px;
+            left:200px;
+            a{
+				color:rgb(117, 78, 78);
+				font-size: 1.6rem;
+			}
+			button{
+				background-color:$color-btn-main;
+				width: 162px;
+				height:42px;
+				border-radius: 21px;
+				border:none;
+				box-shadow: $shadow;
+				color: #ffffff;
+				font-size: 1rem;
+				line-height: 1rem;
+				cursor: pointer;
+			}
+		}
+		
+/* foreground  */
+#parallax-bg3 {
+	z-index: 3;
+	// position: fixed;
+	// left: 50%; /* align left edge with center of viewport */
+	// top: 0;
+	width: 100%;
+	position: relative;
+	
+	}
+	/* mountain */
+	#bg3-1 {
+		width:55%;
+		position: absolute;
+		// top: 700px;
+		top:0;
+		right:0;
+		}
+	#bg3-2 {
+		width:60%;
+		position: absolute;
+		// top:1400px;
+		top:0px;
+		left:-10%;
+		}
+	#bg3-3 {
+		position: absolute;
+		// top: 1900px;
+		top:0;
+		right:0;
+		width: 60%;
+		}
+	#bg3-3 img{
+		width: 100%;
+	}
+	// #bg3-4 {
+		// width: 98%;
+		// position: absolute;
+		// top: 2300px;
+		// left: -800px;
+		// }
+		// #bg3-4 img{
+		// 	width: 100%;
+		// }
+	
+/* midground (clouds) */
+#parallax-bg2 {
+	z-index: 2;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg2-1 {
+		position: absolute;
+		top: 162px;
+		left:-500px;
+		}
+	#bg2-2 {
+		position: absolute;
+		top: 300px;
+		left: 1150px;
+		}
+	#bg2-3 {
+		position: absolute;
+		top: 600px;
+		left:200px;
+		}
+	#bg2-4 {
+		position: absolute;
+		top: 1180px;
+		left: -300px;
+		}
+	#bg2-5 {
+		position: absolute;
+		top: 900px;
+		left: 890px;
+		}
+/* background (clouds) */
+#parallax-bg1 {
+	z-index: 1;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg1-1 {
+		position: absolute;
+		top: 85px;
+		left: -270px;
+		}
+	#bg1-2 {
+		position: absolute;
+		top: 440px;
+		left: 795px;
+		}
+	#bg1-3 {
+		position: absolute;
+		top: 900px;
+		left: -220px;
+		}
+	#bg1-4 {
+		position: absolute;
+		top: 1020px;
+		left: 450px;
+		}
+#footer{
+			width: 100%;
+			background: $color-header;
+			p{
+				line-height: 88px;
+				padding:0 10px;
+				font-size: 0.6rem;
+				text-align: center;
+				color: #f4f4f4;
+			}
 }
-#cont_a{
-    padding-top:17vh; 
-    @media screen and (min-width:992px){
-        padding-top: 30vh;
-    }
-}
-
-.pic-main{
-    @media screen and (max-width:991px){
-        width: 95vw;
-    }
-    @media screen and (min-width:992px){
-        width: 55vw;
-    }
-    img{
-        width: 100%;
-    }
-}
-.wrap-cloud{
-    position: absolute;
-    z-index: -3;
-    #c_1{
-        top:500px;
-    }
-    #c_2{
-        top:1000px;
-    }
-    #c_3{
-        top:1500px;
-    }
-    #c_4{
-        top:2000px;
-    }
-    @media screen and (max-width:992px){
-    display:none; 
-    }
-}
-
-
-
-//桌機 only
-// @media screen and (min-width:992px)
-
-//iPad+桌機
-// @media screen and (min-width:768px)
-
-//iPad+手機橫+手機直
-// @media screen and (max-width:991px)
-
-//手機橫+手機直
-// @media screen and (max-width:767px)
-
-//手機直
-// @media screen and (max-width:575px)
-
-//iPad only
-// @media screen and (min-width:768px) and (max-width:991px)

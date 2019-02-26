@@ -1,0 +1,360 @@
+@import "base/_var.scss";
+@import "mixin/_mixin.scss";
+// body{
+//     *{
+//         font-family: "微軟正黑體";
+//     }
+// }
+#header-nav{
+    background: $color-white;
+    width: 100%;
+    max-width: 2500px;
+    height: 60px;
+    position: fixed;
+    z-index: 997;
+}
+#searSub{
+    display: none;
+}
+#hd-robot{
+    display: block;
+}
+#hd-memIcon{
+    display: none;
+}
+#hd-Sign{
+    display: none;
+}
+#hd-member{
+    display: block;
+}
+#Sign-m{
+    display: none;
+}
+@media (min-width:768px){
+    #hd-robot{
+        display: none;
+    }
+    #hd-memIcon{
+        display: block;
+    }
+    #hd-member{
+        display: none;
+    }
+}
+
+// @media (min-width:768px){
+//     #hd-productsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd-customized::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd-journalsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd-tech::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+// }
+#header{
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+}
+#header-all{
+    width: 100%;
+    max-width: 1200px;
+    position: fixed;
+    display: flex;
+    background-color: $color-white;
+    height: 60px;
+    color:$color-main2;
+    z-index: 998;
+    #header-left{
+        width: 60%;
+        max-width: 200px;
+        padding-left: 20px;
+        display: flex;
+        @media (min-width:1200px) {
+            max-width: 300px;
+        }
+        #logo{
+            flex: 2;
+            align-self: center;
+            a{
+                display: block;
+            }
+            img{
+                height: 100%;
+                width: 100%;
+                min-width: 45px;
+                min-height: 47px;
+                max-width: 50px;
+            }
+        }
+        #search{
+            flex: 1;
+            align-self: center;
+            margin-left: 20px;
+            position: relative;
+            i{
+                position: absolute;
+                top: 0px;
+                left: 85%;
+                cursor: pointer;
+            }
+            input{
+                padding-left: 10px;
+                border: 1px solid $color-main1;
+                font-size: 16px;
+                height: 24px;
+                width: 150px;
+            }
+            ::-webkit-input-placeholder{
+                color: $color-main1;
+            }
+        }
+    }
+    #burger{
+        flex: auto;
+        @media (min-width:768px) {
+            display: none;
+        }
+        span{
+            display: block;
+            width: 27px;
+            height: 2px;
+            background-color:$color-main2;
+            position: relative;
+            transition: all .5s;
+        }
+        #burger-all{
+            position: fixed;
+            cursor: pointer;
+            width: 27px;
+            height: 27px;
+            left: 90%;
+            top: 15px;
+            z-index:1000; 
+        }
+        #burger-1{ 
+            top: 6px;
+        }
+        #burger-2{
+            top: 12px;
+        }
+        #burger-3{
+            top: 18px;
+        }
+    }
+    #burger-text{
+        z-index: 999;
+        position: fixed;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+        transition: all 0.5s;
+        @media (min-width:768px) {
+            height: 60px;
+            display: flex;
+            flex-direction: row;
+            background-color: unset;
+            position: unset;
+            justify-content: flex-end;
+        }
+        #memIcon{
+            padding: 0;
+            i{
+                @media (min-width:768px) {
+                    padding:  0 20px;
+                }
+            }
+        }
+        #Sign{
+            display: none;
+            padding: 0;
+            #user-out{
+                padding: 0 20px;
+            }
+        }
+        #Sign-m{
+            position: absolute;
+            bottom: 25px;
+            line-height: 0;
+            left: 0;
+            right: 0;
+            display: none;
+            @media (min-width:768px) {
+                position: unset;
+            }
+            i{
+                font-size: 1.5rem;
+                color: $color-header;
+            }
+            span{
+                font-size: 1rem;
+                color: $color-header;
+                padding-left: 5px;
+            }
+        }
+        li{
+            line-height: 80px;
+            text-align: center;
+            cursor: pointer;
+            color:$color-header;
+            @media (min-width:768px) {
+                padding: 0 20px;
+                line-height: 60px;
+                i{
+                    line-height: 2.5;
+                }
+                #user-out{
+                    font-size: 19px;
+                    line-height: 60px;
+                }
+            }
+            a{
+                color:$color-header;
+                display: block;
+                text-decoration: none;
+            @media (min-width:768px) {
+                line-height: 60px;
+            }
+            }
+        }
+    }
+  
+    #member{
+        position: relative;
+        cursor: pointer;
+        #member-child{
+            top: 50%;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            transition: all 0.5s;
+            li a{
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                line-height: 0px;
+                transition: all 0.5s;
+                opacity: 0;
+                color:$color-header;
+            }
+            // li {
+            //     .member-b{
+            //         opacity: 1;
+            //         line-height: 50px;
+
+            //     }
+            // }
+        }
+    }
+    .filter{
+        width: 70%;
+        border: 1px solid #aaa;
+        height: 250px;
+        position: fixed;
+        top: 7%;
+        left: 15%;
+        z-index: 12;
+        display: none;
+        #filterList{
+            display: flex;
+            height: 100%;
+            #filterListLi{
+                flex: 1;
+                position: sticky;
+                background: $color-white;
+                li{
+                    color: $color-text;
+                    display: flex;
+                    cursor: pointer;
+                    justify-content: center;
+                    height:16.3%;
+                    align-items: center;
+                }
+                #asia-list{
+                    color: $color-main2;
+                }
+            }
+        }
+        #filterListImg{
+            overflow: auto;
+            flex: 3;
+            text-align: center;
+            background: #f4f4f475;
+            @media (min-width:768px) {
+                .in{
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+            .filterListImg-img{
+                width: 100%;
+                position: relative;
+                h3{
+                    position: absolute;
+                    top: 80%;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    margin: auto;
+                    color:$color-white;
+                    text-shadow: $shadow;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+                @media (min-width:768px) {
+                    width: 33.333333%;
+                    @include mTop (10);
+                }
+                img{
+                    width: 90%;
+                    max-width: 1920px;
+                    @media (min-width:768px) {
+                            width: 90%;
+                            height: 100%;
+                    }
+
+                }
+            }
+            .in{
+                display: none;
+            }
+            #asia-img{
+                display: block;
+                @media (min-width:768px) {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

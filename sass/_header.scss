@@ -31,7 +31,7 @@
 #Sign-m{
     display: none;
 }
-@media (min-width:768px){
+@media (min-width:992px){
     #hd-robot{
         display: none;
     }
@@ -39,6 +39,9 @@
         display: block;
     }
     #hd-member{
+        display: none;
+    }
+    #user-out-m{
         display: none;
     }
 }
@@ -142,7 +145,7 @@
     }
     #burger{
         flex: auto;
-        @media (min-width:768px) {
+        @media (min-width:992px) {
             display: none;
         }
         span{
@@ -158,7 +161,7 @@
             cursor: pointer;
             width: 27px;
             height: 27px;
-            left: 90%;
+            right: 20px;
             top: 15px;
             z-index:1000; 
         }
@@ -180,9 +183,10 @@
         height: 100%;
         background-color: $color-white;
         transition: all 0.5s;
-        @media (min-width:768px) {
+        @media (min-width:992px) {
             height: 60px;
             display: flex;
+            margin-left: 40px;
             flex-direction: row;
             background-color: unset;
             position: unset;
@@ -210,7 +214,9 @@
             left: 0;
             right: 0;
             display: none;
-            @media (min-width:768px) {
+            justify-content: center;
+            align-content: center;
+            @media (min-width:992px) {
                 position: unset;
             }
             i{
@@ -221,6 +227,7 @@
                 font-size: 1rem;
                 color: $color-header;
                 padding-left: 5px;
+                align-self: center;
             }
         }
         li{
@@ -228,7 +235,7 @@
             text-align: center;
             cursor: pointer;
             color:$color-header;
-            @media (min-width:768px) {
+            @media (min-width:992px) {
                 padding: 0 20px;
                 line-height: 60px;
                 i{
@@ -243,7 +250,7 @@
                 color:$color-header;
                 display: block;
                 text-decoration: none;
-            @media (min-width:768px) {
+            @media (min-width:992px) {
                 line-height: 60px;
             }
             }

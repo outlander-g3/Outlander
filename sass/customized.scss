@@ -2,8 +2,7 @@
 @import"base/_var_cu.scss";
 @import "mixin/_mixin.scss";
 @import "mixin/_mixin-customized.scss";
-@import "_header.scss";
-@import "_footer.scss";
+
 body{
     background: $color-white;
 }
@@ -13,6 +12,11 @@ p{
 i{
     vertical-align: middle;
 
+}
+#hd_customized{
+    color: #122B2F;
+    display: block;
+    text-decoration: none;
 }
 .fa-campground{
     font-size: 20px;
@@ -1011,7 +1015,7 @@ i{
 }
 
 // 這邊是顯示日曆的SCSS
-ul{
+#cuDate_ul{
     position: relative;
     flex: 1;
     display: flex;
@@ -1146,6 +1150,8 @@ display: none;
 }
 #jpjn__C,#jpjn__M,#jpjn__reload,#jpjn__booking{
     z-index: 1000;
+}
+.jpCont{
     text-align: center;
 }
 #btnjpc__close,#btnjpm__close{

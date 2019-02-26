@@ -200,7 +200,7 @@
                                     <p>選擇日期及嚮導</p>
                                 </div>
                             </div>
-                            <ul id="cuDate_ul">
+                            <ul class="cuDate_ul">
                                 <li><input id="date" type="text" value="">
                                     <span id="date-text">
                                         <label id="date-label">請選擇出發及結束日期</label>

@@ -13,6 +13,77 @@
     position: fixed;
     z-index: 997;
 }
+#searSub{
+    display: none;
+}
+#hd-robot{
+    display: block;
+}
+#hd-memIcon{
+    display: none;
+}
+#hd-Sign{
+    display: none;
+}
+#hd-member{
+    display: block;
+}
+#Sign-m{
+    display: none;
+}
+@media (min-width:992px){
+    #hd-robot{
+        display: none;
+    }
+    #hd-memIcon{
+        display: block;
+    }
+    #hd-member{
+        display: none;
+    }
+    #user-out-m{
+        display: none;
+    }
+}
+
+// @media (min-width:768px){
+//     #hd_productsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd_customized::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd_journalsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+//     #hd_tech::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//     }
+// }
 #header{
     margin: auto;
     width: 100%;
@@ -56,7 +127,7 @@
             position: relative;
             i{
                 position: absolute;
-                top: 0px;
+                top: 2px;
                 left: 85%;
                 cursor: pointer;
             }
@@ -74,7 +145,7 @@
     }
     #burger{
         flex: auto;
-        @media (min-width:768px) {
+        @media (min-width:992px) {
             display: none;
         }
         span{
@@ -90,7 +161,7 @@
             cursor: pointer;
             width: 27px;
             height: 27px;
-            left: 90%;
+            right: 20px;
             top: 15px;
             z-index:1000; 
         }
@@ -112,9 +183,10 @@
         height: 100%;
         background-color: $color-white;
         transition: all 0.5s;
-        @media (min-width:768px) {
+        @media (min-width:992px) {
             height: 60px;
             display: flex;
+            margin-left: 40px;
             flex-direction: row;
             background-color: unset;
             position: unset;
@@ -142,6 +214,11 @@
             left: 0;
             right: 0;
             display: none;
+            justify-content: center;
+            align-content: center;
+            @media (min-width:992px) {
+                position: unset;
+            }
             i{
                 font-size: 1.5rem;
                 color: $color-header;
@@ -150,6 +227,7 @@
                 font-size: 1rem;
                 color: $color-header;
                 padding-left: 5px;
+                align-self: center;
             }
         }
         li{
@@ -157,7 +235,7 @@
             text-align: center;
             cursor: pointer;
             color:$color-header;
-            @media (min-width:768px) {
+            @media (min-width:992px) {
                 padding: 0 20px;
                 line-height: 60px;
                 i{
@@ -172,7 +250,7 @@
                 color:$color-header;
                 display: block;
                 text-decoration: none;
-            @media (min-width:768px) {
+            @media (min-width:992px) {
                 line-height: 60px;
             }
             }

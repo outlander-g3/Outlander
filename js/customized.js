@@ -296,7 +296,8 @@ function cuWatchScenery(e){
     cuDetailH4.innerText = cuCustom__detailALL.split('|')[0];
 
     let price = document.createElement('p');
-    price.innerText = "價格：" + cuCustom__detailALL.split('|')[2] + " NTW";
+    // price.innerText = "價格：NTD "  + cuCustom__detailALL.split('|')[2];
+    price.innerText = "價格：NTD "  +`${cuCustom__detailALL.split('|')[2].toString().substring(0,cuCustom__detailALL.split('|')[2].toString().length-3)+","+cuCustom__detailALL.split('|')[2].toString().substring(cuCustom__detailALL.split('|')[2].toString().length-3,cuCustom__detailALL.split('|')[2].toString().length)}`;
     price.style.fontWeight = 'bold';
 
     let detail = document.createElement('p');
@@ -760,24 +761,6 @@ if(cuCustom__dropMask.hasChildNodes() == true){
 }
 //跳窗
 function cuBooking(){
-    // var xhr = new XMLHttpRequest();
-    //     xhr.onload=function (){
-    //         alert("dddd"+xhr.status);
-    //         alert(xhr.responseText);
-    //         if( xhr.status == 200 ){
-    //             if(xhr.responseText == 'login' ){
-    //             } else if (xhr.responseText == 'logout') {
-    //                 var winLogin = document.querySelector(".memLogin");
-    //                 winLogin.style.display = 'block';
-    //                 return;
-    //             }
-    //         }else{
-    //             alert( xhr.status );
-    //         }
-    //     }
-    //     var url = "session.php";
-    //     xhr.open("Get", url, true);
-    //     xhr.send( null );
     //跳窗
     let jpjnBooking = O('jpjn__booking');
     //漏選的提示內容
@@ -846,16 +829,17 @@ function cuClearItem(){
     
     //清除山岳風景列表裡的景點
     let cuCustomSceneryZoneOF = O('cuCustom__sceneryZone--OF');
-    for(let j =0;j<cuCustomSceneryZoneOF.childNodes.length;j++){
-        cuCustomSceneryZoneOF.removeChild(cuCustomSceneryZoneOF.childNodes[j])
+    while (cuCustomSceneryZoneOF.firstChild) {
+        cuCustomSceneryZoneOF.removeChild(cuCustomSceneryZoneOF.firstChild);
     }
+  
 
     //清除我的風景路線規劃裡的景點
     let cuCustomDropMask = document.querySelector('.cuCustom__dropMask');
-    cuCustomDropMaskL = cuCustomDropMask.childNodes.length;
-    for(let i =0;i<cuCustomDropMaskL+1;i++){
-        cuCustomDropMask.removeChild(cuCustomDropMask.childNodes[0])
+    while (cuCustomDropMask.firstChild) {
+        cuCustomDropMask.removeChild(cuCustomDropMask.firstChild);
     }
+ 
   
     
 
@@ -872,7 +856,14 @@ function cuJpcClose(){
 
 }
 
-
+function cuCloseAdd767(){
+    let cuCustomSceneryZoneBg = O('cuCustom__sceneryZone--bg');
+    enquire.register("screen and (max-width: 767px)", {     
+        match: function() {
+            cuCustomSceneryZoneBg.style.display = 'none';
+            },
+        });
+}
 
 
 
@@ -943,6 +934,7 @@ function init(){
     //     btnCuAddScenery767[m].addEventListener('click',cuPickScenery);
     // }
 
+
     let btnCuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
     btnCuAddSceneryConfirm.addEventListener('click',cuConfirm);
 
@@ -972,11 +964,13 @@ function init(){
     btnjpRclose.addEventListener('click',cuJpcClose);
     let btnjpBconfirm = O('btnjpb__confirm');
     btnjpBconfirm.addEventListener('click',cuJpcClose);
+
+    let cuCustomSceneryZoneBg = O('cuCustom__sceneryZone--bg');
+    cuCustomSceneryZoneBg.addEventListener('click',cuCloseAdd767);
     
 }
 
 window.addEventListener("load", () => {
-
     $('#date-text').click(function (e) {
         e.preventDefault();
         e.stopPropagation();

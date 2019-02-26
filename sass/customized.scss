@@ -13,11 +13,7 @@ i{
     vertical-align: middle;
 
 }
-#hd_customized{
-    color: #122B2F;
-    display: block;
-    text-decoration: none;
-}
+
 .fa-campground{
     font-size: 20px;
 }
@@ -68,7 +64,20 @@ i{
     }
 }
 
-
+#hd_customized{
+    @include pad-width(){
+        font-weight: bold;
+        &:after{
+            display: block;
+            content: '';
+            width: 64px;
+            height: 2px;
+            position: absolute;
+            top: 72.5%;
+            background: $color-text;
+        }
+    }
+}
 
 .cuMask{
     @include small-pad-width(){
@@ -385,7 +394,7 @@ i{
     background-color: rgba(31,31,31,.6);
     position: fixed;
     top: 0;
-    z-index: 3;
+    z-index: 1000;
     }
 }
 .cuCustom__sceneryZone{
@@ -1015,7 +1024,7 @@ i{
 }
 
 // 這邊是顯示日曆的SCSS
-#cuDate_ul{
+.cuDate_ul{
     position: relative;
     flex: 1;
     display: flex;
@@ -1039,7 +1048,7 @@ i{
             outline: none;
             border-radius: 21px;
             border: 2px solid $color-btn-main;
-            background-color: $color-white;
+            background-color: #f4f4f4;
             transition: 0.3s all ease-in-out;
             &::after {
                 content: "";

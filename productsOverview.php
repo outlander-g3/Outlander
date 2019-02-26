@@ -5,22 +5,11 @@
     // include_once('session.php'); //判斷會員是否登入
     try{
         require_once('connectDb.php');
-        //$sql = "select *, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo
-        //join `order` c on b.pdNo = c.pdNo group by a.pdkNo";/////以上是精選行程第一次寫法
-        //$sql = "select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 2";
-        //以上是精選行程假寫法
+       
         $sql= "select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo order by avgRate limit 2";
         $products = $pdo -> query($sql);
         $sql="select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by a.pdkNo order by b.pdStart limit 6
         ";
-
-        
-        // if isset()
-        // $sql = ""
-        // $mt = 1;
-        ////以上是近期開團正確寫法
-        //$sql="select * from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where c.rate<=5 order by pdStart limit 6
-        //";////以上是近期開團假寫法
         $recent = $pdo -> query($sql);
         // $prodRows = $products -> fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -463,6 +452,7 @@ function getFilter(e){
         <div class="pro-item-flex">
             <?php	
             while($prodRow = $products->fetch(PDO::FETCH_ASSOC)){
+                $pdkPrice =number_format($prodRow["pdkPrice"]);
             ?>
             <!-- 1個商品卡 -->
             <div class="pro-item" >
@@ -502,7 +492,7 @@ function getFilter(e){
                             </span>
                         </div>
                         <div class="clearfix"></div>
-                        <h4>NTD<?php echo $prodRow["pdkPrice"];?></h4>
+                        <h4>NTD<?php echo $pdkPrice;?></h4>
                     </div>
                     <div class="clearfix"></div>
                 </a>
@@ -554,6 +544,7 @@ function getFilter(e){
             <!-- 1個商品卡 -->
             <?php	
             while($prodRowRe = $recent->fetch(PDO::FETCH_ASSOC)){
+                $pdkPrice =number_format($prodRowRe["pdkPrice"]);
             ?>
             <div class="pro-item pro-item-three">
                 <a href="product.php?pdkNo=<?php echo $prodRowRe['pdkNo'];?>">
@@ -594,7 +585,7 @@ function getFilter(e){
                             ?>
                         </div>
                         <div class="clearfix"></div>
-                        <h4>NTD<?php echo $prodRowRe["pdkPrice"];?></h4>
+                        <h4>NTD<?php echo $pdkPrice;?></h4>
                     </div>
                     <div class="clearfix"></div>
                 </a>

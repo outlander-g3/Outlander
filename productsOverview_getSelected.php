@@ -43,12 +43,13 @@ try{
   $selected = $pdo->prepare( $sql );
   $selected->execute();
   
-  if( $selected->rowCount() == 0 ){ //找不到
+  if( $selected->rowCount() == 0 ){ 
     //傳回空的JSON字串
     echo "查無此筆資料";
   }else{ //找得到
     //取回一筆資料
       while($selectedRow = $selected->fetch(PDO::FETCH_ASSOC)){
+        $pdkPrice =number_format($selectedRow["pdkPrice"]);
         // echo "撈日期:",$newDate,"<br>";
     //送出html結構字串
     $html =
@@ -79,7 +80,7 @@ try{
                         $html .="
                         </span>
                     </div>
-                    <h4>NTD{$selectedRow['pdkPrice']}</h4>
+                    <h4>NTD{$pdkPrice}</h4>
                     <div class='clearfix'></div>
                 </div>
                 <div class='clearfix'></div>

@@ -23,6 +23,20 @@ html {
   .clearfix {
     clear: both; 
 }
+@media (min-width:768px){
+        #hd_productsOverview::after{
+            display: block;
+            content: '';
+            width: 64px;
+            height: 2px;
+            position: absolute;
+            top: 72.5%;
+            background: $color-text;
+        }
+        #hd_productsOverview{
+            font-weight: bold;
+        }
+    }
 //banner/////////////////////////////////
 .po-wrap{
     width:100%;
@@ -256,7 +270,7 @@ html {
     flex: 1;
     display: flex;
     margin-right:1%;
-    height:46px;
+    height:42px;
     // flex-directio n: column;
     // justify-content: space-around;
     li{
@@ -578,13 +592,14 @@ display: none;
         text-align: center;
         } 
     h4 {
-      font-size: 1.6rem;
+      font-size: 1.25rem;
       line-height: 1.4;
       font-weight:bold;
      }
     p {
-        font-size: 1.25rem;
+        font-size: 1rem;
         line-height: 1.6;
+       
     }
     width: 100%;
     min-height: 100vh;
@@ -616,6 +631,12 @@ display: none;
     a{
         display: block;
     }
+}
+.pro-item-view-flex p{
+    align-self: center;
+}
+.pro-item-view-flex span{
+    align-self: center;
 }
 //一個商品卡 //
 .pro-item{      
@@ -673,6 +694,7 @@ display: none;
     line-height: 40px;
     color:$color-white;
     font-size: 20px;
+    font-weight:bold;
 }
 .pro-item-pic img{
     width: 100%;

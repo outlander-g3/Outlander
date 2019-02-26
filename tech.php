@@ -37,7 +37,7 @@
 <!-- ===========================各分頁內容開始======================= -->
 <div class="wrap-all">
     <!-- <img src="img/back-m.png" alt="" class="bg"> -->
-        <div class="tech_banner_wrap">
+        <div class="tech_banner_wrap ">
             <div class="banner_pic_b">
                 <img id="banner_back" class="banner" src="img/banner_back.png">
             </div>

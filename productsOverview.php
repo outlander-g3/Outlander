@@ -114,7 +114,6 @@
             </ul>
             <form method="get">
                 <input type="hidden" name="dateInfo" id="dateInfo">
-                <!-- <input type="submit" value="nj/4"> -->
             </form>
             <!-- 月曆 -->
             <!-- 洲別 -->
@@ -352,7 +351,8 @@ function tdclass(e) {
                 xhr.addEventListener('load',(e)=>{
                 if( xhr.status == 200 ){
                 document.getElementById('mtmtmt').style.display="none";
-                document.getElementById('textChange').innerText="篩選結果";                       
+                document.getElementById('textChange').innerText="篩選結果"; 
+                document.getElementById('textChange-hot').innerText="相關行程";                      
                 document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
                 for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
                 document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');//拿掉熱門標籤
@@ -423,7 +423,8 @@ function getFilter(e){
   xhr.addEventListener('load',(e)=>{
     if( xhr.status == 200 ){
         document.getElementById('mtmtmt').style.display="none";
-        document.getElementById('textChange').innerText="篩選結果";                       
+        document.getElementById('textChange').innerText="篩選結果";  
+        document.getElementById('textChange-hot').innerText="相關行程";                
         document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
         for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
         document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');//拿掉熱門標籤
@@ -462,7 +463,7 @@ function getFilter(e){
                     </div>
                     <h4> <?php echo $prodRow["pdkName"];?></h4>
                     <div class="pro-item-view-flex">
-                        <p>評價：</p>
+                        <p id="pdk-rate">評價：</p>
                         <?php 
                         for($i=0; $i<floor($prodRow['avgRate']); $i++){ 
                         ?>
@@ -479,7 +480,7 @@ function getFilter(e){
                         <?php
                         }?>    
                     </div>
-                    <p>天數：<?php echo $prodRow["day"];?></p>
+                    <p>天數：<?php echo $prodRow["day"];?>天</p>
                     <div class="pro-item-view-float">
                         <p>難易度：</p>
                         <div class="hike-float">
@@ -492,9 +493,10 @@ function getFilter(e){
                             </span>
                         </div>
                         <div class="clearfix"></div>
-                        <h4>NTD<?php echo $pdkPrice;?></h4>
+                        
                     </div>
                     <div class="clearfix"></div>
+                    <h4 id="pdk-price">NTD<?php echo $pdkPrice;?></h4>
                 </a>
             </div>
             <?php
@@ -540,6 +542,7 @@ function getFilter(e){
 
     <div class="pro-product-wrap">
         <h3 id="textChange">近期開團</h3>
+        <h5 id="textChange-hot">熱門經典登山路線</h5>
         <div class="pro-item-flex pro-item-flex-three" id="mtmtmtS">
             <!-- 1個商品卡 -->
             <?php	
@@ -570,7 +573,7 @@ function getFilter(e){
                         <?php
                         }?>  
                     </div>
-                    <p>天數：<?php echo $prodRowRe["day"];?></p>
+                    <p>天數：<?php echo $prodRowRe["day"];?>天</p>
                     <div class="pro-item-view-float">
                         <p>難易度：</p>
                         <div class="hike-float">
@@ -584,178 +587,15 @@ function getFilter(e){
                             }
                             ?>
                         </div>
-                        <div class="clearfix"></div>
-                        <h4>NTD<?php echo $pdkPrice;?></h4>
+                        <!-- <div class="clearfix"></div> -->
                     </div>
                     <div class="clearfix"></div>
+                    <h4 id="pdk-price">NTD<?php echo $pdkPrice;?></h4>
                 </a>
             </div>
             <?php
             }
             ?>
-            <!-- 1個商品卡 -->
-            <!-- 2個商品卡 -->
-            <!-- <div class="pro-item pro-item-three">
-                <a href="products.html">
-                    <div class="pro-item-pic pro-item-pic-hot">
-                        <img src="img/ebc.jpg" alt="EBC">
-                    </div>
-                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
-                    <div class="pro-item-view-flex">
-                        <p>評價：</p>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-
-                    </div>
-                    <p>天數：15天</p>
-                    <div class="pro-item-view-float">
-                        <p>難易度：</p>
-                        <div class="hike-float">
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                            </span>
-                        </div>
-                        <h4>NTD76500</h4>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            </div> -->
-            <!-- 2個商品卡 -->
-            <!-- 3個商品卡 -->
-            <!-- <div class="pro-item pro-item-three">
-                <a href="products.html">
-                    <div class="pro-item-pic pro-item-pic-hot">
-                        <img src="img/ebc.jpg" alt="EBC">
-                    </div>
-                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
-                    <div class="pro-item-view-flex">
-                        <p>評價：</p>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-
-                    </div>
-                    <p>天數：15天</p>
-                    <div class="pro-item-view-float">
-                        <p>難易度：</p>
-                        <div class="hike-float">
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                            </span>
-                        </div>
-                        <h4>NTD76500</h4>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            </div> -->
-            <!-- 3個商品卡 -->
-        <!-- </div>
-        <div class="pro-item-flex pro-item-flex-three"> -->
-            <!-- 1個商品卡 -->
-            <!-- <div class="pro-item pro-item-three">
-                <a href="products.html">
-                    <div class="pro-item-pic pro-item-pic-hot">
-                        <img src="img/ebc.jpg" alt="EBC">
-                    </div>
-                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
-                    <div class="pro-item-view-flex">
-                        <p>評價：</p>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-
-                    </div>
-                    <p>天數：15天</p>
-                    <div class="pro-item-view-float">
-                        <p>難易度：</p>
-                        <div class="hike-float">
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                            </span>
-                        </div>
-                        <h4>NTD76500</h4>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            </div> -->
-            <!-- 1個商品卡 -->
-            <!-- 2個商品卡 -->
-            <!-- <div class="pro-item pro-item-three">
-                <a href="products.html">
-                    <div class="pro-item-pic pro-item-pic-hot">
-                        <img src="img/ebc.jpg" alt="EBC">
-                    </div>
-                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
-                    <div class="pro-item-view-flex">
-                        <p>評價：</p>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-
-                    </div>
-                    <p>天數：15天</p>
-                    <div class="pro-item-view-float">
-                        <p>難易度：</p>
-                        <div class="hike-float">
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                            </span>
-                        </div>
-                        <h4>NTD76500</h4>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            </div> -->
-            <!-- 2個商品卡 -->
-            <!-- 3個商品卡 -->
-            <!-- <div class="pro-item pro-item-three">
-                <a href="products.html">
-                    <div class="pro-item-pic pro-item-pic-hot">
-                        <img src="img/ebc.jpg" alt="EBC">
-                    </div>
-                    <h4>探索尼泊爾•安娜普娜基地營健行15日</h4>
-                    <div class="pro-item-view-flex">
-                        <p>評價：</p>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-                        <span class="tree_f"><img src="img/tree_f.png" alt="tree"></span>
-
-                    </div>
-                    <p>天數：15天</p>
-                    <div class="pro-item-view-float">
-                        <p>難易度：</p>
-                        <div class="hike-float">
-                            <span class="hike">
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                                <i class="fas fa-hiking"></i>
-                            </span>
-                        </div>
-                        <h4>NTD76500</h4>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            </div> -->
-            <!-- 3個商品卡 -->
         </div>
     </div>
 <!-- ===========================各分頁內容結束======================= -->
@@ -767,7 +607,7 @@ function getFilter(e){
 ?>
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>
-<!-- <script src="js/robot.js"></script> -->
+<!-- <script src="js/robot.js"></script> -->  
 
 <!-- 選擇日期 -->
 <!-- <script src="js/proview_date.js"></script> -->

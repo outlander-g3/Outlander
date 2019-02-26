@@ -1,15 +1,10 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
-// body{
-//     *{
-//         font-family: "微軟正黑體";
-//     }
-// }
 #header-nav{
     background: $color-white;
     width: 100%;
     max-width: 2500px;
-    height: 60px;
+    height: 70px;
     position: fixed;
     z-index: 997;
 }
@@ -46,7 +41,7 @@
     }
 }
 
-// @media (min-width:768px){
+// @media (min-width:992px){
 //     #hd_productsOverview::after{
 //         display: block;
 //         content: '';
@@ -55,6 +50,7 @@
 //         position: absolute;
 //         top: 72.5%;
 //         background: $color-text;
+//         font-weight: bold;
 //     }
 //     #hd_customized::after{
 //         display: block;
@@ -64,6 +60,7 @@
 //         position: absolute;
 //         top: 72.5%;
 //         background: $color-text;
+//         font-weight: bold;
 //     }
 //     #hd_journalsOverview::after{
 //         display: block;
@@ -73,6 +70,7 @@
 //         position: absolute;
 //         top: 72.5%;
 //         background: $color-text;
+//         font-weight: bold;
 //     }
 //     #hd_tech::after{
 //         display: block;
@@ -82,6 +80,7 @@
 //         position: absolute;
 //         top: 72.5%;
 //         background: $color-text;
+//         font-weight: bold;
 //     }
 // }
 #header{
@@ -95,7 +94,7 @@
     position: fixed;
     display: flex;
     background-color: $color-white;
-    height: 60px;
+    height: 70px;
     color:$color-main2;
     z-index: 998;
     #header-left{
@@ -107,7 +106,6 @@
             max-width: 300px;
         }
         #logo{
-            flex: 2;
             align-self: center;
             a{
                 display: block;
@@ -117,7 +115,7 @@
                 width: 100%;
                 min-width: 45px;
                 min-height: 47px;
-                max-width: 50px;
+                max-width: 58px;
             }
         }
         #search{
@@ -128,7 +126,10 @@
             i{
                 position: absolute;
                 top: 2px;
-                left: 85%;
+                @media (min-width:1200px) {
+                    left: 59%;
+                }
+                left: 80%;
                 cursor: pointer;
             }
             input{
@@ -162,7 +163,7 @@
             width: 27px;
             height: 27px;
             right: 20px;
-            top: 15px;
+            top: 21.5px;
             z-index:1000; 
         }
         #burger-1{ 
@@ -184,7 +185,7 @@
         background-color: $color-white;
         transition: all 0.5s;
         @media (min-width:992px) {
-            height: 60px;
+            height: 70px;
             display: flex;
             margin-left: 40px;
             flex-direction: row;
@@ -237,13 +238,13 @@
             color:$color-header;
             @media (min-width:992px) {
                 padding: 0 20px;
-                line-height: 60px;
+                line-height: 70px;
                 i{
-                    line-height: 2.5;
+                    line-height: 2.8;
                 }
                 #user-out{
                     font-size: 19px;
-                    line-height: 60px;
+                    line-height: 70px;
                 }
             }
             a{
@@ -251,7 +252,7 @@
                 display: block;
                 text-decoration: none;
             @media (min-width:992px) {
-                line-height: 60px;
+                line-height: 70px;
             }
             }
         }

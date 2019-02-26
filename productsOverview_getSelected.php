@@ -69,7 +69,7 @@ try{
                       }         
                     $html .="
                 </div>
-                <p>天數：{$selectedRow["day"]}</p>
+                <p>天數：{$selectedRow["day"]}天</p>
                 <div class='pro-item-view-float'>
                     <p>難易度：</p>
                     <div class='hike-float'>
@@ -80,9 +80,9 @@ try{
                         $html .="
                         </span>
                     </div>
-                    <h4>NTD{$pdkPrice}</h4>
                     <div class='clearfix'></div>
                 </div>
+                <h4 id='pdk-price'>NTD{$pdkPrice}</h4>
                 <div class='clearfix'></div>
             </a>
       </div>";

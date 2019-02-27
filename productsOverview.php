@@ -86,6 +86,8 @@
             <!-- 月曆 -->
             
             <ul class="datecont" id="fullDate">
+            <form method="get" id="dateStart">
+                <input type="hidden" name="dateInfo" id="dateInfo">
                 <li><input id="date" type="text" value="">
                     <span id="date-text">
                         <label id="date-label">請選擇日期</label>
@@ -111,14 +113,13 @@
                             </tbody>
                         </table>
                     </span></li>
-            </ul>
-            <form method="get">
-                <input type="hidden" name="dateInfo" id="dateInfo">
             </form>
+            </ul>
             <!-- 月曆 -->
             <!-- 洲別 -->
-            <form class="" id="cont">
+            <div class="po-date">
                 <span class="joForm__input">
+                <form class="" id="cont">
                     <input type="radio" name="contType" class="contType" value="choose" checked id="cont-choose" class="cc">
                     <label for="cont-choose">請選擇洲別</label>
 
@@ -139,11 +140,13 @@
 
                     <input type="radio" name="contType" class="contType" value="6" id="cont-africa" class="cc">
                     <label for="cont-africa">南美洲</label>
+                </form>
                 </span>
-            </form>
+            </div>
             <!-- 難易度 -->
-            <form class="" id="level">
+            <div class="po-date">
                 <span class="joForm__input">
+                <form class="" id="level">
                     <input type="radio" name="levelType" value="choose" checked id="level-choose" class="aa">
                     <label for="level-choose">請選擇難易度</label>
 
@@ -156,11 +159,13 @@
 
                     <input type="radio" name="levelType" value="3" id="hard-hard" class="aa">
                     <label for="hard-hard">非常難</label>
+                </form>
                 </span>
-            </form>
+            </div>
             <!-- 預算 -->
-            <form class="" id="budget">
+            <div class="po-date">
                 <span class="joForm__input">
+                <form class="" id="budget">
                     <input type="radio" name="budgetType" value="choose" checked id="bud-choose" class="bb">
                     <label for="bud-choose">請選擇預算</label>
 
@@ -172,8 +177,9 @@
 
                     <input type="radio" name="budgetType" value="3" id="cont-3" class="bb">
                     <label for="cont-3">5萬~20萬</label>
+                </form>
                 </span>
-            </form>
+            </div>
         </div>
     </div>
 
@@ -540,7 +546,7 @@ function getFilter(e){
 </div>
     <!-- 以下為熱門行程----------------------------------------------------------------------->
 
-    <div class="pro-product-wrap">
+    <div class="pro-product-wrap pro-product-wrap-recent">
         <h3 id="textChange">近期開團</h3>
         <h5 id="textChange-hot">熱門經典登山路線</h5>
         <div class="pro-item-flex pro-item-flex-three" id="mtmtmtS">

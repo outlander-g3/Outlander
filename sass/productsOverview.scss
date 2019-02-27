@@ -16,9 +16,9 @@ html {
   body * {
     font-family: "微軟正黑體"; 
 }
-*{
-    box-sizing: border-box;
-}
+// *{
+//     box-sizing: border-box;
+// }
 
   .clearfix {
     clear: both; 
@@ -39,6 +39,7 @@ html {
     }
 //banner/////////////////////////////////
 .po-wrap{
+    box-sizing: border-box;
     width:100%;
     max-width: 2500px;
     margin: auto;
@@ -249,31 +250,43 @@ html {
     margin: auto;
     @include pTop(80);
     @media screen and (max-width:767px){
-    padding-top:20%; 
+    padding-top:30%; 
     }
 
 }
 .drop-flex{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: center;
+    @media screen and (max-width:991px) {
+        flex-wrap: wrap;
+    }
 }
 
 //////////////日曆///////
-.datecont{
-    width:25%;
-    @media screen and (max-width:767px){
-        width:90%;
-    }
-    // max-width: 320px;
-    position: relative;
-    flex: 1;
-    display: flex;
-    // margin-right:1%;
+.po-date{
+    width: 210px;
+    // display: flex;
     height:42px;
-    // flex-directio n: column;
     justify-content: space-around;
+    @media screen and (max-width:991px){
+        width: 90%;
+        margin-bottom: 6px;
+    }
+
+}
+.datecont{
+    width: 320px;
+    display: flex;
+    height:42px;
+    justify-content: space-around;
+    @media screen and (max-width:991px){
+        width: 90%;
+        justify-content: flex-start;
+        margin-bottom: 6px;
+    }
     li{
-        width: 100%;
+        width: 320px;
         line-height: 50px;
         font-size: 1rem;
         position: relative;
@@ -285,7 +298,7 @@ html {
             position: absolute;
             display: inline-block;
             // width: 320px;//之後把這邊改%
-            width:90%;
+            width:98%;
             min-height: 42px;
             max-height: 46px;
             line-height: 42px;
@@ -295,10 +308,10 @@ html {
             color:$color-btn-main;
             outline: none;
             border: 2px solid #f27f22;
-            border-radius: 21px;
+            border-radius: 23px;
             transition: 0.3s all ease-in-out;
             @media screen and (max-width:767px){
-                width: 100%;
+                width: 312px;
             }
             &::after {
                 content: "";
@@ -405,68 +418,47 @@ display: none;
         }
     }
 }
-//////以上為月曆//////
-.drop-flex form{
-    // position: relative;
-    margin-right:1%;
-    @media screen and (max-width:767px){
-        width: 100%;
-    }
-}
 
 
-.drop-flex {
-    #cont{
-        width: 20%;
-        // float:left;
-        @media screen and (max-width:767px){
-            width: 90%;
-        }
-    }
-    #level{
-        // float:left;
-        width: 20%;
-        @media screen and (max-width:767px){
-            width: 90%;
-        }
-    }
-    #budget{
-        // float:left;
-        width: 30%;
-        @media screen and (max-width:767px){
-            width: 90%;
-        }
-    }
-}
-#budget .joForm__input{
-    // width:320px;
-    width: 16%;
-    flex:1;
-    @media screen and (max-width:767px){
-        width: 100%;
-    }
-} 
-#cont .joForm__input{
-    width:16%;
-    flex:1;
-    @media screen and (max-width:767px){
-        width: 100%;
-    }
-}
-#level .joForm__input{
-    width: 16%;
-    flex:1;
-    @media screen and (max-width:767px){
-        width: 100%;
-    }
-}
+
+// .drop-flex {
+//     #dateStart{
+//         width: 30%;
+//         // float:left;
+//         @media screen and (max-width:767px){
+//             width: 90%;
+//         }
+
+//     }
+//     #cont{
+//         width: 20%;
+//         // float:left;
+//         @media screen and (max-width:767px){
+//             width: 90%;
+//         }
+//     }
+//     #level{
+//         // float:left;
+//         width: 20%;
+//         @media screen and (max-width:767px){
+//             width: 90%;
+//         }
+//     }
+//     #budget{
+//         // float:left;
+//         width: 20%;
+//         @media screen and (max-width:767px){
+//             width: 90%;
+//         }
+//     }
+// }
 
 .joForm__input {
     // position: relative;
     z-index: 500;
     position: absolute;
     display: inline-block;
-    width: 100%;
+    width: 200px;
     text-indent: 10px;
     min-height: 42px;
     max-height: 42px;
@@ -477,19 +469,20 @@ display: none;
     white-space: nowrap;
     color: #f27f22;
     outline: none;
-    border-radius: 21px;
+    border-radius: 23px;
     background-color: #f4f4f4;
     border: 2px solid #f27f22;
     transition: 0.3s all ease-in-out; 
-    @media screen and (max-width:767px){
-        width: 100%;
+    @media screen and (max-width:991px) {
+        width: 312px;
     }
 }
 
 .joForm__input input {
     display: none; 
     @media screen and (max-width:767px){
-        width: 100%;
+        width: 90%;
+        
     }
 }
 
@@ -505,7 +498,7 @@ display: none;
     position: relative;
     transition: 0.3s color ease-in-out; 
     @media screen and (max-width:767px){
-        width: 100%;
+        width: 90%;
     }
  
 }
@@ -634,6 +627,9 @@ display: none;
 .pro-item-view-flex p{
     align-self: center;
 }
+.pro-product-wrap-recent{
+    padding-bottom: 200px;
+}
 
 //一個商品卡 //
 .pro-item{      
@@ -650,7 +646,7 @@ display: none;
     background-color:rgba(8,139,154,0.1);
     @media screen and (max-width:767px){
     width: 90%;
-    margin:0 0.1% 3% 0.1%;
+    margin:3%;
     }
     .tree_f{
         width: 22px;
@@ -677,7 +673,7 @@ display: none;
     margin: 1%;
     @media screen and (max-width:767px){
     width: 90%;
-    margin:0 0.1% 3% 0.1%;
+    margin: 3% 0;
     }
 }
 .pro-item-pic-hot{

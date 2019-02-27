@@ -15,7 +15,6 @@ try {
     $scns->execute();
   
 	while($scnRows = $scns->fetch(PDO::FETCH_ASSOC)){
-		// echo $scnRows['scnImg'],"|";
         echo' <div class="cuCustom__sceneryItem" id="cu',$scnRows['scnNo'],'" style="background-image: url(img/mt/',$scnRows['pdkNo'],'/scn/';
         echo $scnRows['scnNo']%3+1,'.jpg);">
         <div class="cuCustom__sceneryContent">

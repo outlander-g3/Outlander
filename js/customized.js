@@ -19,7 +19,10 @@ $('#cuForm__input--C').click(function (e) {
     $('#' + $(e.target).attr('for')).prop('checked', true);
     switch(e.target.innerText){
         case "亞洲" :
+        $('#cuForm__input--M label:not(:first-of-type)').css('display','none'); 
+        $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
         $('#mount-choose').next().css('display','block');
+        $('#mount-choose').prop('checked', true)
         $('#mt1').next().css('display','block');
         $('#mt2').next().css('display','block');
         $('#mt3').next().css('display','block');
@@ -71,7 +74,6 @@ $('#cuForm__input--C').click(function (e) {
         // $('#mount-choose').next().css('display','block');        
         // ;  
     }  
-   
 });
 
 $(document).click(function () {
@@ -133,8 +135,14 @@ $(document).click(function () {
 $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
     if($(e3.target).text() != "請選擇山岳" && $('#cuForm__MCom').val() != $(e3.target).text()){
         $('#cuPdkName').val("【客製行程】"+$(e3.target).text());
-        // $('#cuCustom__sceneryZone--OF').children('.cuCustom__sceneryItem').remove();
-        let pdkNo = $(e3.target).attr('for').substr(2,1);
+        let pdkNo = $(e3.target).attr('for');
+        let pdkNoL = pdkNo.length;
+        if(pdkNo.length == 3){
+            pdkNo = $(e3.target).attr('for').substr(2,1);
+        }else if(pdkNo.length >= 3){
+            pdkNo = $(e3.target).attr('for').substr(2,2);
+        }
+
         if($(e3.target).text() != '' &&  $(e3.target).text() != '請選擇山岳'){
             test();
             $.ajax({
@@ -142,8 +150,6 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
                 url: 'cu_getScn.php',
                 data: 'pdkNo=' + pdkNo,
                 success: function (data) {
-                    // $('#cuCustom__sceneryZone--OF').append(data);
-                    // $('#cuCustom__sceneryZone--OF').children().replace('<input type="hidden" name="" id="cuReplace">',data+'<input type="hidden" name="" id="cuReplace">');
                     $('#cuCustom__sceneryZone--OF').html(data);
                     $('.cuCustom__sceneryItem').mouseover(showOption);
                     $('.cuCustom__sceneryItem').mouseout(closeOption);
@@ -395,8 +401,19 @@ var storage = sessionStorage;
 
 //767以上 讓動態新增的風景點先加到web session
 function addItemBefore(itemId,itemValue){
-    storage['addItemList'] += itemId + ',';
+    let addItemStr = storage['addItemList'];
+    console.log(addItemStr.search("scu"));
+    if(addItemStr.search("scu") == -1 ){
+        console.log("應該要是沒有,");
+        storage['addItemList'] = itemId;
+    }else{
+        console.log("有,");
+        storage['addItemList'] += ',' + itemId ;
+    }
     storage[itemId] = itemValue;
+
+    // console.log(itemId);
+    // console.log(itemValue);
     addItem(itemId,itemValue);
 }
 
@@ -572,13 +589,21 @@ function addItem(itemId,itemValue){
     
 	// // 計算購買數量和小計
     var itemString = storage.getItem('addItemList');
-    // var itemStringa = storage.removeItem('addItemList');
+    let addItemStr = storage['addItemList'];
     
-    var items = itemString.substr(0,itemString.length-1).split(',');
+    // var items = itemString.substr(0,itemString.length-1);
+    
+    if(addItemStr.search(",") != -1 ){
+        var itemMore = itemString.substr(0,itemString.length);
+        var items = itemMore.split(',');
+    }else if(addItemStr.search(",") == -1){
+        var items = [];
+        items[0]= itemString;
+    }
 
     
 	pdkPrice = 0;
-    for(var key in items){		//use items[key]
+    for(var key in items){		
         var itemInfo = storage.getItem(items[key]);
 		var itemPrice = parseInt(itemInfo.split('|')[2]);        
 		pdkPrice += itemPrice;
@@ -588,15 +613,16 @@ function addItem(itemId,itemValue){
     O('cuPdkPrice').value = O('pdkPrice').innerText;
     function changeItemCount(){
         var itemString = storage.getItem('addItemList');
-        // console.log(itemString);
+        console.log(itemString);
+        console.log(itemString.length);
         var items = itemString.substr(0,itemString.length-2).split(',');
+        
         // console.log(items);
- 
-        if(items == ""){
-            items.length -= 1;
-            O('cuQuan').innerText = items.length;
-        }
-        O('cuQuan').innerText = items.length;
+        O('cuQuan').innerText = (items.length-1);
+        // if(items == ""){
+        //     items.length -= 1;
+        //     O('cuQuan').innerText = items.length;
+        // }
     }
 }
 
@@ -611,15 +637,28 @@ function deleteItem(){
 
     // 2.清除storage的資料
     storage.removeItem(itemId);
-    storage['addItemList'] = storage['addItemList'].replace(itemId+',',"");
-
+    
+    if(storage['addItemList'].search(','+itemId) != -1){
+        storage['addItemList'] = storage['addItemList'].replace(','+itemId,"");
+        console.log(itemId);
+        // console.log('不是第一個');
+        // console.log('不是第一個');
+    }else{
+        storage['addItemList'] = storage['addItemList'].replace(itemId,"");
+        console.log(itemId);
+        console.log('only one');
+        
+    }
+    
     // 3.再將該筆div刪除
-    let cuCustom__dropMask = document.getElementsByClassName('cuCustom__dropMask')[0];
-    let cuCustom__dropSceneryNew = document.getElementsByClassName('cuCustom__dropSceneryNew')[0];
-    let cuCustom__sceneryZoneOF = O('cuCustom__sceneryZone--OF');
+    // let cuCustom__dropMask = document.getElementsByClassName('cuCustom__dropMask')[0];
+    // let cuCustom__dropSceneryNew = document.getElementsById();
+    // let cuCustom__sceneryZoneOF = O('cuCustom__sceneryZone--OF');
     let cu_IDNum = itemValue.split('|')[3];
     let cu_ID =O(cu_IDNum);
-    cuCustom__dropMask.removeChild(cuCustom__dropSceneryNew);
+    // cuCustom__dropMask.removeChild(cuCustom__dropSceneryNew);
+    let aaa = $(this).closest('.cuCustom__dropSceneryNew').remove();
+    // cuCustom__dropMask.removeChild(aaa);
 
      // 4.在山岳風景列表加回景點
     cu_ID.style.display ='block';
@@ -644,41 +683,40 @@ function deleteItem(){
 function cuPickScenery(e){
     let inputDetail = document.querySelector('#'+e.target.parentNode.parentNode.id+' input').value;
     let iconCheckBox = e.currentTarget.childNodes[1];
+    let addItemStr = storage['addItemList'];
+
     if(iconCheckBox.innerText == 'check_box_outline_blank'){
         iconCheckBox.innerText = 'check_box';
-        storage['addItemList'] += e.target.parentNode.parentNode.id + ',';
-		storage[e.target.parentNode.parentNode.id] = inputDetail;
+        // storage['addItemList'] += e.target.parentNode.parentNode.id + ',';
+        if(addItemStr.search("cu") == -1 ){
+            console.log("應該要是沒有,");
+            storage['addItemList'] += e.target.parentNode.parentNode.id ;
+            storage[e.target.parentNode.parentNode.id] = inputDetail;
+        }else{
+            console.log("有,");
+            
+            storage['addItemList'] +=  ','+e.target.parentNode.parentNode.id;
+            storage[e.target.parentNode.parentNode.id] = inputDetail;
+        }
     } else if(iconCheckBox.innerText == 'check_box'){
         iconCheckBox.innerText = 'check_box_outline_blank';
+        // storage.removeItem(e.target.parentNode.parentNode.id);
+        // storage['addItemList'] = storage['addItemList'].replace(e.target.parentNode.parentNode.id+',',"");
         storage.removeItem(e.target.parentNode.parentNode.id);
-        storage['addItemList'] = storage['addItemList'].replace(e.target.parentNode.parentNode.id+',',"");
+        alert();
+        if(storage['addItemList'].search(','+e.target.parentNode.parentNode.id) != -1){
+            storage['addItemList'] = storage['addItemList'].replace(','+e.target.parentNode.parentNode.id,"");
+            console.log(e.target.parentNode.parentNode.id);
+            // console.log('不是第一個');
+            // console.log('不是第一個');
+        }else{
+            storage['addItemList'] = storage['addItemList'].replace(e.target.parentNode.parentNode.id,"");
+            console.log(e.target.parentNode.parentNode.id);
+            console.log('only one');
+            
+        }
     }
 
-
-    // var btn_cuAddSceneryConfirm = document.getElementById("btn_cuAddScenery--confirm");
-    // btn_cuAddSceneryConfirm.addEventListener("click",function(){
-    //     if(cuCustomSceneryZoneBg.style.display == 'block'){
-    //         cuCustomSceneryZoneBg.style.display = 'none';
-    //     }
-    //     // var cuSceneryInfo = document.querySelector('#'+this.id+' input').value;
-    //     //先判斷此處是否已有物件，如果有就先刪除
-    //     let cuCustom__dropMask =document.querySelector('.cuCustom__dropMask');
-    //     // console.log(cuCustom__dropMask.childNodes);
-	// // if(cuCustom__dropMask.hasChildNodes()){
-    // //     for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
-    // //         cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
-    // //     }
-    // //     // while(cuCustom__dropMask.childNodes.length >= 1){
-    // //     //     for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
-    // //     //         cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
-    // //     //     }
-    // //     //             let aaa = cuCustom__dropMask.childNodes.length;
-    // //     //     }
-    // //     }
-    //     console.log(inputDetail.split('|')[3]);
-    //     console.log(inputDetail);
-    //     addItem(inputDetail.split('|')[3],inputDetail);
-    // });
 }
 
 
@@ -686,29 +724,28 @@ function cuConfirm(){
     if(cuCustomSceneryZoneBg.style.display == 'block'){
         cuCustomSceneryZoneBg.style.display = 'none';
     }
+
     //先判斷此處是否已有物件，如果有就先刪除
     let cuCustom__dropMask =document.querySelector('.cuCustom__dropMask');
     if(cuCustom__dropMask.hasChildNodes()){
         for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
             cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
         }
-        // while(cuCustom__dropMask.childNodes.length >= 1){
-        //     for(let i = 0; i< cuCustom__dropMask.childNodes.length;i++){
-        //         cuCustom__dropMask.removeChild(cuCustom__dropMask.childNodes[i]);
-        //     }
-        //             let aaa = cuCustom__dropMask.childNodes.length;
-        //     }
+    }
+
+    //加入景點
+    let addItemStr = storage['addItemList'];
+    if(addItemStr.search("cu") == -1 ){
+    }else{
+        let items= addItemStr.split(',');
+        let addItemStrL = addItemStr.length;
+
+        addItem(items[0],storage.getItem(items[0]));
+        for(let i=1 ; i<addItemStrL;i++){
+            itemID = items[i];
+            let itemValue = storage.getItem(itemID);
+            addItem(itemID,itemValue);
         }
-    let items= storage['addItemList'].split(',');
-    
-    let itemsL = items.length;
-    
-    for(let i=0 ; i<itemsL-1;i++){
-        itemID = items[i];
-        console.log(itemID);
-        let itemValue = storage.getItem(itemID);
-        console.log(itemValue);
-        addItem(items[i],itemValue);
     }
 };
 
@@ -727,7 +764,13 @@ function cuShowGuide(){
     // let cuGuide_picL = O('cuGuide_picL');
     let cuGuide_picL = document.createElement('img');
     cuGuide_picL.src = this.childNodes[1].src;
+    cuGuide_picL.className ='cuGuide_picL';
     let cuGuideListPicked = document.querySelector('.cu__guideList--picked');
+    console.log(cuGuideListPicked.firstChild.className);
+    console.log(cuGuide_picL);
+    while (cuGuideListPicked.firstChild.className == 'cuGuide_picL') {
+        cuGuideListPicked.removeChild(cuGuideListPicked.firstChild);
+    }
     // cuGuideListPicked.appendChild(cuGuide_picL);
     cuGuideListPicked.insertBefore(cuGuide_picL, cuGuideListPicked.childNodes[0]);
     this.style.border = '1px solid rgba(244, 244, 244, 1)';
@@ -819,7 +862,8 @@ function cuClearItem(){
     mountChoose.checked = true;
    
     //清除網頁的session
-    sessionStorage.clear();
+    storage['addItemList'] = "";
+    // sessionStorage.clear();
     
     //讓價格跟數量歸零
     let cuQuan = O('cuQuan');
@@ -856,16 +900,16 @@ function cuJpcClose(){
 
 }
 
-function cuCloseAdd767(e){
-    let cuCustomSceneryZoneBg = O('cuCustom__sceneryZone--bg');
-    e.stopPropagation;
-    enquire.register("screen and (max-width: 767px)", {     
-        match: function(e2) {
-            e2.stopPropagation;
-            cuCustomSceneryZoneBg.style.display = 'none';
-            },
-        });
-}
+// function cuCloseAdd767(){
+//     let cuCustomSceneryZoneBg = O('cuCustom__sceneryZone--bg');
+//     // e.stopPropagation;
+//     enquire.register("screen and (max-width: 767px)", {     
+//         match: function() {
+//             // e2.stopPropagation;
+//             cuCustomSceneryZoneBg.style.display = 'none';
+//             },
+//         });
+// }
 
 
 

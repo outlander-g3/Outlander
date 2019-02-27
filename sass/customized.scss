@@ -171,7 +171,7 @@ i{
 .cuProcess__circle{
     @include cu_ColorTxt(.9);
     @include f16b;
-    border: 2px solid $color-lifegreen;
+    border: 2px solid $color-main2;
     border-radius: 50%;
     width: 34px;
     height: 34px;
@@ -831,12 +831,15 @@ i{
     }
     h3{
         @include f20b;
-        color: $color-lifegreen;
+        color: $color-main2;
         @include small-pad-width(){
             padding: 60px 0 10px 20px;
         }
         @include pad-width(){
             padding: 60px 0 10px 150px;
+        }
+        @include pc-width(){
+            padding: 60px 0 10px 120px;
         }
     }
 }
@@ -869,12 +872,12 @@ i{
         width: 100%;
     }
     @include pad-width(){
-        width: 77.25%;
+        width: 82%;
         display: flex;
         justify-content: center;
     }  
-    @include pad-width(){
-        width: 77.25%;
+    @include pc-width(){
+        width: 90%;
     }  
 }
 .cu__guideListBg{

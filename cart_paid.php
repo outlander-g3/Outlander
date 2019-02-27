@@ -12,7 +12,7 @@ try {
     $pdo->beginTransaction();
 
     //先判斷是否從客製來  客制要多寫入開團資訊
-    if($_SESSION['where']=='/customized.php'){
+    if($_SESSION['where']=='/demo-projects/CD105/CD105G3/cu_Booking.php'){
         $pdStart=str_replace('/','-',$_SESSION['pdStart']);
         $sql="insert into product(pdkNo,gdNo1,pdStart,pdStatus) values (:pdkNo,:gdNo1,:pdStart,0);";
         $product=$pdo->prepare($sql);
@@ -20,8 +20,11 @@ try {
         $product->bindValue(':gdNo1',$_SESSION['gdNo1']);
         $product->bindValue(':pdStart',$pdStart);
         $product->execute();
-        $_SESSION['pdNo']=$pdo->lastInsertId();
-        echo '寫完開團';
+        $pdNo=$pdo->lastInsertId();
+        // echo '寫完開團';
+    }
+    else{
+        $pdNo=$_SESSION['pdNo'];
     }
     //寫入訂單
     //出發 結束日
@@ -30,7 +33,7 @@ try {
     $sql="insert into `order` (memNo,pdNo,ordDate,people,ordPrice,ordStart,ordEnd,ordStatus) values (:memNo,:pdNo,:ordDate,:people,:ordPrice,:ordStart,:ordEnd,:ordStatus);";
     $order=$pdo->prepare($sql);
     $order->bindValue(':memNo',$_SESSION['memNo']);
-    $order->bindValue(':pdNo',$_SESSION['pdNo']);
+    $order->bindValue(':pdNo',$pdNo);
     $order->bindValue(':ordDate',date("Y-m-d"));
     $order->bindValue(':people',(string)count($_REQUEST['psgName']));
     $order->bindValue(':ordPrice',$ordPrice);
@@ -38,7 +41,7 @@ try {
     $order->bindValue(':ordEnd',$ordEnd);
     $order->bindValue(':ordStatus','0'); //下架
     
-    echo '寫完訂單';
+    // echo '寫完訂單';
     $order->execute();
     $ordNo=$pdo->lastInsertId();
 
@@ -63,7 +66,7 @@ try {
         $point->bindValue(':memNo',$_SESSION['memNo']);
         $point->execute();
     }
-    echo '同步完會員';
+    // echo '同步完會員';
 
 
 
@@ -78,7 +81,7 @@ try {
         $psg->bindValue(':psgId',$_REQUEST['psgId'][$i]);
         $psg->execute();
     }
-    echo '寫完旅客';
+    // echo '寫完旅客';
     
     //寫入訂單裝備清單
     //找到pdkNo去撈裝備有哪些
@@ -88,14 +91,24 @@ try {
         $sql="insert into orderchecklist(eqmNo,ordNo) values(".$rows->eqmNo.",{$ordNo})";
         $pdo->exec($sql);
     }
-    echo '寫入訂單裝備';
+    // echo '寫入訂單裝備';
 
     
     
     //提交
     $pdo->commit();
     //然後unset一系列跟訂購有關的session
-    // header('Location:member.php');
+    unset($_SESSION['pdkName']);
+    unset($_SESSION['pdkNo']);
+    unset($_SESSION['pdStart']);
+    unset($_SESSION['pdEnd']);
+    unset($_SESSION['day']);
+    unset($_SESSION['pdkPrice']);
+    unset($_SESSION['where']);
+    unset($_SESSION['gdNo1']);
+    unset($_SESSION['pdNo']);
+    // echo "<script>alert('已下定，您的訂單編號為{$ordNo}')</script>";
+    header('Location:member.php');
 }
 
  catch (PDOException $e) {

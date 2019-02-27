@@ -110,8 +110,9 @@ a{
         color:$color-white;
         .jpTitle{
             padding: 12px 15px;
-            @include f16();
+            @include f16b();
             color:$color-white;
+            text-shadow:0 1px 3px #088b9a ;
             background-image: url(../img/winJump.png);
             background-size: cover;
         }

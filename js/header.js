@@ -3,19 +3,37 @@ window.addEventListener("load", () => {
     window.addEventListener("resize", () => {
         web = window.innerWidth;
     })
+
+    //搜尋用js
+    $(".imgmt").click((e)=>{
+            // console.log(e.target.nextSibling.nextSibling.innerText);
+            document.querySelector("#searchinput").value=e.target.nextSibling.nextSibling.innerText;
+            document.querySelector("#searSub").value = $(e.target).attr("alt");
+            location.href="text.php?searSub="+document.querySelector("#searSub").value+"&searchinput="+document.querySelector("#searchinput").value;
+            // console.log( document.querySelector("#searSub").value);
+            
+    })
+    $("#material").click(()=>{
+        if(document.querySelector("#searchinput").value==""){
+            alert("請輸入關鍵字");
+        }else{
+            location.href="text.php?searSub="+document.querySelector("#searSub").value+"&searchinput="+document.querySelector("#searchinput").value;
+        }
+    })
+    
     // 漢堡設定
     var cl = false;
-    var burger = new Vue({
+    var burger = new Vue({  
         el: "#burger-all",
         methods: {
             bur() {
-                if (web < 768 && !cl) {
+                if (web < 992 && !cl) {
                     document.querySelector("#burger-text").style.left = "0%";
                     document.querySelector("#burger-1").style.cssText = "transform:rotate(45deg);transform-origin:left center;top:3px";
                     document.querySelector("#burger-2").style.opacity = "0";
                     document.querySelector("#burger-3").style.cssText = "transform:rotate(-45deg);transform-origin:left center";
                     cl = true;
-                } else if (web < 768 && cl) {
+                } else if (web < 992 && cl) {
                     document.querySelector("#burger-text").style.left = "100%";
                     document.querySelector("#burger-1").style.cssText = "transform:rotate(0deg);transform-origin:left center;top:6px";
                     document.querySelector("#burger-2").style.opacity = "1";
@@ -77,7 +95,6 @@ window.addEventListener("load", () => {
     body.addEventListener("click", () => {
         filter.style.display = "none";
     }, true);
-
 
 
     //點擊切換圖片

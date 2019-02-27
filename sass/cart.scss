@@ -583,8 +583,8 @@ body>.row{
                         overflow: auto;
                         display: inline-block;
                         line-height: 32px;
-                        // border:1px solid $color-btn-main;
-                        border-radius: 16px;              
+                        border-color: $color-ph;
+                        @include br4();            
                         // appearance:none;
                         // -moz-appearance:none;
                         // -webkit-appearance:none;
@@ -592,6 +592,9 @@ body>.row{
                         background-color: $color-white;
                         cursor: pointer;
                         @include pLeft(20);
+                        &:hover{
+                            border-color:$color-gray1;
+                        }
                         option{
                             // font-size: 24px;
                             background-color: $color-white;

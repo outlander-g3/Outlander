@@ -1,13 +1,27 @@
 
-
+$(document).ready(function () {
+    //刷新是否吃到session，有的話登出就要展示出來
+    $.ajax({
+        type: 'post',
+        url: 'session.php',
+        success: function (data) {
+            if (data == 'login') {
+                $('#Sign').css('display', 'block');
+                $('#Sign-m').css('display', 'block');
+            }
+        }
+    });
+});
 window.addEventListener('load', function () {
+
+
     // 跳窗 winJump_if
     // 給有條件的情況下使用 例如購物車要先勾選同意
     function winJump_if(btn, win) {
         var winJump = document.querySelector(win);
         winJump.style.display = 'block';
     }
-
+    // alert(window.screen.width);
     //無條件的狀況使用winJump
     function winJump(btn, win) {
         var btns = document.querySelectorAll(btn);
@@ -43,52 +57,43 @@ window.addEventListener('load', function () {
                 success: function (data) {
                     if (data == 'login') {
                         // 等著塞會員中心php
-                        // location.href = 'member.php';
-                        alert('已登入');
-                        console.log('已登入');
+                        location.href = 'member.php';
+                        // alert('已登入');
                     }
                     else if (data == 'logout') {
                         winLogin.style.display = 'block';
-                        alert('未登入');
+                        // alert('未登入');
                     }
                 }
             });
 
         }
         else if (e.target.classList.contains('logout')) {
+            console.log('有點到logout');
             logout();
         }
     }, false);
 
 
-    //刷新是否吃到session
-    $.ajax({
-        type: 'post',
-        url: 'session.php',
-        success: function (data) {
-            if (data == 'login') {
-                // 等著塞會員中心php
-                // location.href = 'member.php';
-                alert('已登入');
-                $('#Sign').css('display', 'block');
-                $('#Sign-m').css('display', 'block');
-            }
-        }
-    });
-
 });
-
 
 function logout() {
     $.ajax({
         type: 'post',
-        url: 'logout.php',
+        url: 'login.php',
+        data: 'logout=1',
         success: function (data) {
+            console.log('有走login' + data);
             if (data == 'logout') {
                 alert('成功登出');
                 $('#Sign').css('display', 'none');
                 $('#Sign-m').css('display', 'none');
-                //看要不要跳回首頁
+                //看要不要跳回首頁（購物車要,會員要
+                let str = location.href;
+                if (str.search('cart') || str.search('member')) {
+                    location.href = 'outlander.php';
+                }
+
             }
         }
     });
@@ -153,7 +158,6 @@ function login(e) {
         url: 'login.php',
         data: 'memMail=' + memMail + '&memPsw=' + memPsw,
         success: function (data) {
-            alert(data);
             console.log('memMail=' + memMail + '&memPsw=' + memPsw);
             if (data == 'none') {
                 let error = `<span>*請輸入已註冊的信箱</span>`;
@@ -198,22 +202,26 @@ function forgetPsw(e) {
     $('#sendMail').click(function (e) {
         $('.jpCont--mail span').remove();
         let memMail = $('#memMail').val();
-        console.log(memMail);
-        // alert('有喔');
         $.ajax({
             type: 'post',
-            url: 'checkExist.php',
-            data: 'memMail=' + memMail,
+            url: 'login.php',
+            data: 'memMail=' + memMail + '&checkId=1',
             success: function (data) {
-
-                console.log('memMail=' + memMail);
+                // alert(data);
                 if (data == 'none') {
                     let error = `<span>*請輸入已註冊的信箱</span>`;
                     $('.jpCont--mail').append(error);
                 }
                 else if (data == 'exist') {
-                    alert('已寄送新密碼至信箱');
-                    resetLogin();
+                    $.ajax({
+                        type: 'post',
+                        url: 'sendPsw.php',
+                        data: 'memMail=' + memMail,
+                        success: function (data) {
+                            alert('已寄送新密碼至信箱');
+                            resetLogin();
+                        }
+                    });
                 }
             },
             error: function (X, t, e) {
@@ -254,8 +262,8 @@ function register() {
     $('.jpCont--mail span').remove();
     $('.jpCont--psw:last-child span').remove();
     //檢查是否為空 或非mail
-    // if (memMail == '' || /^[^\s]+@[^\s]+\.[^\s]+$/.test(memMail) == false) {
-    if (memMail == '' || memMail.search('@') == -1) {
+    if (memMail == '' || /^[^\s]+@[^\s]+\.[^\s]+$/.test(memMail) == false) {
+        // if (memMail == '' || memMail.search('@') == -1) {
         let error = `<span>*請輸入電子信箱</span>`;
         $('.jpCont--mail').append(error);
     }
@@ -270,8 +278,8 @@ function register() {
     else {
         $.ajax({
             type: 'post',
-            url: 'checkExist.php',
-            data: 'memMail=' + memMail,
+            url: 'login.php',
+            data: 'memMail=' + memMail + '&checkId=1',
             success: function (data) {
                 console.log(data);
                 if (data == 'exist') {
@@ -281,16 +289,14 @@ function register() {
                 else {
                     $.ajax({
                         type: 'post',
-                        url: 'regist.php',
-                        data: 'memMail=' + memMail + '&memPsw=' + memPsw,
-                        success: function () {
+                        url: 'login.php',
+                        data: 'memMail=' + memMail + '&memPsw=' + memPsw + '&regist=1',
+                        success: function (data) {
                             alert('成功註冊');
                             $('.memLogin').css('display', 'none');
                             $('#Sign').css('display', 'block');
                             $('#Sign-m').css('display', 'block');
                             resetLogin();
-                            //等著跳去會員中心
-                            // location.href = 'member.php';
                         }
                     });
                 }

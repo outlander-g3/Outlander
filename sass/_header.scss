@@ -1,18 +1,88 @@
 @import "base/_var.scss";
 @import "mixin/_mixin.scss";
-// body{
-//     *{
-//         font-family: "微軟正黑體";
-//     }
-// }
 #header-nav{
     background: $color-white;
     width: 100%;
     max-width: 2500px;
-    height: 60px;
+    height: 70px;
     position: fixed;
     z-index: 997;
 }
+#searSub{
+    display: none;
+}
+#hd-robot{
+    display: block;
+}
+#hd-memIcon{
+    display: none;
+}
+#hd-Sign{
+    display: none;
+}
+#hd-member{
+    display: block;
+}
+#Sign-m{
+    display: none;
+}
+@media (min-width:992px){
+    #hd-robot{
+        display: none;
+    }
+    #hd-memIcon{
+        display: block;
+    }
+    #hd-member{
+        display: none;
+    }
+    #user-out-m{
+        display: none;
+    }
+}
+
+// @media (min-width:992px){
+//     #hd_productsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//         font-weight: bold;
+//     }
+//     #hd_customized::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//         font-weight: bold;
+//     }
+//     #hd_journalsOverview::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//         font-weight: bold;
+//     }
+//     #hd_tech::after{
+//         display: block;
+//         content: '';
+//         width: 64px;
+//         height: 2px;
+//         position: absolute;
+//         top: 72.5%;
+//         background: $color-text;
+//         font-weight: bold;
+//     }
+// }
 #header{
     margin: auto;
     width: 100%;
@@ -24,7 +94,7 @@
     position: fixed;
     display: flex;
     background-color: $color-white;
-    height: 60px;
+    height: 70px;
     color:$color-main2;
     z-index: 998;
     #header-left{
@@ -36,7 +106,6 @@
             max-width: 300px;
         }
         #logo{
-            flex: 2;
             align-self: center;
             a{
                 display: block;
@@ -46,7 +115,7 @@
                 width: 100%;
                 min-width: 45px;
                 min-height: 47px;
-                max-width: 50px;
+                max-width: 58px;
             }
         }
         #search{
@@ -56,8 +125,11 @@
             position: relative;
             i{
                 position: absolute;
-                top: 0px;
-                left: 85%;
+                top: 2px;
+                @media (min-width:1200px) {
+                    left: 59%;
+                }
+                left: 80%;
                 cursor: pointer;
             }
             input{
@@ -74,7 +146,7 @@
     }
     #burger{
         flex: auto;
-        @media (min-width:768px) {
+        @media (min-width:992px) {
             display: none;
         }
         span{
@@ -90,15 +162,15 @@
             cursor: pointer;
             width: 27px;
             height: 27px;
-            left: 90%;
-            top: 15px;
+            right: 20px;
+            top: 21.5px;
             z-index:1000; 
         }
         #burger-1{ 
-            top: 6px;
+            top: 3px;
         }
         #burger-2{
-            top: 12px;
+            top: 11px;
         }
         #burger-3{
             top: 18px;
@@ -112,9 +184,10 @@
         height: 100%;
         background-color: $color-white;
         transition: all 0.5s;
-        @media (min-width:768px) {
-            height: 60px;
+        @media (min-width:992px) {
+            height: 70px;
             display: flex;
+            margin-left: 40px;
             flex-direction: row;
             background-color: unset;
             position: unset;
@@ -142,6 +215,11 @@
             left: 0;
             right: 0;
             display: none;
+            justify-content: center;
+            align-content: center;
+            @media (min-width:992px) {
+                position: unset;
+            }
             i{
                 font-size: 1.5rem;
                 color: $color-header;
@@ -150,6 +228,7 @@
                 font-size: 1rem;
                 color: $color-header;
                 padding-left: 5px;
+                align-self: center;
             }
         }
         li{
@@ -157,23 +236,23 @@
             text-align: center;
             cursor: pointer;
             color:$color-header;
-            @media (min-width:768px) {
+            @media (min-width:992px) {
                 padding: 0 20px;
-                line-height: 60px;
+                line-height: 70px;
                 i{
-                    line-height: 2.5;
+                    line-height: 2.8;
                 }
                 #user-out{
                     font-size: 19px;
-                    line-height: 60px;
+                    line-height: 70px;
                 }
             }
             a{
                 color:$color-header;
                 display: block;
                 text-decoration: none;
-            @media (min-width:768px) {
-                line-height: 60px;
+            @media (min-width:992px) {
+                line-height: 70px;
             }
             }
         }
@@ -197,13 +276,6 @@
                 opacity: 0;
                 color:$color-header;
             }
-            // li {
-            //     .member-b{
-            //         opacity: 1;
-            //         line-height: 50px;
-
-            //     }
-            // }
         }
     }
     .filter{
@@ -212,6 +284,7 @@
         height: 250px;
         position: fixed;
         top: 7%;
+        max-width: 550px;
         left: 15%;
         z-index: 12;
         display: none;

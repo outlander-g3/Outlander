@@ -1,23 +1,10 @@
 <?php
     session_start();
-    // include_once('connectDb.php'); //連線
-    // include_once('login.php'); //會員登入
-
-    //要去抓選擇的開團資訊（圖,名稱,日期
-
-    //抓
-    $_SESSION['pdkName']='瓦斯卡蘭國家公園健行四天三夜';
-    $_SESSION['day']=10;
-    $_SESSION['pdkImg']='img/fuji.jpg';
-    $_SESSION['pdStart']='2019/03/08';
-    $_SESSION['pdEnd']='2020/01/01';
-    $_SESSION['pdkPrice']='999,999';
-    $_SESSION['where']=$_SERVER['PHP_SELF'];
-    $_SESSION['pdkNo']=1;
-    $_SESSION['pdNo']=2;
-
-    $_SESSION['where']='/customized.php';
-    $_SESSION['gdNo1']=1;
+    //沒登入就直接回首頁
+    if(!isset($_SESSION['memMail'])){
+        header('location:outlander.php');
+    }
+    $pdkImg="img/mt/".$_SESSION['pdkNo']."/1.jpg";
 ?>
 
 
@@ -29,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>山行者 - 結帳頁面</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -74,7 +62,7 @@
 
     <div class="row">
         <div class="wrap">
-            <form action="paid.php" id="ctForm">
+            <form action="cart_paid.php" id="ctForm" method="post">
                 <!-- 第一步驟選日期 -->
                 <div class="ctProduct" id="ctProduct">
                     <!-- <h2>步驟1 決定日期</h2> -->
@@ -99,7 +87,7 @@
                     <div class="row">
                         <div class="ctProduct__img">
                             <?php echo 
-                                "<script> $('.ctProduct__img').css('background-image','url(".$_SESSION['pdkImg'].")')</script>";
+                                "<script> $('.ctProduct__img').css('background-image','url(".$pdkImg.")')</script>";
                             
                             ?>
                             <!-- <img src='img/fuji.jpg' alt=''> -->
@@ -116,7 +104,7 @@
                         </div>
                     </div>
                     <div class="ctMobile__btn">
-                        <a href="javascript:;" class="ctMobile__btn--front btn-sub-s">上一頁</a>
+                        <a href="javascript:;" class="ctMobile__btn--front btn-sub-s" id="ctProductPreBtn">上一頁</a>
                         <a href="javascript:;" class="ctMobile__btn--next btn-main-s" id="ctProductNextBtn">下一步</a>
                     </div>
                 </div>
@@ -277,7 +265,7 @@
                                         <li>
                                             <label for="psgTel">
                                                 <span>聯絡電話</span>
-                                                <input type="text" id="psgTel" value="" maxlength="15" >
+                                                <input type="tel" id="psgTel" value="" maxlength="15" >
                                             </label>
                                         </li>
                                     </ul>
@@ -332,7 +320,7 @@
                                 <p>您持有的紅利點數為：<span id="point"><?php echo $_SESSION['memPoint'];?></span>點 </p>
                                 <input type="hidden" name='usePoint' value="0">
                                 <p>(每10點可折抵1元)</p>
-                                
+                                <input type="hidden" name="ordPrice" id="ordPrice" value="0">
                                 <input type="checkbox" id="ctRule">
                                 <label for="ctRule">
                                     <i class="material-icons">check_box</i>
@@ -356,8 +344,8 @@
                                             <span>信用卡卡號</span>
                                             <span id="credit">
                                                 <input type="text" name="credit" maxlength="4" class="credit">
-                                                <input type="password" name="credit" maxlength="4" class="credit">
-                                                <input type="password" name="credit" maxlength="4" class="credit">
+                                                <input type="text" name="credit" maxlength="4" class="credit">
+                                                <input type="text" name="credit" maxlength="4" class="credit">
                                                 <input type="text" name="credit" maxlength="4" class="credit">
                                             </span>
                                         </label>
@@ -444,7 +432,6 @@
                         <p>
                             <span>應付金額 NTD</span>
                             <span class="ctDetail__total--num"><?php echo $_SESSION['pdkPrice']?></span>
-                            <input type="hidden" id="ordPrice" value="0">
                         </p>
                     </div>
                 </div>
@@ -458,24 +445,10 @@
         </div>
     </div>
 
-    <!-- <div class="jpBase ctPaid">
-        <div class="jpWin">
-            <div class="jpTitle">
-                <h2>訂購完成</h2>
-            </div>
-            <div class="jpCont">
-                <p>感謝您此次的購買！！</p>
-                <p>前往『<a href="member.php">會員專區</a>』查看訂單</p>
-                <p>回到『<a href="index.php">山行者首頁</a>』繼續逛逛</p>
-            </div>
-        </div>
-    </div> -->
-
 <!-- ===========================各分頁內容結束======================= -->
 <!-- 插入 footer 會員登入跟機器人 -->
 <?php
     include_once('footer.php');
-    // include_once('robot.php');
     include_once('memLogin.php');
 ?>
 </body>
@@ -485,4 +458,3 @@
 <script src="js/common.js"></script>
 <script src="js/header.js"></script>
 <script src="js/cart.js"></script>
-<!-- <script src="js/robot.js"></script> -->

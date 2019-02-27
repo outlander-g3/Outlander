@@ -36,17 +36,16 @@
 
 <!-- ===========================各分頁內容開始======================= -->
 <div class="wrap-all">
-    <!-- <img src="img/back-m.png" alt="" class="bg"> -->
         <div class="tech_banner_wrap ">
             <div class="banner_pic_b">
                 <img id="banner_back" class="banner" src="img/banner_back.png">
             </div>
-			<div class="banner_pic_f">
-                <img id="banner_front" class="banner" src="img/banner.png">
+			<div class="banner_pic_f" id="banner_front" >
+                <img class="banner" src="img/banner.png">
             </div>
         </div>
         <!-- A區 -->
-        <div class="tech_banner_wrap a-wrap">
+        <div class="a-wrap">
             <div class="cont" id="cont_a">
 				<h2>高山草原</h2>
 				<p>臺灣高山草原是指海拔3,000公尺以上的高山地帶，由於表土層薄，
@@ -67,7 +66,7 @@
         </div>
         <!-- B區 -->
         
-        <div class="tech_banner_wrap a-wrap">
+        <div class="a-wrap">
             <div class="cont" id="cont_b">
                     <h2>溫帶針葉林</h2>
                         <p>台灣海拔3,000～3,500公尺的植物生態－針葉林帶，
@@ -90,7 +89,7 @@
         </div>
         
         <!-- C區 -->
-        <div class="tech_banner_wrap a-c-wrap">
+        <div class="a-wrap">
             <div class="cont" id="cont_c">
                     <h2>涼溫帶針闊葉混合林</h2>
                         <p>海拔1,800～2,500公尺的涼溫帶針闊葉混合林中因為雲霧終年繚繞，
@@ -101,7 +100,8 @@
                     <h3>爬坡省力訣竅</h3>
                         <p>走上坡路時儘量讓腳後跟吃力，腳後跟自然就在人的重心上，
                             於是身體的重量就能分配在大小腿乃至腰上，這比用前腳掌爬山要省1/3左右的勁。
-                            另外爬坡時可以有點外八字。外八字式邁步便於讓腳跟吃重,也減少腳面與小腿的角度而肌腱舒服。</p>
+                            另外爬坡時可以有點外八字。外八字式邁步便於讓腳跟吃重,也減少腳面與小腿的角度而肌腱舒服。
+                        </p>
             </div>
             <div id="pic_k" class="pic-main">
                 <img id="bg3-3" src="img/555.png" alt="leaf"/>
@@ -109,7 +109,7 @@
         </div>
         
         <!-- D區 -->
-        <div class="tech_banner_wrap a-d-wrap">
+        <div class="a-wrap">
             <div class="cont" id="cont_d">
                 <h2>暖溫帶闊葉林</h2>
                         <p>在海拔1800公尺以下的闊葉林是屬於暖溫帶闊葉林。
@@ -132,21 +132,7 @@
                 <img id="bg3-4" src="img/666.png" alt="tropical"/>
             </div>
         </div>
-        <!-- 雲 -->
-        <!-- <div class="wrap-cloud">
-            <div class="cl-1" >
-                <img src="img/cloud-1.png" id="c_1" alt="cloud">
-            </div>
-            <div class="cl-1" >
-                <img src="img/cloud-2.png" id="c_2" alt="cloud">
-            </div> 
-            <div class="cl-1">
-                <img src="img/cloud-3.png" id="c_3" alt="cloud">
-            </div> 
-            <div class="cl-1"> 
-                <img src="img/cloud-4.png" id="c_4" alt="cloud">
-            </div>
-        </div>  -->
+      
 </div>
 
 <!-- ===========================各分頁內容結束======================= -->

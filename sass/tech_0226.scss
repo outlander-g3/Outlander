@@ -1,93 +1,70 @@
 @import "mixin/_mixin.scss";
 @import "base/_var.scss";
 
-// @import "base/_footer";
 
-// *{
-//     outline: red solid 1px;
-// }
 body{
     background-color: $color-white;
-    // height: 100vh;
 
 }
-#footer{
-    position: relative;
-}
+// *{
+//     outline: 1px solid red;
+// }
+
 #banner_front{
     position: absolute!important;
+    top:0px;
+    width: 100%;
 }
 .wrap-all{
-    width: 100vw;
-    max-width: 2500px;
     position: relative;
     top:70px;
-    img{
-        position: static!important;
-        @media (min-width:992px) {
-            position: absolute!important;
-        }
-    }
     .bg{
         position: relative!important;
-        width: 100vw;
         z-index: -1;
     }
 }
 .banner_pic_b{
-    width:100vw;
+    overflow: hidden;
     img{
         width: 100%;
         transition: .8s;
-        left: 0;
+        @media (max-width:768px) {
+            transition: unset;
+        }
     }
 }
 .banner_pic_f{
-    width: 100vw;
     img{
         width: 100%;
         transition: .8s;
-        position: absolute;
-        top:0;
-        left: 0;
         @media (max-width:768px){
-            transition: 0;
+            transition:unset;
         }
     }
 }
 .tech_banner_wrap{
-    width: 100vw;
-    height: 110vh;
     @media (max-width:992px){
      height: 40vh;   
     }
-    max-width: 2500px;
     position: relative;
-    div{
-        position: absolute;
-    }
-    div{
-        position: static!important;
-        @media (min-width:992px) {
-            position: absolute!important;
-        }
-
-    }
 }
 .a-wrap{
+    max-width: 1600px;
+    margin: auto;
+    position: relative;
     @media (max-width:768px){
-        height: 100vh;   
        }
        @media(min-width:768px)and(max-width:992px){
-        height: 80vh; 
+        max-width: 1200px;
+        // height: 80vh; 
     }
 }
 .a-c-wrap{
     @media (max-width:768px){
-        height: 100vh;   
+
        }
        @media(min-width:768px)and(max-width:992px){
-        height: 90vh; 
+
     }
 }
 .a-d-wrap{
@@ -99,14 +76,15 @@ body{
     }
 }
 .cont{
-
+    padding: 200px 10px;
     @media screen and (max-width:991px){
-        width: 95vw;
-        padding: 0 2.5vw 0 2.5vw;
+        width: 90vw;
+        margin: auto;
+        padding: 0 3vw 0 3vw;
     }
    
     @media screen and (min-width:992px){
-        width: 40vw;
+        width: 38vw;
     }
 
     h2 {
@@ -114,35 +92,29 @@ body{
 		font-size: 1.5rem;
 		color:$color-main2;
         font-family: "微軟正黑體";
-        @media screen and (max-width:767px){
-        font-size: 1.8rem;
-        } 
+
         }
 	h3{
 		line-height: 1.6;
 		font-size:1.25rem;
 		font-weight: normal;
 		color: $color-btn-main;
-        font-family: "微軟正黑體";
-        @media screen and (max-width:767px){
-            font-size: 1.2rem;
-            }
+   
 		}
 	p{
 	 font-size:1rem;
 	 line-height:1.6;
 	 color: $color-text;
      font-family: "微軟正黑體";
-     @media screen and (max-width:767px){
-        font-size: 1rem;
+        @media screen and (max-width:767px){
+            font-size: 1rem;
         }
     }	 
   
 }
 #cont_a{
-    // padding-top:17vh; 
     @media screen and (min-width:992px){
-        // padding-top: 30vh;
+        padding-top:300px;
     }
 }
 
@@ -151,10 +123,16 @@ body{
         width: 95vw;
     }
     @media screen and (min-width:992px){
-        width: 55vw;
+        width: 52vw;
     }
     img{
         width: 100%;
+    }
+}
+#footer{
+    margin-top:100px; 
+    @media screen and (max-width:767px){
+        margin-top:90px; 
     }
 }
 @media (min-width:768px){
@@ -170,27 +148,43 @@ body{
     #hd_tech{
         font-weight: bold;
     }
-  
+    
+    #pic_g,#pic_k{
+        left: 50%;
+    }
+    #cont_a,#cont_c{
+        padding-left:5%; 
+    }
+    #cont_b,#cont_d{
+        padding-left:50%;
+        @media(min-width: 768px)and(max-width:991px){
+            padding-left:0;
+        } 
+    }
+    // #pic_n,#pic_t{
+    //     left:50%;
+    // }
 }
-// .wrap-cloud{
-//     position: absolute;
-//     z-index: -3;
-//     #c_1{
-//         top:500px;
-//     }
-//     #c_2{
-//         top:800px;
-//     }
-//     #c_3{
-//         top:1500px;
-//     }
-//     #c_4{
-//         top:2000px;
-//     }
-//     @media screen and (max-width:992px){
-//     display:none; 
-//     }
-// }
+#pic_g,#pic_n,#pic_k,#pic_t{
+    width:50%;
+    @media(max-width:767px) {
+        width: 100%;
+    }
+    @media(min-width:768px)and(max-width:991px){
+        width: 100%;
+    }
+}
+#pic_g,#pic_k,#pic_t{
+    @media(max-width:767px) {
+        width: 90%;
+        position: relative;
+        left:20px;
+    } 
+}
+
+
+    
+
 
 
 

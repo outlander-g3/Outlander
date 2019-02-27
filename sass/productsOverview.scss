@@ -610,7 +610,7 @@ display: none;
 .pro-item-flex{
     display: flex;
     max-width: 1200px;
-    justify-content: center;
+    // justify-content: center;
     @media screen and (max-width:767px){
         flex-wrap: wrap;
     }
@@ -637,7 +637,7 @@ display: none;
     width: 45%;
     margin: 1%;
     border:1.5px solid #265057;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 0.6%;
     box-shadow: $shadow;
     text-align: left;
@@ -670,7 +670,7 @@ display: none;
     box-shadow:3px 3px 3px rgba(36, 111, 119, 0.3);
 }
 .pro-item-three{ //三欄寬
-    width: 28%;
+    width: 29%;
     margin: 1%;
     @media screen and (max-width:767px){
     width: 90%;
@@ -696,7 +696,7 @@ display: none;
 }
 .pro-item-pic img{
     width: 100%;
-    border-radius: 4px 4px 0 0;
+    border-radius: 8px 8px 0 0;
 }
 .pro-item-view-flex{
     display: flex;
@@ -756,6 +756,7 @@ display: none;
 }
 #pdk-price{
     text-align: right;
+    padding-right:4px; 
 }
 .pro-item-view-flex #pdk-rate{
     line-height: 1.8;

@@ -151,14 +151,14 @@
                     <label for="level-choose">請選擇難易度</label>
 
                     <input type="radio" name="levelType" value="1" id="hard" class="aa">
-                    <label for="hard">難</label>
+                    <label for="hard">簡</label>
                     <!-- <label for="hard"><img src="img/tree_f.png" alt=""></label> -->
 
                     <input type="radio" name="levelType" value="2" id="very-hard" class="aa">
-                    <label for="very-hard">很難</label>
+                    <label for="very-hard">中</label>
 
                     <input type="radio" name="levelType" value="3" id="hard-hard" class="aa">
-                    <label for="hard-hard">非常難</label>
+                    <label for="hard-hard">難</label>
                 </form>
                 </span>
             </div>
@@ -316,7 +316,7 @@
     // include_once('robot.php');
     include_once('memLogin.php');
 ?>
-<script src="js/common.js"></script>
+<!-- <script src="js/common.js"></script> -->
 <script src="js/header.js"></script>
 <!-- <script src="js/robot.js"></script> -->  
 

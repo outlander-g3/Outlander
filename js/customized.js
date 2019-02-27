@@ -856,10 +856,12 @@ function cuJpcClose(){
 
 }
 
-function cuCloseAdd767(){
+function cuCloseAdd767(e){
     let cuCustomSceneryZoneBg = O('cuCustom__sceneryZone--bg');
+    e.stopPropagation;
     enquire.register("screen and (max-width: 767px)", {     
-        match: function() {
+        match: function(e2) {
+            e2.stopPropagation;
             cuCustomSceneryZoneBg.style.display = 'none';
             },
         });

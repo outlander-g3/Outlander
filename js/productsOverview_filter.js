@@ -188,7 +188,6 @@ window.addEventListener("load", () => {
         // console.log("=====", budgetTypeObj.value); 
     //   var url = "getSelected.php?dateInfo="+dateInfo.value;
       var url = "productsOverview_getSelected.php?dateInfo="+dateInfo.value+"&continent="+contTypeObj.value+"&levelType="+levelTypeObj.value+"&budgetType="+budgetTypeObj.value;
-      console.log("點日期:",url);
       xhr.open("Get", url, true);
       xhr.send( null );
                 

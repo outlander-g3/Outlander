@@ -19,8 +19,6 @@ session_start();
             $i=1;
         if (isset($_REQUEST["searSub"])&&$_REQUEST["searSub"]!=""){
             $i=2;
-           echo "1";
-            // echo $_REQUEST["searSub"];
             $searSub = $_REQUEST["searSub"];
             // echo $searSub;
             $sql = "select a.*, avg(rate) avgRate from `productkind` a join `product` b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where a.pdkNo = :pdkNo  group by a.pdkNo order by b.pdStart ";
@@ -62,16 +60,30 @@ window.addEventListener('load',()=>{
     document.querySelector('#mtmtmt').style.display = 'none';
     document.querySelector('#textChange-hot').style.display = 'none';
     document.querySelector('#textChange').innerText = '篩選結果';
+
     if(document.querySelector('#mtmtmtS').innerText.length==0){
-       <?php  
-        $sql='select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo order by avgRate DESC';
-        $recent = $pdo->query($sql);
-        echo "888";
-       ?>
+        getPromoted();
+        function getPromoted(){
+            console.log(document.querySelector('#mtmtmtS').innerText.length);
+            document.querySelector('#textChange').innerText = '其他推薦行程';
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener('load',(e)=>{
+            if( xhr.status == 200 ){              
+                document.getElementById('mtmtmtS').innerHTML = xhr.responseText;
+            for (var i = 0;i<document.getElementsByClassName('pro-item-pic').length;i++){
+                document.getElementsByClassName('pro-item-pic')[i].classList.remove('pro-item-pic-hot');//拿掉熱門標籤
+            }
+            }else{
+              alert( xhr.status );
+           }
+        }); 
+            url = "productsOverview_nullFilter.php";
+            xhr.open("Get", url, true);
+            xhr.send( null );
+        }
+        }
     }
-}
-// document.querySelector('#mtmtmt').innerHTML
-// console.log(document.querySelector('#mtmtmtS').innerText.length);
+        
 })
 
 

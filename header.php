@@ -3,12 +3,12 @@
             <nav id="header-all">
                 <div id="header-left">
                     <div id="logo">
-                        <a href="index.php">
+                        <a href="outlander.php">
                             <img src="img/logo.png" alt="logo">
                         </a>
                     </div>
                     <div id="search">
-                        <form action="text.php">    
+                        <form action="productsOverview.php">    
                             <input id="searchinput" type="text" name="searchinput" placeholder="搜索世界" value="">
                             <input id="searSub" type="submit" name="searSub" value="">
                         </form>
@@ -24,16 +24,16 @@
                 </div>
                 <ul id="burger-text">
                     <li id="hd_productsOverview"><a href="productsOverview.php">登山行程</a></li>
-                    <li id="hd_customized"><a href="customized.php">客製行程</a></li>
+                    <li id="hd_customized"><a href="cu.php">客製行程</a></li>
                     <li id="hd_journalsOverview"><a href="journalsOverview.php">登山日誌</a></li>
                     <li id="hd_tech"><a href="tech.php">登山技巧</a></li>
                     <li id="hd-robot">機器人</li>
                     <li id="hd-memIcon"><a href="javascript:;"><i class="material-icons memIcon">person</i></a></li>
-                    <li id="hd-Sign"><i class="fas fa-sign-out-alt logout"id="user-out"></i></li>
+                    <li id="hd-Sign" class="logout"><i class="fas fa-sign-out-alt logout"id="user-out"></i></li>
                     <li id="hd-member"><a href="javascript:;" class="memIcon">會員專區</a></li>
                     <li id="Sign-m" class="logout">
-                        <i class="fas fa-sign-out-alt user-out"></i>
-                        <span id="user-out-m">登出</span>
+                        <i class="fas fa-sign-out-alt user-out logout"></i>
+                        <span id="user-out-m" class="logout">登出</span>
                     </li>
                 </ul>
                 <div class="filter">

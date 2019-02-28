@@ -1,23 +1,83 @@
 <?php
-// session_start();
+
+session_start();
 
     // include_once('connectDb.php'); //連線
     // include_once('session.php'); //判斷會員是否登入
     try{
         require_once('connectDb.php');
        
-        $sql= "select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo order by avgRate limit 2";
+        $sql= "select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo order by avgRate DESC limit 2";
+        $sql = "select a.*, avg(rate) avgRate from `productkind` a join `product` b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo order by avgRate DESC
+        limit 2";
         $products = $pdo -> query($sql);
         $sql="select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by a.pdkNo order by b.pdStart limit 6
         ";
         $recent = $pdo -> query($sql);
         // $prodRows = $products -> fetch(PDO::FETCH_ASSOC);
+        // echo $_REQUEST["searSub"];
+            $i=1;
+        if (isset($_REQUEST["searSub"])&&$_REQUEST["searSub"]!=""){
+            $i=2;
+           echo "1";
+            // echo $_REQUEST["searSub"];
+            $searSub = $_REQUEST["searSub"];
+            // echo $searSub;
+            $sql = "select a.*, avg(rate) avgRate from `productkind` a join `product` b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo where a.pdkNo = :pdkNo  group by a.pdkNo order by b.pdStart ";
+            // echo $sql;
+            $recent = $pdo -> prepare($sql);
+            $recent  ->bindValue(':pdkNo',$searSub);
+            $recent  ->execute();
+        }else if(isset($_REQUEST["searchinput"])){
+            // echo "2";
+            $i=2;
+            $tagName =$_REQUEST["searchinput"];
+            $sql = 'select * from tag';
+            $pdkTag = $pdo->query($sql);
+            $pdkTagArray = [];
+            while($pdkTagRow = $pdkTag->fetch(PDO::FETCH_ASSOC)){
+                array_push($pdkTagArray,$pdkTagRow['tagName']);
+            }
+            $tagKey = array_search($tagName,$pdkTagArray);
+            $tagKey++;
+            $tagKeyNo = (int)$tagKey;
+            echo $tagKey;
+            $sql ='select a.*,avg(rate) avgRate,tagNo from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo join `producttag` d on a.pdkNo = d.pdkNo where tagNo = :tagNo group by a.pdkNo order by avgRate DESC';
+            $recent = $pdo -> prepare($sql);
+            $recent ->bindValue(':tagNo' , $tagKeyNo);
+            $recent ->execute();       
+        }
     } catch (PDOException $e) {
 	    echo "錯誤 : ", $e -> getMessage(), "<br>";
 	    echo "行號 : ", $e -> getLine(), "<br>";
     }
         
 ?>
+
+<!-- $sql= 'select a.pdkNo,b.tagNo from `productkind` a join `producttag` b on a.pdkNo = b.pdkNo'; -->
+
+<script>
+window.addEventListener('load',()=>{
+    if(<?php echo $i ?> ==2){
+    document.querySelector('#mtmtmt').style.display = 'none';
+    document.querySelector('#textChange-hot').style.display = 'none';
+    document.querySelector('#textChange').innerText = '篩選結果';
+    if(document.querySelector('#mtmtmtS').innerText.length==0){
+       <?php  
+        $sql='select a.*, avg(rate) avgRate from productkind a join product b on a.pdkNo = b.pdkNo join `order` c on b.pdNo = c.pdNo group by pdkNo order by avgRate DESC';
+        $recent = $pdo->query($sql);
+        echo "888";
+       ?>
+    }
+}
+// document.querySelector('#mtmtmt').innerHTML
+// console.log(document.querySelector('#mtmtmtS').innerText.length);
+})
+
+
+
+
+</script>
 
 
 <!DOCTYPE html>
@@ -28,6 +88,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>山行者 - 行程總覽</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="img/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -251,11 +312,11 @@
 </div>
     <!-- 以下為熱門行程----------------------------------------------------------------------->
 
+    <!-- 1個商品卡 -->
     <div class="pro-product-wrap pro-product-wrap-recent">
         <h3 id="textChange">近期開團</h3>
         <h5 id="textChange-hot">熱門經典登山路線</h5>
         <div class="pro-item-flex pro-item-flex-three" id="mtmtmtS">
-            <!-- 1個商品卡 -->
             <?php	
             while($prodRowRe = $recent->fetch(PDO::FETCH_ASSOC)){
                 $pdkPrice =number_format($prodRowRe["pdkPrice"]);

@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
             // console.log(e.target.nextSibling.nextSibling.innerText);
             document.querySelector("#searchinput").value=e.target.nextSibling.nextSibling.innerText;
             document.querySelector("#searSub").value = $(e.target).attr("alt");
+            location.href="productsOverview.php?searSub="+document.querySelector("#searSub").value+"&searchinput="+document.querySelector("#searchinput").value;
             // console.log( document.querySelector("#searSub").value);
             
     })
@@ -16,7 +17,7 @@ window.addEventListener("load", () => {
         if(document.querySelector("#searchinput").value==""){
             alert("請輸入關鍵字");
         }else{
-            open("text.php?searSub="+document.querySelector("#searSub").value+"&searchinput="+document.querySelector("#searchinput").value);
+            location.href="productsOverview.php?searSub="+document.querySelector("#searSub").value+"&searchinput="+document.querySelector("#searchinput").value;
         }
     })
     
@@ -26,15 +27,15 @@ window.addEventListener("load", () => {
         el: "#burger-all",
         methods: {
             bur() {
-                if (web < 768 && !cl) {
+                if (web < 992 && !cl) {
                     document.querySelector("#burger-text").style.left = "0%";
                     document.querySelector("#burger-1").style.cssText = "transform:rotate(45deg);transform-origin:left center;top:3px";
                     document.querySelector("#burger-2").style.opacity = "0";
                     document.querySelector("#burger-3").style.cssText = "transform:rotate(-45deg);transform-origin:left center";
                     cl = true;
-                } else if (web < 768 && cl) {
+                } else if (web < 992 && cl) {
                     document.querySelector("#burger-text").style.left = "100%";
-                    document.querySelector("#burger-1").style.cssText = "transform:rotate(0deg);transform-origin:left center;top:6px";
+                    document.querySelector("#burger-1").style.cssText = "transform:rotate(0deg);transform-origin:left center;top:3px";
                     document.querySelector("#burger-2").style.opacity = "1";
                     document.querySelector("#burger-3").style.cssText = "transform:rotate(0deg);transform-origin:left center";
                     cl = false;
@@ -79,7 +80,7 @@ window.addEventListener("load", () => {
     var body = document.getElementsByTagName("body")[0];
     search.addEventListener("click", () => {
         if (!on) {
-            filter.style.cssText = "top: 60px;left: 15%;display:block";
+            filter.style.cssText = "top: 70px;left: 15%;display:block";
             document.querySelector("#filterListImg").style.background = "#f4f4f4";
             on = true;
         }
@@ -94,7 +95,6 @@ window.addEventListener("load", () => {
     body.addEventListener("click", () => {
         filter.style.display = "none";
     }, true);
-
 
 
     //點擊切換圖片
@@ -113,6 +113,9 @@ window.addEventListener("load", () => {
         } else {
             $(".in").eq(index).css("display", "block");
         }
+    })
+    window.addEventListener("scroll",()=>{
+        filter.style.display = "none";
     })
 
 

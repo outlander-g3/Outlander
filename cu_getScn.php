@@ -34,7 +34,7 @@ try {
                 <span class="cuCustom__price1">$',$scnRows['scnPrice'],'</span>
                 <div class="cuCustom__showOption">
                     <button id="scu',$scnRows['scnNo'],'" class="btn_cuAddScenery">
-                        <input type="hidden" value="',$scnRows['scnTitle'],"|",$scnRows['scnImg'],"|",$scnRows['scnPrice'],"|cu",$scnRows['scnNo'],"|",$scnRows['scnCont'],'">
+                        <input type="hidden" value="',$scnRows['scnTitle'],"|",$scnRows['scnImg'],"|",$scnRows['scnPrice'],"|cu",$scnRows['scnNo'],"|",$scnRows['scnCont'],"|", str_replace("|",",",$scnRows['iconList']),'">
                         <i class="material-icons">add</i>
                     </button>
                     <button class="btn_cuWatchScenery">

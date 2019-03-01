@@ -144,7 +144,6 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
         }
 
         if($(e3.target).text() != '' &&  $(e3.target).text() != '請選擇山岳'){
-            test();
             $.ajax({
                 type: 'get',
                 url: 'cu_getScn.php',
@@ -164,9 +163,7 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
         }
     }
 })
-function test(){
 
-}
 /*用 O(id) 來取得getElementById 減少攏長*/ 
 function O(id){
     return (typeof id == 'object'? i : document.getElementById(id));
@@ -287,10 +284,7 @@ function cuWatchScenery(e){
     cuDetail_input.type = 'hidden';
     cuDetail_input.value = cuCustom__detailALL;
 
-    // let img = document.createElement('img');
     let img = document.createElement('div');
-    // img.src = '../img/'+cuCustom__detailALL.split('|')[1]+'';
-    //無法新增div
     img.style.backgroundImage = document.querySelector('#'+cuCustom__detailALL.split('|')[3]).style.backgroundImage;
     img.classList.add('cuDetail__img');
 
@@ -301,10 +295,70 @@ function cuWatchScenery(e){
     cuDetailH4.classList.add('cuCustom__detail--content&#x20;h4');
     cuDetailH4.innerText = cuCustom__detailALL.split('|')[0];
 
+    let cuIcontainer = document.createElement('div');
+ 
+    cuIcontainer.id = 'cuIcontainer';
+    let cuIconF = document.createElement('i');
+    let cuIconF2 = document.createElement('i');
+    let cuIconG = document.createElement('i');
+    let cuIconG2 = document.createElement('i');
+    let iconAll = cuCustom__detailALL.split('|')[5];
+    let iconArr = iconAll.split(',');
+    let iconArrL = iconArr.length;
+    for(let i=0; i<iconArrL ; i++){
+        if(iconArr[i].search('fa-') != -1){
+
+            if(iconArr[i].search('fa-campground') != -1){
+                let cuIconSpan1 = document.createElement('span');
+                cuIconF.className = `fas ${iconArr[i]}`;
+                cuIconSpan1.innerText ="露營區";
+                cuIcontainer.appendChild(cuIconF);
+                cuIcontainer.appendChild(cuIconSpan1);
+            }else if(iconArr[i].search('fa-tint') != -1){
+                let cuIconSpan2 = document.createElement('span');
+                cuIconF2.className = `fas ${iconArr[i]}`;
+                cuIconSpan2.innerText ="水源";
+                cuIcontainer.appendChild(cuIconF2);
+                cuIcontainer.appendChild(cuIconSpan2);
+
+            }
+            
+        }else if(iconArr[i].search('fa-') == -1){
+            // cuIconG.innerText = iconArr[i];
+            // cuIcontainer.appendChild(cuIconG);
+            
+            if(iconArr[i].search('restaurant') != -1){
+                let cuIconSpan3 = document.createElement('span');
+                cuIconG.innerText = 'restaurant';
+                cuIconG.className = "material-icons";
+                cuIconSpan3.innerText ="餐廳";
+                cuIcontainer.appendChild(cuIconG);
+                cuIcontainer.appendChild(cuIconSpan3);
+            }else if(iconArr[i].search('hotel') != -1){
+                let cuIconSpan4 = document.createElement('span');
+                cuIconG2.innerText = 'hotel';
+                cuIconG2.className = 'material-icons';
+                
+                cuIconSpan4.innerText ="飯店";
+                cuIcontainer.appendChild(cuIconG2);
+                cuIcontainer.appendChild(cuIconSpan4);
+
+            }
+           
+        }
+        // if(strstr($aaa[$i],'fa-')){
+        //     echo '<i class="fas ',$aaa[$i],'"></i>';
+        // } else {
+        //     echo '<i class="material-icons">',$aaa[$i],'</i>';
+        // }
+    };
+
+
     let price = document.createElement('p');
     // price.innerText = "價格：NTD "  + cuCustom__detailALL.split('|')[2];
     price.innerText = "價格：NTD "  +`${cuCustom__detailALL.split('|')[2].toString().substring(0,cuCustom__detailALL.split('|')[2].toString().length-3)+","+cuCustom__detailALL.split('|')[2].toString().substring(cuCustom__detailALL.split('|')[2].toString().length-3,cuCustom__detailALL.split('|')[2].toString().length)}`;
     price.style.fontWeight = 'bold';
+
 
     let detail = document.createElement('p');
     let detailTitle = document.createElement('span');
@@ -327,6 +381,7 @@ function cuWatchScenery(e){
     cuCustom__detail.appendChild(img);
     cuCustom__detail.appendChild(cuCustom__detailContent);
     cuCustom__detailContent.appendChild(cuDetailH4);
+    cuCustom__detailContent.appendChild(cuIcontainer);
     cuCustom__detailContent.appendChild(price);
     cuCustom__detailContent.appendChild(detail);
     cuCustom__detailContent.appendChild(btn_cuAddOne);
@@ -337,7 +392,8 @@ function cuWatchScenery(e){
     // var btn_cuAddOne = O('btn_cuAddOne');
     btn_cuAddOne.addEventListener('click',function(){
         var cuSceneryInfo = cuCustom__detailALL;
-        addItem(this.id,cuSceneryInfo);
+        let itemID =cuCustom__detailALL.split('|')[03];
+        addItemBefore(itemID,cuSceneryInfo);
         var cuCustomDetailBg = document.getElementsByClassName('cuCustom__detailBg')[0];
         cuCustomDetailBg.style.display = 'none';
     });
@@ -402,12 +458,12 @@ var storage = sessionStorage;
 //767以上 讓動態新增的風景點先加到web session
 function addItemBefore(itemId,itemValue){
     let addItemStr = storage['addItemList'];
-    console.log(addItemStr.search("scu"));
-    if(addItemStr.search("scu") == -1 ){
-        console.log("應該要是沒有,");
+    // console.log(addItemStr.search("scu"));
+    if(addItemStr.search("cu") == -1){
+        // console.log("應該要是沒有,");
         storage['addItemList'] = itemId;
     }else{
-        console.log("有,");
+        // console.log("有,");
         storage['addItemList'] += ',' + itemId ;
     }
     storage[itemId] = itemValue;
@@ -613,16 +669,8 @@ function addItem(itemId,itemValue){
     O('cuPdkPrice').value = O('pdkPrice').innerText;
     function changeItemCount(){
         var itemString = storage.getItem('addItemList');
-        console.log(itemString);
-        console.log(itemString.length);
         var items = itemString.substr(0,itemString.length-2).split(',');
-        
-        // console.log(items);
         O('cuQuan').innerText = (items.length-1);
-        // if(items == ""){
-        //     items.length -= 1;
-        //     O('cuQuan').innerText = items.length;
-        // }
     }
 }
 
@@ -640,13 +688,12 @@ function deleteItem(){
     
     if(storage['addItemList'].search(','+itemId) != -1){
         storage['addItemList'] = storage['addItemList'].replace(','+itemId,"");
-        console.log(itemId);
         // console.log('不是第一個');
         // console.log('不是第一個');
     }else{
         storage['addItemList'] = storage['addItemList'].replace(itemId,"");
-        console.log(itemId);
-        console.log('only one');
+        // console.log(itemId);
+        // console.log('only one');
         
     }
     
@@ -689,11 +736,11 @@ function cuPickScenery(e){
         iconCheckBox.innerText = 'check_box';
         // storage['addItemList'] += e.target.parentNode.parentNode.id + ',';
         if(addItemStr.search("cu") == -1 ){
-            console.log("應該要是沒有,");
+            // console.log("應該要是沒有,");
             storage['addItemList'] += e.target.parentNode.parentNode.id ;
             storage[e.target.parentNode.parentNode.id] = inputDetail;
         }else{
-            console.log("有,");
+            // console.log("有,");
             
             storage['addItemList'] +=  ','+e.target.parentNode.parentNode.id;
             storage[e.target.parentNode.parentNode.id] = inputDetail;
@@ -703,16 +750,13 @@ function cuPickScenery(e){
         // storage.removeItem(e.target.parentNode.parentNode.id);
         // storage['addItemList'] = storage['addItemList'].replace(e.target.parentNode.parentNode.id+',',"");
         storage.removeItem(e.target.parentNode.parentNode.id);
-        alert();
         if(storage['addItemList'].search(','+e.target.parentNode.parentNode.id) != -1){
             storage['addItemList'] = storage['addItemList'].replace(','+e.target.parentNode.parentNode.id,"");
-            console.log(e.target.parentNode.parentNode.id);
             // console.log('不是第一個');
             // console.log('不是第一個');
         }else{
             storage['addItemList'] = storage['addItemList'].replace(e.target.parentNode.parentNode.id,"");
-            console.log(e.target.parentNode.parentNode.id);
-            console.log('only one');
+            // console.log('only one');
             
         }
     }
@@ -750,13 +794,13 @@ function cuConfirm(){
 };
 
 /* 按鈕--控制風景【確認加入】同時關閉風景列表*/ 
-// function cuAddSceneryC(){
-//     if(cuCustomSceneryZoneBg.style.display == 'block'){
-//         cuCustomSceneryZoneBg.style.display = 'none';
-//     }
-//     console.log(storage['addItemList']);
-//     // addItem(storage['addItemList']);
-// }
+function cuAddSceneryC(){
+    
+    if(cuCustomSceneryZoneBg.style.display == 'block'){
+        cuCustomSceneryZoneBg.style.display = 'none';
+    }
+    // addItem(storage['addItemList']);
+}
 
 
 function cuShowGuide(){
@@ -766,8 +810,7 @@ function cuShowGuide(){
     cuGuide_picL.src = this.childNodes[1].src;
     cuGuide_picL.className ='cuGuide_picL';
     let cuGuideListPicked = document.querySelector('.cu__guideList--picked');
-    console.log(cuGuideListPicked.firstChild.className);
-    console.log(cuGuide_picL);
+
     while (cuGuideListPicked.firstChild.className == 'cuGuide_picL') {
         cuGuideListPicked.removeChild(cuGuideListPicked.firstChild);
     }
@@ -900,16 +943,25 @@ function cuJpcClose(){
 
 }
 
-// function cuCloseAdd767(){
-//     let cuCustomSceneryZoneBg = O('cuCustom__sceneryZone--bg');
-//     // e.stopPropagation;
-//     enquire.register("screen and (max-width: 767px)", {     
-//         match: function() {
-//             // e2.stopPropagation;
-//             cuCustomSceneryZoneBg.style.display = 'none';
-//             },
-//         });
-// }
+function cuCloseAdd767(e){
+    let cuCustomSceneryZoneBg = O('cuCustom__sceneryZone--bg');
+    if(innerWidth<768){
+        let  cuCustomDetailBg = document.querySelector('#cuCustom__detailBg');
+                if(e.target == cuCustomSceneryZoneBg ){
+                    cuCustomSceneryZoneBg.style.display = 'none';
+                }
+    }
+    // e.stopPropagation;
+    // enquire.register("screen and (max-width: 767px)", {     
+    //     match: function(e) {
+    //             // e2.stopPropagation;
+    //             let  cuCustomDetailBg = document.querySelector('#cuCustom__detailBg');
+    //             if(e.target == cuCustomSceneryZoneBg ){
+    //                 cuCustomSceneryZoneBg.style.display = 'none';
+    //             }
+    //         },
+    //     });
+}
 
 
 
@@ -1055,6 +1107,9 @@ window.addEventListener("load", () => {
     document.querySelector("#yy-sp").innerText = yy;
     var dayall = new Date(yy, (mm + 1), 0).getDate();//總天數
     var bd = new Date(yy + "/" + (mm + 1) + "/1").getDay();//因為回傳月份是0-11 所以要+1  抓星期他只有1-12月
+    
+
+  
     var dayfunction = () => {
         for (var i = 1; i < 7; i++) {
             var text = "";
@@ -1149,33 +1204,88 @@ window.addEventListener("load", () => {
         load();
     })
 
-    var len;
-    var arr = new Array();
-    function load() {
-        len = document.getElementsByClassName("tdclass");
-        var ss;
-        for (var k = 0; k <= len.length - 1; k++) {
-            ss = document.getElementsByClassName("tdclass")[k];
-            ss.addEventListener("click", tdclass);
-            arr[k]=ss;
-        }
+
+
+
+    var today = new Date();//今天日期
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+    dd = dd;
     }
+
+    if (mm < 10) {
+    mm =  mm;
+    }
+
+    today =  dd +25;
+
+
+var len;
+var arr = new Array();
+function load() {
+    len = document.getElementsByClassName("tdclass");
+    var ss;
+    for (var k = 0; k <= len.length - 1; k++) {
+        ss = document.getElementsByClassName("tdclass")[k];
+        ss.addEventListener("click", tdclass);
+
+
+        var numF = arrmm.indexOf(document.querySelector("#mm-sp").innerText);
+        var num = arrmm.indexOf(document.querySelector("#mm-sp").innerText)+1;
+        if (document.querySelector("#yy-sp").innerText < yyyy   ) {
+            ss.style.color="#ADADAD";
+            ss.style.cursor = "not-allowed";
+            ss.removeEventListener("click", tdclass);
+        }
+
+        //今年且小於此月 不等於今日
+        if( num<mm && document.querySelector("#yy-sp").innerText == yyyy ){
+            ss.removeEventListener("click", tdclass);
+            ss.style.color="#ADADAD";
+            //不等於今日
+            if(ss.innerText ==  today && num == mm && document.querySelector("#yy-sp").innerText == yyyy ){
+                ss.style.color="#F27F22";
+                // ss.style.cursor = "not-allowed";s
+                ss.addEventListener("click", tdclass);
+            }
+        }
+        //同年同月 但小於今天
+        if(ss.innerText< today &&  num==mm && document.querySelector("#yy-sp").innerText == yyyy){
+            ss.style.color="#ADADAD";
+            ss.style.cursor = "not-allowed";
+            ss.removeEventListener("click", tdclass);
+        }
+    
+        arr[k]=ss;
+    }
+}
+
+
     var click = 0;
     var cl=false;
     var datevalue1;
     function tdclass(e) {
         if(!click){
+            //沒被點到時且不是過期日期rgb(173, 173, 173)，都要是以下顏色
             for(var i = 0 ; i<=len.length-1 ; i++){
-                arr[i].style.background="#F4F4F4";
-                arr[i].style.color="#F27F22";
+                if( arr[i].style.color != "rgb(173, 173, 173)"){
+                    arr[i].style.color="#F27F22";
+                    arr[i].style.background="#F4F4F4";
+                }
             }
             e.target.style.background="#F27F22";
             e.target.style.color="#F4F4F4";
+            
+            //click++ 表示+1有點到
             click++;
             cl =arr.indexOf(e.target); 
             var value = document.querySelector("#mm-sp").innerText;
             var mmtext = Number(arrmm.indexOf(value));//月
             mmtext += 1;
+            //帶入第一個選的日期datevalue1
             datevalue1 = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
         }else{
             if(cl<arr.indexOf(e.target)){
@@ -1192,7 +1302,7 @@ window.addEventListener("load", () => {
             var value = document.querySelector("#mm-sp").innerText;
             var mmtext = Number(arrmm.indexOf(value));//月
             mmtext += 1;
-            
+            //帶入第二個選的日期datevalue
             var datevalue = document.querySelector("#yy-sp").innerText + "-" + mmtext + "-" + e.target.innerText;
             document.querySelector("#date-label").innerHTML =datevalue1+" ~ "+datevalue;
             $('#date-text').removeClass('expanded');

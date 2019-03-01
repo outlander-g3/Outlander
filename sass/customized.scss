@@ -452,6 +452,20 @@ i{
     justify-content: space-between;
     width: 97%;
     margin: auto;
+    &:-webkit-scrollbar-track{
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: rgba(244,244,244, 0.22);      
+    }
+    &::-webkit-scrollbar{
+        width: 4px;
+        background-color: rgba(8, 139, 154, 0.22);
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color:$color-gray1;
+    }
     @include small-pad-width() {
         height: 357px;
     }
@@ -479,7 +493,7 @@ i{
         display: inline-block;
         background-image:linear-gradient(
             360deg,
-            rgba(0, 0, 0, 0.2) 20px,
+            rgba(0, 0, 0, 0.6) 10px,
             rgba(0, 0, 0, 0.18),
             rgba(0, 0, 0, 0)
         )
@@ -802,6 +816,12 @@ i{
     
     }
 }
+#cuIcontainer{
+    span{
+        padding: 5px 10px 0 1px;
+        transform: translateY(2px);
+    }
+}
 // #btn_cuAddOne{
 //     margin: auto;
 //     display: block;
@@ -946,6 +966,21 @@ i{
     flex-wrap: wrap;
     overflow: auto;
     text-align: center;
+    &:-webkit-scrollbar-track{
+        box-shadow: inset 0 0 6px rgba(0,0,0,1);
+        border-radius: 10px;
+        background-color: rgba(8, 139, 154, 0.22);      
+    }
+    &::-webkit-scrollbar{
+        width: 4px;
+        background-color: rgba(8, 139, 154, 0.22);
+        // background-color: rgba(244,244,244 0.22);
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color:$color-gray1;
+    }
     @include small-pad-width(){
         height: 170px;
     }
@@ -955,20 +990,7 @@ i{
     }
 }
 .cuGuide__mask--ctrl{
-    &:-webkit-scrollbar-track{
-        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        border-radius: 10px;
-        background-color: rgba(8, 139, 154, 0.22);      
-    }
-    &::-webkit-scrollbar{
-        width: 4px;
-        background-color: rgba(8, 139, 154, 0.22);
-    }
-    &::-webkit-scrollbar-thumb{
-        border-radius: 10px;
-        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-        background-color:$color-gray1;
-    }
+   
     @include small-pad-width(){
         // margin: auto 5%;
     }

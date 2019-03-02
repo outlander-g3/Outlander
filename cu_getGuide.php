@@ -7,14 +7,21 @@ try {
     $cuEnd=$_GET['cuEnd'];
     $_SESSION['pdStart']=$cuStart;
     $_SESSION['pdEnd']=$cuEnd;
+    
+
+
     //撈嚮導
     require_once("connectDb.php");
-    $sql="select a.pdNO ,a.gdNo1,a.gdNo2 from product a , guide b where a.pdStart BETWEEN 'cuStart=:cuStart' AND 'cuEnd=:cuEnd' AND a.gdNo1 >15 or a.gdNo2>15 AND a.pdStatus !=0 ";
+    // $sql="select a.pdNO ,a.gdNo1,a.gdNo2 from product a , guide b where a.pdStart BETWEEN 'cuStart=:cuStart' AND 'cuEnd=:cuEnd' AND a.gdNo1 >15 or a.gdNo2>15  ";
+    $sql="select a.pdNO ,a.gdNo1,a.gdNo2 from product a , guide b where a.pdStart BETWEEN :cuStart AND :cuEnd AND a.gdNo1 >15";
+    // $sql="select a.pdNO ,a.gdNo1,a.gdNo2,a.pdStart from product a , guide b where a.pdStart BETWEEN '2019-03-13' AND '2019-03-17' AND a.gdNo1 >15";
     $scnG=$pdo->prepare($sql);
     $scnG->bindValue(':cuStart',$cuStart);
     $scnG->bindValue(':cuEnd',$cuEnd);
-    $scnG->execute();
-    
+    $scnG->execute();  
+
+   
+
     //當日有帶團之嚮導的小山屋
     $arr =[];
     while($scnGRows = $scnG->fetch(PDO::FETCH_ASSOC)){

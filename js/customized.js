@@ -1366,10 +1366,11 @@ function load() {
 
             //回傳時間
             document.querySelector("#pdStart").value =datevalue1.replace(/-/g,"/");
-            console.log(document.querySelector("#pdStart").value);
             document.querySelector("#pdEnd").value =datevalue.replace(/-/g,"/");
-            document.querySelector("#cuStart").value =datevalue1.replace(/-/g,"/");
-            document.querySelector("#cuEnd").value =datevalue.replace(/-/g,"/");
+            document.querySelector("#cuStart").value =datevalue1;
+            document.querySelector("#cuEnd").value =datevalue;
+            console.log(document.querySelector("#pdStart").value);
+            console.log(document.querySelector("#cuStart").value);
       
 
             //將天數丟進php session

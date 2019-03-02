@@ -1366,6 +1366,7 @@ function load() {
 
             //回傳時間
             document.querySelector("#pdStart").value =datevalue1.replace(/-/g,"/");
+            console.log(document.querySelector("#pdStart").value);
             document.querySelector("#pdEnd").value =datevalue.replace(/-/g,"/");
             document.querySelector("#cuStart").value =datevalue1.replace(/-/g,"/");
             document.querySelector("#cuEnd").value =datevalue.replace(/-/g,"/");

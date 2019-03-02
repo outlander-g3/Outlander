@@ -1,49 +1,57 @@
-window.addEventListener('load', function () {
 
-    // 初始寬度
-    var winWidth = document.body.clientWidth;
-    var currentWin = winWidth;
-    //改變寬度
-    window.addEventListener('resize', ctResize, false);
-    // if (winWidth < 768) {
-    //     $('.ctProfile').css('display', 'none');
-    //     $('.ctPay').css('display', 'none');
+//怕手機load進來太慢會爆，no-active要先跑不能等load完，其他的就放在ｌｏａｄ裡面
+
+//從購物車出去就不能再回到這兒
+window.history.forward(1);
+// 初始寬度
+var winWidth = document.body.clientWidth;
+var currentWin = winWidth;
+// alert('有');
+ctProduct = $('.ctProduct');
+ctProfile = $('.ctProfile');
+ctPay = $('.ctPay');
+ctSticky = $('.ctSticky');
+ctDetail = $('.ctDetail');
+
+function winW() {
+    winWidth = document.body.offsetWidth;
+    // console.log("1 : ", winWidth);
+    // console.log("body : ", document.body.offsetWidth);
+    //看有沒有被按全螢幕
+    // if (winWidth > (window.screen.width - 20)) {
+    //     console.log("2 : ", winWidth);
+    //     ctProduct.removeClass('no-active');
+    //     ctProfile.removeClass('no-active');
+    //     ctPay.removeClass('no-active');
+    //     ctSticky.removeClass('no-active');
+    //     $('.date').css({
+    //         'position': 'absolute',
+    //         'left': '0',
+    //         'top': '0',
+    //     });
     // }
-    function ctResize() {
-        // console.log(winWidth);
-        winWidth = document.body.clientWidth;
-        //看有沒有被按全螢幕
-        if (winWidth > (window.screen.width - 20)) {
-            $('.ctProduct').css('display', 'block');
-            $('.ctProfile').css('display', 'block');
-            $('.ctPay').css('display', 'block');
-            $('.ctSticky').css('display', 'flex');
-            $('.ctSticky').css('position', 'sticky');
-            $('.date').css({
-                'position': 'absolute',
-                'left': '0',
-                'top': '0',
-            });
-        }
-        //本來就>768 拉往小768 要藏
-        //本來<768 拉往小768 不動
-        //本來就>768 拉往大768 不動
-        //本來<768 拉往大768 全開
-        if (winWidth < 768) {
-            $('.ctProfile').addClass('no-active');
-            $('.ctPay').addClass('no-active');
-            $('.ctSticky').addClass('no-active');
+
+    enquire.register("screen and (max-width: 767px)", {
+        match: function () {
+            // console.log("3 : ", winWidth);
+            ctProduct.removeClass('no-active');
+            ctProfile.addClass('no-active');
+            ctPay.addClass('no-active');
+            ctSticky.addClass('no-active');
+            ctDetail.addClass('no-active');
             $('.date').css({
                 'position': 'fixed',
                 'left': '20px',
                 'top': '30%',
             });
-        }
-        else if (winWidth > 768) {
-            $('.ctProduct').removeClass('no-active');
-            $('.ctProfile').removeClass('no-active');
-            $('.ctPay').removeClass('no-active');
-            $('.ctSticky').removeClass('no-active');
+        },
+        unmatch: function () {
+            // console.log("4 : ", winWidth);
+            ctProduct.removeClass('no-active');
+            ctProfile.removeClass('no-active');
+            ctPay.removeClass('no-active');
+            ctSticky.removeClass('no-active');
+            ctDetail.removeClass('no-active');
 
             $('.date').css({
                 'position': 'absolute',
@@ -51,8 +59,30 @@ window.addEventListener('load', function () {
                 'top': '0',
             });
         }
-    }
-    //如果從原本的小size但拉不到768的時候會全部吃不到
+    });
+}
+//一開始先進來判斷螢幕大小
+winW();
+if (window.screen.width < 768) {
+    ctProduct.removeClass('no-active');
+    ctProfile.addClass('no-active');
+    ctPay.addClass('no-active');
+    ctSticky.addClass('no-active');
+    ctDetail.addClass('no-active');
+    $('.date').css({
+        'position': 'fixed',
+        'left': '20px',
+        'top': '30%',
+    });
+    // alert('A1,' + window.screen.width);
+}
+else {
+    window.addEventListener("resize", winW);
+    // alert('B1,' + window.screen.width);
+}
+
+
+window.addEventListener('load', function () {
     function ctScrollTop() {
         window.scrollTo({
             top: 0,
@@ -78,9 +108,10 @@ window.addEventListener('load', function () {
     }
     $("#ctProductNextBtn").click(nextToFile);
     function nextToFile() {
-        $('.ctProfile').css('display', 'block');
-        $('.ctProduct').css('display', 'none');
+        ctProfile.removeClass("no-active");
+        ctProduct.addClass('no-active');
         ctNextStep(0);
+        // console.log('第一步的btn');
     }
 
     $("#ctProfileNextBtn").click(nextToPay);
@@ -90,20 +121,54 @@ window.addEventListener('load', function () {
         let memNull = false;
         let psgNull = false;
         let msg = '';
-
+        //檢驗會員是否為空
         let mem = $('.ctContact input[type="text"]');
         mem.each(function () {
             if ($(this).val() == "") {
                 memNull = true;
             }
         });
-        //旅客資料的檢驗
+        //檢驗信箱格式
+        if (/^[^\s]+@[^\s]+\.[^\s]+$/.test($('#buyMail').val()) == false) {
+            alert('電子信箱格式有誤');
+            memNull = true;
+            return;
+        }
+        //檢驗會員電話
+        if (/^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/.test($('#butTel').val() == false)) {
+            alert('購買人聯絡電話格式有誤');
+            memNull = true;
+            return;
+        }
+        //旅客資料的檢驗是否為空
         let psg = $('input[type="hidden"]');
         psg.each(function () {
             if ($(this).val() == "") {
                 psgNull = true;
             }
         });
+        if (psgNull == true) {
+            alert('尚有旅客資料未填寫');
+            return;
+        }
+        //檢驗旅客生日
+        if (/^\d{4}-\d{1,2}-\d{1,2}$/.test($('input[type="hidden"][name="psgBd[]"]').val()) == false) {
+            alert('生日格式有誤');
+            psgNull = true;
+            return;
+        }
+        //檢驗旅客身分證
+        if (/^[A-Za-z][12]\d{8}$/.test($('input[type="hidden"][name="psgId[]"]').val()) == false) {
+            alert('身分證格式有誤');
+            psgNull = true;
+            return;
+        }
+        //檢驗旅客聯絡電話
+        if (/^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/.test($('[name="psgTel[]"]').val() == false)) {
+            alert('旅客聯絡電話格式有誤');
+            psgNull = true;
+            return;
+        }
         if (memNull == true && psgNull == true) {
             msg = "購買人及旅客";
             hasNull = true;
@@ -118,33 +183,37 @@ window.addEventListener('load', function () {
         }
 
         if (hasNull == true) {
-            alert('尚有' + msg + '欄位未填寫');
+            alert('尚有' + msg + '欄位未填寫或格式有誤');
         }
         else {
-            $('.ctProfile').css('display', 'none');
-            $('.ctPay').css('display', 'block');
-            $('.ctSticky').css('display', 'flex');
+            ctProfile.addClass('no-active');
+            ctPay.removeClass('no-active');
+            ctSticky.removeClass('no-active');
+            ctDetail.removeClass('no-active');
             ctNextStep(1);
         }
-    }
+    };
 
-
+    $('#ctProductPreBtn').click(function () {
+        window.history.back();
+    });
     $("#ctProfilePreBtn").click(preToProduct);
     function preToProduct() {
-        $('.ctProduct').css('display', 'block');
-        $('.ctProfile').css('display', 'none');
+        ctProduct.removeClass('no-active');
+        ctProfile.addClass('no-active');
         ctPreStep(1);
     }
 
     $("#ctPayPreBtn").click(preToFile);
     function preToFile() {
-        $('.ctProfile').css('display', 'block');
-        $('.ctPay').css('display', 'none');
-        $('.ctSticky').css('display', 'none');
+        ctProfile.removeClass('no-active');
+        ctPay.addClass('no-active');
+        ctSticky.addClass('no-active');
+        ctDetail.addClass('no-active');
         ctPreStep(2);
     }
 
-    window.addEventListener('fullscreen', ctResize, false);
+    // window.addEventListener('fullscreen', ctResize, false);
 
 
     //旅客人數
@@ -176,16 +245,16 @@ window.addEventListener('load', function () {
         detailCount.innerHTML = count.innerHTML;
         let input1 = document.createElement('input');
         input1.setAttribute('type', 'hidden');
-        input1.setAttribute('name', 'psgName');
+        input1.setAttribute('name', 'psgName[]');
         let input2 = document.createElement('input');
         input2.setAttribute('type', 'hidden');
-        input2.setAttribute('name', 'psgBd');
+        input2.setAttribute('name', 'psgBd[]');
         let input3 = document.createElement('input');
         input3.setAttribute('type', 'hidden');
-        input3.setAttribute('name', 'psgId');
+        input3.setAttribute('name', 'psgId[]');
         let input4 = document.createElement('input');
         input4.setAttribute('type', 'hidden');
-        input4.setAttribute('name', 'psgTel');
+        input4.setAttribute('name', 'psgTel[]');
         div.append(i1);
         div.append(i2);
         div.append(input1);
@@ -219,10 +288,10 @@ window.addEventListener('load', function () {
             if (whoNo < 1) {
                 $('.ctPassanger__tab label:last-child a').attr('class', 'who');
             }
-            let nowName = $('.who').find("input[name='psgName']").val();
-            let nowBd = $('.who').find("input[name='psgBd']").val();
-            let nowId = $('.who').find("input[name='psgId']").val();
-            let nowTel = $('.who').find("input[name='psgTel']").val();
+            let nowName = $('.who').find("input[name='psgName[]']").val();
+            let nowBd = $('.who').find("input[name='psgBd[]']").val();
+            let nowId = $('.who').find("input[name='psgId[]']").val();
+            let nowTel = $('.who').find("input[name='psgTel[]']").val();
             //顯示該人資料
             $('#psgName').val(nowName);
             $('#psgBd').val(nowBd);
@@ -234,22 +303,31 @@ window.addEventListener('load', function () {
     var total = document.querySelector('.ctDetail__total--num');
     var sum = document.querySelector('.ctDetail__cal--sum');
     var dis = document.querySelector('.ctDetail__cal--dis');
+    var ordPrice = document.querySelector('#ordPrice');
     function newTotal() {
-        sum.innerHTML = 10500 * count.innerHTML;
-        total.innerHTML = parseInt(sum.innerHTML) + parseInt(dis.innerHTML);
-    }
+        //要變成有,的顯示方式
 
+        let newTotal = parseInt($('#price').html().replace(',', "")) * count.innerHTML;
+        sum.innerHTML = parseFormatNum(newTotal, 0);
+        // console.log($('#price').html());
+        total.innerHTML = parseFormatNum(newTotal - parseInt(dis.innerHTML), 0);
+        ordPrice.value = newTotal - parseInt(dis.innerHTML);
+    }
     //紅利點數是否折抵
     var memPoint = document.querySelector('#memPoint');
+    var usePoint = document.querySelector("input[name='usePoint']");
     memPoint.addEventListener('click', function () {
         if (memPoint.checked) {
-            dis.innerHTML = '-30';
+            dis.innerHTML = parseInt($('#point').text()) / 10;
+            usePoint.value = 1;
         }
         else {
             dis.innerHTML = 0;
+            usePoint.value = 0;
         }
         //呼叫改變金額函數
         newTotal();
+        // console.log(usePoint.value);
     }, false);
 
 
@@ -257,67 +335,121 @@ window.addEventListener('load', function () {
     var ctRule = document.querySelector('#ctRule');
     var btnPay = '.btn-pay';
     $(btnPay).click(function (e) {
-
-        let hasNull = false;
-        let memNull = false;
-        let psgNull = false;
-        let cdNull = false;
-        let msg = '';
+        // console.log('in');
+        var hasNull = false;
+        var memNull = false;
+        var psgNull = false;
+        var cdNull = false;
+        var msg = '';
+        //檢驗會員是否為空
         let mem = $('.ctContact input[type="text"]');
         mem.each(function () {
             if ($(this).val() == "") {
                 memNull = true;
-                return;
             }
         });
-        //旅客資料的檢驗
+        //檢驗信箱格式
+        if (/^[^\s]+@[^\s]+\.[^\s]+$/.test($('#buyMail').val()) == false) {
+            alert('電子信箱格式有誤');
+            memNull = true;
+            return;
+        }
+        //檢驗會員電話
+        if (/^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/.test($('#butTel').val() == false)) {
+            alert('購買人聯絡電話格式有誤');
+            memNull = true;
+            return;
+        }
+        //旅客資料的檢驗是否為空
         let psg = $('input[type="hidden"]');
         psg.each(function () {
             if ($(this).val() == "") {
                 psgNull = true;
-                return;
             }
         });
-        let cd = $('.ctCredit input[type="text"]');
-        cd.each(function () {
-            if ($(this).val() == "") {
-                cdNull = true;
-                return;
-            }
-        });
-        if (memNull == true && psgNull == true) {
-            msg = "購買人、旅客";
-            hasNull = true;
+
+        if (psgNull == true) {
+            alert('尚有旅客資料未填寫');
+            return;
         }
-        else if (memNull == true) {
-            msg = "購買人";
-            hasNull = true;
+        //檢驗旅客生日
+        if (/^\d{4}-\d{1,2}-\d{1,2}$/.test($('input[type="hidden"][name="psgBd[]"]').val()) == false) {
+            alert('生日格式有誤');
+            psgNull = true;
+            return;
         }
-        else if (psgNull == true) {
-            msg = '旅客';
-            hasNull = true;
+        //檢驗旅客身分證
+        if (/^[A-Za-z][12]\d{8}$/.test($('input[type="hidden"][name="psgId[]"]').val()) == false) {
+            alert('身分證格式有誤');
+            psgNull = true;
+            return;
         }
-        if (cdNull) {
-            if (msg == '') {
-                msg = '信用卡';
-                hasNull = true;
-                return;
-            }
-            msg += "、信用卡";
+        //檢驗旅客聯絡電話
+        if (/^\(?\d{2}\)?[\s\-]?\d{4}\-?\d{4}$/.test($('[name="psgTel[]"]').val()) == false) {
+            alert('旅客聯絡電話格式有誤');
+            psgNull = true;
+            return;
         }
+
+        //檢驗信用卡16碼
+        // if (/^\d{4}$/.test($('.credit').val()) == false) {
+        //     alert('信用卡須為16位數字');
+        //     return;
+        // }
+        // if (/^\d{3}$/.test($('#safe').val()) == false) {
+        //     alert('安全碼為3位數字');
+        //     return;
+        // }
+        // if (memNull == true && psgNull == true) {
+        //     msg = "購買人、旅客";
+        //     hasNull = true;
+        //     // console.log(1);
+        // }
+        // else if (memNull == true && psgNull != true) {
+        //     msg = "購買人";
+        //     hasNull = true;
+        //     // console.log(2);
+        // }
+        // else if (psgNull == true && memNull != true) {
+        //     msg = '旅客';
+        //     hasNull = true;
+        //     // console.log(3);
+        // }
+        // else {
+        //     // console.log('有走喔');
+        // }
+
+
+        // let m = document.querySelector('select[name="month"]');
+        // let y = document.querySelector('select[name="year"]');
+        // if (m.value == 0 || y.value == 0) {
+        //     cdNull = true;
+        //     // console.log('年月');
+        // }
+        // if (cdNull == true) {
+        //     if (msg == '') {
+        //         msg = '信用卡';
+        //     }
+        //     else {
+        //         msg += "、信用卡";
+        //     }
+        //     hasNull = true;
+        //     // console.log('信用卡');
+        // }
         if (hasNull == true) {
-            alert('尚有' + msg + '欄位未填寫');
+            alert('尚有' + msg + '欄位未填寫或格式有誤');
+
         }
-        if (!ctRule.checked) {
+        else if (!ctRule.checked) {
             alert('請詳閱並同意訂購條款');
         }
         else {
-            $('.ctPaid').css('display', 'block');
+            // ordPrice.value = parseInt($('#price').html().replace(',', "")) * count.innerHTML;
+            $('#ctForm').submit();
         }
     });
 
-
-
+    ordPrice.value = parseInt($('#price').html().replace(',', "")) * count.innerHTML;
     var psgTabs = document.querySelectorAll('.ctPassanger__tab a');
     for (let i = 0; i < psgTabs.length; i++) {
         psgTabs[i].addEventListener('click', showFile, false);
@@ -330,10 +462,10 @@ window.addEventListener('load', function () {
         //只有一個人的話，input值塞給第一個人的value
         if (count.innerHTML == 1) {
             // console.log($('#psgName').val());
-            $("input[name='psgName']").val($('#psgName').val());
-            $("input[name='psgBd']").val($('#psgBd').val());
-            $("input[name='psgId']").val($('#psgId').val());
-            $("input[name='psgTel']").val($('#psgTel').val());
+            $("input[name='psgName[]']").val($('#psgName').val());
+            $("input[name='psgBd[]']").val($('#psgBd').val());
+            $("input[name='psgId[]']").val($('#psgId').val());
+            $("input[name='psgTel[]']").val($('#psgTel').val());
             // return;
         }
         //如果有兩個人以上,tab到誰,先顯示別人的value，有輸入的話塞給那個人的value
@@ -344,14 +476,14 @@ window.addEventListener('load', function () {
             // 把現在框框值寫回去
             // console.log($(this));
             // $('.who').find("input[name='psgName']").attr('value', inputName);
-            $('.who').find("input[name='psgName']").val(inputName);
+            $('.who').find("input[name='psgName[]']").val(inputName);
             // return inputNow;
             let inputBd = $('#psgBd').val();
-            $('.who').find("input[name='psgBd']").val(inputBd);
+            $('.who').find("input[name='psgBd[]']").val(inputBd);
             let inputId = $('#psgId').val();
-            $('.who').find("input[name='psgId']").val(inputId);
+            $('.who').find("input[name='psgId[]']").val(inputId);
             let inputTel = $('#psgTel').val();
-            $('.who').find("input[name='psgTel']").val(inputTel);
+            $('.who').find("input[name='psgTel[]']").val(inputTel);
 
         }
     }
@@ -363,10 +495,10 @@ window.addEventListener('load', function () {
         // 該人目前資料
         $('.who').attr('class', '');
         $(this).attr('class', 'who');
-        let nowName = $(this).closest('a').find("input[name='psgName']").val();
-        let nowBd = $(this).closest('a').find("input[name='psgBd']").val();
-        let nowId = $(this).closest('a').find("input[name='psgId']").val();
-        let nowTel = $(this).closest('a').find("input[name='psgTel']").val();
+        let nowName = $(this).closest('a').find("input[name='psgName[]']").val();
+        let nowBd = $(this).closest('a').find("input[name='psgBd[]']").val();
+        let nowId = $(this).closest('a').find("input[name='psgId[]']").val();
+        let nowTel = $(this).closest('a').find("input[name='psgTel[]']").val();
         //顯示該人資料
         $('#psgName').val(nowName);
         $('#psgBd').val(nowBd);
@@ -387,20 +519,15 @@ window.addEventListener('load', function () {
         $('.date').css('display', 'block');
     });
 
-
     //信用卡的到期
 
-    $('.ctCredit__select i').click(function () {
-        // $('.ctCredit__select select').change();
+    $('.ctCredit__select').click(function () {
+        $('.ctCredit__select select').click();
         // $('#month option').css('display', 'block');
         // alert($('#month option').length);
     });
 
-    $('.jpBase').unbind('click');
 
-
-});
-window.addEventListener("load", () => {
 
 
     $('#date-text').click(function (e) {
@@ -440,7 +567,7 @@ window.addEventListener("load", () => {
     arrmm[11] = "十二月";
     document.querySelector("#mm-sp").innerText = arrmm[mm];
     document.querySelector("#yy-sp").innerText = yy;
-    var dayall = new Date(yy, mm, 0).getDate();//總天數
+    var dayall = new Date(yy, mm + 1, 0).getDate();//總天數
     var bd = new Date(yy + "/" + (mm + 1) + "/1").getDay();//因為回傳月份是0-11 所以要+1  抓星期他只有1-12月
     var dayfunction = () => {
         for (var i = 1; i < 7; i++) {
@@ -560,8 +687,31 @@ window.addEventListener("load", () => {
         // console.log(document.querySelector("#date").value);//確認送表單的value正確
         $('.date').css('display', 'none');
         let inputBd = $('#psgBd').val();
-        $('.who').find("input[name='psgBd']").val(inputBd);
+        $('.who').find("input[name='psgBd[]']").val(inputBd);
     }
     load();
 
 });
+
+
+//格式化
+function parseFormatNum(number, n) {
+    if (n != 0) {
+        n = (n > 0 && n <= 20) ? n : 2;
+    }
+    number = parseFloat((number + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+    var sub_val = number.split(".")[0].split("").reverse();
+    var sub_xs = number.split(".")[1];
+
+    var show_html = "";
+    for (i = 0; i < sub_val.length; i++) {
+        show_html += sub_val[i] + ((i + 1) % 3 == 0 && (i + 1) != sub_val.length ? "," : "");
+    }
+
+    if (n == 0) {
+        return show_html.split("").reverse().join("");
+    } else {
+        return show_html.split("").reverse().join("") + "." + sub_xs;
+    }
+
+}

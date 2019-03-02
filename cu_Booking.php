@@ -11,7 +11,17 @@
         $_SESSION['day']=$day;
         $_SESSION['pdkName']="客製行程 - ".$pdkName;
         $_SESSION['where']=$_SERVER["PHP_SELF"];
-        header('Location:cart.php');
+        $_SESSION['pdStart']=$pdStart;
+        // header('Location:cart.php');
+        require_once("connectDb.php");
+
+        $sql="insert into product(pdkNo,gdNo1,pdStart,pdStatus) values (:pdkNo,:gdNo1,:pdStart,0);";
+        $product=$pdo->prepare($sql);
+        $product->bindValue(':pdkNo',$_SESSION['pdkNo']);
+        $product->bindValue(':gdNo1',$_SESSION['gdNo1']);
+        $product->bindValue(':pdStart',$pdStart);
+        $product->execute();
+        $pdNo=$pdo->lastInsertId();
 
     } catch (PDOException $e) {
         echo "失敗",$e->getMessage(),"<br>";

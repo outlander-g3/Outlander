@@ -7,28 +7,32 @@ try {
     $cuEnd=$_GET['cuEnd'];
     $_SESSION['pdStart']=$cuStart;
     $_SESSION['pdEnd']=$cuEnd;
+    echo $cuStart;
+    echo $cuEnd;
     
-
-
+    
     //撈嚮導
     require_once("connectDb.php");
     // $sql="select a.pdNO ,a.gdNo1,a.gdNo2 from product a , guide b where a.pdStart BETWEEN 'cuStart=:cuStart' AND 'cuEnd=:cuEnd' AND a.gdNo1 >15 or a.gdNo2>15  ";
-    $sql="select a.pdNO ,a.gdNo1,a.gdNo2 from product a , guide b where a.pdStart BETWEEN :cuStart AND :cuEnd AND a.gdNo1 >15";
+    $sql="select distinct a.pdNO ,a.gdNo1,a.gdNo2 from product a , guide b where a.pdStart BETWEEN :cuStart AND :cuEnd or a.gdNo1 >15";
     // $sql="select a.pdNO ,a.gdNo1,a.gdNo2,a.pdStart from product a , guide b where a.pdStart BETWEEN '2019-03-13' AND '2019-03-17' AND a.gdNo1 >15";
     $scnG=$pdo->prepare($sql);
     $scnG->bindValue(':cuStart',$cuStart);
     $scnG->bindValue(':cuEnd',$cuEnd);
     $scnG->execute();  
-
+    
+    echo $sql;
    
 
     //當日有帶團之嚮導的小山屋
     $arr =[];
     while($scnGRows = $scnG->fetch(PDO::FETCH_ASSOC)){
+     
         array_push($arr, $scnGRows['gdNo1'],$scnGRows['gdNo2']); 
     }
     //刪除重複的值
     $arrR =array_unique($arr);
+    print_r($arrR);
 
     //給編號21-25的嚮導編號
     $arr2 =[];
@@ -50,7 +54,7 @@ try {
 
     //將可帶團
     $values = implode(",",array_unique($temparray));
-    
+    echo $values;
     $sql ="select gdName ,gdImg ,skill,gdNo from guide where gdNo in ($values)";
     $scnG2=$pdo->prepare($sql);
     $scnG2->execute();

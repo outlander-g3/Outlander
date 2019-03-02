@@ -307,7 +307,7 @@
         <div class="jpBase" id="jpjn__C">
             <div class="jpWin">
                 <div class="jpTitle">遺失提醒</div>
-                <div class="jpCont"><span>重選洲別，將會遺失已安排的景點</span></div>
+                <div class="jpCont cuJpCont" ><span>重選洲別，將會遺失已安排的景點</span></div>
                 <div class="jnbtn__center">
                     <button class="jpbtn btn-sub-s" id="btnjpc__confirm">確認</button>
                     <button class="jpbtn btn-sub-s" id="btnjpc__close">取消</button>
@@ -318,7 +318,7 @@
         <div class="jpBase" id="jpjn__M">
             <div class="jpWin">
                 <div class="jpTitle">遺失提醒</div>
-                <div class="jpCont"><span>重選山岳，將會遺失已安排的景點</span></div>
+                <div class="jpCont cuJpCont" ><span>重選山岳，將會遺失已安排的景點</span></div>
                 <div class="jnbtn__center">
                     <button class="jpbtn btn-sub-s" id="btnjpm__confirm">確認</button>
                     <button class="jpbtn btn-sub-s" id="btnjpm__close">取消</button>
@@ -329,7 +329,7 @@
         <div class="jpBase" id="jpjn__reload">
             <div class="jpWin">
                 <div class="jpTitle"></div>
-                <div class="jpCont"><span>重選整理網頁，將會遺失已安排的</span>景點</div>
+                <div class="jpCont cuJpCont" ><span>重選整理網頁，將會遺失已安排的</span>景點</div>
                 <div class="jnbtn__center">
                     <button class="jpbtn btn-sub-s" id="btnjpr__confirm">確認</button>
                     <button class="jpbtn btn-sub-s" id="btnjpr__close">取消</button>
@@ -340,7 +340,7 @@
         <div class="jpBase" id="jpjn__booking">
             <div class="jpWin">
                 <div class="jpTitle">遺漏提醒</div>
-                <div class="jpCont"><span>請選擇<span id="jp</span>Cont__lost"></span></div>
+                <div class="jpCont cuJpCont" ><span>請選擇</span><span id="jpCont__lost"></span></div>
                 <div class="jnbtn__center">
                     <button class="jpbtn btn-sub-s" id="btnjpb__confirm">確認</button>
                 </div>

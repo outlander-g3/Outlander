@@ -26,7 +26,6 @@ i{
     @include f16b;
     margin: 0 10px;
     background-color: $color-btn-main;
-    border-color: $color-btn-main;
 }
 .cuBtn__styleClear{
     background-color: transparent;
@@ -479,7 +478,16 @@ i{
     }
 }
 
-
+.cuCustom__sceneryContent{
+    @include small-pad-width() {
+    text-align: left;
+    }
+    // i{
+    //     @include small-pad-width() {
+    //         transform: translateX(-10px);
+    //     }
+    // }
+}
 .cuCustom__sceneryItem{
     @include br4;
     background-size: cover;
@@ -523,6 +531,9 @@ i{
         i{
             color: rgba(255, 255, 255, .8);
             padding-top: 2px;
+            @include small-pad-width() {
+                // transform: translateX(-10px);
+            }
         }
     }
     .cuCustom__price1{
@@ -1187,7 +1198,7 @@ display: none;
 #jpjn__C,#jpjn__M,#jpjn__reload,#jpjn__booking{
     z-index: 1000;
 }
-.jpCont{
+.cuJpCont{
     text-align: center;
 }
 #btnjpc__close,#btnjpm__close{

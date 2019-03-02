@@ -1,13 +1,6 @@
-var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-var firstDate = new Date(2008,01,12);
-var secondDate = new Date(2008,01,29);
-
-var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-// alert(diffDays);
 $('#cuForm__input--M label:not(:first-of-type)').css('display','none');
 $('#cuForm__input--M input:not(:first-of-type)').css('display','none');
 $('#cuForm__input--C').click(function (e) {
-    // alert(diffDays);
     
     e.preventDefault();
     e.stopPropagation();
@@ -97,41 +90,14 @@ $('#cuForm__input--M').click(function (e2) {
         // $('#cuForm__input--M label:first-child').remove();
     }
 
-
-    // $('#cuForm__input--M')
-    //將山名放進前台input:hidden
     $('#cuPdkName').val($(e2.target).text());
 
-    //撈資料
-    // console.log(pdkNo);
-    // let pdkNo = $(e2.target).attr('for').substr(2,1);
-    // if($(e2.target).text() != '' &&  $(e2.target).text() != '請選擇山岳'){
-    //     $.ajax({
-    //         type: 'get',
-    //         url: 'cu_getScn.php',
-    //         data: 'pdkNo=' + pdkNo,
-    //         success: function (data) {
-    //             $('#cuCustom__sceneryZone--OF').append(data);
-    //             $('.cuCustom__sceneryItem').mouseover(showOption);
-    //             $('.cuCustom__sceneryItem').mouseout(closeOption);
-    //             $('.btn_cuAddScenery').click(function(){
-    //                 var cuSceneryInfo = $('#'+this.id+' input').val();
-    //                 addItem(this.id,cuSceneryInfo);
-    //             });                
-    //             $('.btn_cuWatchScenery').click(cuWatchScenery);
-    //             $('.btn_cuAddScenery--767').click(cuPickScenery);
-    //         }
-    //     });
-    // }
 });
 
 $(document).click(function () {
     $('#cuForm__input--M').removeClass('expanded');
 });
-// $(document).ready(function()
-//     {
-//         setInterval(cuGetScn, 50000);
-//     }); 
+
 $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
     if($(e3.target).text() != "請選擇山岳" && $('#cuForm__MCom').val() != $(e3.target).text()){
         $('#cuPdkName').val("【客製行程】"+$(e3.target).text());
@@ -149,6 +115,7 @@ $('#cuForm__input--M label:not(:first-of-type)').click(function cuGetScn(e3){
                 url: 'cu_getScn.php',
                 data: 'pdkNo=' + pdkNo,
                 success: function (data) {
+                    console.log(data);
                     $('#cuCustom__sceneryZone--OF').html(data);
                     $('.cuCustom__sceneryItem').mouseover(showOption);
                     $('.cuCustom__sceneryItem').mouseout(closeOption);
@@ -226,6 +193,23 @@ function cuSlide2(){
     }
 }
 
+// 767以上 捲動後 步驟二變色
+window.onscroll=function(){slide3()};
+function slide3(){
+    var bb=document.getElementById('cuProcessFill2');
+    //bb距離頂端body位置
+    var bb_pos = bb.offsetTop;
+    //window頂端在body位置
+    var win_pos = window.scrollY;
+    //bb與window相差距離
+    var window_near = bb_pos - win_pos;
+    
+    if(window_near <= 200){
+        cuProcessFill2.style.transitionDuration = "1s";
+            cuProcessFill2.style.backgroundColor = '#088B9A';
+            cuProcessFill2.style.color = '#fff';
+    }
+}
 /* btn選擇日期及嚮導 --> 畫面切換到 */
 function showPickTG(){
     cuProcess2.style.transitionDuration = "0.5s";
@@ -855,6 +839,7 @@ function cuBooking(){
     let cuGuideP = document.querySelector('.cu__guideList--picked h4');
 
     if(cuCustom__dropMask.children.length == 0 && cuGuideP.innerText != ""){
+        console.log(22);
         //沒有選景點
         jpjnBooking.style.display = "block";
         jpContLost.innerText = "「風景景點」";
@@ -1207,7 +1192,8 @@ window.addEventListener("load", () => {
 
 
 //未來不能點
-//     var today = new Date();//今天日期
+        //先抓出今天日期
+//     var today = new Date();
 //     var dd = today.getDate();
 //     var mm = today.getMonth() + 1; //January is 0!
 //     var yyyy = today.getFullYear();
@@ -1218,8 +1204,7 @@ window.addEventListener("load", () => {
 
 //     if (mm < 10) {
 //     mm =  mm;
-//     }
-
+//     }12
 //     today =  dd;
 
 

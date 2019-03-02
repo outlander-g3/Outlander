@@ -16,7 +16,13 @@ try {
   
 	while($scnRows = $scns->fetch(PDO::FETCH_ASSOC)){
         echo' <div class="cuCustom__sceneryItem" id="cu',$scnRows['scnNo'],'" style="background-image: url(img/mt/',$scnRows['pdkNo'],'/scn/';
-        echo $scnRows['scnNo']%3+1,'.jpg);">
+        // $scnRows['scnNo'] = $scnRows['scnNo'];
+        if($scnRows['scnNo']%3 == 0){
+            echo 3;
+        }else if($scnRows['scnNo']%3 != 0){
+            echo $scnRows['scnNo']%3;
+        }
+        ;echo '.jpg);">
         <div class="cuCustom__sceneryContent">
             <p>',$scnRows['scnTitle'],'</p>';
             $aaa = explode("|",$scnRows['iconList']);

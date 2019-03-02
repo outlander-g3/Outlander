@@ -1206,6 +1206,62 @@ window.addEventListener("load", () => {
 
 
 
+//未來不能點
+//     var today = new Date();//今天日期
+//     var dd = today.getDate();
+//     var mm = today.getMonth() + 1; //January is 0!
+//     var yyyy = today.getFullYear();
+
+//     if (dd < 10) {
+//     dd = dd;
+//     }
+
+//     if (mm < 10) {
+//     mm =  mm;
+//     }
+
+//     today =  dd;
+
+
+// var len;
+// var arr = new Array();
+// function load() {
+//     len = document.getElementsByClassName("tdclass");
+//     var ss;
+//     for (var k = 0; k <= len.length - 1; k++) {
+//         ss = document.getElementsByClassName("tdclass")[k];
+//         ss.addEventListener("click", tdclass);
+
+
+//         var numF = arrmm.indexOf(document.querySelector("#mm-sp").innerText);
+//         var num = arrmm.indexOf(document.querySelector("#mm-sp").innerText)+1;
+//         if (document.querySelector("#yy-sp").innerText > yyyy   ) {
+//             ss.style.color="#ADADAD";
+//             ss.style.cursor = "not-allowed";
+//             ss.removeEventListener("click", tdclass);
+//         }
+
+//         //今年且小於此月 不等於今日
+//         if( num>mm && document.querySelector("#yy-sp").innerText == yyyy ){
+//             ss.removeEventListener("click", tdclass);
+//             ss.style.color="#ADADAD";
+//             //不等於今日
+//             if(ss.innerText ==  today && num == mm && document.querySelector("#yy-sp").innerText == yyyy ){
+//                 ss.style.color="#F27F22";
+//                 // ss.style.cursor = "not-allowed";s
+//                 ss.addEventListener("click", tdclass);
+//             }
+//         }
+//         //同年同月 但小於今天
+//         if(ss.innerText> today &&  num==mm && document.querySelector("#yy-sp").innerText == yyyy){
+//             ss.style.color="#ADADAD";
+//             ss.style.cursor = "not-allowed";
+//             ss.removeEventListener("click", tdclass);
+//         }
+    
+//         arr[k]=ss;
+//     }
+// }
 
     var today = new Date();//今天日期
     var dd = today.getDate();
@@ -1220,7 +1276,7 @@ window.addEventListener("load", () => {
     mm =  mm;
     }
 
-    today =  dd +25;
+    today =  dd;
 
 
 var len;
@@ -1253,7 +1309,7 @@ function load() {
             }
         }
         //同年同月 但小於今天
-        if(ss.innerText< today &&  num==mm && document.querySelector("#yy-sp").innerText == yyyy){
+        if(ss.innerText<= today &&  num==mm && document.querySelector("#yy-sp").innerText == yyyy){
             ss.style.color="#ADADAD";
             ss.style.cursor = "not-allowed";
             ss.removeEventListener("click", tdclass);

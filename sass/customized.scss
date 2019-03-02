@@ -459,7 +459,8 @@ i{
     }
     &::-webkit-scrollbar{
         width: 4px;
-        background-color: rgba(8, 139, 154, 0.22);
+        background-color: rgba(244,244,244, 0.22);      
+        // background-color: rgba(8, 139, 154, 0.22);
     }
     &::-webkit-scrollbar-thumb{
         border-radius: 10px;
@@ -961,11 +962,12 @@ i{
     }
 }
 .cu__guideList--mask{
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
     flex-wrap: wrap;
     overflow: auto;
     text-align: center;
+    padding-top: 20px;
     &:-webkit-scrollbar-track{
         box-shadow: inset 0 0 6px rgba(0,0,0,1);
         border-radius: 10px;
@@ -985,8 +987,8 @@ i{
         height: 170px;
     }
     @include pad-width(){
-        height: 344px;
-        max-height: 344px;
+        height: 324px;
+        max-height: 324px;
     }
 }
 .cuGuide__mask--ctrl{

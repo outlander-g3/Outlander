@@ -4,6 +4,10 @@
     if(!isset($_SESSION['memMail'])){
         header('location:outlander.php');
     }
+
+    $startdate=strtotime($_SESSION["pdStart"]);
+    $enddate=strtotime($_SESSION["pdEnd"]); 
+    $_SESSION['day']=round(($enddate-$startdate)/3600/24)+1 ;
     $pdkImg="img/mt/".$_SESSION['pdkNo']."/1.jpg";
 ?>
 
@@ -343,10 +347,10 @@
                                         <label for="credit">
                                             <span>信用卡卡號</span>
                                             <span id="credit">
-                                                <input type="text" name="credit" maxlength="4" class="credit">
-                                                <input type="text" name="credit" maxlength="4" class="credit">
-                                                <input type="text" name="credit" maxlength="4" class="credit">
-                                                <input type="text" name="credit" maxlength="4" class="credit">
+                                                <input type="tel" name="credit" maxlength="4" class="credit">
+                                                <input type="tel" name="credit" maxlength="4" class="credit">
+                                                <input type="tel" name="credit" maxlength="4" class="credit">
+                                                <input type="tel" name="credit" maxlength="4" class="credit">
                                             </span>
                                         </label>
                                     </li>
@@ -390,7 +394,7 @@
                                     <li>
                                         <label for="safe">
                                             <span>安全碼</span>
-                                            <span><input type="text" name="" id="safe" maxlength="3" ></span>
+                                            <span><input type="tel" name="" id="safe" maxlength="3" ></span>
                                         </label>
                                     </li>
                                     <li>

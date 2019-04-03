@@ -111,7 +111,7 @@ window.addEventListener('load', function () {
         ctProfile.removeClass("no-active");
         ctProduct.addClass('no-active');
         ctNextStep(0);
-        console.log('第一步的btn');
+        // console.log('第一步的btn');
     }
 
     $("#ctProfileNextBtn").click(nextToPay);
@@ -309,7 +309,7 @@ window.addEventListener('load', function () {
 
         let newTotal = parseInt($('#price').html().replace(',', "")) * count.innerHTML;
         sum.innerHTML = parseFormatNum(newTotal, 0);
-        console.log($('#price').html());
+        // console.log($('#price').html());
         total.innerHTML = parseFormatNum(newTotal - parseInt(dis.innerHTML), 0);
         ordPrice.value = newTotal - parseInt(dis.innerHTML);
     }
@@ -327,7 +327,7 @@ window.addEventListener('load', function () {
         }
         //呼叫改變金額函數
         newTotal();
-        console.log(usePoint.value);
+        // console.log(usePoint.value);
     }, false);
 
 
@@ -335,7 +335,7 @@ window.addEventListener('load', function () {
     var ctRule = document.querySelector('#ctRule');
     var btnPay = '.btn-pay';
     $(btnPay).click(function (e) {
-        console.log('in');
+        // console.log('in');
         var hasNull = false;
         var memNull = false;
         var psgNull = false;
@@ -403,20 +403,20 @@ window.addEventListener('load', function () {
         if (memNull == true && psgNull == true) {
             msg = "購買人、旅客";
             hasNull = true;
-            console.log(1);
+            // console.log(1);
         }
         else if (memNull == true && psgNull != true) {
             msg = "購買人";
             hasNull = true;
-            console.log(2);
+            // console.log(2);
         }
         else if (psgNull == true && memNull != true) {
             msg = '旅客';
             hasNull = true;
-            console.log(3);
+            // console.log(3);
         }
         else {
-            console.log('有走喔');
+            // console.log('有走喔');
         }
 
 
@@ -424,7 +424,7 @@ window.addEventListener('load', function () {
         let y = document.querySelector('select[name="year"]');
         if (m.value == 0 || y.value == 0) {
             cdNull = true;
-            console.log('年月');
+            // console.log('年月');
         }
         if (cdNull == true) {
             if (msg == '') {
@@ -434,7 +434,7 @@ window.addEventListener('load', function () {
                 msg += "、信用卡";
             }
             hasNull = true;
-            console.log('信用卡');
+            // console.log('信用卡');
         }
         if (hasNull == true) {
             alert('尚有' + msg + '欄位未填寫或格式有誤');
@@ -566,7 +566,7 @@ window.addEventListener('load', function () {
     arrmm[10] = "十一月";
     arrmm[11] = "十二月";
     document.querySelector("#mm-sp").innerText = arrmm[mm];
-    document.querySelector("#yy-sp").innerText = yy;
+    document.querySelector("#yy-sp").innerText = yy - 30;
     var dayall = new Date(yy, mm + 1, 0).getDate();//總天數
     var bd = new Date(yy + "/" + (mm + 1) + "/1").getDay();//因為回傳月份是0-11 所以要+1  抓星期他只有1-12月
     var dayfunction = () => {
@@ -635,7 +635,7 @@ window.addEventListener('load', function () {
         dayfunction(bd, dayall);
         // console.log(arrmm.indexOf( document.querySelector("#mm-sp").innerText));
         document.querySelector("#mm-sp").innerText = arrmm[num - 1];
-        document.querySelector("#yy-sp").innerText = yy;
+        document.querySelector("#yy-sp").innerText = yy - 30;
         load();
     })
     document.querySelector("#right-1").addEventListener("click", (e) => {
@@ -661,7 +661,7 @@ window.addEventListener('load', function () {
         }
         dayfunction(bd, dayall);
         document.querySelector("#mm-sp").innerText = arrmm[num + 1];
-        document.querySelector("#yy-sp").innerText = yy;
+        document.querySelector("#yy-sp").innerText = yy - 30;
         load();
     })
 

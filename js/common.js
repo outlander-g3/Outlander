@@ -49,7 +49,7 @@ window.addEventListener('load', function () {
     window.addEventListener("click", (e) => {
         if (e.target.classList.contains('memIcon')) {
 
-            console.log('有點到');
+            // console.log('有點到');
             //先執行session.php echo回來判斷session存不存在
             $.ajax({
                 type: 'post',
@@ -69,7 +69,7 @@ window.addEventListener('load', function () {
 
         }
         else if (e.target.classList.contains('logout')) {
-            console.log('有點到logout');
+            // console.log('有點到logout');
             logout();
         }
     }, false);
@@ -83,15 +83,20 @@ function logout() {
         url: 'login.php',
         data: 'logout=1',
         success: function (data) {
-            console.log('有走login' + data);
+            // console.log('有走login' + data);
             if (data == 'logout') {
                 alert('成功登出');
                 $('#Sign').css('display', 'none');
                 $('#Sign-m').css('display', 'none');
                 //看要不要跳回首頁（購物車要,會員要
                 let str = location.href;
-                if (str.search('cart') || str.search('member')) {
+                if (str.search('cart') != -1 || str.search('member') != -1) {
+                    // console.log(str.search('cart') + str.search('member') != -1);
                     location.href = 'outlander.php';
+                }
+                else if (str.search('jn.php') != -1 || str.search('journals') != -1) {
+                    // console.log(str.search('jn.php') + str.search('journals') != -1);
+                    location.reload();
                 }
 
             }
@@ -133,8 +138,8 @@ function resetLogin() {
                         </div>
                     <div class="memLogin--bottom" id="">
                         <div class="row">
-                            <a href="#" id="memForget">忘記密碼</a>
-                            <a href="#" id="memRegister">立即註冊</a>
+                            <a href="javascript:;" id="memForget">忘記密碼</a>
+                            <a href="javascript:;" id="memRegister">立即註冊</a>
                         </div>
                     </div>
                     </div>`;
@@ -158,7 +163,7 @@ function login(e) {
         url: 'login.php',
         data: 'memMail=' + memMail + '&memPsw=' + memPsw,
         success: function (data) {
-            console.log('memMail=' + memMail + '&memPsw=' + memPsw);
+            // console.log('memMail=' + memMail + '&memPsw=' + memPsw);
             if (data == 'none') {
                 let error = `<span>*請輸入已註冊的信箱</span>`;
                 $('.jpCont--mail').append(error);
@@ -174,6 +179,12 @@ function login(e) {
                 $('.memLogin').css('display', 'none');
                 $('#Sign').css('display', 'block');
                 $('#Sign-m').css('display', 'block');
+
+                let str = location.href;
+                if (str.search('jn.php') != -1 || str.search('journals') != -1) {
+                    // console.log(str.search('jn.php') + str.search('journals') != -1);
+                    location.reload();
+                }
             }
         }
     });
@@ -193,13 +204,15 @@ function forgetPsw(e) {
             </label>
             </div>`
     );
-    $('.jpBtn .btn-jump-right').remove();
-    let newBtn = `<a href="#" class="btn-jump-right" id="sendMail">傳送新密碼</a>`;
+    $('.memLogin .jpBtn .btn-jump-right').remove();
+    let newBtn = `<a href="javascript:;" class="btn-jump-right" id="sendMail">傳送新密碼</a>`;
     // let newBtn=`<input type="submit" class="btn-jump-right" id="sendMail" value="傳送新密碼">`;
-    $('.jpBtn').append(newBtn);
+    $('.memLogin .jpBtn').append(newBtn);
     $('.memLogin--bottom').css('display', 'none');
     //寄送密碼
-    $('#sendMail').click(function (e) {
+    $('.memLogin').on('click', '#sendMail', function (e) {
+        // e.preventDefault();
+        // alert('有進來');
         $('.jpCont--mail span').remove();
         let memMail = $('#memMail').val();
         $.ajax({
@@ -215,13 +228,14 @@ function forgetPsw(e) {
                 else if (data == 'exist') {
                     $.ajax({
                         type: 'post',
-                        url: 'sendPsw.php',
+                        url: 'PHPMailer/testMail.php',
                         data: 'memMail=' + memMail,
                         success: function (data) {
-                            alert('已寄送新密碼至信箱');
-                            resetLogin();
+                            // alert(data);
                         }
                     });
+                    alert('已寄送新密碼至信箱');
+                    resetLogin();
                 }
             },
             error: function (X, t, e) {
@@ -246,11 +260,10 @@ function regist(e) {
                 <input type="password" placeholder="請再次輸入密碼" id="memPsw--check" maxlength="20" >
             </label>
         </div>`);
-    $('.jpBtn .btn-jump-right').remove();
-    let newBtn = `<a href="#" class="btn-jump-right" onclick="register()" id="register">註冊</a>`;
-    $('.jpBtn').append(newBtn);
+    $('.memLogin .jpBtn .btn-jump-right').remove();
+    let newBtn = `<a href="javascript:;" class="btn-jump-right" onclick="register()" id="register">註冊</a>`;
+    $('.memLogin .jpBtn').append(newBtn);
     $('.memLogin--bottom').css('display', 'none');
-    // $('.btn-jump-right').attr('id', 'register').text('註冊');
 }
 $('#memRegister').click(regist);
 
@@ -266,6 +279,7 @@ function register() {
         // if (memMail == '' || memMail.search('@') == -1) {
         let error = `<span>*請輸入電子信箱</span>`;
         $('.jpCont--mail').append(error);
+        return;
     }
     if (memPsw == '' || memPswCheck == '') {
         let error = `<span>*請輸入密碼</span>`;
@@ -281,7 +295,7 @@ function register() {
             url: 'login.php',
             data: 'memMail=' + memMail + '&checkId=1',
             success: function (data) {
-                console.log(data);
+                // console.log(data);
                 if (data == 'exist') {
                     let error = `<span>*此信箱已被註冊</span>`;
                     $('.jpCont--mail').append(error);

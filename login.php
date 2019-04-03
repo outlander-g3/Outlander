@@ -44,6 +44,7 @@ try {
         //檢查是否玩完遊戲來註冊
         if(isset($_SESSION['memPoint'])){
             $memPoint=$_SESSION['memPoint'];
+            unset($_SESSION['memPoint']);
         }
         else{
             $memPoint=0;
@@ -63,8 +64,13 @@ try {
         $member=$pdo->query($sql);
         $row=$member->fetch();
         $_SESSION['memNo']=$row['memNo'];
+        $_SESSION['memName']=$row['memName'];
+        $_SESSION['memId']=$row['memId'];
+        $_SESSION['memImg']=$row['memImg'];
         $_SESSION['memMail']=$row['memMail'];
+        $_SESSION['memTel']=$row['memTel'];
         $_SESSION['memPsw']=$row['memPsw'];
+        $_SESSION['memPoint']=$row['memPoint'];
     }
     //登入
     else{
